@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacant Jobs Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F2EE;
+    --surface: #FFFFFF;
+    --surface2: #EEECE8;
+    --border: #D8D5CF;
+    --border-light: #E8E6E1;
+    --text: #1A1916;
+    --text-muted: #6B6860;
+    --text-faint: #9E9B94;
+    --accent: #1D6A4A;
+    --accent-light: #E1F0E9;
+    --accent-text: #0F3D29;
+    --amber: #92580A;
+    --amber-light: #FDF3E0;
+    --blue: #1A4F8A;
+    --blue-light: #E5EEF8;
+    --red: #8A1A1A;
+    --red-light: #F8E5E5;
+    --new-highlight: #E6F4EE;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .app { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  /* ── Header ── */
+  .app-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .app-title {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    color: var(--text);
+  }
+  .app-subtitle {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .header-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+  /* ── Buttons ── */
+  .btn {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--surface2); border-color: #B8B5AF; }
+  .btn:active { transform: scale(0.98); }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .btn-primary:hover { background: #165538; border-color: #165538; }
+  .btn-sm { padding: 5px 10px; font-size: 12px; }
+  .btn-icon {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-faint);
+    font-size: 16px;
+    padding: 4px 6px;
+    border-radius: 4px;
+    transition: all 0.15s;
+    line-height: 1;
+  }
+  .btn-icon:hover { color: var(--red); background: var(--red-light); }
+
+  /* ── API Key Banner ── */
+  .api-banner {
+    background: var(--amber-light);
+    border: 1px solid #E8C87A;
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .api-banner-text { flex: 1; min-width: 200px; }
+  .api-banner-title { font-weight: 600; font-size: 13px; color: var(--amber); }
+  .api-banner-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .api-key-input {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    width: 280px;
+    outline: none;
+  }
+  .api-key-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(29,106,74,0.12); }
+  .api-banner.hidden { display: none; }
+
+  /* ── Metrics ── */
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 1.75rem;
+  }
+  @media (max-width: 680px) { .metrics { grid-template-columns: repeat(2, 1fr); } }
+  .metric {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.125rem;
+  }
+  .metric-label {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+    margin-bottom: 6px;
+  }
+  .metric-value { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; color: var(--text); }
+  .metric-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  /* ── Parse Panel ── */
+  .parse-panel {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    margin-bottom: 1.75rem;
+    overflow: hidden;
+  }
+  .parse-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    gap: 12px;
+  }
+  .parse-header:hover { background: var(--surface2); }
+  .parse-header-left { display: flex; align-items: center; gap: 10px; }
+  .parse-label { font-weight: 600; font-size: 14px; }
+  .parse-hint { font-size: 12px; color: var(--text-muted); }
+  .parse-chevron { color: var(--text-muted); font-size: 12px; transition: transform 0.2s; }
+  .parse-body { padding: 0 1.25rem 1.25rem; display: none; }
+  .parse-body.open { display: block; }
+  .parse-textarea {
+    width: 100%;
+    min-height: 140px;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--text);
+    background: var(--bg);
+    resize: vertical;
+    outline: none;
+    line-height: 1.6;
+  }
+  .parse-textarea:focus { border-color: var(--accent); background: #fff; box-shadow: 0 0 0 2px rgba(29,106,74,0.1); }
+  .parse-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; gap: 10px; flex-wrap: wrap; }
+  .parse-status { font-size: 12px; color: var(--text-muted); }
+  .parse-status.error { color: var(--red); }
+  .parse-status.success { color: var(--accent); font-weight: 500; }
+  .parse-status.loading { color: var(--blue); }
+
+  /* ── Table ── */
+  .table-card {
+    background: var(--surface);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .table-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .table-title { font-weight: 600; font-size: 14px; }
+  .table-count { font-size: 12px; color: var(--text-muted); margin-left: 6px; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th {
+    text-align: left;
+    padding: 9px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-light);
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: middle;
+    color: var(--text);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAF8; }
+  tr.new-row td { background: var(--new-highlight); }
+  .facility-name { font-weight: 500; }
+  .ward-name { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
+
+  /* ── Badges ── */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 99px;
+    white-space: nowrap;
+  }
+  .badge-green { background: var(--accent-light); color: var(--accent-text); }
+  .badge-blue  { background: var(--blue-light);   color: var(--blue); }
+  .badge-amber { background: var(--amber-light);  color: var(--amber); }
+
+  /* ── Rate input ── */
+  .rate-wrap { display: flex; align-items: center; gap: 4px; }
+  .rate-prefix { font-size: 12px; color: var(--text-muted); }
+  .rate-input {
+    width: 62px;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 4px 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    background: var(--bg);
+    color: var(--text);
+    outline: none;
+  }
+  .rate-input:focus { border-color: var(--accent); background: #fff; }
+
+  .contract-value { font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; }
+  .contract-value.zero { color: var(--text-faint); }
+
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text-muted);
+  }
+  .empty-icon { font-size: 28px; margin-bottom: 8px; opacity: 0.4; }
+  .empty-text { font-size: 14px; }
+  .empty-sub { font-size: 12px; color: var(--text-faint); margin-top: 4px; }
+
+  .table-footer {
+    padding: 0.75rem 1.25rem;
+    border-top: 1px solid var(--border-light);
+    font-size: 11px;
+    color: var(--text-faint);
+    background: var(--bg);
+  }
+
+  /* ── Spinner ── */
+  .spinner {
+    display: inline-block;
+    width: 14px; height: 14px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 24px; right: 24px;
+    background: var(--text);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: var(--radius);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.25s ease;
+    pointer-events: none;
+    z-index: 999;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- Header -->
+  <div class="app-header">
+    <div>
+      <div class="app-title">Vacant Jobs Dashboard</div>
+      <div class="app-subtitle">Healthcare agency placements · auto-parsed from email</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn" onclick="exportCSV()">Export CSV</button>
+      <button class="btn btn-primary" onclick="toggleParser()">+ Parse email</button>
+    </div>
+  </div>
+
+  <!-- API Key Banner -->
+  <div class="api-banner" id="api-banner">
+    <div class="api-banner-text">
+      <div class="api-banner-title">Anthropic API key required</div>
+      <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
+    </div>
+    <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
+    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
+  </div>
+
+  <!-- Metrics -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-label">Total FTE</div>
+      <div class="metric-value" id="m-fte">0</div>
+      <div class="metric-sub">across all roles</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Total contract value</div>
+      <div class="metric-value" id="m-value">—</div>
+      <div class="metric-sub">at current rates</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Avg contract length</div>
+      <div class="metric-value" id="m-weeks">—</div>
+      <div class="metric-sub">weeks</div>
+    </div>
+    <div class="metric">
+      <div class="metric-label">Locations</div>
+      <div class="metric-value" id="m-locs">0</div>
+      <div class="metric-sub">unique sites</div>
+    </div>
+  </div>
+
+  <!-- Parse Panel -->
+  <div class="parse-panel" id="parse-panel" style="display:none;">
+    <div class="parse-header" onclick="toggleParser()">
+      <div class="parse-header-left">
+        <span class="parse-label">Paste job email</span>
+        <span class="parse-hint">AI will extract all placement details automatically</span>
+      </div>
+      <span class="parse-chevron" id="parse-chevron">▲</span>
+    </div>
+    <div class="parse-body open" id="parse-body">
+      <textarea class="parse-textarea" id="email-input" placeholder="Paste the full email text here..."></textarea>
+      <div class="parse-footer">
+        <span class="parse-status" id="parse-status"></span>
+        <button class="btn btn-primary" onclick="parseEmail()">Parse &amp; add to dashboard</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-card">
+    <div class="table-toolbar">
+      <div>
+        <span class="table-title">Current Vacancies</span>
+        <span class="table-count" id="row-count">0 roles</span>
+      </div>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Facility</th>
+            <th>Job title</th>
+            <th>Location</th>
+            <th>Rate band</th>
+            <th style="text-align:center;">FTE</th>
+            <th>Weeks</th>
+            <th>Hourly rate</th>
+            <th>Contract value</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="jobs-tbody"></tbody>
+      </table>
+    </div>
+    <div class="table-footer" id="table-footer">
+      Contract value = hourly rate × 40 hrs/wk × weeks × 1.20 (20% margin) × FTE
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ──────────────────────────────────────────────
+let jobs = [
+  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:0, weeks:6  },
+  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:0, weeks:6  },
+  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:0, weeks:6  },
+  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:0, weeks:5  },
+  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:0, weeks:4  },
+  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:0, weeks:4  },
+  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:0, weeks:6  }
+];
+let nextId = 8;
+let newIds = new Set();
+
+// ── API Key ─────────────────────────────────────────────
+function saveApiKey() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key.startsWith('sk-ant-')) { showToast('Key should start with sk-ant-'); return; }
+  localStorage.setItem('anthropic_api_key', key);
+  document.getElementById('api-banner').classList.add('hidden');
+  showToast('API key saved');
+}
+function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = getApiKey();
+  if (saved) {
+    document.getElementById('api-banner').classList.add('hidden');
+  } else {
+    document.getElementById('api-key-input').value = '';
+  }
+  render();
+});
+
+// ── Parser toggle ────────────────────────────────────────
+function toggleParser() {
+  const panel = document.getElementById('parse-panel');
+  const chevron = document.getElementById('parse-chevron');
+  const open = panel.style.display !== 'none';
+  panel.style.display = open ? 'none' : 'block';
+  chevron.textContent = open ? '▼' : '▲';
+}
+
+// ── AI Email Parser ──────────────────────────────────────
+async function parseEmail() {
+  const apiKey = getApiKey();
+  if (!apiKey) { setStatus('Please enter your Anthropic API key above first.', 'error'); return; }
+  const emailText = document.getElementById('email-input').value.trim();
+  if (!emailText) { setStatus('Please paste an email first.', 'error'); return; }
+
+  setStatus('<span class="spinner"></span>Parsing email…', 'loading');
+
+  const systemPrompt = `You are a data extraction assistant for a healthcare staffing agency dashboard. 
+Extract job placement details from healthcare job emails and return ONLY a valid JSON array.
+Each object must have these exact fields:
+- facility: string (hospital or health service name)
+- title: string (job title e.g. "Registered Nurse", "Midwife", "Mental Health Clinician")
+- ward: string (ward, unit, or team name)
+- location: string (city and state e.g. "Mackay, QLD")
+- band: string (grade/classification e.g. "RN Grade 5", "Midwife Grade 5", "CNC NG6")
+- fte: number (number of placements/positions available)
+- weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week)
+
+Rules:
+- If multiple distinct roles are in the email, return one object per role.
+- If dates are given, calculate weeks = ceil((end - start) / 7).
+- Return ONLY the raw JSON array with no markdown, no explanation, no code fences.
+- Never include hourlyRate in the output.`;
+
+  try {
+    const resp = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: systemPrompt,
+        messages: [{ role: 'user', content: emailText }]
+      })
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json().catch(() => ({}));
+      throw new Error(err.error?.message || `HTTP ${resp.status}`);
+    }
+
+    const data = await resp.json();
+    const raw = data.content.map(b => b.text || '').join('').trim();
+    const clean = raw.replace(/```json|```/g, '').trim();
+    const parsed = JSON.parse(clean);
+
+    if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('No roles found in email.');
+
+    let added = 0;
+    parsed.forEach(j => {
+      const id = nextId++;
+      newIds.add(id);
+      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0 });
+      added++;
+    });
+
+    render();
+    document.getElementById('email-input').value = '';
+    setStatus(`✓ Added ${added} role${added>1?'s':''} to the dashboard.`, 'success');
+    showToast(`${added} role${added>1?'s':''} added`);
+    setTimeout(() => { newIds.clear(); render(); }, 4000);
+
+  } catch (e) {
+    setStatus('Error: ' + e.message, 'error');
+  }
+}
+
+function setStatus(html, type) {
+  const el = document.getElementById('parse-status');
+  el.innerHTML = html;
+  el.className = 'parse-status' + (type ? ' ' + type : '');
+}
+
+// ── Render ───────────────────────────────────────────────
+function contractValue(j) { return j.hourlyRate * 40 * j.weeks * 1.20 * j.fte; }
+function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
+
+function updateRate(id, val) {
+  const j = jobs.find(x => x.id === id);
+  if (j) { j.hourlyRate = parseFloat(val) || 0; renderMetrics(); renderValues(); }
+}
+
+function removeJob(id) {
+  jobs = jobs.filter(x => x.id !== id);
+  render();
+}
+
+function renderValues() {
+  jobs.forEach(j => {
+    const el = document.getElementById('val-' + j.id);
+    if (el) {
+      const v = contractValue(j);
+      el.textContent = fmtMoney(v);
+      el.className = 'contract-value' + (v === 0 ? ' zero' : '');
+    }
+  });
+  renderMetrics();
+}
+
+function renderMetrics() {
+  const totalFTE = jobs.reduce((s,j) => s + j.fte, 0);
+  document.getElementById('m-fte').textContent = totalFTE;
+  const totalVal = jobs.reduce((s,j) => s + contractValue(j), 0);
+  document.getElementById('m-value').textContent = fmtMoney(totalVal);
+  const avgWeeks = jobs.length ? (jobs.reduce((s,j) => s + j.weeks, 0) / jobs.length).toFixed(1) : '—';
+  document.getElementById('m-weeks').textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
+  document.getElementById('m-locs').textContent = new Set(jobs.map(j => j.location)).size;
+  document.getElementById('row-count').textContent = jobs.length + ' role' + (jobs.length !== 1 ? 's' : '');
+}
+
+function render() {
+  const tbody = document.getElementById('jobs-tbody');
+  if (jobs.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9">
+      <div class="empty-state">
+        <div class="empty-icon">📋</div>
+        <div class="empty-text">No vacancies yet</div>
+        <div class="empty-sub">Click "+ Parse email" above to add your first placement</div>
+      </div>
+    </td></tr>`;
+  } else {
+    tbody.innerHTML = jobs.map(j => {
+      const val = contractValue(j);
+      const isNew = newIds.has(j.id);
+      const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
+      return `<tr class="${isNew ? 'new-row' : ''}">
+        <td>
+          <div class="facility-name">${esc(j.facility)}</div>
+          <div class="ward-name">${esc(j.ward)}</div>
+        </td>
+        <td>${esc(j.title)}</td>
+        <td>${esc(j.location)}</td>
+        <td>${esc(j.band)}</td>
+        <td style="text-align:center; font-weight:500;">${j.fte}</td>
+        <td><span class="badge ${badgeClass}">${j.weeks}w</span></td>
+        <td>
+          <div class="rate-wrap">
+            <span class="rate-prefix">$</span>
+            <input class="rate-input" type="number" min="0" step="1" placeholder="0"
+              value="${j.hourlyRate || ''}"
+              onchange="updateRate(${j.id}, this.value)"
+              title="Hourly rate" />
+          </div>
+        </td>
+        <td><span id="val-${j.id}" class="contract-value${val===0?' zero':''}">${fmtMoney(val)}</span></td>
+        <td><button class="btn-icon" onclick="removeJob(${j.id})" title="Remove">✕</button></td>
+      </tr>`;
+    }).join('');
+  }
+  renderMetrics();
+}
+
+function esc(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Export ───────────────────────────────────────────────
+function exportCSV() {
+  if (jobs.length === 0) { showToast('No data to export'); return; }
+  const headers = ['Facility','Ward','Job Title','Location','Rate Band','FTE','Hourly Rate','Weeks','Contract Value'];
+  const rows = jobs.map(j => [j.facility, j.ward, j.title, j.location, j.band, j.fte, j.hourlyRate, j.weeks, Math.round(contractValue(j))]);
+  const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'vacant_jobs_' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+  showToast('CSV exported');
+}
+
+// ── Toast ────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+</script>
+</body>
+</html>
