@@ -728,33 +728,64 @@ function renderRegions() {
   const activeRegions = REGIONS.filter(r => jobs.some(j => j.region === r.key));
   if (activeRegions.length === 0) { grid.innerHTML = ''; return; }
 
-  grid.innerHTML = activeRegions.map(r => {
-    const rJobs = [...jobs.filter(j => j.region === r.key)].sort((a,b) => contractValue(b) - contractValue(a));
-    const totalFTE = rJobs.reduce((s,j) => s + j.fte, 0);
-    const totalVal = rJobs.reduce((s,j) => s + contractValue(j), 0);
-    const facilities = [...new Set(rJobs.map(j => j.facility))].length;
+  const statusOrder = { upcoming:0, active:0, unknown:0, recurring:1, expired:2 };
 
-    const rows = rJobs.map(j => `
-      <tr>
+  grid.innerHTML = activeRegions.map(r => {
+    const rJobs = [...jobs.filter(j => j.region === r.key)].sort((a,b) => {
+      const sa = statusOrder[jobStatus(a)], sb = statusOrder[jobStatus(b)];
+      if (sa !== sb) return sa - sb;
+      return contractValue(b) - contractValue(a);
+    });
+
+    const activeJobs = rJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
+    const totalFTE = activeJobs.reduce((s,j) => s + j.fte, 0);
+    const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
+    const facilities = [...new Set(activeJobs.map(j => j.facility))].length || [...new Set(rJobs.map(j => j.facility))].length;
+
+    let dividerDone = false;
+    const rows = rJobs.map(j => {
+      const status = jobStatus(j);
+      const isDimmed = status === 'expired' || status === 'recurring';
+      const dimStyle = isDimmed ? 'opacity:0.4;' : '';
+      const sc = STATUS_CONFIG[status];
+
+      let divider = '';
+      if (isDimmed && !dividerDone) {
+        dividerDone = true;
+        divider = `<tr><td colspan="4" style="padding:0;">
+          <div style="display:flex;align-items:center;gap:8px;padding:6px 10px 4px;">
+            <div style="flex:1;height:0.5px;background:${r.border};"></div>
+            <span style="font-size:10px;color:var(--text-faint);white-space:nowrap;">expired / recurring</span>
+            <div style="flex:1;height:0.5px;background:${r.border};"></div>
+          </div>
+        </td></tr>`;
+      }
+
+      const recurringTag = isDimmed
+        ? `<span style="font-size:10px;margin-left:4px;padding:1px 6px;border-radius:99px;border:0.5px solid ${j.recurring?'#EF9F27':'var(--border)'};background:${j.recurring?'#FDF3E0':'transparent'};color:${j.recurring?'#92580A':'var(--text-faint)'};">↺</span>`
+        : '';
+
+      return divider + `<tr style="${dimStyle}">
         <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;">
-          <div style="font-weight:500;">${esc(j.title)}</div>
+          <div style="font-weight:500;">${esc(j.title)}${recurringTag}</div>
           <div style="font-size:11px;color:var(--text-muted);">${esc(j.facility)} · ${esc(j.ward)}</div>
         </td>
         <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;text-align:center;">${j.fte}</td>
         <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;white-space:nowrap;">${esc(j.startDate||'—')}</td>
         <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;font-weight:500;font-family:'DM Mono',monospace;text-align:right;">${fmtMoney(contractValue(j))}</td>
-      </tr>`).join('');
+      </tr>`;
+    }).join('');
 
     return `
       <div style="background:var(--surface);border:1px solid ${r.border};border-radius:var(--radius-lg);overflow:hidden;">
         <div style="background:${r.bg};padding:0.875rem 1.125rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid ${r.border};">
           <div>
             <div style="font-weight:600;font-size:14px;color:${r.text};">${r.label}</div>
-            <div style="font-size:11px;color:${r.text};opacity:0.75;margin-top:2px;">${facilities} facilit${facilities===1?'y':'ies'} · ${totalFTE} FTE</div>
+            <div style="font-size:11px;color:${r.text};opacity:0.75;margin-top:2px;">${facilities} facilit${facilities===1?'y':'ies'} · ${totalFTE} active FTE</div>
           </div>
           <div style="text-align:right;">
             <div style="font-size:18px;font-weight:600;color:${r.text};font-family:'DM Mono',monospace;">${fmtMoney(totalVal)}</div>
-            <div style="font-size:11px;color:${r.text};opacity:0.75;">total value</div>
+            <div style="font-size:11px;color:${r.text};opacity:0.75;">active value</div>
           </div>
         </div>
         <table style="width:100%;border-collapse:collapse;">
