@@ -503,7 +503,7 @@ function saveApiKey() {
 }
 function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', () => {
-  localStorage.removeItem('anthropic_api_key');
+  if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
 });
 
@@ -554,13 +554,8 @@ function processFile(file) {
       const base64 = e.target.result.split(',')[1];
       const mediaType = isPdf ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
       attachedFile = { base64, mediaType, name: file.name, isText: false };
-    document.getElementById('attached-name').textContent = '📎 ' + file.name;
-    const af = document.getElementById('attached-file');
-    af.style.display = 'flex';
-      attachedFile = { base64, mediaType, name: file.name, isText: false };
       document.getElementById('attached-name').textContent = '📎 ' + file.name;
-      const af = document.getElementById('attached-file');
-      af.style.display = 'flex';
+      document.getElementById('attached-file').style.display = 'flex';
       setStatus('', '');
     };
     reader.readAsDataURL(file);
