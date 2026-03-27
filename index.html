@@ -411,7 +411,8 @@
             <th>Location</th>
             <th>Rate band</th>
             <th style="text-align:center;">FTE</th>
-            <th>Weeks</th>
+            <th>Start date</th>
+            <th>Length</th>
             <th>Hourly rate</th>
             <th>Contract value</th>
             <th></th>
@@ -432,13 +433,13 @@
 <script>
 // ── State ──────────────────────────────────────────────
 let jobs = [
-  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6  },
-  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6  },
-  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6  },
-  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5  },
-  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4  },
-  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4  },
-  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6  }
+  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
+  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
+  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
+  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026" },
+  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026" },
+  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026" },
+  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026" }
 ];
 let nextId = 8;
 let newIds = new Set();
@@ -490,6 +491,7 @@ Each object must have these exact fields:
 - band: string (grade/classification e.g. "RN Grade 5", "Midwife Grade 5", "CNC NG6")
 - fte: number (number of placements/positions available)
 - weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week)
+- startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
 
 Rules:
 - If multiple distinct roles are in the email, return one object per role.
@@ -530,7 +532,7 @@ Rules:
     parsed.forEach(j => {
       const id = nextId++;
       newIds.add(id);
-      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0 });
+      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'' });
       added++;
     });
 
@@ -591,7 +593,7 @@ function renderMetrics() {
 function render() {
   const tbody = document.getElementById('jobs-tbody');
   if (jobs.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="9">
+    tbody.innerHTML = `<tr><td colspan="10">
       <div class="empty-state">
         <div class="empty-icon">📋</div>
         <div class="empty-text">No vacancies yet</div>
@@ -599,10 +601,12 @@ function render() {
       </div>
     </td></tr>`;
   } else {
-    tbody.innerHTML = jobs.map(j => {
+    const sorted = [...jobs].sort((a,b) => contractValue(b) - contractValue(a));
+    tbody.innerHTML = sorted.map(j => {
       const val = contractValue(j);
       const isNew = newIds.has(j.id);
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
+      const contractLen = j.weeks ? `${j.weeks}w / ${(j.weeks * 40).toLocaleString()}hrs` : '—';
       return `<tr class="${isNew ? 'new-row' : ''}">
         <td>
           <div class="facility-name">${esc(j.facility)}</div>
@@ -612,7 +616,8 @@ function render() {
         <td>${esc(j.location)}</td>
         <td>${esc(j.band)}</td>
         <td style="text-align:center; font-weight:500;">${j.fte}</td>
-        <td><span class="badge ${badgeClass}">${j.weeks}w</span></td>
+        <td style="font-family:'DM Mono',monospace;font-size:12px;">${esc(j.startDate||'—')}</td>
+        <td><span class="badge ${badgeClass}">${contractLen}</span></td>
         <td>
           <div class="rate-wrap">
             <span class="rate-prefix">$</span>
@@ -637,8 +642,8 @@ function esc(s) {
 // ── Export ───────────────────────────────────────────────
 function exportCSV() {
   if (jobs.length === 0) { showToast('No data to export'); return; }
-  const headers = ['Facility','Ward','Job Title','Location','Rate Band','FTE','Hourly Rate','Weeks','Contract Value'];
-  const rows = jobs.map(j => [j.facility, j.ward, j.title, j.location, j.band, j.fte, j.hourlyRate, j.weeks, Math.round(contractValue(j))]);
+  const headers = ['Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value'];
+  const rows = jobs.map(j => [j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j))]);
   const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
