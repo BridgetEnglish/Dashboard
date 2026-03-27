@@ -400,6 +400,7 @@
       <table>
         <thead>
           <tr>
+            <th style="display:none;">Status</th>
             <th>Facility</th>
             <th>Job title</th>
             <th>Location</th>
@@ -443,13 +444,13 @@
 <script>
 // ── State ──────────────────────────────────────────────
 let jobs = [
-  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
-  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
-  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
-  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026", region:"QLD" },
-  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026", region:"QLD" },
-  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026", region:"QLD" },
-  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026", region:"QLD" }
+  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026", region:"QLD", recurring:true  },
+  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026", region:"QLD", recurring:false },
+  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026", region:"QLD", recurring:true  },
+  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026", region:"QLD", recurring:false }
 ];
 let nextId = 8;
 let newIds = new Set();
@@ -498,6 +499,7 @@ Each object must have these exact fields:
 - weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week)
 - startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
 - region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
+- recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
 
 Rules:
 - If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
@@ -538,7 +540,7 @@ Rules:
     parsed.forEach(j => {
       const id = nextId++;
       newIds.add(id);
-      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other' });
+      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring });
       added++;
     });
 
@@ -563,6 +565,38 @@ function setStatus(html, type) {
 function contractValue(j) { return j.hourlyRate * 40 * j.weeks * 1.20 * j.fte; }
 function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
 
+// Parse DD/MM/YYYY into a Date
+function parseDate(s) {
+  if (!s) return null;
+  const [d,m,y] = s.split('/');
+  if (!d||!m||!y) return null;
+  return new Date(Number(y), Number(m)-1, Number(d));
+}
+
+// Returns: 'upcoming' | 'active' | 'recurring' | 'expired' | 'unknown'
+function jobStatus(j) {
+  const start = parseDate(j.startDate);
+  if (!start) return 'unknown';
+  const today = new Date(); today.setHours(0,0,0,0);
+  const end = new Date(start); end.setDate(end.getDate() + (j.weeks * 7));
+  if (today < start) return 'upcoming';
+  if (today <= end)  return 'active';
+  return j.recurring ? 'recurring' : 'expired';
+}
+
+const STATUS_CONFIG = {
+  upcoming:  { label:'Upcoming',   bg:'#E5EEF8', text:'#1A4F8A', dot:'#378ADD' },
+  active:    { label:'Active',     bg:'#E1F5EE', text:'#0F6E56', dot:'#1D9E75' },
+  recurring: { label:'Recurring',  bg:'#FDF3E0', text:'#92580A', dot:'#EF9F27' },
+  expired:   { label:'Expired',    text:'#9E9B94', bg:'#F1EFE8', dot:'#B4B2A9' },
+  unknown:   { label:'No date',    text:'#9E9B94', bg:'#F1EFE8', dot:'#B4B2A9' }
+};
+
+function toggleRecurring(id) {
+  const j = jobs.find(x => x.id === id);
+  if (j) { j.recurring = !j.recurring; render(); }
+}
+
 function updateRate(id, val) {
   const j = jobs.find(x => x.id === id);
   if (j) { j.hourlyRate = parseFloat(val) || 0; renderMetrics(); renderValues(); }
@@ -586,13 +620,13 @@ function renderValues() {
 }
 
 function renderMetrics() {
-  const totalFTE = jobs.reduce((s,j) => s + j.fte, 0);
-  document.getElementById('m-fte').textContent = totalFTE;
-  const totalVal = jobs.reduce((s,j) => s + contractValue(j), 0);
+  const activeJobs = jobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
+  document.getElementById('m-fte').textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
+  const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
   document.getElementById('m-value').textContent = fmtMoney(totalVal);
-  const avgWeeks = jobs.length ? (jobs.reduce((s,j) => s + j.weeks, 0) / jobs.length).toFixed(1) : '—';
+  const avgWeeks = activeJobs.length ? (activeJobs.reduce((s,j) => s + j.weeks, 0) / activeJobs.length).toFixed(1) : '—';
   document.getElementById('m-weeks').textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
-  document.getElementById('m-locs').textContent = new Set(jobs.map(j => j.location)).size;
+  document.getElementById('m-locs').textContent = new Set(activeJobs.map(j => j.location)).size;
   document.getElementById('row-count').textContent = jobs.length + ' role' + (jobs.length !== 1 ? 's' : '');
   renderRegions();
 }
@@ -600,7 +634,7 @@ function renderMetrics() {
 function render() {
   const tbody = document.getElementById('jobs-tbody');
   if (jobs.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="10">
+    tbody.innerHTML = `<tr><td colspan="11">
       <div class="empty-state">
         <div class="empty-icon">📋</div>
         <div class="empty-text">No vacancies yet</div>
@@ -608,16 +642,51 @@ function render() {
       </div>
     </td></tr>`;
   } else {
-    const sorted = [...jobs].sort((a,b) => contractValue(b) - contractValue(a));
+    // Sort: active/upcoming by contract value desc, then recurring, then expired
+    const statusOrder = { upcoming:0, active:0, recurring:1, expired:2, unknown:1 };
+    const sorted = [...jobs].sort((a,b) => {
+      const sa = statusOrder[jobStatus(a)], sb = statusOrder[jobStatus(b)];
+      if (sa !== sb) return sa - sb;
+      return contractValue(b) - contractValue(a);
+    });
+
+    // Insert divider before first recurring/expired
+    let dividerInserted = false;
     tbody.innerHTML = sorted.map(j => {
       const val = contractValue(j);
       const isNew = newIds.has(j.id);
+      const status = jobStatus(j);
+      const sc = STATUS_CONFIG[status];
+      const isDimmed = (status === 'expired' || status === 'recurring');
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
       const contractLen = j.weeks ? `${j.weeks}w / ${(j.weeks * 40).toLocaleString()}hrs` : '—';
-      return `<tr class="${isNew ? 'new-row' : ''}">
+      const dimStyle = isDimmed ? 'opacity:0.45;' : '';
+
+      let divider = '';
+      if (isDimmed && !dividerInserted) {
+        dividerInserted = true;
+        divider = `<tr><td colspan="11" style="padding:0;"><div style="display:flex;align-items:center;gap:10px;padding:10px 12px 6px;"><div style="flex:1;height:0.5px;background:var(--border-light);"></div><span style="font-size:11px;color:var(--text-faint);white-space:nowrap;">Expired / recurring below</span><div style="flex:1;height:0.5px;background:var(--border-light);"></div></div></td></tr>`;
+      }
+
+      const recurringToggle = (status === 'expired' || status === 'recurring')
+        ? `<button onclick="toggleRecurring(${j.id})" title="${j.recurring ? 'Mark as not recurring' : 'Mark as recurring'}"
+            style="font-size:10px;padding:2px 7px;border-radius:99px;border:0.5px solid ${j.recurring ? '#EF9F27' : 'var(--border)'};
+            background:${j.recurring ? '#FDF3E0' : 'transparent'};color:${j.recurring ? '#92580A' : 'var(--text-faint)'};cursor:pointer;margin-left:4px;font-family:inherit;">
+            ↺ recurring
+          </button>`
+        : '';
+
+      return divider + `<tr class="${isNew ? 'new-row' : ''}" style="${dimStyle}">
+        <td style="display:none;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${sc.dot};flex-shrink:0;"></span>
+            <span style="font-size:11px;font-weight:500;color:${sc.text};">${sc.label}</span>
+            ${recurringToggle}
+          </div>
+        </td>
         <td>
           <div class="facility-name">${esc(j.facility)}</div>
-          <div class="ward-name">${esc(j.ward)}</div>
+          <div class="ward-name">${esc(j.ward)}${recurringToggle}</div>
         </td>
         <td>${esc(j.title)}</td>
         <td>${esc(j.location)}</td>
@@ -706,8 +775,8 @@ function renderRegions() {
 // ── Export ───────────────────────────────────────────────
 function exportCSV() {
   if (jobs.length === 0) { showToast('No data to export'); return; }
-  const headers = ['Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value'];
-  const rows = jobs.map(j => [j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j))]);
+  const headers = ['Status','Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value','Recurring'];
+  const rows = jobs.map(j => [jobStatus(j), j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j)), j.recurring ? 'Yes' : 'No']);
   const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
