@@ -103,34 +103,7 @@
   }
   .btn-icon:hover { color: var(--red); background: var(--red-light); }
 
-  /* ── API Key Banner ── */
-  .api-banner {
-    background: var(--amber-light);
-    border: 1px solid #E8C87A;
-    border-radius: var(--radius-lg);
-    padding: 1rem 1.25rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .api-banner-text { flex: 1; min-width: 200px; }
-  .api-banner-title { font-weight: 600; font-size: 13px; color: var(--amber); }
-  .api-banner-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
-  .api-key-input {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    padding: 7px 10px;
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    background: var(--surface);
-    color: var(--text);
-    width: 280px;
-    outline: none;
-  }
-  .api-key-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(29,106,74,0.12); }
-  .api-banner.hidden { display: none; }
+
 
   /* ── Metrics ── */
   .metrics {
@@ -342,15 +315,7 @@
     </div>
   </div>
 
-  <!-- API Key Banner -->
-  <div class="api-banner" id="api-banner">
-    <div class="api-banner-text">
-      <div class="api-banner-title">Anthropic API key required</div>
-      <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
-    </div>
-    <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
-    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
-  </div>
+
 
   <!-- Metrics -->
   <div class="metrics">
@@ -426,6 +391,12 @@
     </div>
   </div>
 
+  <!-- Regional Dashboards -->
+  <div id="regions-section" style="margin-top:2rem;">
+    <div style="font-weight:600;font-size:14px;color:var(--text-primary);margin-bottom:1rem;">Regional breakdown</div>
+    <div id="regions-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;"></div>
+  </div>
+
 </div>
 
 <div class="toast" id="toast"></div>
@@ -433,35 +404,21 @@
 <script>
 // ── State ──────────────────────────────────────────────
 let jobs = [
-  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
-  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
-  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026" },
-  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026" },
-  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026" },
-  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026" },
-  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026" }
+  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
+  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
+  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT" },
+  { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026", region:"QLD" },
+  { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026", region:"QLD" },
+  { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026", region:"QLD" },
+  { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026", region:"QLD" }
 ];
 let nextId = 8;
 let newIds = new Set();
 
 // ── API Key ─────────────────────────────────────────────
-function saveApiKey() {
-  const key = document.getElementById('api-key-input').value.trim();
-  if (!key.startsWith('sk-ant-')) { showToast('Key should start with sk-ant-'); return; }
-  localStorage.setItem('anthropic_api_key', key);
-  document.getElementById('api-banner').classList.add('hidden');
-  showToast('API key saved');
-}
-function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
-window.addEventListener('DOMContentLoaded', () => {
-  const saved = getApiKey();
-  if (saved) {
-    document.getElementById('api-banner').classList.add('hidden');
-  } else {
-    document.getElementById('api-key-input').value = '';
-  }
-  render();
-});
+const ANTHROPIC_API_KEY = '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';
+function getApiKey() { return ANTHROPIC_API_KEY; }
+window.addEventListener('DOMContentLoaded', () => { render(); });
 
 // ── Parser toggle ────────────────────────────────────────
 function toggleParser() {
@@ -492,9 +449,10 @@ Each object must have these exact fields:
 - fte: number (number of placements/positions available)
 - weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week)
 - startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
+- region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
 
 Rules:
-- If multiple distinct roles are in the email, return one object per role.
+- If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
 - If dates are given, calculate weeks = ceil((end - start) / 7).
 - Return ONLY the raw JSON array with no markdown, no explanation, no code fences.
 - Never include hourlyRate in the output.`;
@@ -532,7 +490,7 @@ Rules:
     parsed.forEach(j => {
       const id = nextId++;
       newIds.add(id);
-      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'' });
+      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other' });
       added++;
     });
 
@@ -588,6 +546,7 @@ function renderMetrics() {
   document.getElementById('m-weeks').textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
   document.getElementById('m-locs').textContent = new Set(jobs.map(j => j.location)).size;
   document.getElementById('row-count').textContent = jobs.length + ' role' + (jobs.length !== 1 ? 's' : '');
+  renderRegions();
 }
 
 function render() {
@@ -639,11 +598,68 @@ function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ── Regional Breakdown ───────────────────────────────────
+const REGIONS = [
+  { key:'QLD', label:'Queensland',        color:'--blue',  bg:'#E5EEF8', text:'#1A4F8A', border:'#B5D4F4' },
+  { key:'NT',  label:'Northern Territory',color:'--amber', bg:'#FDF3E0', text:'#92580A', border:'#FAC775' },
+  { key:'NSW', label:'New South Wales',   color:'--teal',  bg:'#E1F5EE', text:'#0F6E56', border:'#9FE1CB' },
+  { key:'Other', label:'Other',           color:'--gray',  bg:'#F1EFE8', text:'#5F5E5A', border:'#D3D1C7' }
+];
+
+function renderRegions() {
+  const grid = document.getElementById('regions-grid');
+  const activeRegions = REGIONS.filter(r => jobs.some(j => j.region === r.key));
+  if (activeRegions.length === 0) { grid.innerHTML = ''; return; }
+
+  grid.innerHTML = activeRegions.map(r => {
+    const rJobs = [...jobs.filter(j => j.region === r.key)].sort((a,b) => contractValue(b) - contractValue(a));
+    const totalFTE = rJobs.reduce((s,j) => s + j.fte, 0);
+    const totalVal = rJobs.reduce((s,j) => s + contractValue(j), 0);
+    const facilities = [...new Set(rJobs.map(j => j.facility))].length;
+
+    const rows = rJobs.map(j => `
+      <tr>
+        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;">
+          <div style="font-weight:500;">${esc(j.title)}</div>
+          <div style="font-size:11px;color:var(--text-muted);">${esc(j.facility)} · ${esc(j.ward)}</div>
+        </td>
+        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;text-align:center;">${j.fte}</td>
+        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;white-space:nowrap;">${esc(j.startDate||'—')}</td>
+        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;font-weight:500;font-family:'DM Mono',monospace;text-align:right;">${fmtMoney(contractValue(j))}</td>
+      </tr>`).join('');
+
+    return `
+      <div style="background:var(--surface);border:1px solid ${r.border};border-radius:var(--radius-lg);overflow:hidden;">
+        <div style="background:${r.bg};padding:0.875rem 1.125rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid ${r.border};">
+          <div>
+            <div style="font-weight:600;font-size:14px;color:${r.text};">${r.label}</div>
+            <div style="font-size:11px;color:${r.text};opacity:0.75;margin-top:2px;">${facilities} facilit${facilities===1?'y':'ies'} · ${totalFTE} FTE</div>
+          </div>
+          <div style="text-align:right;">
+            <div style="font-size:18px;font-weight:600;color:${r.text};font-family:'DM Mono',monospace;">${fmtMoney(totalVal)}</div>
+            <div style="font-size:11px;color:${r.text};opacity:0.75;">total value</div>
+          </div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;">
+          <thead>
+            <tr style="background:var(--bg);">
+              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:left;border-bottom:1px solid var(--border-light);">Role</th>
+              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:center;border-bottom:1px solid var(--border-light);">FTE</th>
+              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:left;border-bottom:1px solid var(--border-light);">Start</th>
+              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:right;border-bottom:1px solid var(--border-light);">Value</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }).join('');
+}
+
 // ── Export ───────────────────────────────────────────────
 function exportCSV() {
   if (jobs.length === 0) { showToast('No data to export'); return; }
-  const headers = ['Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value'];
-  const rows = jobs.map(j => [j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j))]);
+  const headers = ['Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value'];
+  const rows = jobs.map(j => [j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j))]);
   const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
