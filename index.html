@@ -359,8 +359,8 @@
       <div class="app-subtitle">Healthcare agency placements · auto-parsed from email</div>
     </div>
     <div class="header-actions">
-      <button class="btn" onclick="exportCSV()">Export CSV</button>
-      <button class="btn btn-primary" onclick="toggleParser()">+ Parse email</button>
+      <button class="btn" id="btn-export">Export CSV</button>
+      <button class="btn btn-primary" id="btn-toggle-parser">+ Parse email</button>
     </div>
   </div>
 
@@ -373,7 +373,7 @@
       <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
     </div>
     <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
-    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
+    <button class="btn btn-primary btn-sm" id="btn-save-key">Save key</button>
   </div>
 
   <!-- Metrics -->
@@ -402,7 +402,7 @@
 
   <!-- Parse Panel -->
   <div class="parse-panel" id="parse-panel" style="display:none;">
-    <div class="parse-header" onclick="toggleParser()">
+    <div class="parse-header" id="parse-header-toggle">
       <div class="parse-header-left">
         <span class="parse-label">Paste job email</span>
         <span class="parse-hint">Paste email text, or drop a PDF / Word attachment below</span>
@@ -413,25 +413,22 @@
       <textarea class="parse-textarea" id="email-input" placeholder="Paste the full email text here (optional if dropping an attachment)..."></textarea>
 
       <!-- Drop zone -->
-      <div id="drop-zone"
-        ondragover="event.preventDefault();this.classList.add('dz-over')"
-        ondragleave="this.classList.remove('dz-over')"
-        ondrop="handleDrop(event)">
+      <div id="drop-zone">
         <div id="dz-inner">
           <div class="dz-icon">📎</div>
           <div class="dz-label">Drop PDF, Word or Excel attachment here</div>
           <div class="dz-sub">or <label for="file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline;">browse</label></div>
-          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls" style="display:none;" onchange="handleFileInput(this.files)" />
+          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls" style="display:none;" />
         </div>
       </div>
       <div id="attached-file" style="display:none;margin-top:8px;display:none;align-items:center;gap:8px;">
         <span style="font-size:12px;background:var(--accent-light);color:var(--accent-text);padding:3px 10px;border-radius:99px;font-weight:500;" id="attached-name"></span>
-        <button onclick="clearAttachment()" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:13px;" title="Remove attachment">✕</button>
+        <button id="btn-clear-attachment" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:13px;" title="Remove attachment">✕</button>
       </div>
 
       <div class="parse-footer">
         <span class="parse-status" id="parse-status"></span>
-        <button class="btn btn-primary" onclick="parseEmail()">Parse &amp; add to dashboard</button>
+        <button class="btn btn-primary" id="btn-parse">Parse &amp; add to dashboard</button>
       </div>
     </div>
   </div>
@@ -505,6 +502,34 @@ function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', () => {
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
+
+  // Static button wiring
+  document.getElementById('btn-export').addEventListener('click', exportCSV);
+  document.getElementById('btn-toggle-parser').addEventListener('click', toggleParser);
+  document.getElementById('btn-save-key').addEventListener('click', saveApiKey);
+  document.getElementById('parse-header-toggle').addEventListener('click', toggleParser);
+  document.getElementById('btn-parse').addEventListener('click', parseEmail);
+  document.getElementById('btn-clear-attachment').addEventListener('click', clearAttachment);
+
+  // File input
+  document.getElementById('file-input').addEventListener('change', function() { handleFileInput(this.files); });
+
+  // Drop zone
+  const dz = document.getElementById('drop-zone');
+  dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('dz-over'); });
+  dz.addEventListener('dragleave', () => dz.classList.remove('dz-over'));
+  dz.addEventListener('drop', handleDrop);
+
+  // Event delegation for dynamic table rows
+  document.getElementById('jobs-tbody').addEventListener('change', e => {
+    if (e.target.dataset.rateid) updateRate(Number(e.target.dataset.rateid), e.target.value);
+  });
+  document.getElementById('jobs-tbody').addEventListener('click', e => {
+    const removeBtn = e.target.closest('[data-removeid]');
+    const recurringBtn = e.target.closest('[data-recurring]');
+    if (removeBtn) removeJob(Number(removeBtn.dataset.removeid));
+    if (recurringBtn) toggleRecurring(Number(recurringBtn.dataset.recurring));
+  });
 });
 
 // ── Parser toggle ────────────────────────────────────────
@@ -781,7 +806,7 @@ function render() {
       }
 
       const recurringToggle = (status === 'expired' || status === 'recurring')
-        ? `<button onclick="toggleRecurring(${j.id})" title="${j.recurring ? 'Mark as not recurring' : 'Mark as recurring'}"
+        ? `<button data-recurring="${j.id}" title="${j.recurring ? 'Mark as not recurring' : 'Mark as recurring'}"
             style="font-size:10px;padding:2px 7px;border-radius:99px;border:0.5px solid ${j.recurring ? '#EF9F27' : 'var(--border)'};
             background:${j.recurring ? '#FDF3E0' : 'transparent'};color:${j.recurring ? '#92580A' : 'var(--text-faint)'};cursor:pointer;margin-left:4px;font-family:inherit;">
             ↺ recurring
@@ -810,13 +835,13 @@ function render() {
           <div class="rate-wrap">
             <span class="rate-prefix">$</span>
             <input class="rate-input" type="number" min="0" step="1" placeholder="0"
+              data-rateid="${j.id}"
               value="${j.hourlyRate || ''}"
-              onchange="updateRate(${j.id}, this.value)"
               title="Hourly rate" />
           </div>
         </td>
         <td><span id="val-${j.id}" class="contract-value${val===0?' zero':''}">${fmtMoney(val)}</span></td>
-        <td><button class="btn-icon" onclick="removeJob(${j.id})" title="Remove">✕</button></td>
+        <td><button class="btn-icon" data-removeid="${j.id}" title="Remove">✕</button></td>
       </tr>`;
     }).join('');
   }
