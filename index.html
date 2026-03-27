@@ -105,6 +105,35 @@
 
 
 
+  /* ── API Key Banner ── */
+  .api-banner {
+    background: var(--amber-light);
+    border: 1px solid #E8C87A;
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .api-banner-text { flex: 1; min-width: 200px; }
+  .api-banner-title { font-weight: 600; font-size: 13px; color: var(--amber); }
+  .api-banner-desc { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .api-key-input {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--text);
+    width: 280px;
+    outline: none;
+  }
+  .api-key-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(29,106,74,0.12); }
+  .api-banner.hidden { display: none; }
+
   /* ── Metrics ── */
   .metrics {
     display: grid;
@@ -391,6 +420,16 @@
     </div>
   </div>
 
+  <!-- API Key Banner -->
+  <div class="api-banner" id="api-banner">
+    <div class="api-banner-text">
+      <div class="api-banner-title">Anthropic API key required</div>
+      <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
+    </div>
+    <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
+    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
+  </div>
+
   <!-- Regional Dashboards -->
   <div id="regions-section" style="margin-top:2rem;">
     <div style="font-weight:600;font-size:14px;color:var(--text-primary);margin-bottom:1rem;">Regional breakdown</div>
@@ -416,9 +455,18 @@ let nextId = 8;
 let newIds = new Set();
 
 // ── API Key ─────────────────────────────────────────────
-const ANTHROPIC_API_KEY = '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';
-function getApiKey() { return ANTHROPIC_API_KEY; }
-window.addEventListener('DOMContentLoaded', () => { render(); });
+function saveApiKey() {
+  const key = document.getElementById('api-key-input').value.trim();
+  if (!key.startsWith('sk-ant-')) { showToast('Key should start with sk-ant-'); return; }
+  localStorage.setItem('anthropic_api_key', key);
+  document.getElementById('api-banner').classList.add('hidden');
+  showToast('API key saved');
+}
+function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
+window.addEventListener('DOMContentLoaded', () => {
+  if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
+  render();
+});
 
 // ── Parser toggle ────────────────────────────────────────
 function toggleParser() {
