@@ -346,6 +346,16 @@
 
 
 
+  <!-- API Key Banner -->
+  <div class="api-banner" id="api-banner">
+    <div class="api-banner-text">
+      <div class="api-banner-title">Anthropic API key required</div>
+      <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
+    </div>
+    <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
+    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
+  </div>
+
   <!-- Metrics -->
   <div class="metrics">
     <div class="metric">
@@ -419,16 +429,6 @@
     <div class="table-footer" id="table-footer">
       Contract value = hourly rate × 40 hrs/wk × weeks × 1.20 (20% margin) × FTE
     </div>
-  </div>
-
-  <!-- API Key Banner -->
-  <div class="api-banner" id="api-banner">
-    <div class="api-banner-text">
-      <div class="api-banner-title">Anthropic API key required</div>
-      <div class="api-banner-desc">Enter your key once — it's stored locally in your browser and never sent anywhere except Anthropic.</div>
-    </div>
-    <input class="api-key-input" id="api-key-input" type="password" placeholder="sk-ant-..." />
-    <button class="btn btn-primary btn-sm" onclick="saveApiKey()">Save key</button>
   </div>
 
   <!-- Regional Dashboards -->
