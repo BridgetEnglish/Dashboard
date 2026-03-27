@@ -419,9 +419,9 @@
         ondrop="handleDrop(event)">
         <div id="dz-inner">
           <div class="dz-icon">📎</div>
-          <div class="dz-label">Drop PDF or Word attachment here</div>
+          <div class="dz-label">Drop PDF, Word or Excel attachment here</div>
           <div class="dz-sub">or <label for="file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline;">browse</label></div>
-          <input type="file" id="file-input" accept=".pdf,.doc,.docx" style="display:none;" onchange="handleFileInput(this.files)" />
+          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls" style="display:none;" onchange="handleFileInput(this.files)" />
         </div>
       </div>
       <div id="attached-file" style="display:none;margin-top:8px;display:none;align-items:center;gap:8px;">
@@ -525,12 +525,15 @@ function processFile(file) {
   const allowed = ['application/pdf','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword'];
   const isPdf = file.type === 'application/pdf';
   const isDocx = file.name.endsWith('.docx') || file.name.endsWith('.doc');
-  if (!isPdf && !isDocx) { setStatus('Only PDF or Word (.docx) files are supported.', 'error'); return; }
+  const isExcel = file.name.endsWith('.xlsx') || file.name.endsWith('.xls');
+  if (!isPdf && !isDocx && !isExcel) { setStatus('Only PDF, Word (.docx) or Excel (.xlsx) files are supported.', 'error'); return; }
 
   const reader = new FileReader();
   reader.onload = e => {
     const base64 = e.target.result.split(',')[1];
-    const mediaType = isPdf ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    let mediaType = 'application/pdf';
+    if (isDocx) mediaType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    if (isExcel) mediaType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
     attachedFile = { base64, mediaType, name: file.name };
     document.getElementById('attached-name').textContent = '📎 ' + file.name;
     const af = document.getElementById('attached-file');
@@ -605,7 +608,7 @@ Rules:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
+        max_tokens: 4000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userContent }]
       })
