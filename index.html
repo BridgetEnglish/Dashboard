@@ -204,6 +204,26 @@
   .parse-status.success { color: var(--accent); font-weight: 500; }
   .parse-status.loading { color: var(--blue); }
 
+  /* ── Drop zone ── */
+  #drop-zone {
+    margin-top: 10px;
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-align: center;
+    transition: all 0.15s;
+    background: var(--bg);
+    cursor: pointer;
+  }
+  #drop-zone:hover, #drop-zone.dz-over {
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+  #drop-zone.dz-over { transform: scale(1.01); }
+  .dz-icon { font-size: 20px; margin-bottom: 4px; }
+  .dz-label { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+  .dz-sub { font-size: 12px; color: var(--text-faint); margin-top: 2px; }
+
   /* ── Table ── */
   .table-card {
     background: var(--surface);
@@ -385,12 +405,30 @@
     <div class="parse-header" onclick="toggleParser()">
       <div class="parse-header-left">
         <span class="parse-label">Paste job email</span>
-        <span class="parse-hint">AI will extract all placement details automatically</span>
+        <span class="parse-hint">Paste email text, or drop a PDF / Word attachment below</span>
       </div>
       <span class="parse-chevron" id="parse-chevron">▲</span>
     </div>
     <div class="parse-body open" id="parse-body">
-      <textarea class="parse-textarea" id="email-input" placeholder="Paste the full email text here..."></textarea>
+      <textarea class="parse-textarea" id="email-input" placeholder="Paste the full email text here (optional if dropping an attachment)..."></textarea>
+
+      <!-- Drop zone -->
+      <div id="drop-zone"
+        ondragover="event.preventDefault();this.classList.add('dz-over')"
+        ondragleave="this.classList.remove('dz-over')"
+        ondrop="handleDrop(event)">
+        <div id="dz-inner">
+          <div class="dz-icon">📎</div>
+          <div class="dz-label">Drop PDF or Word attachment here</div>
+          <div class="dz-sub">or <label for="file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline;">browse</label></div>
+          <input type="file" id="file-input" accept=".pdf,.doc,.docx" style="display:none;" onchange="handleFileInput(this.files)" />
+        </div>
+      </div>
+      <div id="attached-file" style="display:none;margin-top:8px;display:none;align-items:center;gap:8px;">
+        <span style="font-size:12px;background:var(--accent-light);color:var(--accent-text);padding:3px 10px;border-radius:99px;font-weight:500;" id="attached-name"></span>
+        <button onclick="clearAttachment()" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:13px;" title="Remove attachment">✕</button>
+      </div>
+
       <div class="parse-footer">
         <span class="parse-status" id="parse-status"></span>
         <button class="btn btn-primary" onclick="parseEmail()">Parse &amp; add to dashboard</button>
@@ -470,6 +508,45 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Parser toggle ────────────────────────────────────────
+let attachedFile = null; // { base64, mediaType, name }
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('drop-zone').classList.remove('dz-over');
+  const file = e.dataTransfer.files[0];
+  if (file) processFile(file);
+}
+
+function handleFileInput(files) {
+  if (files[0]) processFile(files[0]);
+}
+
+function processFile(file) {
+  const allowed = ['application/pdf','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword'];
+  const isPdf = file.type === 'application/pdf';
+  const isDocx = file.name.endsWith('.docx') || file.name.endsWith('.doc');
+  if (!isPdf && !isDocx) { setStatus('Only PDF or Word (.docx) files are supported.', 'error'); return; }
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    const base64 = e.target.result.split(',')[1];
+    const mediaType = isPdf ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    attachedFile = { base64, mediaType, name: file.name };
+    document.getElementById('attached-name').textContent = '📎 ' + file.name;
+    const af = document.getElementById('attached-file');
+    af.style.display = 'flex';
+    setStatus('', '');
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearAttachment() {
+  attachedFile = null;
+  document.getElementById('attached-file').style.display = 'none';
+  document.getElementById('attached-name').textContent = '';
+  document.getElementById('file-input').value = '';
+}
+
 function toggleParser() {
   const panel = document.getElementById('parse-panel');
   const chevron = document.getElementById('parse-chevron');
@@ -483,9 +560,19 @@ async function parseEmail() {
   const apiKey = getApiKey();
   if (!apiKey) { setStatus('Please enter your Anthropic API key above first.', 'error'); return; }
   const emailText = document.getElementById('email-input').value.trim();
-  if (!emailText) { setStatus('Please paste an email first.', 'error'); return; }
+  if (!emailText && !attachedFile) { setStatus('Please paste an email or drop an attachment first.', 'error'); return; }
 
-  setStatus('<span class="spinner"></span>Parsing email…', 'loading');
+  setStatus('<span class="spinner"></span>Parsing…', 'loading');
+
+  // Build message content — text + optional document
+  const userContent = [];
+  if (attachedFile) {
+    userContent.push({
+      type: 'document',
+      source: { type: 'base64', media_type: attachedFile.mediaType, data: attachedFile.base64 }
+    });
+  }
+  userContent.push({ type: 'text', text: emailText || 'Please extract all job placement details from the attached document.' });
 
   const systemPrompt = `You are a data extraction assistant for a healthcare staffing agency dashboard. 
 Extract job placement details from healthcare job emails and return ONLY a valid JSON array.
@@ -520,7 +607,7 @@ Rules:
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1000,
         system: systemPrompt,
-        messages: [{ role: 'user', content: emailText }]
+        messages: [{ role: 'user', content: userContent }]
       })
     });
 
@@ -546,6 +633,7 @@ Rules:
 
     render();
     document.getElementById('email-input').value = '';
+    clearAttachment();
     setStatus(`✓ Added ${added} role${added>1?'s':''} to the dashboard.`, 'success');
     showToast(`${added} role${added>1?'s':''} added`);
     setTimeout(() => { newIds.clear(); render(); }, 4000);
