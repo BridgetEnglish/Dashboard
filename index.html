@@ -529,18 +529,42 @@ function processFile(file) {
   if (!isPdf && !isDocx && !isExcel) { setStatus('Only PDF, Word (.docx) or Excel (.xlsx) files are supported.', 'error'); return; }
 
   const reader = new FileReader();
-  reader.onload = e => {
-    const base64 = e.target.result.split(',')[1];
-    let mediaType = 'application/pdf';
-    if (isDocx) mediaType = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-    if (isExcel) mediaType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
-    attachedFile = { base64, mediaType, name: file.name };
+
+  if (isExcel) {
+    // Read Excel via SheetJS — convert to text and send as plain text content
+    reader.onload = e => {
+      try {
+        const wb = XLSX.read(e.target.result, { type: 'array' });
+        let text = '';
+        wb.SheetNames.forEach(name => {
+          const csv = XLSX.utils.sheet_to_csv(wb.Sheets[name]);
+          if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
+        });
+        attachedFile = { text, name: file.name, isText: true };
+        document.getElementById('attached-name').textContent = '📎 ' + file.name;
+        document.getElementById('attached-file').style.display = 'flex';
+        setStatus('', '');
+      } catch(err) {
+        setStatus('Could not read Excel file: ' + err.message, 'error');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  } else {
+    reader.onload = e => {
+      const base64 = e.target.result.split(',')[1];
+      const mediaType = isPdf ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+      attachedFile = { base64, mediaType, name: file.name, isText: false };
     document.getElementById('attached-name').textContent = '📎 ' + file.name;
     const af = document.getElementById('attached-file');
     af.style.display = 'flex';
-    setStatus('', '');
-  };
-  reader.readAsDataURL(file);
+      attachedFile = { base64, mediaType, name: file.name, isText: false };
+      document.getElementById('attached-name').textContent = '📎 ' + file.name;
+      const af = document.getElementById('attached-file');
+      af.style.display = 'flex';
+      setStatus('', '');
+    };
+    reader.readAsDataURL(file);
+  }
 }
 
 function clearAttachment() {
@@ -570,10 +594,12 @@ async function parseEmail() {
   // Build message content — text + optional document
   const userContent = [];
   if (attachedFile) {
-    userContent.push({
-      type: 'document',
-      source: { type: 'base64', media_type: attachedFile.mediaType, data: attachedFile.base64 }
-    });
+    if (attachedFile.isText) {
+      // Excel converted to CSV text
+      userContent.push({ type: 'text', text: `Attached file (${attachedFile.name}):\n${attachedFile.text}` });
+    } else {
+      userContent.push({ type: 'document', source: { type: 'base64', media_type: attachedFile.mediaType, data: attachedFile.base64 } });
+    }
   }
   userContent.push({ type: 'text', text: emailText || 'Please extract all job placement details from the attached document.' });
 
@@ -915,5 +941,6 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 </body>
 </html>
