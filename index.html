@@ -224,6 +224,35 @@
   .dz-label { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
   .dz-sub { font-size: 12px; color: var(--text-faint); margin-top: 2px; }
 
+  /* ── Tabs ── */
+  .tab-bar { display: flex; gap: 2px; align-items: center; flex-wrap: wrap; }
+  .tab {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-count {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 1px 6px;
+    border-radius: 99px;
+    background: var(--surface2);
+    color: var(--text-muted);
+    margin-left: 4px;
+  }
+  .tab.active .tab-count { background: var(--accent-light); color: var(--accent-text); }
+
   /* ── Table ── */
   .table-card {
     background: var(--surface);
@@ -436,9 +465,11 @@
   <!-- Table -->
   <div class="table-card">
     <div class="table-toolbar">
-      <div>
-        <span class="table-title">Current Vacancies</span>
-        <span class="table-count" id="row-count">0 roles</span>
+      <div class="tab-bar">
+        <button class="tab active" data-tab="all">All <span class="tab-count" id="tc-all"></span></button>
+        <button class="tab" data-tab="QLD">Queensland <span class="tab-count" id="tc-QLD"></span></button>
+        <button class="tab" data-tab="NT">Northern Territory <span class="tab-count" id="tc-NT"></span></button>
+        <button class="tab" data-tab="NSW">New South Wales <span class="tab-count" id="tc-NSW"></span></button>
       </div>
     </div>
     <div class="table-scroll">
@@ -467,10 +498,7 @@
   </div>
 
   <!-- Regional Dashboards -->
-  <div id="regions-section" style="margin-top:2rem;">
-    <div style="font-weight:600;font-size:14px;color:var(--text-primary);margin-bottom:1rem;">Regional breakdown</div>
-    <div id="regions-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1rem;"></div>
-  </div>
+
 
 </div>
 
@@ -489,6 +517,7 @@ let jobs = [
 ];
 let nextId = 8;
 let newIds = new Set();
+let activeTab = 'all';
 
 // ── API Key ─────────────────────────────────────────────
 function saveApiKey() {
@@ -502,6 +531,16 @@ function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', () => {
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
+
+  // Tab switching
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTab = btn.dataset.tab;
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      render();
+    });
+  });
 
   // Static button wiring
   document.getElementById('btn-export').addEventListener('click', exportCSV);
@@ -747,41 +786,46 @@ function removeJob(id) {
 function renderValues() {
   jobs.forEach(j => {
     const el = document.getElementById('val-' + j.id);
-    if (el) {
-      const v = contractValue(j);
-      el.textContent = fmtMoney(v);
-      el.className = 'contract-value' + (v === 0 ? ' zero' : '');
-    }
+    if (!el) return;
+    const v = contractValue(j);
+    el.textContent = fmtMoney(v);
+    el.className = 'contract-value' + (v === 0 ? ' zero' : '');
   });
   renderMetrics();
 }
 
 function renderMetrics() {
   const activeJobs = jobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
-  document.getElementById('m-fte').textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
+  const mFte = document.getElementById('m-fte'); if (mFte) mFte.textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
   const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
-  document.getElementById('m-value').textContent = fmtMoney(totalVal);
+  const mVal = document.getElementById('m-value'); if (mVal) mVal.textContent = fmtMoney(totalVal);
   const avgWeeks = activeJobs.length ? (activeJobs.reduce((s,j) => s + j.weeks, 0) / activeJobs.length).toFixed(1) : '—';
-  document.getElementById('m-weeks').textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
-  document.getElementById('m-locs').textContent = new Set(activeJobs.map(j => j.location)).size;
-  document.getElementById('row-count').textContent = jobs.length + ' role' + (jobs.length !== 1 ? 's' : '');
-  renderRegions();
+  const mWeeks = document.getElementById('m-weeks'); if (mWeeks) mWeeks.textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
+  const mLocs = document.getElementById('m-locs'); if (mLocs) mLocs.textContent = new Set(activeJobs.map(j => j.location)).size;
 }
 
 function render() {
   const tbody = document.getElementById('jobs-tbody');
-  if (jobs.length === 0) {
+  const visibleJobs = activeTab === 'all' ? jobs : jobs.filter(j => j.region === activeTab);
+
+  // Update tab counts
+  ['all','QLD','NT','NSW'].forEach(tab => {
+    const el = document.getElementById('tc-' + tab);
+    if (el) el.textContent = tab === 'all' ? jobs.length : jobs.filter(j => j.region === tab).length;
+  });
+
+  if (visibleJobs.length === 0) {
     tbody.innerHTML = `<tr><td colspan="11">
       <div class="empty-state">
         <div class="empty-icon">📋</div>
-        <div class="empty-text">No vacancies yet</div>
-        <div class="empty-sub">Click "+ Parse email" above to add your first placement</div>
+        <div class="empty-text">${activeTab === 'all' ? 'No vacancies yet' : 'No ' + activeTab + ' vacancies'}</div>
+        <div class="empty-sub">${activeTab === 'all' ? 'Click "+ Parse email" above to add your first placement' : 'Paste an email from this region to populate'}</div>
       </div>
     </td></tr>`;
   } else {
     // Sort: active/upcoming by contract value desc, then recurring, then expired
     const statusOrder = { upcoming:0, active:0, recurring:1, expired:2, unknown:1 };
-    const sorted = [...jobs].sort((a,b) => {
+    const sorted = [...visibleJobs].sort((a,b) => {
       const sa = statusOrder[jobStatus(a)], sb = statusOrder[jobStatus(b)];
       if (sa !== sb) return sa - sb;
       return contractValue(b) - contractValue(a);
@@ -850,94 +894,6 @@ function render() {
 
 function esc(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ── Regional Breakdown ───────────────────────────────────
-const REGIONS = [
-  { key:'QLD', label:'Queensland',        color:'--blue',  bg:'#E5EEF8', text:'#1A4F8A', border:'#B5D4F4' },
-  { key:'NT',  label:'Northern Territory',color:'--amber', bg:'#FDF3E0', text:'#92580A', border:'#FAC775' },
-  { key:'NSW', label:'New South Wales',   color:'--teal',  bg:'#E1F5EE', text:'#0F6E56', border:'#9FE1CB' },
-  { key:'Other', label:'Other',           color:'--gray',  bg:'#F1EFE8', text:'#5F5E5A', border:'#D3D1C7' }
-];
-
-function renderRegions() {
-  const grid = document.getElementById('regions-grid');
-  const activeRegions = REGIONS.filter(r => jobs.some(j => j.region === r.key));
-  if (activeRegions.length === 0) { grid.innerHTML = ''; return; }
-
-  const statusOrder = { upcoming:0, active:0, unknown:0, recurring:1, expired:2 };
-
-  grid.innerHTML = activeRegions.map(r => {
-    const rJobs = [...jobs.filter(j => j.region === r.key)].sort((a,b) => {
-      const sa = statusOrder[jobStatus(a)], sb = statusOrder[jobStatus(b)];
-      if (sa !== sb) return sa - sb;
-      return contractValue(b) - contractValue(a);
-    });
-
-    const activeJobs = rJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
-    const totalFTE = activeJobs.reduce((s,j) => s + j.fte, 0);
-    const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
-    const facilities = [...new Set(activeJobs.map(j => j.facility))].length || [...new Set(rJobs.map(j => j.facility))].length;
-
-    let dividerDone = false;
-    const rows = rJobs.map(j => {
-      const status = jobStatus(j);
-      const isDimmed = status === 'expired' || status === 'recurring';
-      const dimStyle = isDimmed ? 'opacity:0.4;' : '';
-      const sc = STATUS_CONFIG[status];
-
-      let divider = '';
-      if (isDimmed && !dividerDone) {
-        dividerDone = true;
-        divider = `<tr><td colspan="4" style="padding:0;">
-          <div style="display:flex;align-items:center;gap:8px;padding:6px 10px 4px;">
-            <div style="flex:1;height:0.5px;background:${r.border};"></div>
-            <span style="font-size:10px;color:var(--text-faint);white-space:nowrap;">expired / recurring</span>
-            <div style="flex:1;height:0.5px;background:${r.border};"></div>
-          </div>
-        </td></tr>`;
-      }
-
-      const recurringTag = isDimmed
-        ? `<span style="font-size:10px;margin-left:4px;padding:1px 6px;border-radius:99px;border:0.5px solid ${j.recurring?'#EF9F27':'var(--border)'};background:${j.recurring?'#FDF3E0':'transparent'};color:${j.recurring?'#92580A':'var(--text-faint)'};">↺</span>`
-        : '';
-
-      return divider + `<tr style="${dimStyle}">
-        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;">
-          <div style="font-weight:500;">${esc(j.title)}${recurringTag}</div>
-          <div style="font-size:11px;color:var(--text-muted);">${esc(j.facility)} · ${esc(j.ward)}</div>
-        </td>
-        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;text-align:center;">${j.fte}</td>
-        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;white-space:nowrap;">${esc(j.startDate||'—')}</td>
-        <td style="padding:7px 10px;border-bottom:0.5px solid ${r.border};font-size:12px;font-weight:500;font-family:'DM Mono',monospace;text-align:right;">${fmtMoney(contractValue(j))}</td>
-      </tr>`;
-    }).join('');
-
-    return `
-      <div style="background:var(--surface);border:1px solid ${r.border};border-radius:var(--radius-lg);overflow:hidden;">
-        <div style="background:${r.bg};padding:0.875rem 1.125rem;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid ${r.border};">
-          <div>
-            <div style="font-weight:600;font-size:14px;color:${r.text};">${r.label}</div>
-            <div style="font-size:11px;color:${r.text};opacity:0.75;margin-top:2px;">${facilities} facilit${facilities===1?'y':'ies'} · ${totalFTE} active FTE</div>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:18px;font-weight:600;color:${r.text};font-family:'DM Mono',monospace;">${fmtMoney(totalVal)}</div>
-            <div style="font-size:11px;color:${r.text};opacity:0.75;">active value</div>
-          </div>
-        </div>
-        <table style="width:100%;border-collapse:collapse;">
-          <thead>
-            <tr style="background:var(--bg);">
-              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:left;border-bottom:1px solid var(--border-light);">Role</th>
-              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:center;border-bottom:1px solid var(--border-light);">FTE</th>
-              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:left;border-bottom:1px solid var(--border-light);">Start</th>
-              <th style="padding:6px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-faint);text-align:right;border-bottom:1px solid var(--border-light);">Value</th>
-            </tr>
-          </thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>`;
-  }).join('');
 }
 
 // ── Export ───────────────────────────────────────────────
