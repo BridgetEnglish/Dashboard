@@ -388,6 +388,7 @@
       <div class="app-subtitle">Healthcare agency placements · auto-parsed from email</div>
     </div>
     <div class="header-actions">
+      <span id="save-indicator" style="font-size:11px;color:var(--text-faint);align-self:center;"></span>
       <button class="btn" id="btn-export">Export CSV</button>
       <button class="btn btn-primary" id="btn-toggle-parser">+ Parse email</button>
     </div>
@@ -520,23 +521,58 @@ function saveJobs() {
   try {
     localStorage.setItem('vj_jobs', JSON.stringify(jobs));
     localStorage.setItem('vj_nextId', String(nextId));
-  } catch(e) { console.warn('Could not save jobs', e); }
+    localStorage.setItem('vj_saved', new Date().toISOString());
+    updateSaveIndicator(true);
+  } catch(e) {
+    console.warn('Could not save jobs', e);
+    updateSaveIndicator(false);
+  }
 }
 
 function loadJobs() {
   try {
+    // Test if localStorage works at all
+    localStorage.setItem('vj_test', '1');
+    localStorage.removeItem('vj_test');
+  } catch(e) {
+    console.warn('localStorage blocked — likely iframe restriction', e);
+    jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
+    nextId = 8;
+    updateSaveIndicator(false);
+    return;
+  }
+  try {
     const saved = localStorage.getItem('vj_jobs');
     const savedId = localStorage.getItem('vj_nextId');
     if (saved) {
-      jobs = JSON.parse(saved);
+      const parsed = JSON.parse(saved);
+      // Merge: keep saved jobs, add any default jobs not already present
+      const savedIds = new Set(parsed.map(j => j.id));
+      const missing = DEFAULT_JOBS.filter(j => !savedIds.has(j.id));
+      jobs = [...parsed, ...missing];
       nextId = savedId ? parseInt(savedId) : jobs.reduce((m,j) => Math.max(m,j.id),0) + 1;
+      saveJobs();
       return;
     }
   } catch(e) { console.warn('Could not load jobs', e); }
-  // First load — use defaults
+  // First ever load — use defaults
   jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
   nextId = 8;
   saveJobs();
+}
+
+function updateSaveIndicator(ok) {
+  const el = document.getElementById('save-indicator');
+  if (!el) return;
+  if (ok) {
+    const t = localStorage.getItem('vj_saved');
+    const d = t ? new Date(t) : new Date();
+    el.textContent = 'Saved ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+    el.style.color = 'var(--text-faint)';
+  } else {
+    el.textContent = '⚠ Storage unavailable — data won\'t persist';
+    el.style.color = 'var(--amber)';
+  }
 }
 
 let jobs = [];
@@ -555,6 +591,7 @@ function saveApiKey() {
 function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', () => {
   loadJobs();
+  updateSaveIndicator(!!localStorage.getItem('vj_saved'));
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
 
