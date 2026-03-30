@@ -507,9 +507,9 @@
 <script>
 // ── State ──────────────────────────────────────────────
 let jobs = [
-  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
-  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
-  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:52.33, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:1, facility:"Alice Springs Hospital",  title:"Midwife",                  ward:"Maternity",        location:"Alice Springs, NT", band:"Midwife",            fte:3,  hourlyRate:53.50, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:2, facility:"Alice Springs Hospital",  title:"RN – Neonatal",            ward:"Neonatal",         location:"Alice Springs, NT", band:"RN – Neonatal",      fte:2,  hourlyRate:53.50, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
+  { id:3, facility:"Alice Springs Hospital",  title:"RN – Medical/Surgical",    ward:"Medical West",     location:"Alice Springs, NT", band:"RN – Gen Med/Surg",  fte:4,  hourlyRate:53.50, weeks:6, startDate:"12/02/2026", region:"NT",  recurring:false },
   { id:4, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Emergency Dept",   location:"Mackay, QLD",       band:"RN Grade 5",         fte:10, hourlyRate:52.33, weeks:5, startDate:"27/01/2026", region:"QLD", recurring:true  },
   { id:5, facility:"Mackay Base Hospital",    title:"Registered Nurse",         ward:"Medical G2 Ward",  location:"Mackay, QLD",       band:"RN Grade 5",         fte:1,  hourlyRate:52.33, weeks:4, startDate:"02/02/2026", region:"QLD", recurring:false },
   { id:6, facility:"North West HHS",          title:"Mental Health Clinician",  ward:"CYMHS",            location:"Mount Isa, QLD",    band:"CNC NG6 / HP3",      fte:1,  hourlyRate:68.27, weeks:4, startDate:"19/01/2026", region:"QLD", recurring:true  },
@@ -675,6 +675,8 @@ Each object must have these exact fields:
 - startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
 - region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
 - recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
+
+NT Health rate note: NT roles use NT Health EA pay rates. Default to RN 2.1 ($53.50/hr ordinary time) if grade is unknown. RN 2.x = normal RN, RN 3.x = in charge/clinical nurse, RN 4.x = CNC/remote/senior MH, RN 5.x = management.
 
 Rules:
 - If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
