@@ -641,6 +641,67 @@ function toggleParser() {
   chevron.textContent = open ? '▼' : '▲';
 }
 
+// ── Auto rate lookup ─────────────────────────────────────
+var NT_RATES = {
+  'EN N1.1':47.33,'EN N1.2':48.79,'EN N1.3':50.31,'EN N1.4':51.87,'EN N1.5':53.50,'EN N1.6':54.04,
+  'RN 2.1':53.50,'RN 2.2':56.38,'RN 2.3':59.26,'RN 2.4':62.14,'RN 2.5':65.50,'RN 2.6':68.02,'RN 2.7':70.78,'RN 2.8':71.50,
+  'RN 3.1':73.73,'RN 3.2':76.69,'RN 3.3':78.78,'RN 3.4':79.58,
+  'RN 4.1':82.05,'RN 4.2':84.93,'RN 4.3':88.15,'RN 4.4':89.04,
+  'RN 5.1':90.36,'RN 5.2':94.15,'RN 5.3':95.10
+};
+var QLD_RATES = {
+  'RN 5.1':52.33,'RN 5.2':54.78,'RN 5.3':57.26,'RN 5.4':59.71,'RN 5.5':62.18,'RN 5.6':64.65,'RN 5.7':67.11,
+  'CN 6.1.1':68.27,'CN 6.1.2':69.87,'CN 6.1.3':71.49,'CN 6.1.4':73.09,
+  'CNC 7.1':84.66,'CNC 7.2':84.66,'CNC 7.3':84.66,'CNC 7.4':84.66,
+  'NP 8.1':96.73,'NP 8.2':96.73,'NP 8.3':96.73
+};
+
+function autoRate(job) {
+  var band = (job.band || '').trim();
+  var region = job.region || '';
+  var title = (job.title || '').toLowerCase();
+
+  // Midwife match — band "MW" or title contains midwife
+  if (/^MW$/i.test(band) || /midwife/i.test(band) || /midwife/i.test(title)) {
+    return region === 'NT' ? 53.50 : 52.33;
+  }
+  // Mental health
+  if (/NG6|HP3|mental health clinician/i.test(band)) return 68.27;
+
+  if (region === 'NT') {
+    if (NT_RATES[band]) return NT_RATES[band];
+    var m = band.match(/RN\s*(\d+)\.(\d+)/i);
+    if (m) {
+      var key = 'RN ' + m[1] + '.' + m[2];
+      if (NT_RATES[key]) return NT_RATES[key];
+      var base = 'RN ' + m[1] + '.1';
+      if (NT_RATES[base]) return NT_RATES[base];
+    }
+    // Level codes e.g. "N2", "N3", "N4", "N5" or "RN N2"
+    var lm = band.match(/N(\d)/i);
+    if (lm) {
+      var lvl = parseInt(lm[1]);
+      // N2 = RN 2.x, N3 = RN 3.x, N4 = RN 4.x, N5 = RN 5.x
+      var ntLvlMap = {2:'RN 2.1', 3:'RN 3.1', 4:'RN 4.1', 5:'RN 5.1'};
+      if (ntLvlMap[lvl] && NT_RATES[ntLvlMap[lvl]]) return NT_RATES[ntLvlMap[lvl]];
+    }
+    return 53.50; // NT default RN 2.1
+  }
+
+  // QLD / NSW / Other
+  if (QLD_RATES[band]) return QLD_RATES[band];
+  var qm = band.match(/RN\s*(?:Grade\s*)?(\d+)(?:\.(\d+))?/i);
+  if (qm) {
+    var qkey = 'RN 5.' + (qm[2] || '1');
+    if (QLD_RATES[qkey]) return QLD_RATES[qkey];
+  }
+  var cn = band.match(/CN\s*(?:Grade\s*)?6(?:\.1\.(\d+))?/i);
+  if (cn) return QLD_RATES['CN 6.1.' + (cn[1]||'1')] || 68.27;
+  if (/CNC|NUM/i.test(band)) return 84.66;
+
+  return 0;
+}
+
 // ── AI Email Parser ──────────────────────────────────────
 async function parseEmail() {
   const apiKey = getApiKey();
@@ -671,12 +732,12 @@ Each object must have these exact fields:
 - location: string (city and state e.g. "Mackay, QLD")
 - band: string (grade/classification e.g. "RN Grade 5", "Midwife Grade 5", "CNC NG6")
 - fte: number (number of placements/positions available)
-- weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week)
+- weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week. Use 0 if the role is ongoing/permanent with no fixed end date)
 - startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
 - region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
 - recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
 
-NT Health rate note: NT roles use NT Health EA pay rates. Default to RN 2.1 ($53.50/hr ordinary time) if grade is unknown. RN 2.x = normal RN, RN 3.x = in charge/clinical nurse, RN 4.x = CNC/remote/senior MH, RN 5.x = management.
+NT Health rate note: NT roles use NT Health EA pay rates. Map NT grades as follows — N2/RN 2.x = normal RN ($53.50 base), N3/RN 3.x = in charge/clinical nurse ($73.73 base), N4/RN 4.x = CNC/remote area nurse/senior MH/home birth ($82.05 base), N5/RN 5.x = management ($90.36 base). Default to RN 2.1 if grade is unknown. Use the grade as the band field e.g. "RN 4.1".
 
 Rules:
 - If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
@@ -717,7 +778,9 @@ Rules:
     parsed.forEach(j => {
       const id = nextId++;
       newIds.add(id);
-      jobs.push({ id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring });
+      const newJob = { id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring };
+      newJob.hourlyRate = autoRate(newJob);
+      jobs.push(newJob);
       added++;
     });
 
@@ -740,7 +803,7 @@ function setStatus(html, type) {
 }
 
 // ── Render ───────────────────────────────────────────────
-function contractValue(j) { return j.hourlyRate * 40 * j.weeks * 1.20 * j.fte; }
+function contractValue(j) { return j.hourlyRate * 40 * (j.weeks || 52) * 1.20 * j.fte; }
 function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
 
 // Parse DD/MM/YYYY into a Date
@@ -842,7 +905,7 @@ function render() {
       const sc = STATUS_CONFIG[status];
       const isDimmed = (status === 'expired' || status === 'recurring');
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
-      const contractLen = j.weeks ? `${j.weeks}w / ${(j.weeks * 40).toLocaleString()}hrs` : '—';
+      const contractLen = j.weeks ? `${j.weeks}w / ${(j.weeks * 40).toLocaleString()}hrs` : 'Ongoing';
       const dimStyle = isDimmed ? 'opacity:0.45;' : '';
 
       let divider = '';
