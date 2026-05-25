@@ -2939,7 +2939,21 @@
       "startDate": "04/06/2026",
       "region": "NT",
       "recurring": false
+    },
+    {
+      "id": 211,
+      "facility": "Central West HHS",
+      "title": "Director of Nursing",
+      "ward": "Birdsville Primary Health Clinic",
+      "location": "Birdsville, QLD",
+      "band": "Director of Nursing",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 3,
+      "startDate": "23/04/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 211
+  "nextId": 212
 }
