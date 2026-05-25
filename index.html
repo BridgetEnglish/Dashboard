@@ -1087,7 +1087,9 @@ function jobStatus(j) {
   const start = parseDate(j.startDate);
   if (!start) return 'unknown';
   const today = new Date(); today.setHours(0,0,0,0);
-  const end = new Date(start); end.setDate(end.getDate() + (j.weeks * 7));
+  const defaultWeeks = j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52;
+  const effectiveWeeks = j.weeks || defaultWeeks;
+  const end = new Date(start); end.setDate(end.getDate() + (effectiveWeeks * 7));
   if (today < start) return 'upcoming';
   if (today <= end)  return 'active';
   return j.recurring ? 'recurring' : 'expired';
