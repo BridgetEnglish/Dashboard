@@ -667,7 +667,15 @@ function processFile(file) {
           const csv = XLSX.utils.sheet_to_csv(wb.Sheets[name]);
           if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
         });
-        attachedFile = { text: text.slice(0, 6000) + (text.length > 6000 ? '\n[truncated for length]' : ''), name: file.name, isText: true };
+        // Truncate at a row boundary to avoid cutting mid-data
+        let trimmed = text;
+        if (text.length > 8000) {
+          trimmed = text.slice(0, 8000);
+          const lastNewline = trimmed.lastIndexOf('\n');
+          if (lastNewline > 4000) trimmed = trimmed.slice(0, lastNewline);
+          trimmed += '\n[file truncated — paste email text above for additional context]';
+        }
+        attachedFile = { text: trimmed, name: file.name, isText: true };
         document.getElementById('attached-name').textContent = '📎 ' + file.name;
         document.getElementById('attached-file').style.display = 'flex';
         setStatus('', '');
@@ -832,8 +840,31 @@ Rules:
 
     const data = await resp.json();
     const raw = data.content.map(b => b.text || '').join('').trim();
-    const clean = raw.replace(/```json|```/g, '').trim();
-    const parsed = JSON.parse(clean);
+
+    // Robust JSON extraction — find the array even if wrapped in markdown or commentary
+    let clean = raw;
+    // Strip markdown code fences
+    clean = clean.replace(/```json\s*/gi, '').replace(/```\s*/gi, '').trim();
+    // Extract just the JSON array — find first [ and last ]
+    const start = clean.indexOf('[');
+    const end = clean.lastIndexOf(']');
+    if (start === -1 || end === -1 || end < start) throw new Error('No JSON array found in response. Try pasting just the email text without the attachment, or split into smaller emails.');
+    clean = clean.slice(start, end + 1);
+
+    // Fix common JSON issues from truncated responses:
+    // Remove any trailing incomplete object
+    clean = clean.replace(/,\s*\{[^}]*$/, '');
+    // Ensure array closes
+    if (!clean.endsWith(']')) clean += ']';
+
+    let parsed;
+    try {
+      parsed = JSON.parse(clean);
+    } catch(e) {
+      // Last resort — try to salvage by removing last item if truncated
+      clean = clean.replace(/,\s*\{[^}]*\}\s*$/, '') + ']';
+      parsed = JSON.parse(clean);
+    }
 
     if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('No roles found in email.');
 
@@ -867,7 +898,17 @@ function setStatus(html, type) {
 }
 
 // ── Render ───────────────────────────────────────────────
-function contractValue(j) { return j.hourlyRate * 40 * (j.weeks || 52) * 1.20 * j.fte; }
+function remainingWeeks(j) {
+  const start = parseDate(j.startDate);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const totalWeeks = j.weeks || 52;
+  if (!start) return totalWeeks; // no date — use full value
+  if (today < start) return totalWeeks; // not started yet — full value
+  const weeksElapsed = Math.floor((today - start) / (7 * 24 * 60 * 60 * 1000));
+  const remaining = totalWeeks - weeksElapsed;
+  return Math.max(0, remaining);
+}
+function contractValue(j) { return j.hourlyRate * 40 * remainingWeeks(j) * 1.20 * j.fte; }
 function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
 
 // Parse DD/MM/YYYY into a Date
@@ -970,7 +1011,12 @@ function render() {
       const sc = STATUS_CONFIG[status];
       const isDimmed = (status === 'expired' || status === 'recurring');
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
-      const contractLen = j.weeks ? `${j.weeks}w / ${(j.weeks * 40).toLocaleString()}hrs` : 'Ongoing';
+      const totalWks = j.weeks || 52;
+      const remWks = remainingWeeks(j);
+      const contractLen = totalWks === 0 ? 'Ongoing' :
+        remWks < totalWks
+          ? `${remWks}w left / ${totalWks}w total`
+          : `${totalWks}w / ${(totalWks * 40).toLocaleString()}hrs`;
       const dimStyle = isDimmed ? 'opacity:0.45;' : '';
 
       let divider = '';
@@ -1029,8 +1075,8 @@ function esc(s) {
 // ── Export ───────────────────────────────────────────────
 function exportCSV() {
   if (jobs.length === 0) { showToast('No data to export'); return; }
-  const headers = ['Status','Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Weeks','Contract Length (hrs)','Hourly Rate','Contract Value','Recurring'];
-  const rows = jobs.map(j => [jobStatus(j), j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, j.weeks*40, j.hourlyRate, Math.round(contractValue(j)), j.recurring ? 'Yes' : 'No']);
+  const headers = ['Status','Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Total Weeks','Remaining Weeks','Hourly Rate','Remaining Contract Value','Recurring'];
+  const rows = jobs.map(j => [jobStatus(j), j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, remainingWeeks(j), j.hourlyRate, Math.round(contractValue(j)), j.recurring ? 'Yes' : 'No']);
   const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
