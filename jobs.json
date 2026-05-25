@@ -4269,7 +4269,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 306,
+      "facility": "Western NSW Local Health District",
+      "title": "Agency Nurse",
+      "ward": "Not specified",
+      "location": "Western NSW, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 306
+  "nextId": 307
 }
