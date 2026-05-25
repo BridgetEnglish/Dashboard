@@ -552,27 +552,32 @@ async function loadJobs() {
     jobs = content.jobs || DEFAULT_JOBS.map(j => Object.assign({}, j));
     nextId = content.nextId || jobs.reduce((m,j) => Math.max(m,j.id), 0) + 1;
     _ghSha = data.sha;
-    // also cache locally as backup
     localStorage.setItem('vj_jobs', JSON.stringify(jobs));
     localStorage.setItem('vj_nextId', String(nextId));
     updateSaveIndicator('ok');
   } catch(e) {
-    console.warn('GitHub load failed, trying localStorage:', e.message);
-    // fallback to localStorage
+    // 404 = file doesn't exist yet, other = network/auth error
+    const is404 = e.message && e.message.includes('404');
+    console.warn(is404 ? 'jobs.json not found — will create on first save' : 'GitHub load failed:', e.message);
+    // fall back to localStorage
     try {
       const saved = localStorage.getItem('vj_jobs');
       if (saved) {
         jobs = JSON.parse(saved);
         nextId = parseInt(localStorage.getItem('vj_nextId') || '8');
+        updateSaveIndicator(is404 ? 'ok' : 'error');
       } else {
         jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
         nextId = 8;
+        updateSaveIndicator(is404 ? 'ok' : 'error');
+        // Create the file immediately on first load
+        if (is404) await saveJobs();
       }
     } catch(e2) {
       jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
       nextId = 8;
+      updateSaveIndicator('error');
     }
-    updateSaveIndicator('error');
   }
 }
 
@@ -1175,14 +1180,15 @@ function render() {
       const status = jobStatus(j);
       const sc = STATUS_CONFIG[status];
       const isDimmed = (status === 'expired' || status === 'recurring');
-      const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
       const totalWks = j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52);
       const remWks = remainingWeeks(j);
-      const contractLen = j.weeks === 0 && j.region !== 'NSW'
+      const isOngoingQLD = j.weeks === 0 && j.region !== 'NSW' && j.region !== 'NT';
+      const contractLen = isOngoingQLD
         ? 'Ongoing'
         : remWks < totalWks
           ? `${remWks}w left / ${totalWks}w total`
           : `${totalWks}w / ${(totalWks * 40).toLocaleString()}hrs`;
+      const badgeClass = totalWks <= 4 ? 'badge-amber' : totalWks <= 12 ? 'badge-blue' : 'badge-green';
       const dimStyle = isDimmed ? 'opacity:0.45;' : '';
 
       let divider = '';
