@@ -2953,7 +2953,21 @@
       "startDate": "23/04/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 212,
+      "facility": "Central West Hospital and Health Service",
+      "title": "Director of Nursing",
+      "ward": "Jundah Primary Health Clinic",
+      "location": "Jundah, QLD",
+      "band": "NG9",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 3,
+      "startDate": "27/04/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 212
+  "nextId": 213
 }
