@@ -389,6 +389,7 @@
     </div>
     <div class="header-actions">
       <span id="save-indicator" style="font-size:11px;color:var(--text-faint);align-self:center;"></span>
+      <button class="btn" id="btn-reset-tokens" style="font-size:11px;padding:5px 10px;color:var(--text-muted);">Reset keys</button>
       <button class="btn" id="btn-export">Export CSV</button>
       <button class="btn btn-primary" id="btn-toggle-parser">+ Parse email</button>
     </div>
@@ -682,6 +683,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     showToast('GitHub token saved — syncing…');
     await loadJobs();
     render();
+  });
+
+  document.getElementById('btn-reset-tokens').addEventListener('click', () => {
+    if (!confirm('Clear saved API keys? You\'ll need to re-enter them.')) return;
+    localStorage.removeItem('gh_token');
+    localStorage.removeItem('anthropic_api_key');
+    document.getElementById('gh-banner').classList.remove('hidden');
+    document.getElementById('api-banner').classList.remove('hidden');
+    showToast('Keys cleared — please re-enter');
   });
 
   // Static button wiring
