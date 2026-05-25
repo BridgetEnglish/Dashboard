@@ -2715,7 +2715,63 @@
       "startDate": "27/04/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 195,
+      "facility": "Alice Springs Hospital",
+      "title": "Registered Nurse",
+      "ward": "Neonatal ward",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 6,
+      "startDate": "15/06/2026",
+      "region": "NT",
+      "recurring": false
+    },
+    {
+      "id": 196,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 4,
+      "startDate": "04/06/2026",
+      "region": "NT",
+      "recurring": false
+    },
+    {
+      "id": 197,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 5,
+      "hourlyRate": 53.5,
+      "weeks": 4,
+      "startDate": "02/07/2026",
+      "region": "NT",
+      "recurring": false
+    },
+    {
+      "id": 198,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 5,
+      "hourlyRate": 53.5,
+      "weeks": 4,
+      "startDate": "30/07/2026",
+      "region": "NT",
+      "recurring": false
     }
   ],
-  "nextId": 195
+  "nextId": 199
 }
