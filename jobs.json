@@ -3807,7 +3807,35 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true
+    },
+    {
+      "id": 273,
+      "facility": "Hunter New England LHD",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Various, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
+    },
+    {
+      "id": 274,
+      "facility": "Hunter New England LHD",
+      "title": "Midwife",
+      "ward": "Various",
+      "location": "Various, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 273
+  "nextId": 275
 }
