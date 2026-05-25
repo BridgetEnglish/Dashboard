@@ -17,10 +17,10 @@
     {
       "id": 2,
       "facility": "Alice Springs Hospital",
-      "title": "RN â Neonatal",
+      "title": "RN Ã¢ÂÂ Neonatal",
       "ward": "Neonatal",
       "location": "Alice Springs, NT",
-      "band": "RN â Neonatal",
+      "band": "RN Ã¢ÂÂ Neonatal",
       "fte": 2,
       "hourlyRate": 53.5,
       "weeks": 6,
@@ -31,10 +31,10 @@
     {
       "id": 3,
       "facility": "Alice Springs Hospital",
-      "title": "RN â Medical/Surgical",
+      "title": "RN Ã¢ÂÂ Medical/Surgical",
       "ward": "Medical West",
       "location": "Alice Springs, NT",
-      "band": "RN â Gen Med/Surg",
+      "band": "RN Ã¢ÂÂ Gen Med/Surg",
       "fte": 4,
       "hourlyRate": 53.5,
       "weeks": 6,
@@ -4297,7 +4297,21 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true
+    },
+    {
+      "id": 308,
+      "facility": "Murrumbidgee Local Health District",
+      "title": "Nurse/Midwife",
+      "ward": "Various",
+      "location": "Albury, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 308
+  "nextId": 309
 }
