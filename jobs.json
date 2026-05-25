@@ -4283,7 +4283,21 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true
+    },
+    {
+      "id": 307,
+      "facility": "Murrumbidgee LHD",
+      "title": "Registered Nurse",
+      "ward": "Not specified",
+      "location": "Murrumbidgee, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 307
+  "nextId": 308
 }
