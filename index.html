@@ -417,6 +417,15 @@
     <button class="btn btn-primary btn-sm" id="btn-save-gh-token">Save token</button>
   </div>
 
+  <!-- Push to GitHub Banner -->
+  <div id="gh-push-banner" style="display:none;background:#FDF3E0;border:1px solid #FAC775;border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:1.5rem;align-items:center;gap:12px;flex-wrap:wrap;">
+    <div style="flex:1;min-width:200px;">
+      <div style="font-weight:600;font-size:13px;color:#92580A;">No shared data found on GitHub yet</div>
+      <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">Push your local jobs to GitHub so everyone can see them.</div>
+    </div>
+    <button class="btn btn-primary btn-sm" id="btn-push-to-gh">Push local data to GitHub</button>
+  </div>
+
   <!-- Metrics -->
   <div class="metrics">
     <div class="metric">
@@ -568,27 +577,36 @@ async function loadJobs() {
     localStorage.setItem('vj_jobs', JSON.stringify(jobs));
     localStorage.setItem('vj_nextId', String(nextId));
     updateSaveIndicator('ok');
+    const pb = document.getElementById('gh-push-banner');
+    if (pb) pb.style.display = 'none';
   } catch(e) {
-    // 404 = file doesn't exist yet, other = network/auth error
-    const is404 = e.message && e.message.includes('404');
-    console.warn(is404 ? 'jobs.json not found — will create on first save' : 'GitHub load failed:', e.message);
-    // fall back to localStorage
+    const is404 = e.message && (e.message.includes('404') || e.message.includes('Not Found'));
+    const isBadCreds = e.message && (e.message.includes('401') || e.message.includes('Bad credentials'));
+    console.warn(is404 ? 'jobs.json not found' : 'GitHub load failed:', e.message);
     try {
       const saved = localStorage.getItem('vj_jobs');
       if (saved) {
         jobs = JSON.parse(saved);
         nextId = parseInt(localStorage.getItem('vj_nextId') || '8');
-        updateSaveIndicator(is404 ? 'ok' : 'error');
       } else {
         jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
         nextId = 8;
-        updateSaveIndicator(is404 ? 'ok' : 'error');
-        // Create the file immediately on first load
-        if (is404) await saveJobs();
       }
     } catch(e2) {
       jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
       nextId = 8;
+    }
+    if (is404 && getGHToken()) {
+      // jobs.json doesn't exist yet — show push button
+      const pb = document.getElementById('gh-push-banner');
+      if (pb) pb.style.display = 'flex';
+      updateSaveIndicator('ok');
+    } else if (isBadCreds) {
+      // Bad token — show banner again
+      const gb = document.getElementById('gh-banner');
+      if (gb) gb.classList.remove('hidden');
+      updateSaveIndicator('error');
+    } else {
       updateSaveIndicator('error');
     }
   }
@@ -681,6 +699,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     setGHToken(token);
     document.getElementById('gh-banner').classList.add('hidden');
     showToast('GitHub token saved — syncing…');
+    _ghSha = null; // reset SHA so we fetch fresh
     await loadJobs();
     render();
   });
@@ -692,6 +711,13 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('gh-banner').classList.remove('hidden');
     document.getElementById('api-banner').classList.remove('hidden');
     showToast('Keys cleared — please re-enter');
+  });
+
+  document.getElementById('btn-push-to-gh').addEventListener('click', async () => {
+    showToast('Pushing to GitHub…');
+    await saveJobs();
+    document.getElementById('gh-push-banner').style.display = 'none';
+    showToast('Pushed! Data now shared with your team.');
   });
 
   // Static button wiring
@@ -761,11 +787,11 @@ function processFile(file) {
           if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
         });
         let trimmed = text;
-        if (text.length > 5000) {
-          trimmed = text.slice(0, 5000);
+        if (text.length > 7000) {
+          trimmed = text.slice(0, 7000);
           const lastNewline = trimmed.lastIndexOf('\n');
-          if (lastNewline > 3000) trimmed = trimmed.slice(0, lastNewline);
-          trimmed += '\n[file truncated — drop remaining sheets separately if needed]';
+          if (lastNewline > 4000) trimmed = trimmed.slice(0, lastNewline);
+          trimmed += '\n[file truncated — drop remaining rows separately if needed]';
         }
         attachedFiles.push({ text: trimmed, name: file.name, isText: true });
         renderAttachedFiles();
@@ -1011,7 +1037,7 @@ NSW rate note: NSW roles use NSW Health standard commission rates. Use NSW produ
 Rules:
 - If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
 - If dates are given, calculate weeks = ceil((end - start) / 7).
-- Return ONLY the raw JSON array with no markdown, no explanation, no code fences.
+- CRITICAL: Return ONLY the raw JSON array. No markdown. No code fences. No explanation before or after. No "Here is..." or "Based on...". Start your response with [ and end with ]. Nothing else.
 - Never include hourlyRate in the output.`;
 
   try {
@@ -1025,7 +1051,7 @@ Rules:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 3000,
+        max_tokens: 6000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userContent }]
       })
@@ -1039,20 +1065,29 @@ Rules:
     const data = await resp.json();
     const raw = data.content.map(b => b.text || '').join('').trim();
 
-    // Robust JSON extraction — find the array even if wrapped in markdown or commentary
+    // Robust JSON extraction
     let clean = raw;
-    // Strip markdown code fences
     clean = clean.replace(/```json\s*/gi, '').replace(/```\s*/gi, '').trim();
-    // Extract just the JSON array — find first [ and last ]
-    const start = clean.indexOf('[');
-    const end = clean.lastIndexOf(']');
+
+    // Try to find array first
+    let start = clean.indexOf('[');
+    let end = clean.lastIndexOf(']');
+
+    // If no array, try wrapping a single object
+    if (start === -1) {
+      const objStart = clean.indexOf('{');
+      const objEnd = clean.lastIndexOf('}');
+      if (objStart !== -1 && objEnd !== -1) {
+        clean = '[' + clean.slice(objStart, objEnd + 1) + ']';
+        start = 0; end = clean.length - 1;
+      }
+    }
+
     if (start === -1 || end === -1 || end < start) throw new Error('No JSON array found in response. Try pasting just the email text without the attachment, or split into smaller emails.');
     clean = clean.slice(start, end + 1);
 
-    // Fix common JSON issues from truncated responses:
-    // Remove any trailing incomplete object
+    // Fix truncated responses
     clean = clean.replace(/,\s*\{[^}]*$/, '');
-    // Ensure array closes
     if (!clean.endsWith(']')) clean += ']';
 
     let parsed;
