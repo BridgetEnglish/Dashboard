@@ -2897,7 +2897,21 @@
       "startDate": "13/07/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 208,
+      "facility": "Royal Darwin Hospital",
+      "title": "Registered Nurse",
+      "ward": "Medical/Surgical",
+      "location": "Darwin, NT",
+      "band": "RN 2.1",
+      "fte": 10,
+      "hourlyRate": 53.5,
+      "weeks": 12,
+      "startDate": "23/03/2026",
+      "region": "NT",
+      "recurring": false
     }
   ],
-  "nextId": 208
+  "nextId": 209
 }
