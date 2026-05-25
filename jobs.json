@@ -3947,7 +3947,21 @@
       "startDate": "08/06/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 283,
+      "facility": "North West Hospital and Health Service",
+      "title": "Mental Health Clinician",
+      "ward": "Child and Youth Mental Health Service",
+      "location": "Mount Isa, QLD",
+      "band": "CNC NG6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 4,
+      "startDate": "04/05/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 283
+  "nextId": 284
 }
