@@ -285,6 +285,11 @@
     border-bottom: 1px solid var(--border-light);
     white-space: nowrap;
   }
+  th[data-sort] { cursor: pointer; user-select: none; }
+  th[data-sort]:hover { color: var(--text); }
+  th.sorted { color: var(--accent); }
+  .sort-icon { opacity: 0.3; margin-left: 3px; font-size: 10px; }
+  th.sorted .sort-icon { opacity: 1; color: var(--accent); }
   td {
     padding: 10px 12px;
     border-bottom: 1px solid var(--border-light);
@@ -498,15 +503,15 @@
         <thead>
           <tr>
             <th style="display:none;">Status</th>
-            <th>Facility</th>
-            <th>Job title</th>
-            <th>Location</th>
-            <th>Rate band</th>
-            <th style="text-align:center;">FTE</th>
-            <th>Start date</th>
-            <th>Length</th>
-            <th>Hourly rate</th>
-            <th>Contract value</th>
+            <th data-sort="facility" style="cursor:pointer;">Facility <span class="sort-icon" data-sort="facility"></span></th>
+            <th data-sort="title" style="cursor:pointer;">Job title <span class="sort-icon" data-sort="title"></span></th>
+            <th data-sort="location" style="cursor:pointer;">Location <span class="sort-icon" data-sort="location"></span></th>
+            <th data-sort="band" style="cursor:pointer;">Rate band <span class="sort-icon" data-sort="band"></span></th>
+            <th data-sort="fte" style="text-align:center;cursor:pointer;">FTE <span class="sort-icon" data-sort="fte"></span></th>
+            <th data-sort="startDate" style="cursor:pointer;">Start date <span class="sort-icon" data-sort="startDate"></span></th>
+            <th data-sort="weeks" style="cursor:pointer;">Length <span class="sort-icon" data-sort="weeks"></span></th>
+            <th data-sort="hourlyRate" style="cursor:pointer;">Hourly rate <span class="sort-icon" data-sort="hourlyRate"></span></th>
+            <th data-sort="value" style="cursor:pointer;">Contract value <span class="sort-icon" data-sort="value"></span></th>
             <th></th>
           </tr>
         </thead>
@@ -665,6 +670,8 @@ let jobs = [];
 let nextId = 8;
 let newIds = new Set();
 let activeTab = 'all';
+let sortCol = 'value';
+let sortDir = 'desc'; // 'asc' or 'desc'
 
 // ── API Key ─────────────────────────────────────────────
 function saveApiKey() {
@@ -680,6 +687,20 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadJobs();
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
+
+  // Column sort
+  document.querySelector('thead').addEventListener('click', e => {
+    const th = e.target.closest('th[data-sort]');
+    if (!th) return;
+    const col = th.dataset.sort;
+    if (sortCol === col) {
+      sortDir = sortDir === 'desc' ? 'asc' : 'desc';
+    } else {
+      sortCol = col;
+      sortDir = ['facility','title','location','band','startDate'].includes(col) ? 'asc' : 'desc';
+    }
+    render();
+  });
 
   // Tab switching
   document.querySelectorAll('.tab').forEach(btn => {
@@ -1206,11 +1227,12 @@ function renderValues() {
 }
 
 function renderMetrics() {
-  const activeJobs = jobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
+  const tabJobs = activeTab === 'all' ? jobs : jobs.filter(j => j.region === activeTab);
+  const activeJobs = tabJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
   const mFte = document.getElementById('m-fte'); if (mFte) mFte.textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
   const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
   const mVal = document.getElementById('m-value'); if (mVal) mVal.textContent = fmtMoney(totalVal);
-  const avgWeeks = activeJobs.length ? (activeJobs.reduce((s,j) => s + j.weeks, 0) / activeJobs.length).toFixed(1) : '—';
+  const avgWeeks = activeJobs.length ? (activeJobs.reduce((s,j) => s + (j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52)), 0) / activeJobs.length).toFixed(1) : '—';
   const mWeeks = document.getElementById('m-weeks'); if (mWeeks) mWeeks.textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
   const mLocs = document.getElementById('m-locs'); if (mLocs) mLocs.textContent = new Set(activeJobs.map(j => j.location)).size;
 }
@@ -1236,10 +1258,40 @@ function render() {
   } else {
     // Sort: active/upcoming by contract value desc, then recurring, then expired
     const statusOrder = { upcoming:0, active:0, recurring:1, expired:2, unknown:1 };
+
+    function getSortVal(j) {
+      switch(sortCol) {
+        case 'facility':    return j.facility.toLowerCase();
+        case 'title':       return j.title.toLowerCase();
+        case 'location':    return j.location.toLowerCase();
+        case 'band':        return j.band.toLowerCase();
+        case 'fte':         return j.fte;
+        case 'startDate':   return j.startDate || '';
+        case 'weeks':       return j.weeks || 0;
+        case 'hourlyRate':  return j.hourlyRate;
+        case 'value':       return contractValue(j);
+        default:            return contractValue(j);
+      }
+    }
+
     const sorted = [...visibleJobs].sort((a,b) => {
       const sa = statusOrder[jobStatus(a)], sb = statusOrder[jobStatus(b)];
       if (sa !== sb) return sa - sb;
-      return contractValue(b) - contractValue(a);
+      const av = getSortVal(a), bv = getSortVal(b);
+      if (av < bv) return sortDir === 'asc' ? -1 : 1;
+      if (av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    // Update sort indicators on headers
+    document.querySelectorAll('th[data-sort]').forEach(th => {
+      th.classList.remove('sorted', 'asc', 'desc');
+      const icon = th.querySelector('.sort-icon');
+      if (icon) icon.textContent = '↕';
+      if (th.dataset.sort === sortCol) {
+        th.classList.add('sorted', sortDir);
+        if (icon) icon.textContent = sortDir === 'asc' ? '↑' : '↓';
+      }
     });
 
     // Insert divider before first recurring/expired
