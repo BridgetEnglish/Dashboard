@@ -3905,7 +3905,21 @@
       "startDate": "11/05/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 280,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Medical G2 Ward",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "27/04/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 280
+  "nextId": 281
 }
