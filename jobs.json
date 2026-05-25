@@ -2477,7 +2477,35 @@
       "startDate": "",
       "region": "NT",
       "recurring": true
+    },
+    {
+      "id": 178,
+      "facility": "Tennant Creek Hospital",
+      "title": "Emergency Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Tennant Creek, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 12,
+      "startDate": "04/06/2026",
+      "region": "NT",
+      "recurring": false
+    },
+    {
+      "id": 179,
+      "facility": "Tennant Creek Hospital",
+      "title": "Emergency Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Tennant Creek, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 12,
+      "startDate": "23/06/2026",
+      "region": "NT",
+      "recurring": false
     }
   ],
-  "nextId": 178
+  "nextId": 180
 }
