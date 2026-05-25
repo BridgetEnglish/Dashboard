@@ -2771,7 +2771,21 @@
       "startDate": "30/07/2026",
       "region": "NT",
       "recurring": false
+    },
+    {
+      "id": 199,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "MHU Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "",
+      "region": "NT",
+      "recurring": false
     }
   ],
-  "nextId": 199
+  "nextId": 200
 }
