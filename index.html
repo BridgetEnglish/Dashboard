@@ -314,7 +314,7 @@
   .rate-wrap { display: flex; align-items: center; gap: 4px; }
   .rate-prefix { font-size: 12px; color: var(--text-muted); }
   .rate-input {
-    width: 62px;
+    width: 80px;
     border: 1px solid var(--border);
     border-radius: 5px;
     padding: 4px 6px;
@@ -514,7 +514,7 @@
       </table>
     </div>
     <div class="table-footer" id="table-footer">
-      Contract value = hourly rate × 40 hrs/wk × weeks × 1.20 (20% margin) × FTE
+      Contract value = profit only · QLD/NT: pay rate × 40hrs × weeks × 20% margin × FTE · NSW: commission rate × 40hrs × weeks × FTE
     </div>
   </div>
 
@@ -1144,8 +1144,8 @@ function remainingWeeks(j) {
 function contractValue(j) {
   var rw = remainingWeeks(j);
   var hrs = 40 * rw * j.fte;
-  if (j.region === 'NSW') return j.hourlyRate * hrs;
-  return j.hourlyRate * hrs * 1.20;
+  if (j.region === 'NSW') return j.hourlyRate * hrs; // commission rate is pure profit
+  return j.hourlyRate * hrs * 0.20; // 20% margin on pay rate
 }
 function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
 
@@ -1268,7 +1268,7 @@ function render() {
       }
 
       const recurringToggle = (status === 'expired' || status === 'recurring')
-        ? `<button data-recurring="${j.id}" title="${j.recurring ? 'Mark as not recurring' : 'Mark as recurring'}"
+        ? `<button data-recurring="${j.id}" title="${j.recurring ? 'Unmark recurring' : 'Mark as recurring'}"
             style="font-size:10px;padding:2px 7px;border-radius:99px;border:0.5px solid ${j.recurring ? '#EF9F27' : 'var(--border)'};
             background:${j.recurring ? '#FDF3E0' : 'transparent'};color:${j.recurring ? '#92580A' : 'var(--text-faint)'};cursor:pointer;margin-left:4px;font-family:inherit;">
             ↺ recurring
