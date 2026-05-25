@@ -3765,7 +3765,21 @@
       "startDate": "08/06/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 270,
+      "facility": "Townsville Hospital and Health Service",
+      "title": "Staff Specialist",
+      "ward": "Psychiatry - Acute Care Team / Rural Adult Inpatient",
+      "location": "Townsville, QLD",
+      "band": "Staff Specialist",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 11,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 270
+  "nextId": 271
 }
