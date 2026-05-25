@@ -3877,7 +3877,21 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 278,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Intensive Care Unit",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "11/05/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 278
+  "nextId": 279
 }
