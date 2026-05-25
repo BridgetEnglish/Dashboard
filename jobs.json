@@ -3863,7 +3863,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 277,
+      "facility": "Collinsville Multi-Purpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "",
+      "location": "Collinsville, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 12,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 277
+  "nextId": 278
 }
