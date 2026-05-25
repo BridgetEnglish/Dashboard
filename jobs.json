@@ -3779,7 +3779,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 271,
+      "facility": "St George Hospital",
+      "title": "Cardiac Surgery Perioperative Registered Nurse",
+      "ward": "Cardiac Surgery",
+      "location": "Kogarah, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 271
+  "nextId": 272
 }
