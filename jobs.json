@@ -2995,7 +2995,21 @@
       "startDate": "",
       "region": "NT",
       "recurring": true
+    },
+    {
+      "id": 215,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Nurse",
+      "ward": "",
+      "location": "Kingaroy, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "08/06/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 215
+  "nextId": 216
 }
