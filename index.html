@@ -1187,7 +1187,7 @@ function jobStatus(j) {
   const effectiveWeeks = j.weeks || defaultWeeks;
   const end = new Date(start); end.setDate(end.getDate() + (effectiveWeeks * 7));
   if (today < start) return 'upcoming';
-  if (today <= end)  return 'active';
+  if (today <= end && remainingWeeks(j) > 0) return 'active';
   return j.recurring ? 'recurring' : 'expired';
 }
 
