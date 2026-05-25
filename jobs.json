@@ -3331,7 +3331,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true
+    },
+    {
+      "id": 239,
+      "facility": "ASCC FMHT Alice Springs",
+      "title": "Forensic Mental Health Nurse",
+      "ward": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 12,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true
     }
   ],
-  "nextId": 239
+  "nextId": 240
 }
