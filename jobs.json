@@ -3158,7 +3158,7 @@
       "location": "Goondiwindi, QLD",
       "band": "SMO",
       "fte": 1,
-      "hourlyRate": 1,
+      "hourlyRate": 0,
       "weeks": 8,
       "startDate": "30/07/2026",
       "region": "QLD",
