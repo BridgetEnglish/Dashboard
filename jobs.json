@@ -3835,7 +3835,21 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true
+    },
+    {
+      "id": 275,
+      "facility": "Southern NSW Local Health District",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Cooma, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 15.21,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true
     }
   ],
-  "nextId": 275
+  "nextId": 276
 }
