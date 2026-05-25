@@ -736,12 +736,113 @@ var QLD_RATES = {
   'NP 8.1':96.73,'NP 8.2':96.73,'NP 8.3':96.73
 };
 
+// NSW standard commission rates per hour by classification and MMM band
+var NSW_RATES = {
+  'AIN/M1': { 'MMM1-2': 5.92,  'MMM3-4': 10.37, 'MMM5-7': 11.85 },
+  'AIN/M2': { 'MMM1-2': 6.11,  'MMM3-4': 10.70, 'MMM5-7': 12.23 },
+  'AIN/M3': { 'MMM1-2': 6.31,  'MMM3-4': 11.04, 'MMM5-7': 12.61 },
+  'AIN/M4': { 'MMM1-2': 6.50,  'MMM3-4': 11.38, 'MMM5-7': 13.00 },
+  'EN2':    { 'MMM1-2': 7.59,  'MMM3-4': 13.28, 'MMM5-7': 15.18 },
+  'EN3':    { 'MMM1-2': 7.75,  'MMM3-4': 13.56, 'MMM5-7': 15.50 },
+  'EN4':    { 'MMM1-2': 7.91,  'MMM3-4': 13.85, 'MMM5-7': 15.83 },
+  'EN5':    { 'MMM1-2': 8.07,  'MMM3-4': 14.13, 'MMM5-7': 16.15 },
+  'ENSG':   { 'MMM1-2': 8.32,  'MMM3-4': 14.56, 'MMM5-7': 16.64 },
+  'RN/M2':  { 'MMM1-2': 8.69,  'MMM3-4': 15.21, 'MMM5-7': 17.39 },
+  'RN/M3':  { 'MMM1-2': 9.14,  'MMM3-4': 16.00, 'MMM5-7': 18.28 },
+  'RN/M4':  { 'MMM1-2': 9.62,  'MMM3-4': 16.84, 'MMM5-7': 19.25 },
+  'RN/M5':  { 'MMM1-2': 10.27, 'MMM3-4': 17.98, 'MMM5-7': 20.55 },
+  'RN/M6':  { 'MMM1-2': 10.58, 'MMM3-4': 18.51, 'MMM5-7': 21.15 },
+  'RN/M7':  { 'MMM1-2': 11.12, 'MMM3-4': 19.46, 'MMM5-7': 22.24 },
+  'RN/M8':  { 'MMM1-2': 11.58, 'MMM3-4': 20.26, 'MMM5-7': 23.15 },
+  'CN/MSG2-1': { 'MMM1-2': 12.94, 'MMM3-4': 22.65, 'MMM5-7': 25.88 },
+  'CN/MSG2-2': { 'MMM1-2': 13.37, 'MMM3-4': 23.39, 'MMM5-7': 26.73 },
+  'N/MUM1': { 'MMM1-2': 14.52, 'MMM3-4': 25.42, 'MMM5-7': 29.05 },
+  'N/MUM2': { 'MMM1-2': 15.21, 'MMM3-4': 26.62, 'MMM5-7': 30.42 },
+  'N/MUM3': { 'MMM1-2': 15.62, 'MMM3-4': 27.34, 'MMM5-7': 31.24 },
+};
+
+// NSW hospital → MMM rating lookup (from MMM spreadsheet)
+var NSW_MMM = {
+  // MMM 1
+  'gosford':1,'woy woy':1,'wyong':1,'armidale':3,'belmont':1,'cessnock':1,'john hunter':1,
+  'maitland':1,'manning':3,'moree':5,'muswellbrook':3,'narrabri':4,'scone':4,'singleton':1,
+  'tamworth':3,'taree':3,'tenterfield':5,'tomaree':1,'calvary mater':1,'inverell':4,'glen innes':4,
+  'gunnedah':4,'barraba':5,'bingara':5,'boggabri':5,'bulahdelah':5,'dungog':5,'gloucester':5,
+  'guyra':5,'emmaville':5,'lightning ridge':6,'walgett':6,'narromine':5,'coonabarabran':5,
+  'hornsby':1,'macquarie':1,'mona vale':1,'royal north shore':1,'ryde':1,
+  'garrawarra':2,'calvary healthcare':1,'prince of wales':1,'royal hospital for women':1,
+  'st george':1,'sutherland':1,'sydney eye':1,'war memorial':1,
+  'bankstown':1,'bowral':3,'camden':1,'campbelltown':1,'fairfield':1,'liverpool':1,
+  "batemans bay":4,'bega':5,'bombala':5,'braidwood':5,'cooma':4,'crookwell':5,
+  'delegate':5,'goulburn':3,'moruya':5,'pambula':4,'queanbeyan':1,'yass':4,
+  'auburn':1,'blacktown':1,'cumberland':1,'mount druitt':1,'westmead':1,
+  "sydney children":1,'concord':1,'royal prince alfred':1,'balmain':1,'canterbury':1,
+  'ballina':3,'bonalbo':5,'byron':4,'casino':4,'grafton':3,'kyogle':5,
+  'lismore':3,'maclean':5,'murwillumbah':1,'nimbin':5,'tweed':1,'urbenville':5,
+  // MMM 3-4
+  'bathurst':3,'blayney':5,'bourke':6,'brewarrina':7,'canowindra':5,'cobar':6,
+  'collarenebri':6,'condobolin':5,'coolah':5,'coonamble':6,'cowra':4,'cudal':5,
+  'dubbo':3,'dunedoo':5,'eugowra':5,'forbes':4,'gilgandra':5,'goodooga':7,
+  'grenfell':5,'gulargambone':5,'gulgong':5,'molong':5,'mudgee':4,'narromine':5,
+  'nyngan':6,'oberon':5,'orange':3,'parkes':4,'peak hill':5,'rylstone':5,
+  'tottenham':6,'trangie':5,'trundle':5,'tullamore':5,'warren':5,'wellington':5,
+  'wagga wagga':3,'tumut':4,'young':4,'leeton':4,'griffith':3,'deniliquin':4,
+  'finley':5,'hay':6,'hillston':6,'jerilderie':5,'junee':5,'lockhart':5,
+  'narrandera':5,'temora':5,'tocumwal':5,'tumbarumba':5,'urana':5,'west wyalong':5,
+  'lithgow':4,'portland':5,'broken hill':6,'wentworth':6,'balranald':6,'dareton':5,
+  'ivanhoe':7,'menindee':7,'tibooburra':7,'wilcannia':7,'baradine':6,
+  // MMM 5-7 remote
+  'lord howe':7,'goodooga':7,'brewarrina':7,
+};
+
+function getNSWMmm(location) {
+  var loc = (location || '').toLowerCase();
+  // Try to match any hospital name keyword in the location string
+  for (var key in NSW_MMM) {
+    if (loc.includes(key)) return NSW_MMM[key];
+  }
+  return 3; // default MMM3-4 if unknown NSW location
+}
+
+function getNSWMmmBand(mmm) {
+  if (mmm <= 2) return 'MMM1-2';
+  if (mmm <= 4) return 'MMM3-4';
+  return 'MMM5-7';
+}
+
+function getNSWRate(band, location) {
+  var mmm = getNSWMmm(location);
+  var mmmBand = getNSWMmmBand(mmm);
+
+  // Try exact match
+  if (NSW_RATES[band] && NSW_RATES[band][mmmBand]) return NSW_RATES[band][mmmBand];
+
+  // Try to map common band descriptions to NSW codes
+  var b = (band || '').toUpperCase();
+  if (/RN.?M?8|8TH|8 YR/i.test(b)) return NSW_RATES['RN/M8'][mmmBand];
+  if (/RN.?M?7|7TH|7 YR/i.test(b)) return NSW_RATES['RN/M7'][mmmBand];
+  if (/RN.?M?6|6TH|6 YR/i.test(b)) return NSW_RATES['RN/M6'][mmmBand];
+  if (/RN.?M?5|5TH|5 YR/i.test(b)) return NSW_RATES['RN/M5'][mmmBand];
+  if (/RN.?M?4|4TH|4 YR/i.test(b)) return NSW_RATES['RN/M4'][mmmBand];
+  if (/RN.?M?3|3RD|3 YR/i.test(b)) return NSW_RATES['RN/M3'][mmmBand];
+  if (/CN|CLINICAL NURSE SPEC/i.test(b)) return NSW_RATES['CN/MSG2-1'][mmmBand];
+  if (/NUM|UNIT MANAGER/i.test(b)) return NSW_RATES['N/MUM1'][mmmBand];
+  if (/EN|ENROLLED/i.test(b)) return NSW_RATES['EN2'][mmmBand];
+  if (/AIN|ASSISTANT/i.test(b)) return NSW_RATES['AIN/M1'][mmmBand];
+
+  // Default: RN/M2
+  return NSW_RATES['RN/M2'][mmmBand];
+}
+
 function autoRate(job) {
   var band = (job.band || '').trim();
   var region = job.region || '';
   var title = (job.title || '').toLowerCase();
 
-  // Midwife match — band "MW" or title contains midwife
+  // NSW — commission rate, no margin
+  if (region === 'NSW') return getNSWRate(band, job.location);
+
+  // Midwife match
   if (/^MW$/i.test(band) || /midwife/i.test(band) || /midwife/i.test(title)) {
     return region === 'NT' ? 53.50 : 52.33;
   }
@@ -757,18 +858,16 @@ function autoRate(job) {
       var base = 'RN ' + m[1] + '.1';
       if (NT_RATES[base]) return NT_RATES[base];
     }
-    // Level codes e.g. "N2", "N3", "N4", "N5" or "RN N2"
     var lm = band.match(/N(\d)/i);
     if (lm) {
       var lvl = parseInt(lm[1]);
-      // N2 = RN 2.x, N3 = RN 3.x, N4 = RN 4.x, N5 = RN 5.x
       var ntLvlMap = {2:'RN 2.1', 3:'RN 3.1', 4:'RN 4.1', 5:'RN 5.1'};
       if (ntLvlMap[lvl] && NT_RATES[ntLvlMap[lvl]]) return NT_RATES[ntLvlMap[lvl]];
     }
-    return 53.50; // NT default RN 2.1
+    return 53.50;
   }
 
-  // QLD / NSW / Other
+  // QLD / Other
   if (QLD_RATES[band]) return QLD_RATES[band];
   var qm = band.match(/RN\s*(?:Grade\s*)?(\d+)(?:\.(\d+))?/i);
   if (qm) {
@@ -817,6 +916,8 @@ Each object must have these exact fields:
 - recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
 
 NT Health rate note: NT roles use NT Health EA pay rates. Map NT grades as follows — N2/RN 2.x = normal RN ($53.50 base), N3/RN 3.x = in charge/clinical nurse ($73.73 base), N4/RN 4.x = CNC/remote area nurse/senior MH/home birth ($82.05 base), N5/RN 5.x = management ($90.36 base). Default to RN 2.1 if grade is unknown. Use the grade as the band field e.g. "RN 4.1".
+
+NSW rate note: NSW roles use NSW Health standard commission rates. Use NSW product classification codes as the band field: RN/M2 (2nd yr RN, default if unknown), RN/M3, RN/M4, RN/M5, RN/M6, RN/M7, RN/M8, CN/MSG2-1, CN/MSG2-2, N/MUM1, N/MUM2, N/MUM3, EN2-EN5, ENSG, AIN/M1-AIN/M4. The commission rate varies by MMM location so always include the full location.
 
 Rules:
 - If multiple distinct roles are in the email, return one object per role. All roles in the same email share the same region.
@@ -908,14 +1009,19 @@ function setStatus(html, type) {
 function remainingWeeks(j) {
   const start = parseDate(j.startDate);
   const today = new Date(); today.setHours(0,0,0,0);
-  const totalWeeks = j.weeks || 52;
+  const totalWeeks = j.weeks || (j.region === 'NSW' ? 8 : 52);
   if (!start) return totalWeeks; // no date — use full value
   if (today < start) return totalWeeks; // not started yet — full value
   const weeksElapsed = Math.floor((today - start) / (7 * 24 * 60 * 60 * 1000));
   const remaining = totalWeeks - weeksElapsed;
   return Math.max(0, remaining);
 }
-function contractValue(j) { return j.hourlyRate * 40 * remainingWeeks(j) * 1.20 * j.fte; }
+function contractValue(j) {
+  var rw = remainingWeeks(j);
+  var hrs = 40 * rw * j.fte;
+  if (j.region === 'NSW') return j.hourlyRate * hrs;
+  return j.hourlyRate * hrs * 1.20;
+}
 function fmtMoney(n) { return n === 0 ? '—' : '$' + Math.round(n).toLocaleString(); }
 
 // Parse DD/MM/YYYY into a Date
@@ -1018,10 +1124,11 @@ function render() {
       const sc = STATUS_CONFIG[status];
       const isDimmed = (status === 'expired' || status === 'recurring');
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
-      const totalWks = j.weeks || 52;
+      const totalWks = j.weeks || (j.region === 'NSW' ? 8 : 52);
       const remWks = remainingWeeks(j);
-      const contractLen = totalWks === 0 ? 'Ongoing' :
-        remWks < totalWks
+      const contractLen = j.weeks === 0 && j.region !== 'NSW'
+        ? 'Ongoing'
+        : remWks < totalWks
           ? `${remWks}w left / ${totalWks}w total`
           : `${totalWks}w / ${(totalWks * 40).toLocaleString()}hrs`;
       const dimStyle = isDimmed ? 'opacity:0.45;' : '';
