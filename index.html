@@ -518,61 +518,111 @@ const DEFAULT_JOBS = [
 ];
 
 // ── GitHub persistence ───────────────────────────────────
-function getGHToken() { return ''; }
-function saveGHToken(t) {}
+const GH_OWNER  = 'BridgetEnglish';
+const GH_REPO   = 'Dashboard';
+const GH_FILE   = 'jobs.json';
+const GH_BRANCH = 'main';
+const GH_TOKEN  = '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';
 
-function saveJobs() {
-  try {
-    localStorage.setItem('vj_jobs', JSON.stringify(jobs));
-    localStorage.setItem('vj_nextId', String(nextId));
-    localStorage.setItem('vj_saved', new Date().toISOString());
-    updateSaveIndicator(true);
-  } catch(e) {
-    console.warn('Could not save jobs', e);
-    updateSaveIndicator(false);
+let _ghSha = null;
+
+async function ghRequest(method, body) {
+  const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
+  const resp = await fetch(url, {
+    method,
+    headers: {
+      'Authorization': `token ${GH_TOKEN}`,
+      'Content-Type': 'application/json',
+      'Accept': 'application/vnd.github.v3+json'
+    },
+    body: body ? JSON.stringify(body) : undefined
+  });
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error(err.message || `GitHub ${resp.status}`);
   }
+  return resp.json();
 }
 
 async function loadJobs() {
+  updateSaveIndicator('syncing');
   try {
-    localStorage.setItem('vj_test', '1');
-    localStorage.removeItem('vj_test');
+    const data = await ghRequest('GET');
+    const content = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    jobs = content.jobs || DEFAULT_JOBS.map(j => Object.assign({}, j));
+    nextId = content.nextId || jobs.reduce((m,j) => Math.max(m,j.id), 0) + 1;
+    _ghSha = data.sha;
+    // also cache locally as backup
+    localStorage.setItem('vj_jobs', JSON.stringify(jobs));
+    localStorage.setItem('vj_nextId', String(nextId));
+    updateSaveIndicator('ok');
   } catch(e) {
-    jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
-    nextId = 8;
-    updateSaveIndicator(false);
-    return;
-  }
-  try {
-    const saved = localStorage.getItem('vj_jobs');
-    const savedId = localStorage.getItem('vj_nextId');
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      const savedIds = new Set(parsed.map(j => j.id));
-      const missing = DEFAULT_JOBS.filter(j => !savedIds.has(j.id));
-      jobs = [...parsed, ...missing];
-      nextId = savedId ? parseInt(savedId) : jobs.reduce((m,j) => Math.max(m,j.id),0) + 1;
-      saveJobs();
-      return;
+    console.warn('GitHub load failed, trying localStorage:', e.message);
+    // fallback to localStorage
+    try {
+      const saved = localStorage.getItem('vj_jobs');
+      if (saved) {
+        jobs = JSON.parse(saved);
+        nextId = parseInt(localStorage.getItem('vj_nextId') || '8');
+      } else {
+        jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
+        nextId = 8;
+      }
+    } catch(e2) {
+      jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
+      nextId = 8;
     }
-  } catch(e) { console.warn('Could not load jobs', e); }
-  jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
-  nextId = 8;
-  saveJobs();
+    updateSaveIndicator('error');
+  }
 }
 
-function updateSaveIndicator(ok) {
+async function saveJobs() {
+  // Always cache locally first (instant)
+  try {
+    localStorage.setItem('vj_jobs', JSON.stringify(jobs));
+    localStorage.setItem('vj_nextId', String(nextId));
+  } catch(e) {}
+
+  // Then save to GitHub
+  updateSaveIndicator('saving');
+  try {
+    // Get latest SHA if we don't have it
+    if (!_ghSha) {
+      try {
+        const current = await ghRequest('GET');
+        _ghSha = current.sha;
+      } catch(e) { /* file doesn't exist yet — first save */ }
+    }
+
+    const payload = JSON.stringify({ jobs, nextId }, null, 2);
+    const content = btoa(unescape(encodeURIComponent(payload)));
+    const body = {
+      message: `jobs update ${new Date().toISOString()}`,
+      content,
+      branch: GH_BRANCH,
+      ...(  _ghSha ? { sha: _ghSha } : {})
+    };
+    const result = await ghRequest('PUT', body);
+    _ghSha = result.content.sha;
+    updateSaveIndicator('ok');
+  } catch(e) {
+    console.warn('GitHub save failed:', e.message);
+    updateSaveIndicator('error');
+  }
+}
+
+function updateSaveIndicator(state) {
   const el = document.getElementById('save-indicator');
   if (!el) return;
-  if (ok) {
-    const t = localStorage.getItem('vj_saved');
-    const d = t ? new Date(t) : new Date();
-    el.textContent = 'Saved ' + d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
-    el.style.color = 'var(--text-faint)';
-  } else {
-    el.textContent = '⚠ Storage unavailable — data won\'t persist';
-    el.style.color = 'var(--amber)';
-  }
+  const states = {
+    ok:      { text: '☁ Saved',        color: 'var(--text-faint)' },
+    saving:  { text: '☁ Saving…',      color: 'var(--text-faint)' },
+    syncing: { text: '☁ Syncing…',     color: 'var(--text-faint)' },
+    error:   { text: '⚠ GitHub sync failed — using local cache', color: 'var(--amber)' }
+  };
+  const s = states[state] || states.ok;
+  el.textContent = s.text;
+  el.style.color = s.color;
 }
 
 let jobs = [];
@@ -591,7 +641,6 @@ function saveApiKey() {
 function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', async () => {
   await loadJobs();
-  updateSaveIndicator(!!localStorage.getItem('vj_saved'));
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
 
@@ -672,11 +721,11 @@ function processFile(file) {
           if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
         });
         let trimmed = text;
-        if (text.length > 8000) {
-          trimmed = text.slice(0, 8000);
+        if (text.length > 5000) {
+          trimmed = text.slice(0, 5000);
           const lastNewline = trimmed.lastIndexOf('\n');
-          if (lastNewline > 4000) trimmed = trimmed.slice(0, lastNewline);
-          trimmed += '\n[file truncated]';
+          if (lastNewline > 3000) trimmed = trimmed.slice(0, lastNewline);
+          trimmed += '\n[file truncated — drop remaining sheets separately if needed]';
         }
         attachedFiles.push({ text: trimmed, name: file.name, isText: true });
         renderAttachedFiles();
@@ -936,7 +985,7 @@ Rules:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 8000,
+        max_tokens: 3000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userContent }]
       })
@@ -981,7 +1030,8 @@ Rules:
     parsed.forEach(j => {
       const id = nextId++;
       newIds.add(id);
-      const newJob = { id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring };
+      const isOngoing = !Number(j.weeks);
+      const newJob = { id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring || (isOngoing && j.region === 'NT') };
       newJob.hourlyRate = autoRate(newJob);
       jobs.push(newJob);
       added++;
@@ -1009,7 +1059,7 @@ function setStatus(html, type) {
 function remainingWeeks(j) {
   const start = parseDate(j.startDate);
   const today = new Date(); today.setHours(0,0,0,0);
-  const totalWeeks = j.weeks || (j.region === 'NSW' ? 8 : 52);
+  const totalWeeks = j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52);
   if (!start) return totalWeeks; // no date — use full value
   if (today < start) return totalWeeks; // not started yet — full value
   const weeksElapsed = Math.floor((today - start) / (7 * 24 * 60 * 60 * 1000));
@@ -1124,7 +1174,7 @@ function render() {
       const sc = STATUS_CONFIG[status];
       const isDimmed = (status === 'expired' || status === 'recurring');
       const badgeClass = j.weeks <= 4 ? 'badge-amber' : j.weeks <= 12 ? 'badge-blue' : 'badge-green';
-      const totalWks = j.weeks || (j.region === 'NSW' ? 8 : 52);
+      const totalWks = j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52);
       const remWks = remainingWeeks(j);
       const contractLen = j.weeks === 0 && j.region !== 'NSW'
         ? 'Ongoing'
