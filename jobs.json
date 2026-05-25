@@ -2925,7 +2925,21 @@
       "startDate": "31/03/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 210,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Clinical Nurse Specialist",
+      "ward": "CATT Crisis",
+      "location": "Alice Springs, NT",
+      "band": "RN 3.1",
+      "fte": 4,
+      "hourlyRate": 73.73,
+      "weeks": 6,
+      "startDate": "04/06/2026",
+      "region": "NT",
+      "recurring": false
     }
   ],
-  "nextId": 210
+  "nextId": 211
 }
