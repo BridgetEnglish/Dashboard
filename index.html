@@ -406,6 +406,16 @@
     <button class="btn btn-primary btn-sm" id="btn-save-key">Save key</button>
   </div>
 
+  <!-- GitHub Token Banner -->
+  <div class="api-banner" id="gh-banner" style="background:var(--accent-light);border-color:#9FE1CB;">
+    <div class="api-banner-text">
+      <div class="api-banner-title" style="color:var(--accent-text);">GitHub token required for shared data</div>
+      <div class="api-banner-desc">Paste your token — saved locally in your browser only, never shared.</div>
+    </div>
+    <input class="api-key-input" id="gh-token-input" type="password" placeholder="ghp_..." />
+    <button class="btn btn-primary btn-sm" id="btn-save-gh-token">Save token</button>
+  </div>
+
   <!-- Metrics -->
   <div class="metrics">
     <div class="metric">
@@ -522,7 +532,9 @@ const GH_OWNER  = 'BridgetEnglish';
 const GH_REPO   = 'Dashboard';
 const GH_FILE   = 'jobs.json';
 const GH_BRANCH = 'main';
-const GH_TOKEN  = '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';
+
+function getGHToken() { return localStorage.getItem('gh_token') || ''; }
+function setGHToken(t) { localStorage.setItem('gh_token', t); }
 
 let _ghSha = null;
 
@@ -531,7 +543,7 @@ async function ghRequest(method, body) {
   const resp = await fetch(url, {
     method,
     headers: {
-      'Authorization': `token ${GH_TOKEN}`,
+      'Authorization': `token ${getGHToken()}`,
       'Content-Type': 'application/json',
       'Accept': 'application/vnd.github.v3+json'
     },
@@ -645,6 +657,7 @@ function saveApiKey() {
 }
 function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
 window.addEventListener('DOMContentLoaded', async () => {
+  if (getGHToken()) document.getElementById('gh-banner').classList.add('hidden');
   await loadJobs();
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
@@ -657,6 +670,18 @@ window.addEventListener('DOMContentLoaded', async () => {
       btn.classList.add('active');
       render();
     });
+  });
+
+  document.getElementById('btn-save-gh-token').addEventListener('click', async () => {
+    const token = document.getElementById('gh-token-input').value.trim();
+    if (!token.startsWith('ghp_') && !token.startsWith('github_pat_')) {
+      showToast('Token should start with ghp_ or github_pat_'); return;
+    }
+    setGHToken(token);
+    document.getElementById('gh-banner').classList.add('hidden');
+    showToast('GitHub token saved — syncing…');
+    await loadJobs();
+    render();
   });
 
   // Static button wiring
