@@ -446,9 +446,9 @@
       <div id="drop-zone">
         <div id="dz-inner">
           <div class="dz-icon">📎</div>
-          <div class="dz-label">Drop PDF, Word or Excel attachment here</div>
-          <div class="dz-sub">or <label for="file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline;">browse</label></div>
-          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls" style="display:none;" />
+          <div class="dz-label">Drop PDF, Word or Excel attachments here</div>
+          <div class="dz-sub">Multiple files supported · or <label for="file-input" style="color:var(--accent);cursor:pointer;text-decoration:underline;">browse</label></div>
+          <input type="file" id="file-input" accept=".pdf,.doc,.docx,.xlsx,.xls" style="display:none;" multiple />
         </div>
       </div>
       <div id="attached-file" style="display:none;margin-top:8px;display:none;align-items:center;gap:8px;">
@@ -517,6 +517,10 @@ const DEFAULT_JOBS = [
   { id:7, facility:"Mackay Base Hospital",    title:"Registered Midwife",       ward:"Women's Health",   location:"Mackay, QLD",       band:"Midwife Grade 5",    fte:1,  hourlyRate:52.33, weeks:6, startDate:"19/01/2026", region:"QLD", recurring:false }
 ];
 
+// ── GitHub persistence ───────────────────────────────────
+function getGHToken() { return ''; }
+function saveGHToken(t) {}
+
 function saveJobs() {
   try {
     localStorage.setItem('vj_jobs', JSON.stringify(jobs));
@@ -529,13 +533,11 @@ function saveJobs() {
   }
 }
 
-function loadJobs() {
+async function loadJobs() {
   try {
-    // Test if localStorage works at all
     localStorage.setItem('vj_test', '1');
     localStorage.removeItem('vj_test');
   } catch(e) {
-    console.warn('localStorage blocked — likely iframe restriction', e);
     jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
     nextId = 8;
     updateSaveIndicator(false);
@@ -546,7 +548,6 @@ function loadJobs() {
     const savedId = localStorage.getItem('vj_nextId');
     if (saved) {
       const parsed = JSON.parse(saved);
-      // Merge: keep saved jobs, add any default jobs not already present
       const savedIds = new Set(parsed.map(j => j.id));
       const missing = DEFAULT_JOBS.filter(j => !savedIds.has(j.id));
       jobs = [...parsed, ...missing];
@@ -555,7 +556,6 @@ function loadJobs() {
       return;
     }
   } catch(e) { console.warn('Could not load jobs', e); }
-  // First ever load — use defaults
   jobs = DEFAULT_JOBS.map(j => Object.assign({}, j));
   nextId = 8;
   saveJobs();
@@ -589,8 +589,8 @@ function saveApiKey() {
   showToast('API key saved');
 }
 function getApiKey() { return localStorage.getItem('anthropic_api_key') || ''; }
-window.addEventListener('DOMContentLoaded', () => {
-  loadJobs();
+window.addEventListener('DOMContentLoaded', async () => {
+  await loadJobs();
   updateSaveIndicator(!!localStorage.getItem('vj_saved'));
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
@@ -622,6 +622,14 @@ window.addEventListener('DOMContentLoaded', () => {
   dz.addEventListener('dragleave', () => dz.classList.remove('dz-over'));
   dz.addEventListener('drop', handleDrop);
 
+  document.getElementById('attached-name').addEventListener('click', e => {
+    const idx = e.target.dataset.removeattachment;
+    if (idx !== undefined) {
+      attachedFiles.splice(parseInt(idx), 1);
+      renderAttachedFiles();
+    }
+  });
+
   // Event delegation for dynamic table rows
   document.getElementById('jobs-tbody').addEventListener('change', e => {
     if (e.target.dataset.rateid) updateRate(Number(e.target.dataset.rateid), e.target.value);
@@ -635,30 +643,26 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── Parser toggle ────────────────────────────────────────
-let attachedFile = null; // { base64, mediaType, name }
+let attachedFiles = [];
 
 function handleDrop(e) {
   e.preventDefault();
   document.getElementById('drop-zone').classList.remove('dz-over');
-  const file = e.dataTransfer.files[0];
-  if (file) processFile(file);
+  if (e.dataTransfer.files.length) Array.from(e.dataTransfer.files).forEach(processFile);
 }
 
 function handleFileInput(files) {
-  if (files[0]) processFile(files[0]);
+  if (files.length) Array.from(files).forEach(processFile);
 }
 
 function processFile(file) {
-  const allowed = ['application/pdf','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/msword'];
   const isPdf = file.type === 'application/pdf';
   const isDocx = file.name.endsWith('.docx') || file.name.endsWith('.doc');
   const isExcel = file.name.endsWith('.xlsx') || file.name.endsWith('.xls');
-  if (!isPdf && !isDocx && !isExcel) { setStatus('Only PDF, Word (.docx) or Excel (.xlsx) files are supported.', 'error'); return; }
+  if (!isPdf && !isDocx && !isExcel) { setStatus('Only PDF, Word or Excel files supported.', 'error'); return; }
 
   const reader = new FileReader();
-
   if (isExcel) {
-    // Read Excel via SheetJS — convert to text and send as plain text content
     reader.onload = e => {
       try {
         const wb = XLSX.read(e.target.result, { type: 'array' });
@@ -667,40 +671,45 @@ function processFile(file) {
           const csv = XLSX.utils.sheet_to_csv(wb.Sheets[name]);
           if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
         });
-        // Truncate at a row boundary to avoid cutting mid-data
         let trimmed = text;
         if (text.length > 8000) {
           trimmed = text.slice(0, 8000);
           const lastNewline = trimmed.lastIndexOf('\n');
           if (lastNewline > 4000) trimmed = trimmed.slice(0, lastNewline);
-          trimmed += '\n[file truncated — paste email text above for additional context]';
+          trimmed += '\n[file truncated]';
         }
-        attachedFile = { text: trimmed, name: file.name, isText: true };
-        document.getElementById('attached-name').textContent = '📎 ' + file.name;
-        document.getElementById('attached-file').style.display = 'flex';
-        setStatus('', '');
-      } catch(err) {
-        setStatus('Could not read Excel file: ' + err.message, 'error');
-      }
+        attachedFiles.push({ text: trimmed, name: file.name, isText: true });
+        renderAttachedFiles();
+      } catch(err) { setStatus('Could not read Excel: ' + err.message, 'error'); }
     };
     reader.readAsArrayBuffer(file);
   } else {
     reader.onload = e => {
       const base64 = e.target.result.split(',')[1];
       const mediaType = isPdf ? 'application/pdf' : 'application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-      attachedFile = { base64, mediaType, name: file.name, isText: false };
-      document.getElementById('attached-name').textContent = '📎 ' + file.name;
-      document.getElementById('attached-file').style.display = 'flex';
-      setStatus('', '');
+      attachedFiles.push({ base64, mediaType, name: file.name, isText: false });
+      renderAttachedFiles();
     };
     reader.readAsDataURL(file);
   }
 }
 
+function renderAttachedFiles() {
+  const container = document.getElementById('attached-file');
+  const nameEl = document.getElementById('attached-name');
+  if (!attachedFiles.length) { container.style.display = 'none'; nameEl.innerHTML = ''; return; }
+  container.style.display = 'flex';
+  nameEl.innerHTML = attachedFiles.map((f, i) =>
+    `<span style="background:var(--accent-light);color:var(--accent-text);padding:3px 10px;border-radius:99px;font-size:12px;font-weight:500;display:inline-flex;align-items:center;gap:6px;">
+      📎 ${esc(f.name)}
+      <span data-removeattachment="${i}" style="cursor:pointer;opacity:0.6;font-size:11px;">✕</span>
+    </span>`
+  ).join('');
+}
+
 function clearAttachment() {
-  attachedFile = null;
-  document.getElementById('attached-file').style.display = 'none';
-  document.getElementById('attached-name').textContent = '';
+  attachedFiles = [];
+  renderAttachedFiles();
   document.getElementById('file-input').value = '';
 }
 
@@ -778,21 +787,20 @@ async function parseEmail() {
   const apiKey = getApiKey();
   if (!apiKey) { setStatus('Please enter your Anthropic API key above first.', 'error'); return; }
   const emailText = document.getElementById('email-input').value.trim();
-  if (!emailText && !attachedFile) { setStatus('Please paste an email or drop an attachment first.', 'error'); return; }
+  if (!emailText && !attachedFiles.length) { setStatus('Please paste an email or drop an attachment first.', 'error'); return; }
 
   setStatus('<span class="spinner"></span>Parsing…', 'loading');
 
-  // Build message content — text + optional document
+  // Build message content — text + optional documents
   const userContent = [];
-  if (attachedFile) {
-    if (attachedFile.isText) {
-      // Excel converted to CSV text
-      userContent.push({ type: 'text', text: `Attached file (${attachedFile.name}):\n${attachedFile.text}` });
+  attachedFiles.forEach(f => {
+    if (f.isText) {
+      userContent.push({ type: 'text', text: `Attached file (${f.name}):\n${f.text}` });
     } else {
-      userContent.push({ type: 'document', source: { type: 'base64', media_type: attachedFile.mediaType, data: attachedFile.base64 } });
+      userContent.push({ type: 'document', source: { type: 'base64', media_type: f.mediaType, data: f.base64 } });
     }
-  }
-  userContent.push({ type: 'text', text: emailText || 'Please extract all job placement details from the attached document.' });
+  });
+  userContent.push({ type: 'text', text: emailText || 'Please extract all job placement details from the attached document(s).' });
 
   const systemPrompt = `You are a data extraction assistant for a healthcare staffing agency dashboard. 
 Extract job placement details from healthcare job emails and return ONLY a valid JSON array.
@@ -881,8 +889,7 @@ Rules:
     render();
     saveJobs();
     document.getElementById('email-input').value = '';
-    clearAttachment();
-    setStatus(`✓ Added ${added} role${added>1?'s':''} to the dashboard.`, 'success');
+    clearAttachment();    setStatus(`✓ Added ${added} role${added>1?'s':''} to the dashboard.`, 'success');
     showToast(`${added} role${added>1?'s':''} added`);
     setTimeout(() => { newIds.clear(); render(); }, 4000);
 
