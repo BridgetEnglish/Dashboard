@@ -3669,20 +3669,6 @@
       "recurring": true
     },
     {
-      "id": 263,
-      "facility": "Warwick Hospital",
-      "title": "Registered Midwife",
-      "ward": "rm caseload midwife sd",
-      "location": "Warwick, QLD",
-      "band": "Midwife Grade 5",
-      "fte": 1,
-      "hourlyRate": 52.33,
-      "weeks": 4,
-      "startDate": "01/06/2026",
-      "region": "QLD",
-      "recurring": false
-    },
-    {
       "id": 264,
       "facility": "Kingaroy Hospital",
       "title": "Registered Nurse",
