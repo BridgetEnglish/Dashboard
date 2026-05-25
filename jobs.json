@@ -3723,7 +3723,49 @@
       "startDate": "20/04/2026",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 267,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "25/05/2026",
+      "region": "QLD",
+      "recurring": false
+    },
+    {
+      "id": 268,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 7,
+      "startDate": "01/06/2026",
+      "region": "QLD",
+      "recurring": false
+    },
+    {
+      "id": 269,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 10,
+      "hourlyRate": 52.33,
+      "weeks": 6,
+      "startDate": "08/06/2026",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 267
+  "nextId": 270
 }
