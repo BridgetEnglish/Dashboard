@@ -4255,7 +4255,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 305,
+      "facility": "Thursday Island Hospital",
+      "title": "Clinical Midwife Consultant",
+      "ward": "",
+      "location": "Thursday Island, QLD",
+      "band": "CMC",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 305
+  "nextId": 306
 }
