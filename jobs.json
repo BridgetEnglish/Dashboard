@@ -3849,7 +3849,21 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true
+    },
+    {
+      "id": 276,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Cardiac Catheter Laboratory",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 5,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 276
+  "nextId": 277
 }
