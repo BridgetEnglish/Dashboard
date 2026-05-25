@@ -510,7 +510,7 @@
             <th data-sort="fte" style="text-align:center;cursor:pointer;">FTE <span class="sort-icon" data-sort="fte"></span></th>
             <th data-sort="startDate" style="cursor:pointer;">Start date <span class="sort-icon" data-sort="startDate"></span></th>
             <th data-sort="weeks" style="cursor:pointer;">Length <span class="sort-icon" data-sort="weeks"></span></th>
-            <th data-sort="hourlyRate" style="cursor:pointer;">Hourly rate <span class="sort-icon" data-sort="hourlyRate"></span></th>
+            <th data-sort="hourlyRate" style="cursor:pointer;">Hourly profit <span class="sort-icon" data-sort="hourlyRate"></span></th>
             <th data-sort="value" style="cursor:pointer;">Contract value <span class="sort-icon" data-sort="value"></span></th>
             <th></th>
           </tr>
@@ -519,7 +519,7 @@
       </table>
     </div>
     <div class="table-footer" id="table-footer">
-      Contract value = profit only · QLD/NT: pay rate × 40hrs × weeks × 20% margin × FTE · NSW: commission rate × 40hrs × weeks × FTE
+      Hourly profit = pay rate × 20% (QLD/NT) or commission rate (NSW) · Contract value = hourly profit × 40hrs × remaining weeks × FTE
     </div>
   </div>
 
@@ -1348,10 +1348,10 @@ function render() {
         <td>
           <div class="rate-wrap">
             <span class="rate-prefix">$</span>
-            <input class="rate-input" type="number" min="0" step="1" placeholder="0"
-              data-rateid="${j.id}"
-              value="${j.hourlyRate || ''}"
-              title="Hourly rate" />
+            <span style="font-family:'DM Mono',monospace;font-size:13px;font-weight:500;">
+              ${j.hourlyRate ? (j.region === 'NSW' ? j.hourlyRate.toFixed(2) : (j.hourlyRate * 0.20).toFixed(2)) : '—'}
+            </span>
+            <span style="font-size:10px;color:var(--text-faint);">/hr</span>
           </div>
         </td>
         <td><span id="val-${j.id}" class="contract-value${val===0?' zero':''}">${fmtMoney(val)}</span></td>
