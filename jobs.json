@@ -2463,7 +2463,21 @@
       "startDate": "07/08/2026",
       "region": "NT",
       "recurring": true
+    },
+    {
+      "id": 177,
+      "facility": "Barkly Primary & Public Health Care",
+      "title": "Registered Nurse",
+      "ward": "Various",
+      "location": "Tennant Creek, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true
     }
   ],
-  "nextId": 177
+  "nextId": 178
 }
