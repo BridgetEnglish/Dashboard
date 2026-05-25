@@ -667,7 +667,7 @@ function processFile(file) {
           const csv = XLSX.utils.sheet_to_csv(wb.Sheets[name]);
           if (csv.trim()) text += `\n--- Sheet: ${name} ---\n${csv}`;
         });
-        attachedFile = { text, name: file.name, isText: true };
+        attachedFile = { text: text.slice(0, 6000) + (text.length > 6000 ? '\n[truncated for length]' : ''), name: file.name, isText: true };
         document.getElementById('attached-name').textContent = '📎 ' + file.name;
         document.getElementById('attached-file').style.display = 'flex';
         setStatus('', '');
@@ -819,7 +819,7 @@ Rules:
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
+        max_tokens: 8000,
         system: systemPrompt,
         messages: [{ role: 'user', content: userContent }]
       })
