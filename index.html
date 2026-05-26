@@ -441,7 +441,7 @@
     <div class="metric">
       <div class="metric-label">Total contract value</div>
       <div class="metric-value" id="m-value">—</div>
-      <div class="metric-sub">at current rates</div>
+      <div class="metric-sub" id="m-value-label">at current rates</div>
     </div>
     <div class="metric">
       <div class="metric-label">Avg contract length</div>
@@ -496,7 +496,9 @@
         <button class="tab" data-tab="QLD">Queensland <span class="tab-count" id="tc-QLD"></span></button>
         <button class="tab" data-tab="NT">Northern Territory <span class="tab-count" id="tc-NT"></span></button>
         <button class="tab" data-tab="NSW">New South Wales <span class="tab-count" id="tc-NSW"></span></button>
+        <button class="tab" data-tab="archived" style="margin-left:auto;color:var(--text-faint);">Archived <span class="tab-count" id="tc-archived"></span></button>
       </div>
+      <input id="search-input" type="text" placeholder="Search facility or job title…" style="font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);outline:none;width:240px;margin-top:10px;" />
     </div>
     <div class="table-scroll">
       <table>
@@ -668,7 +670,8 @@ let nextId = 8;
 let newIds = new Set();
 let activeTab = 'all';
 let sortCol = 'value';
-let sortDir = 'desc'; // 'asc' or 'desc'
+let sortDir = 'desc';
+let searchQuery = ''; // 'asc' or 'desc'
 
 // ── API Key ─────────────────────────────────────────────
 function saveApiKey() {
@@ -696,6 +699,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       sortCol = col;
       sortDir = ['facility','title','location','band','startDate'].includes(col) ? 'asc' : 'desc';
     }
+    render();
+  });
+
+  document.getElementById('search-input').addEventListener('input', e => {
+    searchQuery = e.target.value.trim();
     render();
   });
 
@@ -769,8 +777,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
   document.getElementById('jobs-tbody').addEventListener('click', e => {
     const removeBtn = e.target.closest('[data-removeid]');
+    const restoreBtn = e.target.closest('[data-restoreid]');
     const recurringBtn = e.target.closest('[data-recurring]');
     if (removeBtn) removeJob(Number(removeBtn.dataset.removeid));
+    if (restoreBtn) restoreJob(Number(restoreBtn.dataset.restoreid));
     if (recurringBtn) toggleRecurring(Number(recurringBtn.dataset.recurring));
   });
 });
@@ -1230,24 +1240,54 @@ function renderValues() {
 }
 
 function renderMetrics() {
-  const tabJobs = activeTab === 'all' ? jobs : jobs.filter(j => j.region === activeTab);
-  const activeJobs = tabJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
-  const mFte = document.getElementById('m-fte'); if (mFte) mFte.textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
+  const tabJobs = activeTab === 'archived'
+    ? jobs.filter(j => j.archived)
+    : activeTab === 'all'
+      ? jobs.filter(j => !j.archived)
+      : jobs.filter(j => j.region === activeTab && !j.archived);
+
+  const activeJobs = activeTab === 'archived'
+    ? tabJobs  // show all archived regardless of status
+    : tabJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming' || s === 'unknown'; });
+
+  const mFte = document.getElementById('m-fte');
+  if (mFte) mFte.textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
+
   const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
-  const mVal = document.getElementById('m-value'); if (mVal) mVal.textContent = fmtMoney(totalVal);
+  const mVal = document.getElementById('m-value');
+  if (mVal) mVal.textContent = fmtMoney(totalVal);
+
+  const mValLabel = document.getElementById('m-value-label');
+  if (mValLabel) mValLabel.textContent = activeTab === 'archived' ? 'missed revenue' : 'at current rates';
+
   const avgWeeks = activeJobs.length ? (activeJobs.reduce((s,j) => s + (j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52)), 0) / activeJobs.length).toFixed(1) : '—';
-  const mWeeks = document.getElementById('m-weeks'); if (mWeeks) mWeeks.textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
-  const mLocs = document.getElementById('m-locs'); if (mLocs) mLocs.textContent = new Set(activeJobs.map(j => j.location)).size;
+  const mWeeks = document.getElementById('m-weeks');
+  if (mWeeks) mWeeks.textContent = avgWeeks === '—' ? '—' : avgWeeks + 'w';
+
+  const mLocs = document.getElementById('m-locs');
+  if (mLocs) mLocs.textContent = new Set(activeJobs.map(j => j.location)).size;
 }
 
 function render() {
   const tbody = document.getElementById('jobs-tbody');
-  const visibleJobs = activeTab === 'all' ? jobs : jobs.filter(j => j.region === activeTab);
+  const visibleJobs = (activeTab === 'archived'
+    ? jobs.filter(j => j.archived)
+    : activeTab === 'all'
+      ? jobs.filter(j => !j.archived)
+      : jobs.filter(j => j.region === activeTab && !j.archived)
+  ).filter(j => {
+    if (!searchQuery) return true;
+    const q = searchQuery.toLowerCase();
+    return j.facility.toLowerCase().includes(q) || j.title.toLowerCase().includes(q) || j.location.toLowerCase().includes(q);
+  });
 
   // Update tab counts
-  ['all','QLD','NT','NSW'].forEach(tab => {
+  ['all','QLD','NT','NSW','archived'].forEach(tab => {
     const el = document.getElementById('tc-' + tab);
-    if (el) el.textContent = tab === 'all' ? jobs.length : jobs.filter(j => j.region === tab).length;
+    if (!el) return;
+    if (tab === 'all') el.textContent = jobs.filter(j => !j.archived).length;
+    else if (tab === 'archived') el.textContent = jobs.filter(j => j.archived).length;
+    else el.textContent = jobs.filter(j => j.region === tab && !j.archived).length;
   });
 
   if (visibleJobs.length === 0) {
