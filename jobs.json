@@ -4661,7 +4661,21 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 335,
+      "facility": "Biloela Mental Health",
+      "title": "Clinical Nurse",
+      "ward": "Mental Health",
+      "location": "Biloela, QLD",
+      "band": "CN Nurse Grade 6",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 184,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 335
+  "nextId": 336
 }
