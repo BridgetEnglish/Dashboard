@@ -4647,7 +4647,21 @@
       "startDate": "07/08/2026",
       "region": "NT",
       "recurring": false
+    },
+    {
+      "id": 334,
+      "facility": "Central Queensland Health and Hospital Service",
+      "title": "Clinical Nurse",
+      "ward": "Mental Health",
+      "location": "Emerald, QLD",
+      "band": "CN Grade 6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 105,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false
     }
   ],
-  "nextId": 334
+  "nextId": 335
 }
