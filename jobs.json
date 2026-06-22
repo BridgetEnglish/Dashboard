@@ -5468,7 +5468,22 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of hospital and covering aged care in MPS sites"
+    },
+    {
+      "id": 386,
+      "facility": "Chinchilla Hospital",
+      "title": "Senior Medical Officer",
+      "ward": "General",
+      "location": "Chinchilla, QLD",
+      "band": "SMO",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 2,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Formal ALS course within 3 years, CDP evidence on GP training pathway, ability to supervise junior doctors. Fellowship and Full Medicare Billing Rights preferred."
     }
   ],
-  "nextId": 386
+  "nextId": 387
 }
