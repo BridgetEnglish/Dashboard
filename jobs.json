@@ -7153,7 +7153,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": ""
+    },
+    {
+      "id": 498,
+      "facility": "Inglewood MPHS",
+      "title": "Registered Nurse",
+      "ward": "General",
+      "location": "Inglewood, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "13/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, cannulation, aged care, advanced neonatal resuscitation, emergency, rural/remote experience, team leader, triage. On-call required."
     }
   ],
-  "nextId": 498
+  "nextId": 499
 }
