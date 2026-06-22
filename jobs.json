@@ -7168,7 +7168,23 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, cannulation, aged care, advanced neonatal resuscitation, emergency, rural/remote experience, team leader, triage. On-call required."
+    },
+    {
+      "id": 499,
+      "facility": "Primary Health Care Central Australia",
+      "title": "Remote Area Nurse",
+      "ward": "Primary Health Care",
+      "location": "Yuendumu, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 8,
+      "startDate": "22/06/2025",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "",
+      "archived": true
     }
   ],
-  "nextId": 499
+  "nextId": 500
 }
