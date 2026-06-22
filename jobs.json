@@ -5513,8 +5513,40 @@
       "startDate": "03/08/2025",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Preferably multi-skilled with ability to work across Anaesthetics, Recovery and Scrub Scout. Current NSW WWCC mandatory."
+      "requirements": "Preferably multi-skilled with ability to work across Anaesthetics, Recovery and Scrub Scout. Current NSW WWCC mandatory.",
+      "archived": true
+    },
+    {
+      "id": 389,
+      "facility": "Port Macquarie Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Perioperative Services - Anaesthetics",
+      "location": "Port Macquarie, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 8.69,
+      "weeks": 12,
+      "startDate": "06/07/2025",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Anaesthetics experience required, multi-skilled in other perioperative areas preferred. Current NSW WWCC mandatory.",
+      "archived": true
+    },
+    {
+      "id": 390,
+      "facility": "Port Macquarie Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Perioperative Services - Multi-skilled",
+      "location": "Port Macquarie, NSW",
+      "band": "RN/M2",
+      "fte": 3,
+      "hourlyRate": 8.69,
+      "weeks": 12,
+      "startDate": "03/08/2025",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Multi-skilled with ability to work across Anaesthetics, Recovery and Scrub Scouts. Current NSW WWCC mandatory."
     }
   ],
-  "nextId": 389
+  "nextId": 391
 }
