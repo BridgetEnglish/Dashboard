@@ -5062,7 +5062,8 @@
       "startDate": "06/07/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "ED experience, ALS certification, comfortable working in charge of MPS facility, covers acute and aged care."
+      "requirements": "ED experience, ALS certification, comfortable working in charge of MPS facility, covers acute and aged care.",
+      "archived": true
     },
     {
       "id": 359,
