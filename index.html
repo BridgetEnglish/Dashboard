@@ -575,7 +575,7 @@ async function loadJobs() {
   updateSaveIndicator('syncing');
   try {
     const data = await ghRequest('GET');
-    const content = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    const content = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
     jobs = content.jobs || DEFAULT_JOBS.map(j => Object.assign({}, j));
     nextId = content.nextId || jobs.reduce((m,j) => Math.max(m,j.id), 0) + 1;
     _ghSha = data.sha;
