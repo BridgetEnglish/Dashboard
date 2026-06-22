@@ -6583,7 +6583,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Recent Operating Theatre experience mandatory. Experienced in Anaesthetics and PACU desirable. BLS cert, ieMR proficiency desirable."
+    },
+    {
+      "id": 460,
+      "facility": "Winton Multipurpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency, Ambulance and Aged Care",
+      "location": "Winton, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Extensive experience in acute, aged care, emergency department. Qualifications in Triage, IVC/Cannulation, ALS and PALS. Must be Senior RN (NG5) pay point 5, 6 or 7. Rural and Remote nursing experience required."
     }
   ],
-  "nextId": 460
+  "nextId": 461
 }
