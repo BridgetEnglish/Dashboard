@@ -5183,7 +5183,37 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Valid NSW WWCC mandatory, AHPRA registration, relevant experience and references within 12 months required"
+    },
+    {
+      "id": 367,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Emerald Mental Health - Adult Community",
+      "location": "Emerald, QLD",
+      "band": "RN Grade 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "ASAP",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Mental health experience required. Valid driver's licence mandatory for mental health roles."
+    },
+    {
+      "id": 368,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Registered Nurse",
+      "ward": "Springsure MPHS",
+      "location": "Springsure, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 2,
+      "startDate": "ASAP",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     }
   ],
-  "nextId": 367
+  "nextId": 369
 }
