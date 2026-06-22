@@ -7033,7 +7033,22 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "Senior mental health experience in CAMHS, nursing/psychology/psychiatry background, clinical assessments, therapy and care planning. Working hours 8:30am-5:00pm M-F"
+    },
+    {
+      "id": 490,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Clinical Nurse Specialist",
+      "ward": "CMHT",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 6,
+      "startDate": "",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "NT Working with Children Card, CHC dated within 6 months, completed VPDIC form. Community setting experience desirable."
     }
   ],
-  "nextId": 490
+  "nextId": 491
 }
