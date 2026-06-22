@@ -6208,7 +6208,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Must be NG5 pay point 5/6/7, no junior RNs. Rural and remote experience required. Manual driver's licence."
+    },
+    {
+      "id": 435,
+      "facility": "Primary Health Care - Central Australia",
+      "title": "Registered Nurse",
+      "ward": "Primary Health Care",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true,
+      "requirements": ""
     }
   ],
-  "nextId": 435
+  "nextId": 436
 }
