@@ -5952,7 +5952,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Emergency Department experience required. Minimum 8+ week placement commitment for meal allowance eligibility. Relevant training/certifications (e.g. Triage, ALS)."
+    },
+    {
+      "id": 418,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Kingaroy, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Triage, Emergency, Rural and Remote Experience required"
     }
   ],
-  "nextId": 418
+  "nextId": 419
 }
