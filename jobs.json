@@ -115,7 +115,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 9,
@@ -129,7 +129,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 10,
@@ -143,7 +143,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 11,
@@ -157,7 +157,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 12,
@@ -171,7 +171,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 13,
@@ -185,7 +185,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 14,
@@ -199,7 +199,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 15,
@@ -213,7 +213,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 16,
@@ -227,7 +227,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 17,
@@ -241,7 +241,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 18,
@@ -255,7 +255,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 19,
@@ -269,7 +269,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 20,
@@ -283,7 +283,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 21,
@@ -297,7 +297,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 22,
@@ -311,7 +311,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 23,
@@ -325,7 +325,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 24,
@@ -339,7 +339,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 25,
@@ -353,7 +353,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 26,
@@ -367,7 +367,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 27,
@@ -381,7 +381,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 28,
@@ -395,7 +395,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 29,
@@ -409,7 +409,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 30,
@@ -423,7 +423,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 31,
@@ -437,7 +437,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 32,
@@ -451,7 +451,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 33,
@@ -465,7 +465,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 34,
@@ -479,7 +479,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 35,
@@ -493,7 +493,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 36,
@@ -507,7 +507,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 37,
@@ -521,7 +521,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 38,
@@ -535,7 +535,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 39,
@@ -549,7 +549,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 40,
@@ -563,7 +563,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 41,
@@ -577,7 +577,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 42,
@@ -591,7 +591,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 43,
@@ -605,7 +605,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 44,
@@ -619,7 +619,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 45,
@@ -633,7 +633,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 46,
@@ -647,7 +647,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 47,
@@ -661,7 +661,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 48,
@@ -675,7 +675,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 49,
@@ -689,7 +689,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 50,
@@ -703,7 +703,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 51,
@@ -717,7 +717,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 52,
@@ -731,7 +731,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 53,
@@ -745,7 +745,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 54,
@@ -759,7 +759,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 55,
@@ -773,7 +773,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 56,
@@ -787,7 +787,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 57,
@@ -801,7 +801,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 58,
@@ -815,7 +815,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 59,
@@ -829,7 +829,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 60,
@@ -843,7 +843,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 61,
@@ -857,7 +857,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 62,
@@ -871,7 +871,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 63,
@@ -885,7 +885,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 64,
@@ -899,7 +899,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 65,
@@ -913,7 +913,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 66,
@@ -927,7 +927,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 67,
@@ -941,7 +941,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 68,
@@ -955,7 +955,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 69,
@@ -969,7 +969,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 70,
@@ -983,7 +983,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 71,
@@ -997,7 +997,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 72,
@@ -1011,7 +1011,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 73,
@@ -1025,7 +1025,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 74,
@@ -1039,7 +1039,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 75,
@@ -1053,7 +1053,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 76,
@@ -1067,7 +1067,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 77,
@@ -1081,7 +1081,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 78,
@@ -1095,7 +1095,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 79,
@@ -1109,7 +1109,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 80,
@@ -1123,7 +1123,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 81,
@@ -1137,7 +1137,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 82,
@@ -1151,7 +1151,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 83,
@@ -1165,7 +1165,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 84,
@@ -1179,7 +1179,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 85,
@@ -1193,7 +1193,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 86,
@@ -1207,7 +1207,7 @@
       "weeks": 9,
       "startDate": "",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 87,
@@ -1669,7 +1669,7 @@
       "weeks": 6,
       "startDate": "29/05/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 120,
@@ -1683,7 +1683,7 @@
       "weeks": 7,
       "startDate": "09/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 121,
@@ -1697,7 +1697,7 @@
       "weeks": 6,
       "startDate": "21/07/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 122,
@@ -1795,7 +1795,7 @@
       "weeks": 6,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 129,
@@ -1809,7 +1809,7 @@
       "weeks": 6,
       "startDate": "13/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 130,
@@ -1823,7 +1823,7 @@
       "weeks": 6,
       "startDate": "27/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 131,
@@ -1837,7 +1837,7 @@
       "weeks": 6,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 132,
@@ -1851,7 +1851,7 @@
       "weeks": 6,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 133,
@@ -1865,7 +1865,7 @@
       "weeks": 6,
       "startDate": "20/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 134,
@@ -1879,7 +1879,7 @@
       "weeks": 6,
       "startDate": "27/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 135,
@@ -1907,7 +1907,7 @@
       "weeks": 6,
       "startDate": "15/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 137,
@@ -1921,7 +1921,7 @@
       "weeks": 6,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 138,
@@ -1949,7 +1949,7 @@
       "weeks": 6,
       "startDate": "15/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 140,
@@ -1963,7 +1963,7 @@
       "weeks": 6,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 141,
@@ -2033,7 +2033,7 @@
       "weeks": 6,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 146,
@@ -2047,7 +2047,7 @@
       "weeks": 6,
       "startDate": "13/07/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 147,
@@ -2300,7 +2300,7 @@
       "weeks": 16,
       "startDate": "25/05/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 165,
@@ -2314,7 +2314,7 @@
       "weeks": 3,
       "startDate": "05/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 166,
@@ -2328,7 +2328,7 @@
       "weeks": 2,
       "startDate": "09/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 167,
@@ -2342,7 +2342,7 @@
       "weeks": 2,
       "startDate": "10/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 168,
@@ -2384,7 +2384,7 @@
       "weeks": 2,
       "startDate": "20/07/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 171,
@@ -2398,7 +2398,7 @@
       "weeks": 6,
       "startDate": "23/07/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 172,
@@ -2454,7 +2454,7 @@
       "weeks": 11,
       "startDate": "07/08/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 176,
@@ -2496,7 +2496,7 @@
       "weeks": 12,
       "startDate": "04/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 179,
@@ -2510,7 +2510,7 @@
       "weeks": 12,
       "startDate": "23/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 180,
@@ -2538,7 +2538,7 @@
       "weeks": 11,
       "startDate": "25/05/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 182,
@@ -2552,7 +2552,7 @@
       "weeks": 7,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 183,
@@ -2611,7 +2611,7 @@
       "weeks": 5,
       "startDate": "25/05/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 187,
@@ -2625,7 +2625,7 @@
       "weeks": 4,
       "startDate": "26/05/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 188,
@@ -2639,7 +2639,7 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 189,
@@ -2653,7 +2653,7 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 190,
@@ -2756,7 +2756,7 @@
       "weeks": 4,
       "startDate": "04/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 197,
@@ -2770,7 +2770,7 @@
       "weeks": 4,
       "startDate": "02/07/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 198,
@@ -2784,7 +2784,7 @@
       "weeks": 4,
       "startDate": "30/07/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 199,
@@ -2812,7 +2812,7 @@
       "weeks": 11,
       "startDate": "",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 201,
@@ -2826,7 +2826,7 @@
       "weeks": 8,
       "startDate": "18/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 202,
@@ -2854,7 +2854,7 @@
       "weeks": 7,
       "startDate": "",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 204,
@@ -2868,7 +2868,7 @@
       "weeks": 4,
       "startDate": "26/05/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 205,
@@ -2882,7 +2882,7 @@
       "weeks": 6,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 206,
@@ -2896,7 +2896,7 @@
       "weeks": 5,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 207,
@@ -2910,7 +2910,7 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 208,
@@ -3144,7 +3144,7 @@
       "weeks": 2,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 224,
@@ -3158,7 +3158,7 @@
       "weeks": 1,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 225,
@@ -3172,7 +3172,7 @@
       "weeks": 1,
       "startDate": "23/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 226,
@@ -3186,7 +3186,7 @@
       "weeks": 8,
       "startDate": "30/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 227,
@@ -3200,7 +3200,7 @@
       "weeks": 3,
       "startDate": "03/08/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 228,
@@ -3214,7 +3214,7 @@
       "weeks": 1,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 229,
@@ -3228,7 +3228,7 @@
       "weeks": 2,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 230,
@@ -3242,7 +3242,7 @@
       "weeks": 1,
       "startDate": "25/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 231,
@@ -3256,7 +3256,7 @@
       "weeks": 1,
       "startDate": "28/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 232,
@@ -3270,7 +3270,7 @@
       "weeks": 2,
       "startDate": "05/10/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 233,
@@ -3284,7 +3284,7 @@
       "weeks": 2,
       "startDate": "12/10/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 234,
@@ -3298,7 +3298,7 @@
       "weeks": 4,
       "startDate": "17/11/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 235,
@@ -3312,7 +3312,7 @@
       "weeks": 5,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 236,
@@ -3326,7 +3326,7 @@
       "weeks": 2,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 237,
@@ -3340,7 +3340,7 @@
       "weeks": 4,
       "startDate": "21/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 238,
@@ -3485,7 +3485,7 @@
       "weeks": 2,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 248,
@@ -3499,7 +3499,7 @@
       "weeks": 1,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 249,
@@ -3513,7 +3513,7 @@
       "weeks": 1,
       "startDate": "23/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 250,
@@ -3527,7 +3527,7 @@
       "weeks": 8,
       "startDate": "30/07/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 251,
@@ -3541,7 +3541,7 @@
       "weeks": 3,
       "startDate": "03/08/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 252,
@@ -3555,7 +3555,7 @@
       "weeks": 1,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 253,
@@ -3569,7 +3569,7 @@
       "weeks": 2,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 254,
@@ -3583,7 +3583,7 @@
       "weeks": 1,
       "startDate": "25/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 255,
@@ -3597,7 +3597,7 @@
       "weeks": 1,
       "startDate": "28/09/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 256,
@@ -3611,7 +3611,7 @@
       "weeks": 2,
       "startDate": "05/10/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 257,
@@ -3625,7 +3625,7 @@
       "weeks": 2,
       "startDate": "12/10/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 258,
@@ -3639,7 +3639,7 @@
       "weeks": 4,
       "startDate": "17/11/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 259,
@@ -3653,7 +3653,7 @@
       "weeks": 5,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 260,
@@ -3667,7 +3667,7 @@
       "weeks": 2,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 261,
@@ -3681,7 +3681,7 @@
       "weeks": 4,
       "startDate": "21/12/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 262,
@@ -3754,7 +3754,7 @@
       "weeks": 8,
       "startDate": "25/05/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 268,
@@ -3768,7 +3768,7 @@
       "weeks": 7,
       "startDate": "01/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 269,
@@ -3782,7 +3782,7 @@
       "weeks": 6,
       "startDate": "08/06/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 270,
@@ -3997,7 +3997,7 @@
       "weeks": 12,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 285,
@@ -4011,7 +4011,7 @@
       "weeks": 13,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 286,
@@ -4025,7 +4025,7 @@
       "weeks": 12,
       "startDate": "21/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 287,
@@ -4039,7 +4039,7 @@
       "weeks": 5,
       "startDate": "21/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 288,
@@ -4053,7 +4053,7 @@
       "weeks": 6,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 289,
@@ -4067,7 +4067,7 @@
       "weeks": 6,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 290,
@@ -4081,7 +4081,7 @@
       "weeks": 10,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 291,
@@ -4095,7 +4095,7 @@
       "weeks": 10,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 292,
@@ -4124,7 +4124,7 @@
       "weeks": 8,
       "startDate": "25/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 294,
@@ -4138,7 +4138,7 @@
       "weeks": 12,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 295,
@@ -4152,7 +4152,7 @@
       "weeks": 13,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 296,
@@ -4166,7 +4166,7 @@
       "weeks": 12,
       "startDate": "21/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 297,
@@ -4180,7 +4180,7 @@
       "weeks": 5,
       "startDate": "21/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 298,
@@ -4194,7 +4194,7 @@
       "weeks": 6,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 299,
@@ -4208,7 +4208,7 @@
       "weeks": 6,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 300,
@@ -4222,7 +4222,7 @@
       "weeks": 10,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 301,
@@ -4236,7 +4236,7 @@
       "weeks": 10,
       "startDate": "18/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 302,
@@ -4265,7 +4265,7 @@
       "weeks": 8,
       "startDate": "25/05/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 304,
@@ -4279,7 +4279,7 @@
       "weeks": 8,
       "startDate": "",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 305,
@@ -4293,7 +4293,7 @@
       "weeks": 8,
       "startDate": "",
       "region": "QLD",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 306,
@@ -4420,7 +4420,7 @@
       "weeks": 2,
       "startDate": "09/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 315,
@@ -4434,7 +4434,7 @@
       "weeks": 4,
       "startDate": "31/08/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 316,
@@ -4448,7 +4448,7 @@
       "weeks": 6,
       "startDate": "25/05/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 317,
@@ -4477,7 +4477,7 @@
       "weeks": 6,
       "startDate": "26/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 319,
@@ -4548,7 +4548,7 @@
       "weeks": 15,
       "startDate": "29/05/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 324,
@@ -4661,7 +4661,7 @@
       "weeks": 4,
       "startDate": "22/06/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 332,
@@ -4689,7 +4689,7 @@
       "weeks": 11,
       "startDate": "07/08/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": true
     },
     {
       "id": 334,
@@ -4791,7 +4791,7 @@
       "weeks": 10,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -4806,7 +4806,7 @@
       "weeks": 9,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -4911,7 +4911,7 @@
       "weeks": 12,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -4926,7 +4926,7 @@
       "weeks": 12,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -5077,7 +5077,7 @@
       "weeks": 12,
       "startDate": "20/07/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "ED experience, ALS certification, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -5092,7 +5092,7 @@
       "weeks": 12,
       "startDate": "20/07/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "ED experience, ALS certification, comfortable working in charge of MPS facility, covers acute and aged care."
     },
     {
@@ -5287,7 +5287,7 @@
       "weeks": 1,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": ""
     },
     {
@@ -5302,7 +5302,7 @@
       "weeks": 2,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required."
     },
     {
@@ -5317,7 +5317,7 @@
       "weeks": 1,
       "startDate": "10/08/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required."
     },
     {
@@ -5392,7 +5392,7 @@
       "weeks": 3,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Must have CIMHA experience, Intake, Adult and Community mental health experience."
     },
     {
@@ -5407,7 +5407,7 @@
       "weeks": 1,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Adult and Paediatric Emergency, Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulations, ICU Ventilator, Neonatal and Pain Management experience."
     },
     {
@@ -5422,7 +5422,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -5437,7 +5437,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -5452,7 +5452,7 @@
       "weeks": 11,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of hospital and covering aged care in MPS sites"
     },
     {
@@ -5467,7 +5467,7 @@
       "weeks": 10,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of hospital and covering aged care in MPS sites"
     },
     {
@@ -5591,7 +5591,7 @@
       "weeks": 1,
       "startDate": "23/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5606,7 +5606,7 @@
       "weeks": 8,
       "startDate": "30/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence"
     },
     {
@@ -5621,7 +5621,7 @@
       "weeks": 1,
       "startDate": "17/08/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5651,7 +5651,7 @@
       "weeks": 1,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence"
     },
     {
@@ -5666,7 +5666,7 @@
       "weeks": 2,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5681,7 +5681,7 @@
       "weeks": 1,
       "startDate": "28/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, Obstetrics experience, Advanced Diploma of Obstetrics, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5696,7 +5696,7 @@
       "weeks": 1,
       "startDate": "05/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence"
     },
     {
@@ -5711,7 +5711,7 @@
       "weeks": 1,
       "startDate": "12/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, Obstetrics experience, Advanced Diploma of Obstetrics, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5726,7 +5726,7 @@
       "weeks": 1,
       "startDate": "17/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5741,7 +5741,7 @@
       "weeks": 4,
       "startDate": "17/11/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5756,7 +5756,7 @@
       "weeks": 5,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence"
     },
     {
@@ -5771,7 +5771,7 @@
       "weeks": 2,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, ED and Anaesthetics experience, JCCA, full Medicare billing rights, ALS certification within 3 years"
     },
     {
@@ -5906,7 +5906,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -5921,7 +5921,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -5966,7 +5966,7 @@
       "weeks": 4,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Triage, Emergency, Rural and Remote Experience required"
     },
     {
@@ -5981,7 +5981,7 @@
       "weeks": 4,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Emergency, Rural and Remote Experience, Triage skills mandatory"
     },
     {
@@ -6041,7 +6041,7 @@
       "weeks": 5,
       "startDate": "",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Must have CIMHA experience, Intake, Adult and Community."
     },
     {
@@ -6056,7 +6056,7 @@
       "weeks": 4,
       "startDate": "",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Adult and Paediatric Emergency, Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulations, Emergency, ICU Ventilator, Neonatal and Pain Management."
     },
     {
@@ -6101,7 +6101,7 @@
       "weeks": 4,
       "startDate": "",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -6116,7 +6116,7 @@
       "weeks": 4,
       "startDate": "",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     },
     {
@@ -6162,7 +6162,7 @@
       "weeks": 4,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Senior RN (NG5) pay point 5-7 only. Rural/remote and Qld Health experience required. Manual driver's licence."
     },
     {
@@ -6177,7 +6177,7 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Senior RN (NG5) pay point 5-7 only. Rural/remote and Qld Health experience required. Manual driver's licence."
     },
     {
@@ -6192,7 +6192,7 @@
       "weeks": 4,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Must be NG5 pay point 5/6/7, no junior RNs. Rural and remote experience required. Manual driver's licence."
     },
     {
@@ -6207,7 +6207,7 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Must be NG5 pay point 5/6/7, no junior RNs. Rural and remote experience required. Manual driver's licence."
     },
     {
@@ -6237,7 +6237,7 @@
       "weeks": 3,
       "startDate": "18/06/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree; FACRRM/FRACGP preferred but not essential; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6282,7 +6282,7 @@
       "weeks": 1,
       "startDate": "21/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree; FACRRM/FRACGP preferred but not essential; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6297,7 +6297,7 @@
       "weeks": 1,
       "startDate": "23/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6312,7 +6312,7 @@
       "weeks": 5,
       "startDate": "30/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6327,7 +6327,7 @@
       "weeks": 2,
       "startDate": "01/08/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6357,7 +6357,7 @@
       "weeks": 1,
       "startDate": "17/08/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6372,7 +6372,7 @@
       "weeks": 1,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP; predominantly GP practice (Mon-Fri) with some ED, ward rounds and on call; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6387,7 +6387,7 @@
       "weeks": 2,
       "startDate": "21/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6402,7 +6402,7 @@
       "weeks": 1,
       "startDate": "28/09/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + Obstetrics; Advanced Diploma in Obstetrics; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6417,7 +6417,7 @@
       "weeks": 1,
       "startDate": "05/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6432,7 +6432,7 @@
       "weeks": 1,
       "startDate": "12/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + Obstetrics; Advanced Diploma in Obstetrics; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6447,7 +6447,7 @@
       "weeks": 1,
       "startDate": "17/10/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6462,7 +6462,7 @@
       "weeks": 4,
       "startDate": "17/11/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6477,7 +6477,7 @@
       "weeks": 5,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP; predominantly GP practice (Mon-Fri) with some ED, ward rounds and on call; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6492,7 +6492,7 @@
       "weeks": 2,
       "startDate": "14/12/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Primary Medical Degree + FACRRM/FRACGP + ED + Anaesthetics; JCCA advanced skill; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
     },
     {
@@ -6567,7 +6567,7 @@
       "weeks": 16,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Recent Operating Theatre experience mandatory. Experienced in Anaesthetics and PACU desirable (all three preferable). BLS certification, ieMR proficiency desirable."
     },
     {
@@ -6582,7 +6582,7 @@
       "weeks": 16,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Recent Operating Theatre experience mandatory. Experienced in Anaesthetics and PACU desirable. BLS cert, ieMR proficiency desirable."
     },
     {
@@ -6672,7 +6672,7 @@
       "weeks": 6,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": ""
     },
     {
@@ -6687,7 +6687,7 @@
       "weeks": 6,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": ""
     },
     {
@@ -6732,7 +6732,7 @@
       "weeks": 10,
       "startDate": "28/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6747,7 +6747,7 @@
       "weeks": 10,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6762,7 +6762,7 @@
       "weeks": 10,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6792,7 +6792,7 @@
       "weeks": 4,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6807,7 +6807,7 @@
       "weeks": 4,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6822,7 +6822,7 @@
       "weeks": 4,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, triage competency, ALS certification, comfortable working in charge with virtual care support"
     },
     {
@@ -6957,7 +6957,7 @@
       "weeks": 4,
       "startDate": "22/06/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, ALS certification, comfortable working in charge. Role covers aged care in MPS sites"
     },
     {
@@ -6972,7 +6972,7 @@
       "weeks": 17,
       "startDate": "06/07/2026",
       "region": "NSW",
-      "recurring": false,
+      "recurring": true,
       "requirements": "12 months recent ED experience, ALS certification, comfortable working in charge. Role covers aged care in MPS sites"
     },
     {
@@ -7077,7 +7077,7 @@
       "weeks": 7,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
     },
     {
@@ -7092,7 +7092,7 @@
       "weeks": 8,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
     },
     {
@@ -7107,7 +7107,7 @@
       "weeks": 2,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
     },
     {
@@ -7122,7 +7122,7 @@
       "weeks": 13,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Rural nursing and emergency experience required, must work in Aged Care Services. ALS, BLS, ETEK certs mandatory. Aged Care National Police Certificate required. ieMR proficiency desirable."
     },
     {
@@ -7137,7 +7137,7 @@
       "weeks": 6,
       "startDate": "25/08/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Rural nursing and emergency experience required, must work in Aged Care Services. ALS, BLS, ETEK certs mandatory. Aged Care National Police Certificate required. ieMR proficiency desirable."
     },
     {
@@ -7230,7 +7230,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Min 5yrs experience in acute care setting, ALS, PALS, Triage qualification, first on call experience, MEC/REC. Highly desirable: manual driver's license. CNs participate in portfolio/audit management."
+    },
+    {
+      "id": 503,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Midwife",
+      "ward": "Midwifery Group Practice",
+      "location": "Kingaroy, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Midwifery Group Practice experience, Foetal Surveillance Education, Advanced Neonatal Resuscitation certification required"
     }
   ],
-  "nextId": 503
+  "nextId": 504
 }
