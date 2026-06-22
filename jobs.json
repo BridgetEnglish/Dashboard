@@ -12,7 +12,8 @@
       "weeks": 6,
       "startDate": "12/02/2026",
       "region": "NT",
-      "recurring": false
+      "recurring": false,
+      "archived": true
     },
     {
       "id": 2,
