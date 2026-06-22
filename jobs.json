@@ -7200,7 +7200,37 @@
       "region": "NT",
       "recurring": true,
       "requirements": ""
+    },
+    {
+      "id": 501,
+      "facility": "Torres and Cape Hospital and Health Service",
+      "title": "Clinical Nurse Consultant",
+      "ward": "Aurukun PHCC",
+      "location": "Aurukun, QLD",
+      "band": "CNC NG6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 58,
+      "startDate": "11/06/2025",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 5yrs experience, ALS/PALS, Neonatal Resus first responder, MEC/REC. Highly desirable: RAN or RIPRN/Sexual Health/Child & maternal/Immunisations, manual driver's license. CNCs participate in portfolio/audit management."
+    },
+    {
+      "id": 502,
+      "facility": "Torres and Cape Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Aurukun PHCC",
+      "location": "Aurukun, QLD",
+      "band": "CN NG5",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 58,
+      "startDate": "11/06/2025",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 5yrs experience in acute care setting, ALS, PALS, Triage qualification, first on call experience, MEC/REC. Highly desirable: manual driver's license. CNs participate in portfolio/audit management."
     }
   ],
-  "nextId": 501
+  "nextId": 503
 }
