@@ -7063,7 +7063,52 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Min 2-3 years CATT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 492,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "G0 Ward (Acute Assessment, Stroke and Medical)",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 7,
+      "startDate": "13/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
+    },
+    {
+      "id": 493,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "G0 Ward (Acute Assessment, Stroke and Medical)",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
+    },
+    {
+      "id": 494,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "G0 Ward (Acute Assessment, Stroke and Medical)",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 2,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
     }
   ],
-  "nextId": 492
+  "nextId": 495
 }
