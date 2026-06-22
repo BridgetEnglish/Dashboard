@@ -7048,7 +7048,22 @@
       "region": "NT",
       "recurring": false,
       "requirements": "NT Working with Children Card, CHC dated within 6 months, completed VPDIC form. Community setting experience desirable."
+    },
+    {
+      "id": 491,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Clinical Nurse Specialist",
+      "ward": "CATT",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 6,
+      "startDate": "",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Min 2-3 years CATT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
     }
   ],
-  "nextId": 491
+  "nextId": 492
 }
