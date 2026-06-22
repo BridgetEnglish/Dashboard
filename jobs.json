@@ -7245,7 +7245,52 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Midwifery Group Practice experience, Foetal Surveillance Education, Advanced Neonatal Resuscitation certification required"
+    },
+    {
+      "id": 504,
+      "facility": "Dysart Hospital",
+      "title": "Registered Nurse",
+      "ward": "General Ward/Emergency Department",
+      "location": "Dysart, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 15,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Rural nursing and ED experience, triage and resus, ability to team lead/manage ward, ALS/BLS/ETEK certs, ieMR proficiency desirable"
+    },
+    {
+      "id": 505,
+      "facility": "Dysart Hospital",
+      "title": "Registered Nurse",
+      "ward": "General Ward/Emergency Department",
+      "location": "Dysart, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 14,
+      "startDate": "29/06/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Rural nursing and ED experience, triage and resus, ability to team lead/manage ward, ALS/BLS/ETEK certs, ieMR proficiency desirable"
+    },
+    {
+      "id": 506,
+      "facility": "Dysart Hospital",
+      "title": "Registered Nurse",
+      "ward": "General Ward/Emergency Department",
+      "location": "Dysart, QLD",
+      "band": "RN Grade 5",
+      "fte": 3,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Rural nursing and ED experience, triage and resus, ability to team lead/manage ward, ALS/BLS/ETEK certs, ieMR proficiency desirable"
     }
   ],
-  "nextId": 504
+  "nextId": 507
 }
