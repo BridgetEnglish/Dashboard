@@ -1066,6 +1066,7 @@ Each object must have these exact fields:
 - requirements: string (a concise summary of mandatory experience, qualifications, certifications, and skills required for the role — e.g. "Min 3 years ED experience, BLS/ALS certs, ieMR proficiency desirable". Keep to 1-2 sentences. Use "" if none specified)
 - region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
 - recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
+- filled: boolean (true if the email subject or body indicates the role has been FILLED, e.g. "FILLED" in subject, "this request has been filled", "position has been filled", "vacancy has been filled". Otherwise false)
 
 NT Health rate note: NT roles use NT Health EA pay rates. Map NT grades as follows — N2/RN 2.x = normal RN ($53.50 base), N3/RN 3.x = in charge/clinical nurse ($73.73 base), N4/RN 4.x = CNC/remote area nurse/senior MH/home birth ($82.05 base), N5/RN 5.x = management ($90.36 base). Default to RN 2.1 if grade is unknown. Use the grade as the band field e.g. "RN 4.1".
 
@@ -1139,7 +1140,28 @@ Rules:
     if (!Array.isArray(parsed) || parsed.length === 0) throw new Error('No roles found in email.');
 
     let added = 0;
+    let archivedCount = 0;
     parsed.forEach(j => {
+      // FILLED email — find existing matching job and archive it
+      if (j.filled) {
+        const facKey = (j.facility||'').toLowerCase().split(/[\s,]/)[0];
+        const titleKey = (j.title||'').toLowerCase().split(/[\s,]/).find(w => w.length > 3) || '';
+        const match = jobs.find(existing =>
+          !existing.archived &&
+          existing.facility.toLowerCase().includes(facKey) &&
+          (titleKey ? existing.title.toLowerCase().includes(titleKey) : true) &&
+          (j.ward ? existing.ward.toLowerCase().includes((j.ward||'').toLowerCase().split(' ')[0]) : true)
+        );
+        if (match) {
+          match.archived = true;
+          archivedCount++;
+        } else {
+          // No match found — note it but don't create a new row
+          console.warn('FILLED email did not match an existing job:', j.facility, j.title);
+        }
+        return;
+      }
+
       const id = nextId++;
       newIds.add(id);
       const isOngoing = !Number(j.weeks);
@@ -1152,8 +1174,12 @@ Rules:
     render();
     saveJobs();
     document.getElementById('email-input').value = '';
-    clearAttachment();    setStatus(`✓ Added ${added} role${added>1?'s':''} to the dashboard.`, 'success');
-    showToast(`${added} role${added>1?'s':''} added`);
+    clearAttachment();
+    let statusMsg = '';
+    if (added) statusMsg += `Added ${added} role${added>1?'s':''}`;
+    if (archivedCount) statusMsg += `${added?', a':'A'}rchived ${archivedCount} filled role${archivedCount>1?'s':''}`;
+    setStatus('✓ ' + (statusMsg || 'No changes'), 'success');
+    showToast(statusMsg || 'Nothing to add');
     setTimeout(() => { newIds.clear(); render(); }, 4000);
 
   } catch (e) {
@@ -1265,7 +1291,14 @@ function renderMetrics() {
   const mFte = document.getElementById('m-fte');
   if (mFte) mFte.textContent = activeJobs.reduce((s,j) => s + j.fte, 0);
 
-  const totalVal = activeJobs.reduce((s,j) => s + contractValue(j), 0);
+  const totalVal = activeTab === 'archived'
+    ? activeJobs.reduce((s,j) => {
+        // Full contract value as lost revenue
+        const wks = j.weeks || (j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52);
+        const hrs = 40 * wks * j.fte;
+        return s + (j.region === 'NSW' ? j.hourlyRate * hrs : j.hourlyRate * hrs * 0.20);
+      }, 0)
+    : activeJobs.reduce((s,j) => s + contractValue(j), 0);
   const mVal = document.getElementById('m-value');
   if (mVal) mVal.textContent = fmtMoney(totalVal);
 
@@ -1338,6 +1371,19 @@ function render() {
       return 0;
     });
 
+    // Calculate "hot" jobs — top 25% of active jobs by hourly profit
+    function hourlyProfit(j) {
+      if (!j.hourlyRate) return 0;
+      return j.region === 'NSW' ? j.hourlyRate : j.hourlyRate * 0.20;
+    }
+    const activeForRanking = visibleJobs.filter(j => { const s = jobStatus(j); return s === 'active' || s === 'upcoming'; });
+    const profits = activeForRanking.map(j => hourlyProfit(j)).filter(p => p > 0).sort((a,b) => b - a);
+    const topThreshold = profits.length ? profits[Math.floor(profits.length * 0.25)] : Infinity;
+    const isHot = (j) => {
+      const s = jobStatus(j);
+      return (s === 'active' || s === 'upcoming') && hourlyProfit(j) >= topThreshold && hourlyProfit(j) > 0;
+    };
+
     // Update sort indicators on headers
     document.querySelectorAll('th[data-sort]').forEach(th => {
       th.classList.remove('sorted', 'asc', 'desc');
@@ -1407,7 +1453,7 @@ function render() {
         </td>
         <td style="text-align:center;">${expandBtn}</td>
         <td>
-          <div class="facility-name">${esc(j.facility)}</div>
+          <div class="facility-name">${isHot(j) ? '🔥 ' : ''}${esc(j.facility)}</div>
           <div class="ward-name">${esc(j.ward)}${recurringToggle}</div>
         </td>
         <td style="white-space:normal;word-wrap:break-word;">${esc(j.title)}</td>
