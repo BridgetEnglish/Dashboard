@@ -1020,14 +1020,34 @@ function autoRate(job) {
 
   // QLD / Other
   if (QLD_RATES[band]) return QLD_RATES[band];
-  var qm = band.match(/RN\s*(?:Grade\s*)?(\d+)(?:\.(\d+))?/i);
+
+  // Match "Nurse Grade 5/6/7" or "RN Grade 5" or "RN 5.x"
+  var qm = band.match(/(?:RN|Nurse)\s*(?:Grade\s*)?(\d+)(?:\.(\d+))?/i);
   if (qm) {
-    var qkey = 'RN 5.' + (qm[2] || '1');
-    if (QLD_RATES[qkey]) return QLD_RATES[qkey];
+    var lvl = parseInt(qm[1]);
+    var subLvl = qm[2] || '1';
+    if (lvl === 5) return QLD_RATES['RN 5.' + subLvl] || QLD_RATES['RN 5.1'];
+    if (lvl === 6) return QLD_RATES['CN 6.1.' + subLvl] || QLD_RATES['CN 6.1.1'];
+    if (lvl === 7) return QLD_RATES['CNC 7.1'];
+    if (lvl === 8) return QLD_RATES['NP 8.1'];
   }
+
+  // Match NQ codes (Torres/Cape HHS style) — NQ5 = Grade 5, NQ6 = Grade 6 etc
+  var nq = band.match(/N\s*Q?\s*G?\s*(\d)/i);
+  if (nq) {
+    var nqLvl = parseInt(nq[1]);
+    if (nqLvl === 5) return QLD_RATES['RN 5.1'];
+    if (nqLvl === 6) return QLD_RATES['CN 6.1.1'];
+    if (nqLvl === 7) return QLD_RATES['CNC 7.1'];
+  }
+
+  // Explicit CN/CNC matches
   var cn = band.match(/CN\s*(?:Grade\s*)?6(?:\.1\.(\d+))?/i);
   if (cn) return QLD_RATES['CN 6.1.' + (cn[1]||'1')] || 68.27;
   if (/CNC|NUM/i.test(band)) return 84.66;
+
+  // PHO / Principal House Officer / Medical Officer — leave blank, manual entry
+  if (/PHO|Principal House|Medical Officer|Resident/i.test(band)) return 0;
 
   return 0;
 }
