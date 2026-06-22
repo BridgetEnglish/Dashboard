@@ -41,7 +41,7 @@
   }
 
   /* ── Layout ── */
-  .app { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  .app { max-width: 100%; margin: 0 auto; padding: 1rem 1rem 2rem; }
 
   /* ── Header ── */
   .app-header {
@@ -1205,7 +1205,10 @@ function jobStatus(j) {
   const end = new Date(start); end.setDate(end.getDate() + (effectiveWeeks * 7));
   if (today < start) return 'upcoming';
   if (today <= end && remainingWeeks(j) > 0) return 'active';
-  return j.recurring ? 'recurring' : 'expired';
+  if (j.recurring) return 'recurring';
+  // Auto-archive expired non-recurring jobs
+  if (!j.archived) { j.archived = true; saveJobs(); }
+  return 'archived';
 }
 
 const STATUS_CONFIG = {
