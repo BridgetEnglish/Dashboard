@@ -6132,7 +6132,23 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "CIMHA experience mandatory. Mental Health Intake, Adult and Community experience required. Driver's licence mandatory. Must agree to 10-hour shift break."
+    },
+    {
+      "id": 430,
+      "facility": "Primary Health Care - Central Australia",
+      "title": "Remote Area Nurse",
+      "ward": "Yuendumu",
+      "location": "Yuendumu, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 3,
+      "startDate": "22/06/2025",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "",
+      "archived": true
     }
   ],
-  "nextId": 430
+  "nextId": 431
 }
