@@ -17,10 +17,10 @@
     {
       "id": 2,
       "facility": "Alice Springs Hospital",
-      "title": "RN ÃÂ¢ÃÂÃÂ Neonatal",
+      "title": "RN ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Neonatal",
       "ward": "Neonatal",
       "location": "Alice Springs, NT",
-      "band": "RN ÃÂ¢ÃÂÃÂ Neonatal",
+      "band": "RN ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Neonatal",
       "fte": 2,
       "hourlyRate": 53.5,
       "weeks": 6,
@@ -31,10 +31,10 @@
     {
       "id": 3,
       "facility": "Alice Springs Hospital",
-      "title": "RN ÃÂ¢ÃÂÃÂ Medical/Surgical",
+      "title": "RN ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Medical/Surgical",
       "ward": "Medical West",
       "location": "Alice Springs, NT",
-      "band": "RN ÃÂ¢ÃÂÃÂ Gen Med/Surg",
+      "band": "RN ÃÂÃÂ¢ÃÂÃÂÃÂÃÂ Gen Med/Surg",
       "fte": 4,
       "hourlyRate": 53.5,
       "weeks": 6,
@@ -4675,7 +4675,22 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false
+    },
+    {
+      "id": 336,
+      "facility": "Bowen Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department and General Wards",
+      "location": "Bowen, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural nursing and emergency experience mandatory. ALS, BLS, ETEK certs required. ieMR proficiency (FirstNet, PowerChart, HBCIS) desirable."
     }
   ],
-  "nextId": 336
+  "nextId": 337
 }
