@@ -505,6 +505,7 @@
         <thead>
           <tr>
             <th style="display:none;">Status</th>
+            <th style="width:24px;"></th>
             <th data-sort="facility" style="cursor:pointer;">Facility <span class="sort-icon" data-sort="facility"></span></th>
             <th data-sort="title" style="cursor:pointer;">Job title <span class="sort-icon" data-sort="title"></span></th>
             <th data-sort="location" style="cursor:pointer;">Location <span class="sort-icon" data-sort="location"></span></th>
@@ -671,7 +672,8 @@ let newIds = new Set();
 let activeTab = 'all';
 let sortCol = 'value';
 let sortDir = 'desc';
-let searchQuery = ''; // 'asc' or 'desc'
+let searchQuery = '';
+let expandedIds = new Set(); // 'asc' or 'desc'
 
 // ── API Key ─────────────────────────────────────────────
 function saveApiKey() {
@@ -779,9 +781,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     const removeBtn = e.target.closest('[data-removeid]');
     const restoreBtn = e.target.closest('[data-restoreid]');
     const recurringBtn = e.target.closest('[data-recurring]');
+    const expandBtn = e.target.closest('[data-expand]');
     if (removeBtn) removeJob(Number(removeBtn.dataset.removeid));
     if (restoreBtn) restoreJob(Number(restoreBtn.dataset.restoreid));
     if (recurringBtn) toggleRecurring(Number(recurringBtn.dataset.recurring));
+    if (expandBtn) {
+      const id = Number(expandBtn.dataset.expand);
+      if (expandedIds.has(id)) expandedIds.delete(id); else expandedIds.add(id);
+      render();
+    }
   });
 });
 
@@ -1055,6 +1063,7 @@ Each object must have these exact fields:
 - fte: number (number of placements/positions available)
 - weeks: number (contract length in weeks, calculated from start/end dates if needed. Round to nearest whole week. Use 0 if the role is ongoing/permanent with no fixed end date)
 - startDate: string (contract start date in DD/MM/YYYY format, or "" if not found)
+- requirements: string (a concise summary of mandatory experience, qualifications, certifications, and skills required for the role — e.g. "Min 3 years ED experience, BLS/ALS certs, ieMR proficiency desirable". Keep to 1-2 sentences. Use "" if none specified)
 - region: string (derive from sender email domain: "@health.qld.gov.au" = "QLD", "@nt.gov.au" = "NT", "@health.nsw.gov.au" = "NSW", otherwise "Other")
 - recurring: boolean (true if the email contains language suggesting the role is ongoing, recurring, regularly rostered, "as required", "ongoing", "expressions of interest", "talent pool", "panel", or similar. Otherwise false)
 
@@ -1134,7 +1143,7 @@ Rules:
       const id = nextId++;
       newIds.add(id);
       const isOngoing = !Number(j.weeks);
-      const newJob = { id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring || (isOngoing && j.region === 'NT') };
+      const newJob = { id, facility: j.facility||'', title: j.title||'', ward: j.ward||'', location: j.location||'', band: j.band||'', fte: Number(j.fte)||1, hourlyRate: 0, weeks: Number(j.weeks)||0, startDate: j.startDate||'', region: j.region||'Other', recurring: !!j.recurring || (isOngoing && j.region === 'NT'), requirements: j.requirements||'' };
       newJob.hourlyRate = autoRate(newJob);
       jobs.push(newJob);
       added++;
@@ -1291,7 +1300,7 @@ function render() {
   });
 
   if (visibleJobs.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="11">
+    tbody.innerHTML = `<tr><td colspan="12">
       <div class="empty-state">
         <div class="empty-icon">📋</div>
         <div class="empty-text">${activeTab === 'all' ? 'No vacancies yet' : 'No ' + activeTab + ' vacancies'}</div>
@@ -1359,7 +1368,7 @@ function render() {
       let divider = '';
       if (isDimmed && !dividerInserted) {
         dividerInserted = true;
-        divider = `<tr><td colspan="11" style="padding:0;"><div style="display:flex;align-items:center;gap:10px;padding:10px 12px 6px;"><div style="flex:1;height:0.5px;background:var(--border-light);"></div><span style="font-size:11px;color:var(--text-faint);white-space:nowrap;">Expired / recurring / archived below</span><div style="flex:1;height:0.5px;background:var(--border-light);"></div></div></td></tr>`;
+        divider = `<tr><td colspan="12" style="padding:0;"><div style="display:flex;align-items:center;gap:10px;padding:10px 12px 6px;"><div style="flex:1;height:0.5px;background:var(--border-light);"></div><span style="font-size:11px;color:var(--text-faint);white-space:nowrap;">Expired / recurring / archived below</span><div style="flex:1;height:0.5px;background:var(--border-light);"></div></div></td></tr>`;
       }
 
       const recurringToggle = (status === 'expired' || status === 'recurring')
@@ -1370,6 +1379,21 @@ function render() {
           </button>`
         : '';
 
+      const hasReq = !!(j.requirements && j.requirements.trim());
+      const isExpanded = expandedIds.has(j.id);
+
+      const expandBtn = hasReq
+        ? `<button data-expand="${j.id}" style="background:none;border:none;cursor:pointer;color:var(--text-faint);font-size:11px;padding:2px;transform:rotate(${isExpanded ? '90' : '0'}deg);transition:transform 0.15s;">▶</button>`
+        : '';
+
+      const detailsRow = (hasReq && isExpanded)
+        ? `<tr style="${dimStyle}"><td colspan="12" style="padding:0;background:var(--bg);">
+            <div style="padding:10px 16px 14px 44px;font-size:12px;color:var(--text-muted);line-height:1.6;border-bottom:1px solid var(--border-light);">
+              <span style="font-weight:600;color:var(--text);">Requirements: </span>${esc(j.requirements)}
+            </div>
+          </td></tr>`
+        : '';
+
       return divider + `<tr class="${isNew ? 'new-row' : ''}" style="${dimStyle}">
         <td style="display:none;">
           <div style="display:flex;align-items:center;gap:6px;">
@@ -1378,6 +1402,7 @@ function render() {
             ${recurringToggle}
           </div>
         </td>
+        <td style="text-align:center;">${expandBtn}</td>
         <td>
           <div class="facility-name">${esc(j.facility)}</div>
           <div class="ward-name">${esc(j.ward)}${recurringToggle}</div>
@@ -1402,7 +1427,7 @@ function render() {
           ? `<button class="btn-icon" data-restoreid="${j.id}" title="Restore" style="font-size:11px;">↩</button>`
           : `<button class="btn-icon" data-removeid="${j.id}" title="Archive">✕</button>`
         }</td>
-      </tr>`;
+      </tr>${detailsRow}`;
     }).join('');
   }
   renderMetrics();
@@ -1415,8 +1440,8 @@ function esc(s) {
 // ── Export ───────────────────────────────────────────────
 function exportCSV() {
   if (jobs.length === 0) { showToast('No data to export'); return; }
-  const headers = ['Status','Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Total Weeks','Remaining Weeks','Hourly Rate','Remaining Contract Value','Recurring'];
-  const rows = jobs.map(j => [jobStatus(j), j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, remainingWeeks(j), j.hourlyRate, Math.round(contractValue(j)), j.recurring ? 'Yes' : 'No']);
+  const headers = ['Status','Region','Facility','Ward','Job Title','Location','Rate Band','FTE','Start Date','Total Weeks','Remaining Weeks','Hourly Rate','Remaining Contract Value','Recurring','Requirements'];
+  const rows = jobs.map(j => [jobStatus(j), j.region||'', j.facility, j.ward, j.title, j.location, j.band, j.fte, j.startDate||'', j.weeks, remainingWeeks(j), j.hourlyRate, Math.round(contractValue(j)), j.recurring ? 'Yes' : 'No', j.requirements||'']);
   const csv = [headers, ...rows].map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(',')).join('\n');
   const a = document.createElement('a');
   a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
