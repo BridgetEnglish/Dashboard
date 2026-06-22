@@ -7108,7 +7108,37 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Min 2 years clinical currency, BLS cert, manual handling, infection control, mandatory reporting, occupational violence prevention, medications management. ieMR proficiency desirable."
+    },
+    {
+      "id": 495,
+      "facility": "Clermont Multi-Purpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Mixed (Acute/Emergency/Aged Care)",
+      "location": "Clermont, QLD",
+      "band": "RN Grade 5",
+      "fte": 2,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural nursing and emergency experience required, must work in Aged Care Services. ALS, BLS, ETEK certs mandatory. Aged Care National Police Certificate required. ieMR proficiency desirable."
+    },
+    {
+      "id": 496,
+      "facility": "Clermont Multi-Purpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Mixed (Acute/Emergency/Aged Care)",
+      "location": "Clermont, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 6,
+      "startDate": "25/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural nursing and emergency experience required, must work in Aged Care Services. ALS, BLS, ETEK certs mandatory. Aged Care National Police Certificate required. ieMR proficiency desirable."
     }
   ],
-  "nextId": 495
+  "nextId": 497
 }
