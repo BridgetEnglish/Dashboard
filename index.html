@@ -1171,6 +1171,19 @@ Rules:
       added++;
     });
 
+    // After parsing — auto-flag duplicates as recurring
+    // (same facility + ward + title appearing 2+ times = recurring role)
+    const dupMap = {};
+    jobs.forEach(j => {
+      if (j.archived) return;
+      const key = `${(j.facility||'').toLowerCase().trim()}|${(j.ward||'').toLowerCase().trim()}|${(j.title||'').toLowerCase().trim()}`;
+      if (!dupMap[key]) dupMap[key] = [];
+      dupMap[key].push(j);
+    });
+    Object.values(dupMap).forEach(group => {
+      if (group.length >= 2) group.forEach(j => { j.recurring = true; });
+    });
+
     render();
     saveJobs();
     document.getElementById('email-input').value = '';
