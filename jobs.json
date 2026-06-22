@@ -100,7 +100,8 @@
       "weeks": 6,
       "startDate": "19/01/2026",
       "region": "QLD",
-      "recurring": false
+      "recurring": false,
+      "archived": true
     },
     {
       "id": 8,
