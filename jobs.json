@@ -5213,7 +5213,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
+    },
+    {
+      "id": 369,
+      "facility": "Central West Hospital and Health Service",
+      "title": "Contact Update",
+      "ward": "",
+      "location": "Longreach, QLD",
+      "band": "",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": ""
     }
   ],
-  "nextId": 369
+  "nextId": 370
 }
