@@ -5363,7 +5363,82 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required."
+    },
+    {
+      "id": 379,
+      "facility": "Biloela Hospital",
+      "title": "Registered Midwife",
+      "ward": "Maternity/MGP",
+      "location": "Biloela, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 14,
+      "startDate": "03/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "MGP/caseload experience, Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite. Role includes 35% loading and on-call coverage."
+    },
+    {
+      "id": 380,
+      "facility": "Emerald Mental Health",
+      "title": "Clinical Nurse",
+      "ward": "Adult Community",
+      "location": "Emerald, QLD",
+      "band": "RN Grade 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Must have CIMHA experience, Intake, Adult and Community mental health experience."
+    },
+    {
+      "id": 381,
+      "facility": "Gladstone Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Gladstone, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 1,
+      "startDate": "29/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Adult and Paediatric Emergency, Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulations, ICU Ventilator, Neonatal and Pain Management experience."
+    },
+    {
+      "id": 382,
+      "facility": "Springsure MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Aged Care",
+      "location": "Springsure, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 2,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
+    },
+    {
+      "id": 383,
+      "facility": "Springsure MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Aged Care",
+      "location": "Springsure, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 2,
+      "startDate": "22/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
     }
   ],
-  "nextId": 379
+  "nextId": 384
 }
