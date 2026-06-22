@@ -4720,7 +4720,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care experience. Must have aged care check."
+    },
+    {
+      "id": 339,
+      "facility": "Taroom Hospital",
+      "title": "Medical Superintendent",
+      "ward": "General Practice / Emergency Department",
+      "location": "Taroom, QLD",
+      "band": "Medical Superintendent",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "AHPRA General or Specialist registration mandatory. GP work in medical practice, on-call duties, and inpatient ward rounds."
     }
   ],
-  "nextId": 339
+  "nextId": 340
 }
