@@ -507,9 +507,9 @@
             <th style="display:none;">Status</th>
             <th style="width:24px;"></th>
             <th data-sort="facility" style="cursor:pointer;">Facility <span class="sort-icon" data-sort="facility"></span></th>
-            <th data-sort="title" style="cursor:pointer;">Job title <span class="sort-icon" data-sort="title"></span></th>
+            <th data-sort="title" style="cursor:pointer;width:130px;">Job title <span class="sort-icon" data-sort="title"></span></th>
             <th data-sort="location" style="cursor:pointer;">Location <span class="sort-icon" data-sort="location"></span></th>
-            <th data-sort="band" style="cursor:pointer;width:90px;">Rate band <span class="sort-icon" data-sort="band"></span></th>
+            <th data-sort="band" style="cursor:pointer;width:80px;white-space:nowrap;">Rate band <span class="sort-icon" data-sort="band"></span></th>
             <th data-sort="fte" style="text-align:center;cursor:pointer;">FTE <span class="sort-icon" data-sort="fte"></span></th>
             <th data-sort="startDate" style="cursor:pointer;">Start date <span class="sort-icon" data-sort="startDate"></span></th>
             <th data-sort="weeks" style="cursor:pointer;">Length <span class="sort-icon" data-sort="weeks"></span></th>
@@ -1410,9 +1410,9 @@ function render() {
           <div class="facility-name">${esc(j.facility)}</div>
           <div class="ward-name">${esc(j.ward)}${recurringToggle}</div>
         </td>
-        <td>${esc(j.title)}</td>
+        <td style="max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${esc(j.title)}">${esc(j.title)}</td>
         <td>${esc(j.location)}</td>
-        <td>${esc(j.band)}</td>
+        <td style="max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" title="${esc(j.band)}">${esc(j.band)}</td>
         <td style="text-align:center; font-weight:500;">${j.fte}</td>
         <td style="font-family:'DM Mono',monospace;font-size:12px;">${esc(j.startDate||'—')}</td>
         <td><span class="badge ${badgeClass}">${contractLen}</span></td>
