@@ -5110,7 +5110,22 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "Mental health clinician with experience working with young people and families in CAMHS, working hours 8:30am-5:00pm M-F."
+    },
+    {
+      "id": 365,
+      "facility": "Cherbourg Hospital",
+      "title": "Director of Nursing",
+      "ward": "",
+      "location": "Cherbourg, QLD",
+      "band": "NRG 10",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 4,
+      "startDate": "29/06/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural and remote experience required. Experience in effectively engaging with Aboriginal and Torres Strait Islander communities is essential. On-call requirement."
     }
   ],
-  "nextId": 365
+  "nextId": 366
 }
