@@ -5438,7 +5438,37 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
+    },
+    {
+      "id": 384,
+      "facility": "Cobar Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Cobar, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 17.39,
+      "weeks": 11,
+      "startDate": "22/06/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of hospital and covering aged care in MPS sites"
+    },
+    {
+      "id": 385,
+      "facility": "Cobar Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Cobar, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 17.39,
+      "weeks": 10,
+      "startDate": "22/06/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 certification, triage competency, comfortable working in charge of hospital and covering aged care in MPS sites"
     }
   ],
-  "nextId": 384
+  "nextId": 386
 }
