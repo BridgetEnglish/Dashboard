@@ -6553,7 +6553,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Valid NSW WWCC clearance mandatory, AHPRA registration, relevant training/certifications (e.g. TRIAGE, ALS), 2 references dated within 12 months"
+    },
+    {
+      "id": 458,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Operating Theatre",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 16,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Recent Operating Theatre experience mandatory. Experienced in Anaesthetics and PACU desirable (all three preferable). BLS certification, ieMR proficiency desirable."
     }
   ],
-  "nextId": 458
+  "nextId": 459
 }
