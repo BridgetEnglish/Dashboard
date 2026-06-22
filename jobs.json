@@ -6148,7 +6148,37 @@
       "recurring": false,
       "requirements": "",
       "archived": true
+    },
+    {
+      "id": 431,
+      "facility": "Alpha Multipurpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency, Ambulance, Aged Care",
+      "location": "Alpha, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "06/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Senior RN (NG5) pay point 5-7 only. Rural/remote and Qld Health experience required. Manual driver's licence."
+    },
+    {
+      "id": 432,
+      "facility": "Alpha Multipurpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency, Ambulance, Aged Care",
+      "location": "Alpha, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "13/07/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Extensive experience in acute, aged care, ED. Qualifications in Triage, IVC/Cannulation, ALS, PALS. Senior RN (NG5) pay point 5-7 only. Rural/remote and Qld Health experience required. Manual driver's licence."
     }
   ],
-  "nextId": 431
+  "nextId": 433
 }
