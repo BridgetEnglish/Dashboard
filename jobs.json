@@ -5483,7 +5483,38 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Formal ALS course within 3 years, CDP evidence on GP training pathway, ability to supervise junior doctors. Fellowship and Full Medicare Billing Rights preferred."
+    },
+    {
+      "id": 387,
+      "facility": "Port Macquarie Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Perioperative Services - Anaesthetics",
+      "location": "Port Macquarie, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 8.69,
+      "weeks": 12,
+      "startDate": "06/07/2025",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Anaesthetics experience required, preferably multi-skilled in other perioperative areas. Current NSW WWCC mandatory.",
+      "archived": true
+    },
+    {
+      "id": 388,
+      "facility": "Port Macquarie Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Perioperative Services - Anaesthetics/Recovery/Scrub Scout",
+      "location": "Port Macquarie, NSW",
+      "band": "RN/M2",
+      "fte": 3,
+      "hourlyRate": 8.69,
+      "weeks": 12,
+      "startDate": "03/08/2025",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Preferably multi-skilled with ability to work across Anaesthetics, Recovery and Scrub Scout. Current NSW WWCC mandatory."
     }
   ],
-  "nextId": 387
+  "nextId": 389
 }
