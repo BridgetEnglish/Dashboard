@@ -199,9 +199,45 @@ function complianceScore(candidate) {
   return { score, parts };
 }
 
+// Detect if a job requires a specialty (and which one)
+function detectSpecialty(job) {
+  const context = ((job.title || '') + ' ' + (job.ward || '') + ' ' + (job.requirements || '')).toLowerCase();
+
+  const specialties = {
+    midwife: ['midwife','maternity','birthing','antenatal','postnatal','obstetric','labour ward'],
+    mentalHealth: ['mental health','mh ','psych','behavioural','community mental'],
+    emergency: ['emergency','ed ','a&e','triage','acute care'],
+    icu: ['icu','intensive care','critical care','high dependency','hdu'],
+    perioperative: ['perioperative','theatre','operating theatre','scrub','scout','anaesthet','recovery'],
+    paediatric: ['paediatric','paeds','children','neonatal','nicu','scn'],
+    agedCare: ['aged care','residential care','dementia','geriatric'],
+    palliative: ['palliative','end of life','hospice'],
+    community: ['community nurse','district nurse','home care'],
+    remote: ['remote area','outreach','primary health care','phc'],
+    oncology: ['oncology','cancer','chemotherapy','haematology'],
+    renal: ['renal','dialysis','nephrology'],
+  };
+
+  for (const [name, keywords] of Object.entries(specialties)) {
+    if (keywords.some(k => context.includes(k))) return { name, keywords };
+  }
+  return null;
+}
+
+function candidateHasSpecialty(candidate, specialty) {
+  const candText = ((candidate.specialisation || '') + ' ' + (candidate.subSpecialisation || '') + ' ' + (candidate.skills || '') + ' ' + (candidate.currentRole || '') + ' ' + (candidate.qualification || '')).toLowerCase();
+  return specialty.keywords.some(k => candText.includes(k));
+}
+
 function scoreCandidate(candidate, job) {
-  // Hard filter: profession must match
+  // Hard filter 1: profession must match
   if (!professionMatches(candidate, job.title)) {
+    return null;
+  }
+
+  // Hard filter 2: if job requires a specialty, candidate must have it
+  const requiredSpecialty = detectSpecialty(job);
+  if (requiredSpecialty && !candidateHasSpecialty(candidate, requiredSpecialty)) {
     return null;
   }
 
@@ -209,12 +245,19 @@ function scoreCandidate(candidate, job) {
   const loc = locationScore(candidate, job);
   const comp = complianceScore(candidate);
 
+  // Bonus: if they had to match the required specialty, give them credit even if generic scorer missed it
+  if (requiredSpecialty && spec.score === 0) {
+    spec.score = 30;
+    spec.matches = [requiredSpecialty.name];
+  }
+
   const total = spec.score + loc.score + comp.score;
 
   return {
     candidate,
     total,
-    breakdown: { spec, loc, comp }
+    breakdown: { spec, loc, comp },
+    requiredSpecialty: requiredSpecialty ? requiredSpecialty.name : null
   };
 }
 
