@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Matcher · HealthX</title>
+<style>
+  :root {
+    --bg: #F4F2EE;
+    --surface: #FBFAF7;
+    --text: #1A1916;
+    --text-muted: #6B6860;
+    --text-faint: #9E9B94;
+    --border: #D9D5CB;
+    --border-light: #E8E4DA;
+    --accent: #1D6A4A;
+    --accent-light: #DDEEE6;
+    --accent-text: #144A33;
+    --amber: #C28028;
+    --radius: 6px;
+    --radius-lg: 10px;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+  .app { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h1 { font-size: 22px; font-weight: 600; margin: 0 0 0.25rem; }
+  .sub { font-size: 13px; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .card { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 1.25rem; margin-bottom: 1rem; }
+  .vacancy-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; cursor: pointer; }
+  .vacancy-meta { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .vacancy-stats { font-size: 11px; color: var(--text-faint); white-space: nowrap; }
+  .toggle-arrow { font-size: 11px; color: var(--text-faint); transition: transform 0.15s; }
+  .expanded .toggle-arrow { transform: rotate(90deg); }
+  .candidates-list { display: none; padding-top: 1rem; margin-top: 0.75rem; border-top: 1px solid var(--border-light); }
+  .expanded .candidates-list { display: block; }
+  .candidate-row { display: grid; grid-template-columns: 50px 60px 1fr auto; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-light); align-items: center; font-size: 13px; }
+  .candidate-row:last-child { border-bottom: none; }
+  .score-pill { font-weight: 600; padding: 3px 8px; border-radius: 99px; text-align: center; font-size: 11px; }
+  .score-high { background: #DDEEE6; color: #144A33; }
+  .score-med  { background: #FDF3E0; color: #92580A; }
+  .score-low  { background: #F1EFE8; color: #6B6860; }
+  .reasons { font-size: 11px; color: var(--text-muted); }
+  .reasons .ok { color: #1D9E75; }
+  .reasons .meh { color: #C28028; }
+  .reasons .no { color: #B4B2A9; }
+  .controls { display: flex; gap: 12px; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; }
+  input, select { font-family: inherit; font-size: 13px; padding: 7px 10px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  .banner { background: #FDF3E0; border: 1px solid #F0CDA0; padding: 0.875rem 1rem; border-radius: var(--radius-lg); margin-bottom: 1rem; display: flex; gap: 12px; align-items: center; }
+  .banner-text { flex: 1; font-size: 13px; }
+  .btn { font-family: inherit; font-size: 13px; padding: 7px 14px; border: 1px solid var(--border); background: var(--surface); border-radius: var(--radius); cursor: pointer; color: var(--text); font-weight: 500; }
+  .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .empty { padding: 3rem 1rem; text-align: center; color: var(--text-faint); }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="app">
+  <h1>Candidate Matcher</h1>
+  <div class="sub">Anonymised candidate fit against active vacancies · <a href="./">← Back to dashboard</a></div>
+
+  <div id="gh-banner" class="banner" style="display:none;">
+    <div class="banner-text">
+      <strong>GitHub token required</strong><br>
+      <span style="color:var(--text-muted);">Loads vacancies and candidates from your repo. Stored locally only.</span>
+    </div>
+    <input id="gh-token-input" type="password" placeholder="ghp_..." style="width:240px;" />
+    <button class="btn btn-primary" id="btn-save-token">Save</button>
+  </div>
+
+  <div class="controls">
+    <input id="search" type="text" placeholder="Search vacancies (facility, title, location)…" style="flex:1;min-width:200px;" />
+    <select id="filter-region">
+      <option value="all">All regions</option>
+      <option value="QLD">Queensland</option>
+      <option value="NT">Northern Territory</option>
+      <option value="NSW">New South Wales</option>
+    </select>
+    <span style="font-size:12px;color:var(--text-faint);" id="status-line">Loading…</span>
+  </div>
+
+  <div id="content"></div>
+</div>
+
+<script>
+const GH_OWNER = 'BridgetEnglish';
+const GH_REPO = 'Dashboard';
+const GH_BRANCH = 'main';
+
+let jobs = [];
+let candidates = [];
+let expandedJobs = new Set();
+let searchQuery = '';
+let regionFilter = 'all';
+
+function getGHToken() { return localStorage.getItem('gh_token') || ''; }
+function setGHToken(t) { localStorage.setItem('gh_token', t); }
+
+async function fetchFile(filename) {
+  const url = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filename}`;
+  const headers = { 'Accept': 'application/vnd.github.v3+json' };
+  if (getGHToken()) headers['Authorization'] = `token ${getGHToken()}`;
+  const resp = await fetch(url, { headers });
+  if (!resp.ok) throw new Error(`${filename}: ${resp.status}`);
+  const data = await resp.json();
+  return JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
+}
+
+async function loadData() {
+  try {
+    const jobsData = await fetchFile('jobs.json');
+    jobs = jobsData.jobs || [];
+    candidates = await fetchFile('candidates.json');
+    document.getElementById('status-line').textContent = `${jobs.filter(j => !j.archived).length} active vacancies · ${candidates.length} candidates`;
+    render();
+  } catch(e) {
+    if (e.message.includes('401') || !getGHToken()) {
+      document.getElementById('gh-banner').style.display = 'flex';
+      document.getElementById('status-line').textContent = 'Enter GitHub token to load data';
+    } else {
+      document.getElementById('status-line').textContent = 'Error: ' + e.message;
+    }
+  }
+}
+
+// ── Scoring logic ─────────────────────────────────────
+function deriveState(town) {
+  const t = (town || '').toLowerCase();
+  const qldCities = ['brisbane','gold coast','townsville','cairns','toowoomba','mackay','rockhampton','sunshine coast','bundaberg','hervey bay','gladstone','mt isa','mount isa','longreach','warwick','dalby','gympie','kingaroy','ipswich','petrie terrace','caboolture','redcliffe','logan','caloundra'];
+  const ntCities = ['darwin','palmerston','katherine','alice springs','tennant creek','nhulunbuy','gove','wadeye'];
+  const nswCities = ['sydney','newcastle','wollongong','central coast','gosford','wagga','albury','tamworth','orange','dubbo','bathurst','lismore','tweed','coffs harbour','port macquarie','armidale','queanbeyan','broken hill','griffith','parkes','rathmines','cooks hill'];
+  if (qldCities.some(c => t.includes(c))) return 'QLD';
+  if (ntCities.some(c => t.includes(c))) return 'NT';
+  if (nswCities.some(c => t.includes(c))) return 'NSW';
+  return null;
+}
+
+function normalizeProfession(q) {
+  const s = (q || '').toUpperCase();
+  if (s.includes('MIDWIFE')) return 'Midwife';
+  if (s === 'RN' || s.includes('REGISTERED NURSE')) return 'RN';
+  if (s === 'EN' || s.includes('ENROLLED NURSE')) return 'EN';
+  if (s === 'CN' || s.includes('CLINICAL NURSE')) return 'CN';
+  if (s.includes('NURSE PRAC') || s === 'NP') return 'NP';
+  if (s === 'AIN' || s.includes('ASSISTANT')) return 'AIN';
+  return s || 'RN';
+}
+
+function professionMatches(candidate, jobTitle) {
+  const cp = normalizeProfession(candidate.qualification || candidate.currentRole);
+  const jt = (jobTitle || '').toUpperCase();
+  if (cp === 'Midwife') return jt.includes('MIDWIFE');
+  if (cp === 'RN') return /RN|REGISTERED NURSE|NURSE/.test(jt) && !jt.includes('MIDWIFE');
+  if (cp === 'EN') return /EN|ENROLLED/.test(jt);
+  if (cp === 'CN') return /CN|CLINICAL NURSE/.test(jt) || /RN|NURSE/.test(jt);
+  if (cp === 'NP') return /NURSE PRACT|NP/.test(jt) || /RN|NURSE/.test(jt);
+  if (cp === 'AIN') return /AIN|ASSISTANT/.test(jt);
+  return true;
+}
+
+function specialisationScore(candidate, job) {
+  // Combine candidate's specialisations + sub-specialisations + ward expertise
+  const candSpec = ((candidate.specialisation || '') + ' ' + (candidate.subSpecialisation || '') + ' ' + (candidate.skills || '')).toLowerCase();
+  // Job context: ward, title, requirements
+  const jobContext = ((job.ward || '') + ' ' + (job.title || '') + ' ' + (job.requirements || '')).toLowerCase();
+
+  // Keywords to look for
+  const keywords = ['emergency','ed','icu','intensive care','perioperative','theatre','surgical','medical','mental health','mh','paediatric','peds','aged care','community','remote','maternity','neonatal','midwife','palliative','rehabilitation','oncology','cardiology','renal','dialysis','operating','recovery'];
+
+  let matches = 0;
+  keywords.forEach(k => {
+    if (candSpec.includes(k) && jobContext.includes(k)) matches++;
+  });
+
+  if (matches === 0) return { score: 0, matches: [] };
+  const matched = keywords.filter(k => candSpec.includes(k) && jobContext.includes(k));
+  // Cap at 50 points — diminishing returns
+  return { score: Math.min(50, matches * 20), matches: matched };
+}
+
+function locationScore(candidate, job) {
+  const candState = deriveState(candidate.town);
+  const jobRegion = job.region;
+  if (!candState) return { score: 10, label: 'unknown location' };
+  if (candState === jobRegion) return { score: 30, label: 'same state' };
+  return { score: 10, label: 'interstate' };
+}
+
+function complianceScore(candidate) {
+  let score = 0;
+  let parts = [];
+  if (candidate.ahpra === 'Registered') { score += 15; parts.push('AHPRA ✓'); }
+  else parts.push('AHPRA ?');
+
+  const wr = (candidate.workingRights || '').toLowerCase();
+  if (wr.includes('citizen') || wr.includes('permanent')) { score += 5; parts.push('rights ✓'); }
+  else if (wr.includes('visa') || wr.includes('working visa')) { score += 3; parts.push('visa'); }
+
+  return { score, parts };
+}
+
+function scoreCandidate(candidate, job) {
+  // Hard filter: profession must match
+  if (!professionMatches(candidate, job.title)) {
+    return null;
+  }
+
+  const spec = specialisationScore(candidate, job);
+  const loc = locationScore(candidate, job);
+  const comp = complianceScore(candidate);
+
+  const total = spec.score + loc.score + comp.score;
+
+  return {
+    candidate,
+    total,
+    breakdown: { spec, loc, comp }
+  };
+}
+
+// ── Rendering ────────────────────────────────────────
+function fmtMoney(n) {
+  if (!n) return '—';
+  return '$' + Math.round(n).toLocaleString();
+}
+
+function jobIsActive(j) {
+  if (j.archived) return false;
+  if (!j.startDate) return true;
+  const [d,m,y] = j.startDate.split('/').map(Number);
+  const start = new Date(y, m-1, d);
+  const today = new Date(); today.setHours(0,0,0,0);
+  const defaultWeeks = j.region === 'NSW' ? 8 : j.region === 'NT' ? 12 : 52;
+  const wks = j.weeks || defaultWeeks;
+  const end = new Date(start); end.setDate(end.getDate() + wks * 7);
+  return today <= end;
+}
+
+function render() {
+  const container = document.getElementById('content');
+  const activeJobs = jobs.filter(j => jobIsActive(j))
+    .filter(j => regionFilter === 'all' || j.region === regionFilter)
+    .filter(j => {
+      if (!searchQuery) return true;
+      const q = searchQuery.toLowerCase();
+      return j.facility.toLowerCase().includes(q) || j.title.toLowerCase().includes(q) || j.location.toLowerCase().includes(q);
+    });
+
+  if (!activeJobs.length) {
+    container.innerHTML = '<div class="empty">No matching vacancies</div>';
+    return;
+  }
+
+  container.innerHTML = activeJobs.map(j => {
+    const matches = candidates.map(c => scoreCandidate(c, j))
+      .filter(m => m !== null)
+      .sort((a,b) => b.total - a.total);
+
+    const expanded = expandedJobs.has(j.id);
+    const topCount = matches.filter(m => m.total >= 50).length;
+
+    return `
+      <div class="card ${expanded ? 'expanded' : ''}" data-jobid="${j.id}">
+        <div class="vacancy-header">
+          <div style="flex:1;">
+            <span class="toggle-arrow">▶</span>
+            <strong>${esc(j.facility)}</strong> — ${esc(j.title)}
+            <div class="vacancy-meta">${esc(j.location)} · ${esc(j.band)} · ${j.fte} FTE · starts ${esc(j.startDate || 'TBC')}</div>
+          </div>
+          <div class="vacancy-stats">
+            <strong>${matches.length}</strong> potential · <strong style="color:var(--accent);">${topCount}</strong> strong fit
+          </div>
+        </div>
+        ${expanded ? renderMatches(matches) : ''}
+      </div>`;
+  }).join('');
+
+  // Attach click handlers
+  document.querySelectorAll('.vacancy-header').forEach(h => {
+    h.addEventListener('click', () => {
+      const id = Number(h.closest('.card').dataset.jobid);
+      if (expandedJobs.has(id)) expandedJobs.delete(id);
+      else expandedJobs.add(id);
+      render();
+    });
+  });
+}
+
+function renderMatches(matches) {
+  if (!matches.length) return '<div class="candidates-list"><div class="empty" style="padding:1rem;">No candidates match this profession</div></div>';
+
+  return `<div class="candidates-list">
+    ${matches.slice(0, 50).map(m => {
+      const scoreClass = m.total >= 60 ? 'score-high' : m.total >= 35 ? 'score-med' : 'score-low';
+      const specOk = m.breakdown.spec.matches.length > 0;
+      return `
+        <div class="candidate-row">
+          <span class="score-pill ${scoreClass}">${m.total}</span>
+          <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);">#${esc(m.candidate.id)}</span>
+          <div>
+            <div style="font-weight:500;font-size:13px;">${esc(m.candidate.qualification || m.candidate.currentRole || 'Unknown')} · ${esc(m.candidate.town || 'Location unknown')}</div>
+            <div class="reasons">
+              <span class="${specOk?'ok':'no'}">${specOk ? '✓' : '○'} ${specOk ? m.breakdown.spec.matches.join(', ') : 'no specialisation match'}</span>
+              · <span class="${m.breakdown.loc.score === 30 ? 'ok' : 'meh'}">${m.breakdown.loc.label}</span>
+              · <span class="${m.breakdown.comp.score >= 15 ? 'ok' : 'meh'}">${m.breakdown.comp.parts.join(' · ')}</span>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--text-faint);">
+            ${esc((m.candidate.specialisation||'').replace(/\u00a0/g,' '))}
+          </div>
+        </div>`;
+    }).join('')}
+    ${matches.length > 50 ? `<div style="padding:0.75rem;text-align:center;font-size:11px;color:var(--text-faint);">+ ${matches.length - 50} more candidates not shown</div>` : ''}
+  </div>`;
+}
+
+function esc(s) { return String(s||'').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+
+// ── Init ─────────────────────────────────────────────
+document.getElementById('search').addEventListener('input', e => { searchQuery = e.target.value; render(); });
+document.getElementById('filter-region').addEventListener('change', e => { regionFilter = e.target.value; render(); });
+
+document.getElementById('btn-save-token').addEventListener('click', async () => {
+  const t = document.getElementById('gh-token-input').value.trim();
+  if (!t.startsWith('ghp_') && !t.startsWith('github_pat_')) {
+    alert('Token should start with ghp_ or github_pat_'); return;
+  }
+  setGHToken(t);
+  document.getElementById('gh-banner').style.display = 'none';
+  loadData();
+});
+
+if (getGHToken()) loadData();
+else document.getElementById('gh-banner').style.display = 'flex';
+</script>
+</body>
+</html>
