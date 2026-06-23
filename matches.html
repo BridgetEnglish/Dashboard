@@ -245,18 +245,33 @@ function scoreCandidate(candidate, job) {
   const loc = locationScore(candidate, job);
   const comp = complianceScore(candidate);
 
-  // Bonus: if they had to match the required specialty, give them credit even if generic scorer missed it
-  if (requiredSpecialty && spec.score === 0) {
-    spec.score = 30;
+  // Specialty match bonus: if they matched a required specialty, big boost
+  if (requiredSpecialty) {
+    spec.score = 50; // strong specialty match
     spec.matches = [requiredSpecialty.name];
+  } else {
+    // Generic role — reward candidates with ANY specialty experience (versatility)
+    const candSpecText = ((candidate.specialisation || '') + ' ' + (candidate.subSpecialisation || '') + ' ' + (candidate.skills || '')).toLowerCase().trim();
+    if (candSpecText && candSpecText.length > 5 && spec.score === 0) {
+      spec.score = 20;
+      spec.matches = ['has clinical experience'];
+    }
   }
 
-  const total = spec.score + loc.score + comp.score;
+  // CN/NP bonus on RN roles (overqualified = versatile)
+  const candProf = normalizeProfession(candidate.qualification || candidate.currentRole);
+  const jt = (job.title || '').toUpperCase();
+  let overqualBonus = 0;
+  if ((candProf === 'CN' || candProf === 'NP') && /^(RN|REGISTERED NURSE)/.test(jt) && !jt.includes('CLINICAL')) {
+    overqualBonus = 10;
+  }
+
+  const total = spec.score + loc.score + comp.score + overqualBonus;
 
   return {
     candidate,
     total,
-    breakdown: { spec, loc, comp },
+    breakdown: { spec, loc, comp, overqualBonus },
     requiredSpecialty: requiredSpecialty ? requiredSpecialty.name : null
   };
 }
@@ -346,6 +361,7 @@ function renderMatches(matches) {
               <span class="${specOk?'ok':'no'}">${specOk ? '✓' : '○'} ${specOk ? m.breakdown.spec.matches.join(', ') : 'no specialisation match'}</span>
               · <span class="${m.breakdown.loc.score === 30 ? 'ok' : 'meh'}">${m.breakdown.loc.label}</span>
               · <span class="${m.breakdown.comp.score >= 15 ? 'ok' : 'meh'}">${m.breakdown.comp.parts.join(' · ')}</span>
+              ${m.breakdown.overqualBonus ? '· <span class="ok">+overqualified</span>' : ''}
             </div>
           </div>
           <div style="font-size:11px;color:var(--text-faint);">
