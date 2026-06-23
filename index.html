@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vacant Jobs Dashboard</title>
@@ -497,6 +499,7 @@
         <button class="tab" data-tab="NT">Northern Territory <span class="tab-count" id="tc-NT"></span></button>
         <button class="tab" data-tab="NSW">New South Wales <span class="tab-count" id="tc-NSW"></span></button>
         <button class="tab" data-tab="archived" style="margin-left:auto;color:var(--text-faint);">Archived <span class="tab-count" id="tc-archived"></span></button>
+        <button class="tab" data-tab="map" title="Vacancy map" style="color:var(--text-faint);padding:7px 10px;">🗺</button>
       </div>
       <input id="search-input" type="text" placeholder="Search facility or job title…" style="font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);outline:none;width:240px;margin-top:10px;" />
     </div>
@@ -523,6 +526,17 @@
     </div>
     <div class="table-footer" id="table-footer">
       Hourly profit = pay rate × 20% (QLD/NT) or commission rate (NSW) · Contract value = hourly profit × 40hrs × remaining weeks × FTE
+    </div>
+
+    <!-- Map view -->
+    <div id="map-container" style="display:none;padding:1rem 0;">
+      <div id="map" style="height:600px;width:100%;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light);"></div>
+      <div style="font-size:11px;color:var(--text-faint);padding:8px 4px 0;display:flex;gap:14px;flex-wrap:wrap;">
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#1D9E75;vertical-align:middle;margin-right:4px;"></span>Queensland</span>
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#EF9F27;vertical-align:middle;margin-right:4px;"></span>Northern Territory</span>
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#378ADD;vertical-align:middle;margin-right:4px;"></span>New South Wales</span>
+        <span style="margin-left:auto;color:var(--text-muted);">Circle size = number of active vacancies</span>
+      </div>
     </div>
   </div>
 
@@ -715,7 +729,25 @@ window.addEventListener('DOMContentLoaded', async () => {
       activeTab = btn.dataset.tab;
       document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
       btn.classList.add('active');
-      render();
+
+      const tableScroll = document.querySelector('.table-scroll');
+      const tableFooter = document.getElementById('table-footer');
+      const mapContainer = document.getElementById('map-container');
+      const searchInput = document.getElementById('search-input');
+
+      if (activeTab === 'map') {
+        tableScroll.style.display = 'none';
+        tableFooter.style.display = 'none';
+        if (searchInput) searchInput.style.display = 'none';
+        mapContainer.style.display = 'block';
+        renderMap();
+      } else {
+        tableScroll.style.display = '';
+        tableFooter.style.display = '';
+        if (searchInput) searchInput.style.display = '';
+        mapContainer.style.display = 'none';
+        render();
+      }
     });
   });
 
@@ -887,72 +919,128 @@ var QLD_RATES = {
   'NP 8.1':96.73,'NP 8.2':96.73,'NP 8.3':96.73
 };
 
-// NSW standard commission rates per hour by classification and MMM band
-var NSW_RATES = {
-  'AIN/M1': { 'MMM1-2': 5.92,  'MMM3-4': 10.37, 'MMM5-7': 11.85 },
-  'AIN/M2': { 'MMM1-2': 6.11,  'MMM3-4': 10.70, 'MMM5-7': 12.23 },
-  'AIN/M3': { 'MMM1-2': 6.31,  'MMM3-4': 11.04, 'MMM5-7': 12.61 },
-  'AIN/M4': { 'MMM1-2': 6.50,  'MMM3-4': 11.38, 'MMM5-7': 13.00 },
-  'EN2':    { 'MMM1-2': 7.59,  'MMM3-4': 13.28, 'MMM5-7': 15.18 },
-  'EN3':    { 'MMM1-2': 7.75,  'MMM3-4': 13.56, 'MMM5-7': 15.50 },
-  'EN4':    { 'MMM1-2': 7.91,  'MMM3-4': 13.85, 'MMM5-7': 15.83 },
-  'EN5':    { 'MMM1-2': 8.07,  'MMM3-4': 14.13, 'MMM5-7': 16.15 },
-  'ENSG':   { 'MMM1-2': 8.32,  'MMM3-4': 14.56, 'MMM5-7': 16.64 },
-  'RN/M2':  { 'MMM1-2': 8.69,  'MMM3-4': 15.21, 'MMM5-7': 17.39 },
-  'RN/M3':  { 'MMM1-2': 9.14,  'MMM3-4': 16.00, 'MMM5-7': 18.28 },
-  'RN/M4':  { 'MMM1-2': 9.62,  'MMM3-4': 16.84, 'MMM5-7': 19.25 },
-  'RN/M5':  { 'MMM1-2': 10.27, 'MMM3-4': 17.98, 'MMM5-7': 20.55 },
-  'RN/M6':  { 'MMM1-2': 10.58, 'MMM3-4': 18.51, 'MMM5-7': 21.15 },
-  'RN/M7':  { 'MMM1-2': 11.12, 'MMM3-4': 19.46, 'MMM5-7': 22.24 },
-  'RN/M8':  { 'MMM1-2': 11.58, 'MMM3-4': 20.26, 'MMM5-7': 23.15 },
-  'CN/MSG2-1': { 'MMM1-2': 12.94, 'MMM3-4': 22.65, 'MMM5-7': 25.88 },
-  'CN/MSG2-2': { 'MMM1-2': 13.37, 'MMM3-4': 23.39, 'MMM5-7': 26.73 },
-  'N/MUM1': { 'MMM1-2': 14.52, 'MMM3-4': 25.42, 'MMM5-7': 29.05 },
-  'N/MUM2': { 'MMM1-2': 15.21, 'MMM3-4': 26.62, 'MMM5-7': 30.42 },
-  'N/MUM3': { 'MMM1-2': 15.62, 'MMM3-4': 27.34, 'MMM5-7': 31.24 },
+// NSW commission rates per hour (pure profit) — May 26 - 30 June 2026 period
+var NSW_RATES_MAY = {
+  'AIN/M1':    { 'MMM1-2': 7.02,  'MMM3-4': 12.28, 'MMM5-7': 14.04 },
+  'AIN/M2':    { 'MMM1-2': 7.24,  'MMM3-4': 12.67, 'MMM5-7': 14.48 },
+  'AIN/M3':    { 'MMM1-2': 7.47,  'MMM3-4': 13.07, 'MMM5-7': 14.94 },
+  'AIN/M4':    { 'MMM1-2': 7.70,  'MMM3-4': 13.48, 'MMM5-7': 15.40 },
+  'EN2':       { 'MMM1-2': 8.25,  'MMM3-4': 14.44, 'MMM5-7': 16.50 },
+  'EN3':       { 'MMM1-2': 8.43,  'MMM3-4': 14.75, 'MMM5-7': 16.86 },
+  'EN4':       { 'MMM1-2': 8.61,  'MMM3-4': 15.06, 'MMM5-7': 17.21 },
+  'EN5':       { 'MMM1-2': 8.78,  'MMM3-4': 15.37, 'MMM5-7': 17.56 },
+  'ENSG':      { 'MMM1-2': 9.05,  'MMM3-4': 15.84, 'MMM5-7': 18.10 },
+  'RN/M2':     { 'MMM1-2': 9.28,  'MMM3-4': 16.25, 'MMM5-7': 18.57 },
+  'RN/M3':     { 'MMM1-2': 9.76,  'MMM3-4': 17.09, 'MMM5-7': 19.53 },
+  'RN/M4':     { 'MMM1-2': 10.28, 'MMM3-4': 17.99, 'MMM5-7': 20.55 },
+  'RN/M5':     { 'MMM1-2': 10.79, 'MMM3-4': 18.88, 'MMM5-7': 21.58 },
+  'RN/M6':     { 'MMM1-2': 11.30, 'MMM3-4': 19.77, 'MMM5-7': 22.59 },
+  'RN/M7':     { 'MMM1-2': 11.88, 'MMM3-4': 20.78, 'MMM5-7': 23.75 },
+  'RN/M8':     { 'MMM1-2': 12.36, 'MMM3-4': 21.64, 'MMM5-7': 24.73 },
+  'CN/MSG2-1': { 'MMM1-2': 13.82, 'MMM3-4': 24.19, 'MMM5-7': 27.64 },
+  'CN/MSG2-2': { 'MMM1-2': 14.28, 'MMM3-4': 24.98, 'MMM5-7': 28.55 },
+  'N/MUM1':    { 'MMM1-2': 15.51, 'MMM3-4': 27.15, 'MMM5-7': 31.02 },
+  'N/MUM2':    { 'MMM1-2': 16.25, 'MMM3-4': 28.43, 'MMM5-7': 32.49 },
+  'N/MUM3':    { 'MMM1-2': 16.68, 'MMM3-4': 29.20, 'MMM5-7': 33.37 },
+  'N/MMG1-1':  { 'MMM1-2': 15.47, 'MMM3-4': 27.07, 'MMM5-7': 30.93 },
+  'N/MMG1-2':  { 'MMM1-2': 15.78, 'MMM3-4': 27.62, 'MMM5-7': 31.57 },
+  'N/MMG2-1':  { 'MMM1-2': 16.09, 'MMM3-4': 28.17, 'MMM5-7': 32.19 },
+  'N/MMG2-2':  { 'MMM1-2': 16.42, 'MMM3-4': 28.73, 'MMM5-7': 32.83 },
+  'N/MMG3-1':  { 'MMM1-2': 17.05, 'MMM3-4': 29.83, 'MMM5-7': 34.09 },
+  'N/MMG3-2':  { 'MMM1-2': 17.36, 'MMM3-4': 30.38, 'MMM5-7': 34.72 },
 };
 
-// NSW hospital → MMM rating lookup (from MMM spreadsheet)
+// NSW commission rates per hour (pure profit) — from 1 July 2026
+var NSW_RATES_JUL = {
+  'AIN/M1':    { 'MMM1-2': 7.23,  'MMM3-4': 12.65, 'MMM5-7': 14.46 },
+  'AIN/M2':    { 'MMM1-2': 7.46,  'MMM3-4': 13.05, 'MMM5-7': 14.92 },
+  'AIN/M3':    { 'MMM1-2': 7.69,  'MMM3-4': 13.46, 'MMM5-7': 15.39 },
+  'AIN/M4':    { 'MMM1-2': 7.93,  'MMM3-4': 13.88, 'MMM5-7': 15.86 },
+  'EN2':       { 'MMM1-2': 8.50,  'MMM3-4': 14.88, 'MMM5-7': 17.00 },
+  'EN3':       { 'MMM1-2': 8.68,  'MMM3-4': 15.19, 'MMM5-7': 17.36 },
+  'EN4':       { 'MMM1-2': 8.86,  'MMM3-4': 15.51, 'MMM5-7': 17.73 },
+  'EN5':       { 'MMM1-2': 9.04,  'MMM3-4': 15.83, 'MMM5-7': 18.09 },
+  'ENSG':      { 'MMM1-2': 9.32,  'MMM3-4': 16.31, 'MMM5-7': 18.64 },
+  'RN/M2':     { 'MMM1-2': 9.56,  'MMM3-4': 16.73, 'MMM5-7': 19.12 },
+  'RN/M3':     { 'MMM1-2': 10.06, 'MMM3-4': 17.60, 'MMM5-7': 20.11 },
+  'RN/M4':     { 'MMM1-2': 10.59, 'MMM3-4': 18.53, 'MMM5-7': 21.17 },
+  'RN/M5':     { 'MMM1-2': 11.11, 'MMM3-4': 19.44, 'MMM5-7': 22.22 },
+  'RN/M6':     { 'MMM1-2': 11.63, 'MMM3-4': 20.36, 'MMM5-7': 23.27 },
+  'RN/M7':     { 'MMM1-2': 12.23, 'MMM3-4': 21.41, 'MMM5-7': 24.46 },
+  'RN/M8':     { 'MMM1-2': 12.73, 'MMM3-4': 22.29, 'MMM5-7': 25.47 },
+  'CN/MSG2-1': { 'MMM1-2': 14.24, 'MMM3-4': 24.91, 'MMM5-7': 28.47 },
+  'CN/MSG2-2': { 'MMM1-2': 14.70, 'MMM3-4': 25.73, 'MMM5-7': 29.41 },
+  'N/MUM1':    { 'MMM1-2': 15.93, 'MMM3-4': 27.88, 'MMM5-7': 31.86 },
+  'N/MUM2':    { 'MMM1-2': 16.73, 'MMM3-4': 29.28, 'MMM5-7': 33.47 },
+  'N/MUM3':    { 'MMM1-2': 17.18, 'MMM3-4': 30.07, 'MMM5-7': 34.37 },
+  'N/MMG1-1':  { 'MMM1-2': 15.93, 'MMM3-4': 27.88, 'MMM5-7': 31.86 },
+  'N/MMG1-2':  { 'MMM1-2': 16.26, 'MMM3-4': 28.45, 'MMM5-7': 32.51 },
+  'N/MMG2-1':  { 'MMM1-2': 16.58, 'MMM3-4': 29.01, 'MMM5-7': 33.16 },
+  'N/MMG2-2':  { 'MMM1-2': 16.91, 'MMM3-4': 29.59, 'MMM5-7': 33.82 },
+  'N/MMG3-1':  { 'MMM1-2': 17.56, 'MMM3-4': 30.73, 'MMM5-7': 35.11 },
+  'N/MMG3-2':  { 'MMM1-2': 17.88, 'MMM3-4': 31.30, 'MMM5-7': 35.77 },
+};
+
+// LHDs with no reimbursement (set rate to 0)
+var NSW_NO_REIMBURSEMENT = [
+  // Far West LHD
+  'balranald','broken hill','dareton','ivanhoe','menindee','tibooburra','wentworth','wilcannia','buronga',
+  // Hunter New England LHD
+  'armidale','barraba','belmont','bingara','boggabri','bulahdelah','cessnock','denman','dungog',
+  'emmaville','vegetable creek','glen innes','gloucester','gunnedah','guyra','inverell','john hunter',
+  'kurri kurri','maitland','manilla','merriwa','moree','murrurundi','muswellbrook','narrabri',
+  'nelson bay','newcastle mater','quirindi','scone','singleton','tamworth','taree','manning',
+  'tenterfield','prince albert','tingha','walcha','warialda','wee waa','werris creek','wingham',
+];
+
+// NSW hospital → MMM rating lookup (full LHD coverage)
 var NSW_MMM = {
-  // MMM 1
-  'gosford':1,'woy woy':1,'wyong':1,'armidale':3,'belmont':1,'cessnock':1,'john hunter':1,
-  'maitland':1,'manning':3,'moree':5,'muswellbrook':3,'narrabri':4,'scone':4,'singleton':1,
-  'tamworth':3,'taree':3,'tenterfield':5,'tomaree':1,'calvary mater':1,'inverell':4,'glen innes':4,
-  'gunnedah':4,'barraba':5,'bingara':5,'boggabri':5,'bulahdelah':5,'dungog':5,'gloucester':5,
-  'guyra':5,'emmaville':5,'lightning ridge':6,'walgett':6,'narromine':5,'coonabarabran':5,
-  'hornsby':1,'macquarie':1,'mona vale':1,'royal north shore':1,'ryde':1,
-  'garrawarra':2,'calvary healthcare':1,'prince of wales':1,'royal hospital for women':1,
-  'st george':1,'sutherland':1,'sydney eye':1,'war memorial':1,
-  'bankstown':1,'bowral':3,'camden':1,'campbelltown':1,'fairfield':1,'liverpool':1,
-  "batemans bay":4,'bega':5,'bombala':5,'braidwood':5,'cooma':4,'crookwell':5,
-  'delegate':5,'goulburn':3,'moruya':5,'pambula':4,'queanbeyan':1,'yass':4,
+  // Far West LHD
+  'balranald':6,'broken hill':6,'buronga':3,'dareton':5,'ivanhoe':7,'menindee':7,
+  'tibooburra':7,'wentworth':6,'wilcannia':7,
+  // Murrumbidgee LHD
+  'albury':2,'barham':5,'koondrook':5,'batlow':5,'berrigan':5,'boorowa':5,'coolamon':5,
+  'cootamundra':4,'corowa':4,'culcairn':5,'deniliquin':4,'finley':5,'griffith':3,'gundagai':5,
+  'hay':6,'henty':5,'hillston':6,'holbrook':5,'jerilderie':5,'junee':5,'lake cargelligo':6,
+  'leeton':4,'lockhart':5,'mercy health':5,'murrumburrah':5,'harden':5,'narrandera':5,
+  'temora':5,'tocumwal':5,'tumbarumba':5,'tumut':4,'urana':5,'wagga wagga':3,'west wyalong':5,'young':4,
+  // Western NSW LHD
+  'baradine':6,'bathurst':3,'blayney':5,'bourke':6,'brewarrina':7,'canowindra':5,'cobar':6,
+  'collarenebri':6,'condobolin':5,'coolah':5,'coonabarabran':5,'coonamble':6,'cowra':4,'cudal':5,
+  'dubbo':3,'dunedoo':5,'eugowra':5,'forbes':4,'gilgandra':5,'goodooga':7,'grenfell':5,
+  'gulargambone':5,'gulgong':5,'lightning ridge':6,'molong':5,'mudgee':4,'narromine':5,'nyngan':6,
+  'oberon':5,'orange':3,'bloomfield':3,'parkes':4,'peak hill':5,'rylstone':5,'tottenham':6,
+  'trangie':5,'trundle':5,'tullamore':5,'walgett':6,'warren':5,'wellington':5,
   'auburn':1,'blacktown':1,'cumberland':1,'mount druitt':1,'westmead':1,
-  "sydney children":1,'concord':1,'royal prince alfred':1,'balmain':1,'canterbury':1,
-  'ballina':3,'bonalbo':5,'byron':4,'casino':4,'grafton':3,'kyogle':5,
-  'lismore':3,'maclean':5,'murwillumbah':1,'nimbin':5,'tweed':1,'urbenville':5,
-  // MMM 3-4
-  'bathurst':3,'blayney':5,'bourke':6,'brewarrina':7,'canowindra':5,'cobar':6,
-  'collarenebri':6,'condobolin':5,'coolah':5,'coonamble':6,'cowra':4,'cudal':5,
-  'dubbo':3,'dunedoo':5,'eugowra':5,'forbes':4,'gilgandra':5,'goodooga':7,
-  'grenfell':5,'gulargambone':5,'gulgong':5,'molong':5,'mudgee':4,'narromine':5,
-  'nyngan':6,'oberon':5,'orange':3,'parkes':4,'peak hill':5,'rylstone':5,
-  'tottenham':6,'trangie':5,'trundle':5,'tullamore':5,'warren':5,'wellington':5,
-  'wagga wagga':3,'tumut':4,'young':4,'leeton':4,'griffith':3,'deniliquin':4,
-  'finley':5,'hay':6,'hillston':6,'jerilderie':5,'junee':5,'lockhart':5,
-  'narrandera':5,'temora':5,'tocumwal':5,'tumbarumba':5,'urana':5,'west wyalong':5,
-  'lithgow':4,'portland':5,'broken hill':6,'wentworth':6,'balranald':6,'dareton':5,
-  'ivanhoe':7,'menindee':7,'tibooburra':7,'wilcannia':7,'baradine':6,
-  // MMM 5-7 remote
-  'lord howe':7,'goodooga':7,'brewarrina':7,
+  // Hunter New England LHD
+  'armidale':3,'barraba':5,'belmont':1,'bingara':5,'boggabri':5,'bulahdelah':5,'cessnock':1,
+  'denman':5,'dungog':5,'emmaville':5,'vegetable creek':5,'glen innes':4,'gloucester':5,
+  'gunnedah':4,'guyra':5,'inverell':4,'john hunter':1,'kurri kurri':1,'maitland':1,'manilla':5,
+  'merriwa':5,'moree':5,'murrurundi':5,'wilson':5,'muswellbrook':5,'narrabri':5,'nelson bay':4,
+  'newcastle mater':1,'quirindi':5,'scone':4,'singleton':4,'tamworth':3,'taree':3,'manning':3,
+  'tenterfield':5,'prince albert':5,'tingha':5,'walcha':5,'warialda':5,'wee waa':5,'werris creek':5,'wingham':3,
+  // Northern NSW LHD
+  'ballina':3,'bonalbo':5,'byron':4,'casino':4,'grafton':3,'kyogle':5,'lismore':3,'maclean':5,
+  'murwillumbah':1,'nimbin':5,'tweed':1,'urbenville':5,
+  // Southern NSW LHD
+  "bateman":4,'batemans bay':4,'bega':5,'bombala':5,'braidwood':5,'cooma':4,'crookwell':5,
+  'delegate':5,'goulburn':3,'moruya':5,'pambula':4,'queanbeyan':1,'yass':4,
+  // Illawarra Shoalhaven LHD
+  'bulli':1,'coledale':1,'david berry':5,'milton ulladulla':4,'port kembla':1,'shellharbour':1,
+  'shoalhaven':3,'wollongong':1,
 };
 
-function getNSWMmm(location) {
-  var loc = (location || '').toLowerCase();
-  // Try to match any hospital name keyword in the location string
+function getNSWMmm(location, facility) {
+  var combined = ((location || '') + ' ' + (facility || '')).toLowerCase();
   for (var key in NSW_MMM) {
-    if (loc.includes(key)) return NSW_MMM[key];
+    if (combined.includes(key)) return NSW_MMM[key];
   }
-  return 3; // default MMM3-4 if unknown NSW location
+  return 3; // default MMM3-4 if unknown
+}
+
+function isNoReimbursement(location, facility) {
+  var combined = ((location || '') + ' ' + (facility || '')).toLowerCase();
+  return NSW_NO_REIMBURSEMENT.some(key => combined.includes(key));
 }
 
 function getNSWMmmBand(mmm) {
@@ -961,28 +1049,176 @@ function getNSWMmmBand(mmm) {
   return 'MMM5-7';
 }
 
-function getNSWRate(band, location) {
-  var mmm = getNSWMmm(location);
+// Choose rate table based on start date — 1 July 2026 is the cutover
+function getNSWRateTable(startDate) {
+  if (!startDate) return NSW_RATES_JUL; // default to newer rates
+  var d = parseDate(startDate);
+  if (!d) return NSW_RATES_JUL;
+  var cutover = new Date(2026, 6, 1); // 1 July 2026
+  return d < cutover ? NSW_RATES_MAY : NSW_RATES_JUL;
+}
+
+function getNSWRate(band, location, facility, startDate) {
+  // Handle no-reimbursement LHDs
+  if (isNoReimbursement(location, facility)) return 0;
+
+  var rates = getNSWRateTable(startDate);
+  var mmm = getNSWMmm(location, facility);
   var mmmBand = getNSWMmmBand(mmm);
 
   // Try exact match
-  if (NSW_RATES[band] && NSW_RATES[band][mmmBand]) return NSW_RATES[band][mmmBand];
+  if (rates[band] && rates[band][mmmBand]) return rates[band][mmmBand];
 
-  // Try to map common band descriptions to NSW codes
+  // Map common band descriptions to NSW codes
   var b = (band || '').toUpperCase();
-  if (/RN.?M?8|8TH|8 YR/i.test(b)) return NSW_RATES['RN/M8'][mmmBand];
-  if (/RN.?M?7|7TH|7 YR/i.test(b)) return NSW_RATES['RN/M7'][mmmBand];
-  if (/RN.?M?6|6TH|6 YR/i.test(b)) return NSW_RATES['RN/M6'][mmmBand];
-  if (/RN.?M?5|5TH|5 YR/i.test(b)) return NSW_RATES['RN/M5'][mmmBand];
-  if (/RN.?M?4|4TH|4 YR/i.test(b)) return NSW_RATES['RN/M4'][mmmBand];
-  if (/RN.?M?3|3RD|3 YR/i.test(b)) return NSW_RATES['RN/M3'][mmmBand];
-  if (/CN|CLINICAL NURSE SPEC/i.test(b)) return NSW_RATES['CN/MSG2-1'][mmmBand];
-  if (/NUM|UNIT MANAGER/i.test(b)) return NSW_RATES['N/MUM1'][mmmBand];
-  if (/EN|ENROLLED/i.test(b)) return NSW_RATES['EN2'][mmmBand];
-  if (/AIN|ASSISTANT/i.test(b)) return NSW_RATES['AIN/M1'][mmmBand];
+  if (/RN.?M?8|8TH|8 YR/i.test(b)) return rates['RN/M8'][mmmBand];
+  if (/RN.?M?7|7TH|7 YR/i.test(b)) return rates['RN/M7'][mmmBand];
+  if (/RN.?M?6|6TH|6 YR/i.test(b)) return rates['RN/M6'][mmmBand];
+  if (/RN.?M?5|5TH|5 YR/i.test(b)) return rates['RN/M5'][mmmBand];
+  if (/RN.?M?4|4TH|4 YR/i.test(b)) return rates['RN/M4'][mmmBand];
+  if (/RN.?M?3|3RD|3 YR/i.test(b)) return rates['RN/M3'][mmmBand];
+  if (/CN|CLINICAL NURSE SPEC/i.test(b)) return rates['CN/MSG2-1'][mmmBand];
+  if (/NUM|UNIT MANAGER/i.test(b)) return rates['N/MUM1'][mmmBand];
+  if (/EN|ENROLLED/i.test(b)) return rates['EN2'][mmmBand];
+  if (/AIN|ASSISTANT/i.test(b)) return rates['AIN/M1'][mmmBand];
 
   // Default: RN/M2
-  return NSW_RATES['RN/M2'][mmmBand];
+  return rates['RN/M2'][mmmBand];
+}
+
+// ── Map: city coordinates lookup ─────────────────────────
+var CITY_COORDS = {
+  // QLD
+  'mackay':[-21.144,149.186],'rockhampton':[-23.378,150.510],'gladstone':[-23.847,151.257],
+  'cairns':[-16.920,145.770],'townsville':[-19.258,146.817],'brisbane':[-27.470,153.026],
+  'gold coast':[-28.017,153.400],'toowoomba':[-27.560,151.954],'bundaberg':[-24.866,152.349],
+  'hervey bay':[-25.288,152.853],'sunshine coast':[-26.650,153.066],'longreach':[-23.440,144.250],
+  'mt isa':[-20.724,139.494],'mount isa':[-20.724,139.494],'roma':[-26.575,148.787],
+  'charters towers':[-20.078,146.262],'biloela':[-24.398,150.518],'emerald':[-23.527,148.158],
+  'thursday island':[-10.583,142.220],'aurukun':[-13.355,141.722],'weipa':[-12.625,141.881],
+  'kingaroy':[-26.541,151.838],'dalby':[-27.181,151.262],'warwick':[-28.219,152.034],
+  'gympie':[-26.190,152.665],'caboolture':[-27.085,152.952],'redcliffe':[-27.225,153.106],
+  'ipswich':[-27.616,152.760],'logan':[-27.640,153.106],'caloundra':[-26.798,153.131],
+  // NT
+  'darwin':[-12.463,130.842],'palmerston':[-12.485,130.984],'katherine':[-14.464,132.263],
+  'alice springs':[-23.698,133.881],'tennant creek':[-19.649,134.190],'nhulunbuy':[-12.180,136.776],
+  'gove':[-12.180,136.776],'wadeye':[-14.243,129.521],'borroloola':[-16.072,136.300],
+  'angurugu':[-13.971,136.450],'galiwinku':[-12.039,135.566],'maningrida':[-12.045,134.230],
+  'jabiru':[-12.667,132.836],'numbulwar':[-14.262,135.733],'ngukurr':[-14.730,134.733],
+  'lajamanu':[-18.330,130.633],'yuendumu':[-22.255,131.797],'papunya':[-23.221,131.901],
+  'hermannsburg':[-23.943,132.785],'kintore':[-23.265,129.385],'ali curung':[-21.011,134.392],
+  'palumpa':[-14.270,129.875],'pirlangimpi':[-11.397,130.560],'milingimbi':[-12.097,134.910],
+  'gunbalanya':[-12.330,133.050],'oenpelli':[-12.330,133.050],'julanimawu':[-11.764,130.628],
+  // NSW
+  'sydney':[-33.868,151.207],'newcastle':[-32.927,151.781],'wollongong':[-34.424,150.893],
+  'central coast':[-33.428,151.342],'gosford':[-33.428,151.342],'wagga wagga':[-35.117,147.357],
+  'albury':[-36.073,146.913],'tamworth':[-31.092,150.929],'orange':[-33.284,149.099],
+  'dubbo':[-32.243,148.601],'bathurst':[-33.420,149.578],'lismore':[-28.815,153.276],
+  'tweed':[-28.218,153.541],'tweed heads':[-28.218,153.541],'coffs harbour':[-30.296,153.114],
+  'port macquarie':[-31.431,152.909],'armidale':[-30.512,151.671],'queanbeyan':[-35.354,149.234],
+  'broken hill':[-31.957,141.467],'griffith':[-34.288,146.052],'parkes':[-33.140,148.176],
+  'forbes':[-33.385,148.012],'mudgee':[-32.594,149.586],'goulburn':[-34.755,149.620],
+  'cooma':[-36.236,149.124],'bega':[-36.677,149.842],'batemans bay':[-35.708,150.180],
+  'moruya':[-35.911,150.083],'pambula':[-36.940,149.876],'bombala':[-36.910,149.241],
+  'yass':[-34.842,148.913],'crookwell':[-34.459,149.467],'braidwood':[-35.443,149.800],
+  'grafton':[-29.690,152.937],'casino':[-28.866,153.052],'kyogle':[-28.622,152.985],
+  'ballina':[-28.866,153.564],'byron':[-28.643,153.620],'byron bay':[-28.643,153.620],
+  'maclean':[-29.460,153.205],'murwillumbah':[-28.330,153.394],'nimbin':[-28.598,153.222],
+  'bonalbo':[-28.733,152.633],'urbenville':[-28.296,152.532],
+  'cobar':[-31.498,145.840],'bourke':[-30.090,145.937],'walgett':[-30.024,148.117],
+  'narrabri':[-30.328,149.781],'moree':[-29.464,149.842],'inverell':[-29.778,151.111],
+  'glen innes':[-29.737,151.737],'tenterfield':[-29.052,152.018],'gunnedah':[-30.978,150.260],
+  'wee waa':[-30.225,149.443],'mungindi':[-28.973,148.991],'lightning ridge':[-29.430,147.978],
+  'coonamble':[-30.951,148.388],'coonabarabran':[-31.273,149.276],'gilgandra':[-31.706,148.661],
+  'narromine':[-32.230,148.241],'condobolin':[-33.082,147.149],'west wyalong':[-33.925,147.225],
+  'temora':[-34.448,147.535],'narrandera':[-34.745,146.553],'leeton':[-34.555,146.401],
+  'hillston':[-33.485,145.531],'hay':[-34.512,144.847],'deniliquin':[-35.532,144.954],
+  'finley':[-35.643,145.575],'tocumwal':[-35.811,145.566],'tumut':[-35.301,148.222],
+  'tumbarumba':[-35.776,148.011],'batlow':[-35.516,148.143],'young':[-34.314,148.302],
+  'cootamundra':[-34.640,148.027],'gundagai':[-35.067,148.110],'junee':[-34.866,147.589],
+  'corowa':[-35.999,146.385],'culcairn':[-35.661,147.041],'henty':[-35.522,146.989],
+  'lockhart':[-35.221,146.722],'urana':[-35.328,146.270],'jerilderie':[-35.357,145.728],
+  'berrigan':[-35.667,145.819],'barham':[-35.628,144.137],
+  'wentworth':[-34.111,141.918],'dareton':[-34.083,142.025],'menindee':[-32.394,142.418],
+  'wilcannia':[-31.561,143.378],'ivanhoe':[-32.900,144.300],'tibooburra':[-29.434,142.014],
+  'balranald':[-34.640,143.561],
+  'mudgee':[-32.594,149.586],'gulgong':[-32.359,149.541],'rylstone':[-32.795,149.974],
+  'oberon':[-33.711,149.866],'blayney':[-33.535,149.246],'canowindra':[-33.567,148.667],
+  'cowra':[-33.832,148.685],'grenfell':[-33.890,148.165],'eugowra':[-33.430,148.378],
+  'molong':[-33.094,148.871],'wellington':[-32.554,148.945],'peak hill':[-32.722,148.190],
+  'tottenham':[-32.236,147.348],'trundle':[-32.928,147.692],'tullamore':[-32.629,147.572],
+  'baradine':[-30.948,149.072],'collarenebri':[-29.535,148.578],'goodooga':[-29.077,147.444],
+  'brewarrina':[-29.961,146.860],'nyngan':[-31.557,147.197],'warren':[-31.703,147.838],
+  'trangie':[-32.030,148.018],'coolah':[-31.823,149.713],'dunedoo':[-32.020,149.396],
+  'gulargambone':[-31.331,148.475],'cudal':[-33.290,148.730],
+};
+
+function getCoords(loc, facility) {
+  var combined = ((loc||'') + ' ' + (facility||'')).toLowerCase();
+  for (var key in CITY_COORDS) {
+    if (combined.includes(key)) return CITY_COORDS[key];
+  }
+  return null;
+}
+
+var mapInstance = null;
+var mapMarkers = [];
+
+function renderMap() {
+  if (!mapInstance) {
+    mapInstance = L.map('map').setView([-25, 134], 4); // centered on Australia
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(mapInstance);
+  }
+
+  // Clear existing markers
+  mapMarkers.forEach(m => mapInstance.removeLayer(m));
+  mapMarkers = [];
+
+  // Group jobs by location
+  var locMap = {};
+  jobs.filter(j => !j.archived).forEach(j => {
+    var coords = getCoords(j.location, j.facility);
+    if (!coords) return;
+    var key = coords[0] + ',' + coords[1];
+    if (!locMap[key]) locMap[key] = { coords, jobs: [], region: j.region };
+    locMap[key].jobs.push(j);
+  });
+
+  var regionColors = { QLD:'#1D9E75', NT:'#EF9F27', NSW:'#378ADD', Other:'#9E9B94' };
+
+  Object.values(locMap).forEach(group => {
+    var count = group.jobs.length;
+    var radius = Math.min(8 + count * 2, 30);
+    var color = regionColors[group.region] || regionColors.Other;
+    var totalValue = group.jobs.reduce((s,j) => s + contractValue(j), 0);
+    var totalFte = group.jobs.reduce((s,j) => s + j.fte, 0);
+
+    var marker = L.circleMarker(group.coords, {
+      radius,
+      color: '#fff',
+      weight: 2,
+      fillColor: color,
+      fillOpacity: 0.85
+    }).addTo(mapInstance);
+
+    var popupHtml = `
+      <div style="font-family:'DM Sans',sans-serif;font-size:13px;min-width:200px;">
+        <div style="font-weight:600;margin-bottom:6px;">${esc(group.jobs[0].location)}</div>
+        <div style="color:#666;font-size:12px;margin-bottom:8px;">${count} vacanc${count===1?'y':'ies'} · ${totalFte} FTE · ${fmtMoney(totalValue)} profit</div>
+        <div style="font-size:11px;color:#888;border-top:1px solid #eee;padding-top:6px;">
+          ${group.jobs.slice(0,5).map(j => `<div>• ${esc(j.facility)} — ${esc(j.title)}</div>`).join('')}
+          ${count > 5 ? `<div style="margin-top:4px;font-style:italic;">+ ${count-5} more</div>` : ''}
+        </div>
+      </div>`;
+    marker.bindPopup(popupHtml);
+    mapMarkers.push(marker);
+  });
+
+  // Force a redraw — Leaflet doesn't render properly if container was hidden when initialised
+  setTimeout(() => mapInstance.invalidateSize(), 100);
 }
 
 function autoRate(job) {
@@ -991,7 +1227,7 @@ function autoRate(job) {
   var title = (job.title || '').toLowerCase();
 
   // NSW — commission rate, no margin
-  if (region === 'NSW') return getNSWRate(band, job.location);
+  if (region === 'NSW') return getNSWRate(band, job.location, job.facility, job.startDate);
 
   // Midwife match
   if (/^MW$/i.test(band) || /midwife/i.test(band) || /midwife/i.test(title)) {
