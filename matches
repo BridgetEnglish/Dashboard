@@ -253,7 +253,7 @@ function render() {
 
   container.innerHTML = activeJobs.map(j => {
     const matches = candidates.map(c => scoreCandidate(c, j))
-      .filter(m => m !== null)
+      .filter(m => m !== null && m.total >= 30)
       .sort((a,b) => b.total - a.total);
 
     const expanded = expandedJobs.has(j.id);
