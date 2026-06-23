@@ -135,17 +135,6 @@ function deriveState(town) {
   return null;
 }
 
-function normalizeProfession(q) {
-  const s = (q || '').toUpperCase();
-  if (s.includes('MIDWIFE')) return 'Midwife';
-  if (s === 'RN' || s.includes('REGISTERED NURSE')) return 'RN';
-  if (s === 'EN' || s.includes('ENROLLED NURSE')) return 'EN';
-  if (s === 'CN' || s.includes('CLINICAL NURSE')) return 'CN';
-  if (s.includes('NURSE PRAC') || s === 'NP') return 'NP';
-  if (s === 'AIN' || s.includes('ASSISTANT')) return 'AIN';
-  return s || 'RN';
-}
-
 function professionMatches(candidate, jobTitle) {
   const cp = normalizeProfession(candidate.qualification || candidate.currentRole);
   const jt = (jobTitle || '').toUpperCase();
@@ -155,7 +144,18 @@ function professionMatches(candidate, jobTitle) {
   if (cp === 'CN') return /CN|CLINICAL NURSE/.test(jt) || /RN|NURSE/.test(jt);
   if (cp === 'NP') return /NURSE PRACT|NP/.test(jt) || /RN|NURSE/.test(jt);
   if (cp === 'AIN') return /AIN|ASSISTANT/.test(jt);
-  return true;
+  return false; // exclude unknown professions
+}
+
+function normalizeProfession(q) {
+  const s = (q || '').toUpperCase();
+  if (s.includes('MIDWIFE')) return 'Midwife';
+  if (s === 'RN' || s.includes('REGISTERED NURSE')) return 'RN';
+  if (s === 'EN' || s.includes('ENROLLED NURSE')) return 'EN';
+  if (s === 'CN' || s.includes('CLINICAL NURSE')) return 'CN';
+  if (s.includes('NURSE PRAC') || s === 'NP') return 'NP';
+  if (s === 'AIN' || s.includes('ASSISTANT')) return 'AIN';
+  return null; // unknown
 }
 
 function specialisationScore(candidate, job) {
