@@ -5892,7 +5892,8 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check. Accommodation not on site."
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check. Accommodation not on site.",
+      "archived": true
     },
     {
       "id": 414,
