@@ -7318,7 +7318,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Min 3 years enrolled nursing experience, medication endorsed, competent across ED/Ward/Aged Care. BLS/ALS/ETEK certs, ieMR proficiency desirable, Aged Care National Police Certificate mandatory."
+      "requirements": "Min 3 years enrolled nursing experience, medication endorsed, competent across ED/Ward/Aged Care. BLS/ALS/ETEK certs, ieMR proficiency desirable, Aged Care National Police Certificate mandatory.",
+      "archived": true
     }
   ],
   "nextId": 508
