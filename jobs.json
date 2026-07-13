@@ -3476,8 +3476,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
-      "archived": true
+      "recurring": false
     },
     {
       "id": 247,
