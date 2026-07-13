@@ -7334,7 +7334,8 @@
       "startDate": "ASAP",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Min 3 years EN experience, medication endorsed, competent across ED/Ward/Aged Care. BLS, ALS, ETEK certs mandatory. ieMR proficiency desirable."
+      "requirements": "Min 3 years EN experience, medication endorsed, competent across ED/Ward/Aged Care. BLS, ALS, ETEK certs mandatory. ieMR proficiency desirable.",
+      "archived": true
     }
   ],
   "nextId": 509
