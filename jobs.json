@@ -3476,8 +3476,7 @@
       "weeks": 2,
       "startDate": "22/06/2026",
       "region": "QLD",
-      "recurring": false,
-      "archived": true
+      "recurring": false
     },
     {
       "id": 247,
@@ -4753,8 +4752,7 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Mental health experience required. Driver's licence mandatory for mental health roles.",
-      "archived": true
+      "requirements": "Mental health experience required. Driver's licence mandatory for mental health roles."
     },
     {
       "id": 338,
@@ -4769,8 +4767,7 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care experience. Must have aged care check.",
-      "archived": true
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care experience. Must have aged care check."
     },
     {
       "id": 339,
@@ -7299,23 +7296,7 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Rural nursing and ED experience, triage and resus, ability to team lead/manage ward, ALS/BLS/ETEK certs, ieMR proficiency desirable"
-    },
-    {
-      "id": 507,
-      "facility": "Mackay Community Health Centre",
-      "title": "Clinical Nurse",
-      "ward": "Child and Youth Mental Health Service (CYMHS)",
-      "location": "Mackay, QLD",
-      "band": "Grade 6",
-      "fte": 1,
-      "weeks": 12,
-      "startDate": "03/08/2026",
-      "hourlyRate": 0,
-      "requirements": "Experience working with child and youth, mental health assessment experience, ability to provide mental health early intervention and brief intervention, treatment and crisis management, mental health case management experience, current driver's licence, BLS certificate, manual and patient handling, infection control including hand hygiene, mandatory reporting of child abuse and neglect, occupational violence prevention training, medications management including QPHS Regulations.",
-      "region": "Other",
-      "recurring": false,
-      "filled": false
     }
   ],
-  "nextId": 508
+  "nextId": 507
 }
