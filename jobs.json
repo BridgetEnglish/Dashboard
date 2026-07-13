@@ -4753,7 +4753,8 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Mental health experience required. Driver's licence mandatory for mental health roles."
+      "requirements": "Mental health experience required. Driver's licence mandatory for mental health roles.",
+      "archived": true
     },
     {
       "id": 338,
