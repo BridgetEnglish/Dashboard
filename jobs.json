@@ -7320,7 +7320,22 @@
       "recurring": false,
       "requirements": "Min 3 years enrolled nursing experience, medication endorsed, competent across ED/Ward/Aged Care. BLS/ALS/ETEK certs, ieMR proficiency desirable, Aged Care National Police Certificate mandatory.",
       "archived": true
+    },
+    {
+      "id": 508,
+      "facility": "Clermont Multi-Purpose Health Service",
+      "title": "Enrolled Nurse",
+      "ward": "Emergency Department, Ward and Aged Care",
+      "location": "Clermont, QLD",
+      "band": "EN Grade 3",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 104,
+      "startDate": "ASAP",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 3 years EN experience, medication endorsed, competent across ED/Ward/Aged Care. BLS, ALS, ETEK certs mandatory. ieMR proficiency desirable."
     }
   ],
-  "nextId": 508
+  "nextId": 509
 }
