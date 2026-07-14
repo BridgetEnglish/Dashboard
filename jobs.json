@@ -5871,7 +5871,8 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Community mental health experience, Adult community MH. Accommodation not on site."
+      "requirements": "Community mental health experience, Adult community MH. Accommodation not on site.",
+      "archived": true
     },
     {
       "id": 412,
@@ -5947,7 +5948,8 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Must have CIMHA experience. Intake, Adult and Community mental health."
+      "requirements": "Must have CIMHA experience. Intake, Adult and Community mental health.",
+      "archived": true
     },
     {
       "id": 417,
@@ -6263,7 +6265,8 @@
       "startDate": "22/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Primary Medical Degree + FACRRM/FRACGP; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors"
+      "requirements": "Primary Medical Degree + FACRRM/FRACGP; ALS course within last 3 years; must provide guidance/supervision to Junior Doctors",
+      "archived": true
     },
     {
       "id": 438,
@@ -7178,7 +7181,8 @@
       "startDate": "13/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, cannulation, aged care, advanced neonatal resuscitation, emergency, rural/remote experience, team leader, triage. On-call required."
+      "requirements": "Advanced Life Support, cannulation, aged care, advanced neonatal resuscitation, emergency, rural/remote experience, team leader, triage. On-call required.",
+      "archived": true
     },
     {
       "id": 499,
@@ -7300,7 +7304,22 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Rural nursing and ED experience, triage and resus, ability to team lead/manage ward, ALS/BLS/ETEK certs, ieMR proficiency desirable"
+    },
+    {
+      "id": 507,
+      "facility": "Mackay Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Child and Youth Mental Health Service (CYMHS)",
+      "location": "Mackay, QLD",
+      "band": "CNC NG6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 12,
+      "startDate": "03/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Experience working with Child and Youth, mental health assessment, crisis management, case management experience, current driver's licence, BLS certification. Desirable: CIMHA database knowledge, ieMR experience, previous CYMHS experience."
     }
   ],
-  "nextId": 507
+  "nextId": 508
 }
