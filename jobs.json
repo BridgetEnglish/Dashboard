@@ -5571,7 +5571,8 @@
       "startDate": "24/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence"
+      "requirements": "Primary Medical Degree, FACRRM/FRACGP fellowship, full Medicare billing rights, ALS certification within 3 years, college CDP evidence",
+      "archived": true
     },
     {
       "id": 392,
