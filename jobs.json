@@ -8333,7 +8333,52 @@
       "region": "NT",
       "recurring": true,
       "requirements": "Min 2-3 years Mental Health experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 574,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Gladstone Mental Health - Case Management",
+      "location": "Gladstone, QLD",
+      "band": "CN Grade 6",
+      "fte": 2,
+      "hourlyRate": 68.27,
+      "weeks": 7,
+      "startDate": "03/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Mental Health, Case Management, Adult Community and Acute Care experience required"
+    },
+    {
+      "id": 575,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Mount Morgan MPHS",
+      "location": "Mount Morgan, QLD",
+      "band": "CN Grade 6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 6,
+      "startDate": "03/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support (ALS2 if Australian Resus Council), Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing. Must have aged care check"
+    },
+    {
+      "id": 576,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Rockhampton Mental Health - Community",
+      "location": "Rockhampton, QLD",
+      "band": "CN Grade 6",
+      "fte": 2,
+      "hourlyRate": 68.27,
+      "weeks": 3,
+      "startDate": "03/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Adult Community Mental Health experience. Note: accommodation is not on site"
     }
   ],
-  "nextId": 574
+  "nextId": 577
 }
