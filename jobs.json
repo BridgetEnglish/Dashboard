@@ -8798,7 +8798,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Neonatal Resuscitation, Foetal Surveillance Education, Midwifery qualifications, Team Leader experience required."
+    },
+    {
+      "id": 605,
+      "facility": "Jandowae MPHS",
+      "title": "Registered Nurse",
+      "ward": "Jandowae Ward",
+      "location": "Jandowae, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "31/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Aged Care, Cannulation, Emergency, Team Leader, Triage, Rural and Remote Experience required"
     }
   ],
-  "nextId": 605
+  "nextId": 606
 }
