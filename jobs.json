@@ -8288,7 +8288,52 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "MUST be ieMR trained"
+    },
+    {
+      "id": 571,
+      "facility": "NT Health Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Unit",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years Mental Health experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 572,
+      "facility": "NT Health Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Unit",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "13/08/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years Mental Health experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 573,
+      "facility": "NT Health Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Unit",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "31/08/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years Mental Health experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
     }
   ],
-  "nextId": 571
+  "nextId": 574
 }
