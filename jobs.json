@@ -8738,7 +8738,52 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Aged Care experience mandatory, AHPRA registration, VPD (Measles, Mumps, Rubella, Hep B, Varicella), Pertussis vaccination within last 10 years, NDIS clearance or Aged Care Check, current CHC"
+    },
+    {
+      "id": 601,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 3,
+      "hourlyRate": 53.5,
+      "weeks": 6,
+      "startDate": "17/12/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Recognised qualification in Midwifery and/or 2 years clinical experience. Must be able to work in birthing suite, antenatal and post-natal."
+    },
+    {
+      "id": 602,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 3,
+      "hourlyRate": 53.5,
+      "weeks": 4,
+      "startDate": "14/01/2027",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Recognised qualification in Midwifery and/or 2 years clinical experience. Must be able to work in birthing suite, antenatal and post-natal."
+    },
+    {
+      "id": 603,
+      "facility": "Alice Springs Hospital",
+      "title": "Midwife",
+      "ward": "Maternity",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 10,
+      "hourlyRate": 53.5,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Recognised qualification in Midwifery and/or 2 years clinical experience. Must be able to work in birthing suite, antenatal and post-natal."
     }
   ],
-  "nextId": 601
+  "nextId": 604
 }
