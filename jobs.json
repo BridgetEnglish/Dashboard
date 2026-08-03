@@ -7463,7 +7463,37 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Rural nursing and emergency experience mandatory. ALS, BLS, ETEK certs required. ieMR proficiency desirable."
+    },
+    {
+      "id": 516,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "31/08/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Min 3 years ED experience, ALS and BLS certs, ieMR proficiency desirable"
+    },
+    {
+      "id": 517,
+      "facility": "Mackay Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Mackay, QLD",
+      "band": "RN Grade 5",
+      "fte": 3,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "07/09/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Min 3 years ED experience, ALS and BLS certs, ieMR proficiency desirable"
     }
   ],
-  "nextId": 516
+  "nextId": 518
 }
