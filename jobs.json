@@ -7958,7 +7958,37 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "A&E, Acute, Aged, ALS, triage certified and RAN experience"
+    },
+    {
+      "id": 549,
+      "facility": "Northern Sydney Local Health District",
+      "title": "Registered Nurse",
+      "ward": "Palliative Care Unit",
+      "location": "Mona Vale, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Palliative care experience desirable; oncology, medical, aged care or acute clinical experience considered"
+    },
+    {
+      "id": 550,
+      "facility": "Northern Sydney Local Health District",
+      "title": "Enrolled Nurse",
+      "ward": "Palliative Care Unit",
+      "location": "Mona Vale, NSW",
+      "band": "EN2",
+      "fte": 1,
+      "hourlyRate": 14.88,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Palliative care experience desirable; oncology, medical, aged care or acute clinical experience considered"
     }
   ],
-  "nextId": 549
+  "nextId": 551
 }
