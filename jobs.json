@@ -7988,7 +7988,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Palliative care experience desirable; oncology, medical, aged care or acute clinical experience considered"
+    },
+    {
+      "id": 551,
+      "facility": "NT Health Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Clinical Nurse Specialist",
+      "ward": "Community CMHT",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 6,
+      "startDate": "17/08/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Min 2-3 years CMHT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
     }
   ],
-  "nextId": 551
+  "nextId": 552
 }
