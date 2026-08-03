@@ -499,7 +499,6 @@
         <button class="tab" data-tab="NT">Northern Territory <span class="tab-count" id="tc-NT"></span></button>
         <button class="tab" data-tab="NSW">New South Wales <span class="tab-count" id="tc-NSW"></span></button>
         <button class="tab" data-tab="archived" style="margin-left:auto;color:var(--text-faint);">Archived <span class="tab-count" id="tc-archived"></span></button>
-        <button class="tab" data-tab="matches" title="Candidate matches" style="color:var(--text-faint);padding:7px 10px;">👥 Matches</button>
         <button class="tab" data-tab="map" title="Vacancy map" style="color:var(--text-faint);padding:7px 10px;">🗺</button>
       </div>
       <input id="search-input" type="text" placeholder="Search facility or job title…" style="font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 12px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);outline:none;width:240px;margin-top:10px;" />
@@ -519,6 +518,7 @@
             <th data-sort="weeks" style="cursor:pointer;">Length <span class="sort-icon" data-sort="weeks"></span></th>
             <th data-sort="hourlyRate" style="cursor:pointer;">Hourly profit <span class="sort-icon" data-sort="hourlyRate"></span></th>
             <th data-sort="value" style="cursor:pointer;">Contract value <span class="sort-icon" data-sort="value"></span></th>
+            <th data-sort="matches" style="cursor:pointer;">Matches <span class="sort-icon" data-sort="matches"></span></th>
             <th></th>
           </tr>
         </thead>
@@ -539,17 +539,16 @@
         <span style="margin-left:auto;color:var(--text-muted);">Circle size = number of active vacancies</span>
       </div>
     </div>
-
-    <!-- Matches view -->
-    <div id="matches-container" style="display:none;padding:1rem 0;">
-      <div id="matches-status" style="font-size:12px;color:var(--text-faint);padding:0 0 12px;"></div>
-      <div id="matches-list"></div>
-    </div>
   </div>
 
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- Matches Modal -->
+<div id="matches-modal" style="display:none;position:fixed;inset:0;background:rgba(26,25,22,0.5);z-index:1000;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto;" onclick="if(event.target===this)this.style.display='none'">
+  <div id="matches-modal-body" style="background:var(--surface);border-radius:var(--radius-lg);width:100%;max-width:900px;box-shadow:0 20px 60px rgba(0,0,0,0.25);"></div>
+</div>
 
 <script>
 // ── State ──────────────────────────────────────────────
@@ -711,6 +710,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   if (getApiKey()) document.getElementById('api-banner').classList.add('hidden');
   render();
 
+  // Load candidates in background — re-render once loaded to show match counts
+  loadCandidates().then(ok => { if (ok) render(); });
+
   // Column sort
   document.querySelector('thead').addEventListener('click', e => {
     const th = e.target.closest('th[data-sort]');
@@ -727,8 +729,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   document.getElementById('search-input').addEventListener('input', e => {
     searchQuery = e.target.value.trim();
-    if (activeTab === 'matches') renderMatches();
-    else render();
+    render();
   });
 
   // Tab switching
@@ -741,24 +742,18 @@ window.addEventListener('DOMContentLoaded', async () => {
       const tableScroll = document.querySelector('.table-scroll');
       const tableFooter = document.getElementById('table-footer');
       const mapContainer = document.getElementById('map-container');
-      const matchesContainer = document.getElementById('matches-container');
       const searchInput = document.getElementById('search-input');
 
       // Hide everything first
       tableScroll.style.display = 'none';
       tableFooter.style.display = 'none';
       mapContainer.style.display = 'none';
-      matchesContainer.style.display = 'none';
       if (searchInput) searchInput.style.display = '';
 
       if (activeTab === 'map') {
         mapContainer.style.display = 'block';
         if (searchInput) searchInput.style.display = 'none';
         renderMap();
-      } else if (activeTab === 'matches') {
-        matchesContainer.style.display = 'block';
-        if (searchInput) searchInput.style.display = '';
-        renderMatches();
       } else {
         tableScroll.style.display = '';
         tableFooter.style.display = '';
@@ -825,11 +820,12 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('jobs-tbody').addEventListener('change', e => {
     if (e.target.dataset.rateid) updateRate(Number(e.target.dataset.rateid), e.target.value);
   });
-  document.getElementById('jobs-tbody').addEventListener('click', e => {
+  document.getElementById('jobs-tbody').addEventListener('click', async e => {
     const removeBtn = e.target.closest('[data-removeid]');
     const restoreBtn = e.target.closest('[data-restoreid]');
     const recurringBtn = e.target.closest('[data-recurring]');
     const expandBtn = e.target.closest('[data-expand]');
+    const matchesBtn = e.target.closest('[data-matches]');
     if (removeBtn) removeJob(Number(removeBtn.dataset.removeid));
     if (restoreBtn) restoreJob(Number(restoreBtn.dataset.restoreid));
     if (recurringBtn) toggleRecurring(Number(recurringBtn.dataset.recurring));
@@ -837,6 +833,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       const id = Number(expandBtn.dataset.expand);
       if (expandedIds.has(id)) expandedIds.delete(id); else expandedIds.add(id);
       render();
+    }
+    if (matchesBtn) {
+      const id = Number(matchesBtn.dataset.matches);
+      const job = jobs.find(j => j.id === id);
+      if (job) openMatchesModal(job);
     }
   });
 });
@@ -1218,19 +1219,36 @@ function normalizeProfession(q) {
   if (s === 'EN' || s.includes('ENROLLED NURSE')) return 'EN';
   if (s === 'CN' || s.includes('CLINICAL NURSE')) return 'CN';
   if (s.includes('NURSE PRAC') || s === 'NP') return 'NP';
-  if (s === 'AIN' || s.includes('ASSISTANT')) return 'AIN';
+  if (s === 'AIN' || s.includes('ASSISTANT IN NURSING')) return 'AIN';
+  if (s === 'PCA' || s.includes('PERSONAL CARE')) return 'PCA';
   return null;
 }
 
 function professionMatches(candidate, jobTitle) {
   const cp = normalizeProfession(candidate.qualification || candidate.currentRole);
   const jt = (jobTitle || '').toUpperCase();
-  if (cp === 'Midwife') return jt.includes('MIDWIFE');
-  if (cp === 'RN') return /RN|REGISTERED NURSE|NURSE/.test(jt) && !jt.includes('MIDWIFE');
-  if (cp === 'EN') return /EN|ENROLLED/.test(jt);
-  if (cp === 'CN') return /CN|CLINICAL NURSE/.test(jt) || /RN|NURSE/.test(jt);
-  if (cp === 'NP') return /NURSE PRACT|NP/.test(jt) || /RN|NURSE/.test(jt);
-  if (cp === 'AIN') return /AIN|ASSISTANT/.test(jt);
+
+  // Determine which profession the JOB is asking for
+  let jobProf = null;
+  if (jt.includes('MIDWIFE')) jobProf = 'Midwife';
+  else if (jt.includes('ENROLLED NURSE') || /\bEN\b/.test(jt)) jobProf = 'EN';
+  else if (jt.includes('NURSE PRACTITIONER') || /\bNP\b/.test(jt)) jobProf = 'NP';
+  else if (jt.includes('CLINICAL NURSE CONSULTANT') || jt.includes('CNC')) jobProf = 'CNC';
+  else if (jt.includes('CLINICAL NURSE') || /\bCN\b/.test(jt)) jobProf = 'CN';
+  else if (jt.includes('NURSE UNIT MANAGER') || jt.includes('NUM')) jobProf = 'NUM';
+  else if (jt.includes('ASSISTANT IN NURSING') || /\bAIN\b/.test(jt) || jt.includes('PERSONAL CARE')) jobProf = 'AIN';
+  else if (jt.includes('REGISTERED NURSE') || /\bRN\b/.test(jt) || jt.includes('NURSE')) jobProf = 'RN';
+
+  if (!jobProf) return false;
+
+  // Now check candidate profession matches — strict
+  if (jobProf === 'Midwife') return cp === 'Midwife';
+  if (jobProf === 'EN') return cp === 'EN';
+  if (jobProf === 'NP') return cp === 'NP' || cp === 'RN'; // RN can step up sometimes
+  if (jobProf === 'CNC' || jobProf === 'CN' || jobProf === 'NUM') return cp === 'CN' || cp === 'RN'; // CN roles can take experienced RNs
+  if (jobProf === 'AIN') return cp === 'AIN' || (cp || '').includes('PCA');
+  if (jobProf === 'RN') return cp === 'RN' || cp === 'CN' || cp === 'NP'; // RN roles can take CN/NP overqualified
+
   return false;
 }
 
@@ -1287,28 +1305,10 @@ function complianceScore(candidate) {
   return { score, parts };
 }
 
-function availabilityCheck(candidate, job) {
-  const na = (candidate.nextAvailable || '').trim();
-  if (!na || na.toLowerCase() === 'unknown') return { ok: true, label: 'availability unknown', bonus: 0 };
-  if (!job.startDate) return { ok: true, label: 'available', bonus: 5 };
-  const parseAus = (s) => { const [d,m,y] = s.split('/').map(Number); return new Date(y, m-1, d); };
-  const jobStart = parseAus(job.startDate);
-  const candAvail = parseAus(na);
-  if (isNaN(jobStart) || isNaN(candAvail)) return { ok: true, label: 'availability unknown', bonus: 0 };
-  if (candAvail <= jobStart) return { ok: true, label: 'available from ' + na, bonus: 10 };
-  // Available after start — how much later?
-  const daysLate = Math.floor((candAvail - jobStart) / (1000*60*60*24));
-  if (daysLate <= 14) return { ok: true, label: 'available ' + daysLate + 'd after start', bonus: -5 };
-  return { ok: false, label: 'available too late (' + na + ')', bonus: -20 };
-}
-
 function scoreCandidate(candidate, job) {
   if (!professionMatches(candidate, job.title)) return null;
   const requiredSpecialty = detectSpecialty(job);
   if (requiredSpecialty && !candidateHasSpecialty(candidate, requiredSpecialty)) return null;
-
-  const avail = availabilityCheck(candidate, job);
-  if (!avail.ok) return null; // available too late — exclude
 
   const spec = specialisationScore(candidate, job);
   const loc = locationScore(candidate, job);
@@ -1334,9 +1334,50 @@ function scoreCandidate(candidate, job) {
 
   return {
     candidate,
-    total: spec.score + loc.score + comp.score + overqualBonus + avail.bonus,
-    breakdown: { spec, loc, comp, overqualBonus, avail }
+    total: spec.score + loc.score + comp.score + overqualBonus,
+    breakdown: { spec, loc, comp, overqualBonus }
   };
+}
+
+function countMatches(job) {
+  if (!candidates.length) return 0;
+  return candidates.map(c => scoreCandidate(c, job))
+    .filter(m => m !== null && m.total >= 30).length;
+}
+
+function getMatchesForJob(job) {
+  return candidates.map(c => scoreCandidate(c, job))
+    .filter(m => m !== null && m.total >= 30)
+    .sort((a,b) => b.total - a.total);
+}
+
+async function ensureCandidatesLoaded() {
+  if (candidates.length) return true;
+  return await loadCandidates();
+}
+
+function openMatchesModal(job) {
+  const matches = getMatchesForJob(job);
+  const modal = document.getElementById('matches-modal');
+  const body = document.getElementById('matches-modal-body');
+  const topCount = matches.filter(m => m.total >= 60).length;
+
+  body.innerHTML = `
+    <div style="padding:16px 20px;border-bottom:1px solid var(--border-light);position:sticky;top:0;background:var(--surface);z-index:2;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+        <div style="flex:1;">
+          <div style="font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.03em;">${esc(job.region)}</div>
+          <div style="font-weight:600;font-size:15px;margin-top:2px;">${esc(job.facility)} — ${esc(job.title)}</div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">${esc(job.location)} · ${esc(job.band)} · ${job.fte} FTE · starts ${esc(job.startDate || 'TBC')}${job.ward ? ' · ' + esc(job.ward) : ''}</div>
+          <div style="font-size:11px;color:var(--text-faint);margin-top:6px;"><strong>${matches.length}</strong> potential match${matches.length===1?'':'es'} · <strong style="color:var(--accent);">${topCount}</strong> strong fit</div>
+        </div>
+        <button id="btn-close-matches" style="background:none;border:none;font-size:22px;color:var(--text-faint);cursor:pointer;padding:0;line-height:1;">×</button>
+      </div>
+    </div>
+    <div>${matches.length ? renderCandidateRows(matches) : '<div style="padding:2rem;text-align:center;color:var(--text-faint);">No candidates match this role</div>'}</div>`;
+
+  modal.style.display = 'flex';
+  document.getElementById('btn-close-matches').addEventListener('click', () => modal.style.display = 'none');
 }
 
 async function renderMatches() {
@@ -1419,7 +1460,6 @@ function renderCandidateRows(matches) {
               · <span style="color:${m.breakdown.loc.score === 30 ? '#1D9E75' : '#C28028'};">${m.breakdown.loc.label}</span>
               · <span style="color:${m.breakdown.comp.score >= 15 ? '#1D9E75' : '#C28028'};">${m.breakdown.comp.parts.join(' · ')}</span>
               ${m.breakdown.overqualBonus ? '· <span style="color:#1D9E75;">+overqualified</span>' : ''}
-              ${m.breakdown.avail ? `· <span style="color:${m.breakdown.avail.bonus >= 5 ? '#1D9E75' : m.breakdown.avail.bonus < 0 ? '#C28028' : '#9E9B94'};">${m.breakdown.avail.label}</span>` : ''}
             </div>
           </div>
           <div style="font-size:10px;color:var(--text-faint);max-width:180px;text-align:right;">
@@ -1873,7 +1913,7 @@ function render() {
   });
 
   if (visibleJobs.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="12">
+    tbody.innerHTML = `<tr><td colspan="13">
       <div class="empty-state">
         <div class="empty-icon">📋</div>
         <div class="empty-text">${activeTab === 'all' ? 'No vacancies yet' : 'No ' + activeTab + ' vacancies'}</div>
@@ -1895,6 +1935,7 @@ function render() {
         case 'weeks':       return j.weeks || 0;
         case 'hourlyRate':  return j.hourlyRate;
         case 'value':       return contractValue(j);
+        case 'matches':     return countMatches(j);
         default:            return contractValue(j);
       }
     }
@@ -1954,7 +1995,7 @@ function render() {
       let divider = '';
       if (isDimmed && !dividerInserted) {
         dividerInserted = true;
-        divider = `<tr><td colspan="12" style="padding:0;"><div style="display:flex;align-items:center;gap:10px;padding:10px 12px 6px;"><div style="flex:1;height:0.5px;background:var(--border-light);"></div><span style="font-size:11px;color:var(--text-faint);white-space:nowrap;">Expired / recurring / archived below</span><div style="flex:1;height:0.5px;background:var(--border-light);"></div></div></td></tr>`;
+        divider = `<tr><td colspan="13" style="padding:0;"><div style="display:flex;align-items:center;gap:10px;padding:10px 12px 6px;"><div style="flex:1;height:0.5px;background:var(--border-light);"></div><span style="font-size:11px;color:var(--text-faint);white-space:nowrap;">Expired / recurring / archived below</span><div style="flex:1;height:0.5px;background:var(--border-light);"></div></div></td></tr>`;
       }
 
       const recurringToggle = (status === 'expired' || status === 'recurring')
@@ -1973,7 +2014,7 @@ function render() {
         : '';
 
       const detailsRow = (hasReq && isExpanded)
-        ? `<tr style="${dimStyle}"><td colspan="12" style="padding:0;background:var(--bg);">
+        ? `<tr style="${dimStyle}"><td colspan="13" style="padding:0;background:var(--bg);">
             <div style="padding:10px 16px 14px 44px;font-size:12px;color:var(--text-muted);line-height:1.6;border-bottom:1px solid var(--border-light);">
               <span style="font-weight:600;color:var(--text);">Requirements: </span>${esc(j.requirements)}
             </div>
@@ -2009,6 +2050,14 @@ function render() {
           </div>
         </td>
         <td><span id="val-${j.id}" class="contract-value${val===0?' zero':''}">${fmtMoney(val)}</span></td>
+        <td>${(() => {
+          const count = countMatches(j);
+          if (count === 0) return `<span style="font-size:11px;color:var(--text-faint);opacity:0.4;">👤 0</span>`;
+          return `<button data-matches="${j.id}" title="${count} candidate match${count===1?'':'es'}"
+            style="font-family:inherit;font-size:11px;padding:3px 8px;border-radius:99px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;display:inline-flex;align-items:center;gap:4px;">
+            👤 <strong>${count}</strong>
+          </button>`;
+        })()}</td>
         <td>${j.archived
           ? `<button class="btn-icon" data-restoreid="${j.id}" title="Restore" style="font-size:11px;">↩</button>`
           : `<button class="btn-icon" data-removeid="${j.id}" title="Archive">✕</button>`
