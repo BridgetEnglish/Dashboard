@@ -7433,7 +7433,37 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Mental health case management experience, competent in ECG. BLS cert, manual handling, infection control, mandatory reporting, violence prevention training, medications management including QPHS regulations."
+    },
+    {
+      "id": 514,
+      "facility": "Moranbah Hospital",
+      "title": "Registered Nurse",
+      "ward": "Acute/Emergency",
+      "location": "Moranbah, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "24/08/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Rural nursing and emergency experience mandatory. ALS, BLS, ETEK certs required. ieMR proficiency desirable."
+    },
+    {
+      "id": 515,
+      "facility": "Moranbah Hospital",
+      "title": "Registered Nurse",
+      "ward": "Acute/Emergency",
+      "location": "Moranbah, QLD",
+      "band": "RN Grade 5",
+      "fte": 4,
+      "hourlyRate": 52.33,
+      "weeks": 9,
+      "startDate": "31/08/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Rural nursing and emergency experience mandatory. ALS, BLS, ETEK certs required. ieMR proficiency desirable."
     }
   ],
-  "nextId": 514
+  "nextId": 516
 }
