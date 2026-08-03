@@ -8783,7 +8783,22 @@
       "region": "NT",
       "recurring": true,
       "requirements": "Recognised qualification in Midwifery and/or 2 years clinical experience. Must be able to work in birthing suite, antenatal and post-natal."
+    },
+    {
+      "id": 604,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Midwife",
+      "ward": "",
+      "location": "Kingaroy, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "31/08/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Neonatal Resuscitation, Foetal Surveillance Education, Midwifery qualifications, Team Leader experience required."
     }
   ],
-  "nextId": 604
+  "nextId": 605
 }
