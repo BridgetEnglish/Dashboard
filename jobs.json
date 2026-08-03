@@ -8003,7 +8003,22 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Min 2-3 years CMHT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 552,
+      "facility": "Primary Health Care - Central Australia",
+      "title": "Registered Nurse",
+      "ward": "Primary Health Care",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 0,
+      "startDate": "",
+      "region": "NT",
+      "recurring": true,
+      "requirements": ""
     }
   ],
-  "nextId": 552
+  "nextId": 553
 }
