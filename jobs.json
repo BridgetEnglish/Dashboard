@@ -1251,7 +1251,8 @@
       "weeks": 0,
       "startDate": "29/06/2026",
       "region": "NSW",
-      "recurring": false
+      "recurring": false,
+      "archived": true
     },
     {
       "id": 90,
