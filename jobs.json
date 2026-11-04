@@ -10329,7 +10329,22 @@
       "region": "NT",
       "recurring": true,
       "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 700,
+      "facility": "Boulia Multipurpose Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Multipurpose Health Service",
+      "location": "Boulia, QLD",
+      "band": "NG6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 13,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Extensive acute, aged care, ED experience. Mandatory: ALS2, PALS, Triage, IVC/Cannulation. Must be NG6 (no junior RNs). Rural/remote QLD Health experience required."
     }
   ],
-  "nextId": 700
+  "nextId": 701
 }
