@@ -5020,7 +5020,8 @@
       "startDate": "01/10/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Min 12 months recent ED experience, ALS certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care."
+      "requirements": "Min 12 months recent ED experience, ALS certification, triage competency, comfortable working in charge of MPS facility, covers acute and aged care.",
+      "archived": true
     },
     {
       "id": 351,
