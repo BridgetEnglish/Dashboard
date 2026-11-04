@@ -10269,7 +10269,67 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Emergency and Rural Nursing, Resuscitation, IV Cannulation. MANDATORY: Aged Care Check and Police Check. Limited ED experience accepted, no ALS or Triage required."
+    },
+    {
+      "id": 696,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "30/11/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 697,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "01/12/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 698,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 2,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "07/12/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+    },
+    {
+      "id": 699,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Nurse",
+      "ward": "Mental Health Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 3,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "17/12/2026",
+      "region": "NT",
+      "recurring": true,
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
     }
   ],
-  "nextId": 696
+  "nextId": 700
 }
