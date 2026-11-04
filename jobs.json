@@ -11345,7 +11345,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Resuscitation, IV Cannulation, Emergency, Rural Nursing. Will accept limited ED experience without ALS or Triage. MANDATORY Aged Care Check and Police Check."
+    },
+    {
+      "id": 767,
+      "facility": "Baralaba MPHS",
+      "title": "Enrolled Nurse",
+      "ward": "General",
+      "location": "Baralaba, QLD",
+      "band": "Nurse Grade 4",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 104,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural nursing and aged care experience required. Valid driver's licence mandatory. Aged Care Criminal History Check required."
     }
   ],
-  "nextId": 767
+  "nextId": 768
 }
