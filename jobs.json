@@ -5475,7 +5475,8 @@
       "startDate": "03/08/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "MGP/caseload experience, Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite. Role includes 35% loading and on-call coverage."
+      "requirements": "MGP/caseload experience, Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite. Role includes 35% loading and on-call coverage.",
+      "archived": true
     },
     {
       "id": 380,
@@ -5737,7 +5738,8 @@
       "startDate": "17/08/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Primary Medical Degree, PGY3+, comfortable working solo night shifts with SMO standby support, rural experience advantageous but not essential, ALS certification within 3 years"
+      "requirements": "Primary Medical Degree, PGY3+, comfortable working solo night shifts with SMO standby support, rural experience advantageous but not essential, ALS certification within 3 years",
+      "archived": true
     },
     {
       "id": 397,
