@@ -9369,7 +9369,67 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Queensland Health and CIMHA experience, Acute Care and Crisis experience required"
+    },
+    {
+      "id": 636,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6 - CM",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Must have Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+    },
+    {
+      "id": 637,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6 - CM",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": ""
+    },
+    {
+      "id": 638,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6 - CM",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": ""
+    },
+    {
+      "id": 639,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Community Mental Health",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6 - CN",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 2,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Community Mental Health - Adult"
     }
   ],
-  "nextId": 636
+  "nextId": 640
 }
