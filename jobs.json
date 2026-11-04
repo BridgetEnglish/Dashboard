@@ -5983,7 +5983,8 @@
       "startDate": "03/08/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "MGP/caseload position with 35% loading. Advanced Neonatal Resus, Ante/Post Natal, Birth Suite. Monday-Friday with on-call for emergencies."
+      "requirements": "MGP/caseload position with 35% loading. Advanced Neonatal Resus, Ante/Post Natal, Birth Suite. Monday-Friday with on-call for emergencies.",
+      "archived": true
     },
     {
       "id": 413,
@@ -6105,7 +6106,8 @@
       "startDate": "03/08/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite experience. MGP/caseload model with on-call coverage."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite experience. MGP/caseload model with on-call coverage.",
+      "archived": true
     },
     {
       "id": 421,
@@ -6240,7 +6242,8 @@
       "startDate": "08/06/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "CIMHA experience mandatory. Mental Health Intake, Adult and Community experience required. Driver's licence mandatory. Must agree to 10-hour shift break."
+      "requirements": "CIMHA experience mandatory. Mental Health Intake, Adult and Community experience required. Driver's licence mandatory. Must agree to 10-hour shift break.",
+      "archived": true
     },
     {
       "id": 430,
@@ -7004,7 +7007,8 @@
       "startDate": "01/10/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS certification, comfortable working in charge. Role covers aged care in MPS sites"
+      "requirements": "12 months recent ED experience, ALS certification, comfortable working in charge. Role covers aged care in MPS sites",
+      "archived": true
     },
     {
       "id": 480,
@@ -7528,7 +7532,8 @@
       "startDate": "28/09/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Mental health case management experience, competent in ECG. BLS cert, manual handling, infection control, mandatory reporting, violence prevention training, medications management including QPHS regulations."
+      "requirements": "Mental health case management experience, competent in ECG. BLS cert, manual handling, infection control, mandatory reporting, violence prevention training, medications management including QPHS regulations.",
+      "archived": true
     },
     {
       "id": 514,
@@ -7769,7 +7774,8 @@
       "startDate": "10/08/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Core Midwife experience"
+      "requirements": "Core Midwife experience",
+      "archived": true
     },
     {
       "id": 530,
@@ -8542,7 +8548,8 @@
       "startDate": "04/09/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Primary Medical Degree, PGY3+, comfortable working night shifts as solo night with standby SMO support (non-negotiable), rural experience advantageous"
+      "requirements": "Primary Medical Degree, PGY3+, comfortable working night shifts as solo night with standby SMO support (non-negotiable), rural experience advantageous",
+      "archived": true
     },
     {
       "id": 581,
@@ -10347,7 +10354,37 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Extensive acute, aged care, ED experience. Mandatory: ALS2, PALS, Triage, IVC/Cannulation. Must be NG6 (no junior RNs). Rural/remote QLD Health experience required."
+    },
+    {
+      "id": 701,
+      "facility": "Longreach Hospital",
+      "title": "Registered Midwife (MGP)",
+      "ward": "MGP Midwives",
+      "location": "Longreach, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 59,
+      "startDate": "25/11/2025",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced midwifery knowledge and clinical skills, advanced clinical judgement and ethical decision-making in pregnancy/intrapartum/postnatal care, Neoresus and Birth suite experience qualifications required. Must be Senior Midwife NG6 pay point 1 or 2."
+    },
+    {
+      "id": 702,
+      "facility": "Longreach Hospital",
+      "title": "Registered Midwife (MGP)",
+      "ward": "MGP Midwives",
+      "location": "Longreach, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced midwifery knowledge and clinical skills, advanced clinical judgement and ethical decision-making in pregnancy/intrapartum/postnatal care, Neoresus and Birth suite experience qualifications required. Must be Senior Midwife NG6 pay point 1 or 2."
     }
   ],
-  "nextId": 701
+  "nextId": 703
 }
