@@ -10654,7 +10654,52 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "General Skills, Basic Life Support, Aged Care"
+    },
+    {
+      "id": 721,
+      "facility": "Milton Ulladulla Hospital",
+      "title": "Registered Nurse",
+      "ward": "General Ward",
+      "location": "Milton Ulladulla, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.25,
+      "weeks": 3,
+      "startDate": "14/12/2024",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Access to a car required to travel between accommodation and hospital"
+    },
+    {
+      "id": 722,
+      "facility": "Shoalhaven Hospital",
+      "title": "Registered Nurse",
+      "ward": "4 South Aged Care",
+      "location": "Nowra, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.25,
+      "weeks": 6,
+      "startDate": "04/01/2025",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Access to a car required to travel between accommodation and hospital"
+    },
+    {
+      "id": 723,
+      "facility": "Shoalhaven Hospital",
+      "title": "Registered Nurse",
+      "ward": "4 South Aged Care",
+      "location": "Nowra, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.25,
+      "weeks": 4,
+      "startDate": "18/01/2025",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Access to a car required to travel between accommodation and hospital"
     }
   ],
-  "nextId": 721
+  "nextId": 724
 }
