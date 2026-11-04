@@ -8957,7 +8957,7 @@
       "weeks": 13,
       "startDate": "30/11/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Must have Team Leader skills, advanced skills and suturing (highly desirable), advanced neonatal resuscitation, ante/post natal, IV cannulation and birth suite experience."
     },
     {
@@ -10820,7 +10820,67 @@
       "region": "NT",
       "recurring": true,
       "requirements": "Recognised qualification in midwifery and/or 2 years clinical experience. Must be able to work in birthing suite, antenatal and post-natal"
+    },
+    {
+      "id": 732,
+      "facility": "Rockhampton Hospital",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+    },
+    {
+      "id": 733,
+      "facility": "Rockhampton Hospital",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": ""
+    },
+    {
+      "id": 734,
+      "facility": "Rockhampton Hospital",
+      "title": "Clinical Midwife",
+      "ward": "Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": ""
+    },
+    {
+      "id": 735,
+      "facility": "Rockhampton Mental Health",
+      "title": "Clinical Nurse",
+      "ward": "Community Mental Health - Adult",
+      "location": "Rockhampton, QLD",
+      "band": "NRG 6",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 1,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Drivers Licence required"
     }
   ],
-  "nextId": 732
+  "nextId": 736
 }
