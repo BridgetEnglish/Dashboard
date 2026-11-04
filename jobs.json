@@ -11420,7 +11420,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Extensive experience in acute, aged care, ED required. Must have Triage, IVC/Cannulation, ALS, PALS qualifications. Senior RN (NG6) only, no junior RNs. Rural and remote nursing experience, must have worked in QLD Health."
+    },
+    {
+      "id": 772,
+      "facility": "Coffs Harbour Health Campus",
+      "title": "Registered Nurse",
+      "ward": "Medical Ward",
+      "location": "Coffs Harbour, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 16.73,
+      "weeks": 12,
+      "startDate": "08/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Current AHPRA registration, availability for full contract period, willingness to work rostered shifts, proficiency in eMR and ability to quickly adapt to new clinical software"
     }
   ],
-  "nextId": 772
+  "nextId": 773
 }
