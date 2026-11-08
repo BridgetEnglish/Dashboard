@@ -10503,7 +10503,8 @@
       "startDate": "2/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Cannulation"
+      "requirements": "Cannulation",
+      "archived": true
     },
     {
       "id": 711,
