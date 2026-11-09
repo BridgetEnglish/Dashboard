@@ -12230,7 +12230,8 @@
       "startDate": "16/10/2026",
       "region": "NT",
       "recurring": false,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 826,
