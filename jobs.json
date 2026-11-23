@@ -16028,7 +16028,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "In charge, cannulation, scrub, renal experience, on call. Endorsed nurse practitioner with acute or ED scope, accessing central lines required"
+      "requirements": "In charge, cannulation, scrub, renal experience, on call. Endorsed nurse practitioner with acute or ED scope, accessing central lines required",
+      "archived": true
     },
     {
       "id": 1078,
