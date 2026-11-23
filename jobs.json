@@ -9348,7 +9348,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "ALS, PALS highly desirable, Triage, IV Cannulation, Emergency, Rural Nursing, Medical. MANDATORY: Evidence of Hep A, Aged Care Check and Police Check"
+      "requirements": "ALS, PALS highly desirable, Triage, IV Cannulation, Emergency, Rural Nursing, Medical. MANDATORY: Evidence of Hep A, Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 634,
@@ -10428,7 +10429,8 @@
       "startDate": "2/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 706,
@@ -10473,7 +10475,8 @@
       "startDate": "2/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Mental Health"
+      "requirements": "Mental Health",
+      "archived": true
     },
     {
       "id": 709,
@@ -10549,7 +10552,8 @@
       "startDate": "2/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Scrub, Scout, On call"
+      "requirements": "Scrub, Scout, On call",
+      "archived": true
     },
     {
       "id": 714,
@@ -10564,7 +10568,8 @@
       "startDate": "9/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Cannulation, InCharge, Antenatal, Postnatal, Labour Ward, Sole Midwife"
+      "requirements": "Cannulation, InCharge, Antenatal, Postnatal, Labour Ward, Sole Midwife",
+      "archived": true
     },
     {
       "id": 715,
@@ -11375,7 +11380,8 @@
       "startDate": "05/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Cannulation, Advanced Neonatal Resuscitation, Emergency experience, PALS, Rural and Remote experience, Team Leader skills, Triage. On call required."
+      "requirements": "Advanced Life Support, Cannulation, Advanced Neonatal Resuscitation, Emergency experience, PALS, Rural and Remote experience, Team Leader skills, Triage. On call required.",
+      "archived": true
     },
     {
       "id": 769,
@@ -11390,7 +11396,8 @@
       "startDate": "16/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Child Health qualifications, ALS, Advanced Neonatal Resuscitation, PALS, Rural and Remote Experience, Immunisation"
+      "requirements": "Child Health qualifications, ALS, Advanced Neonatal Resuscitation, PALS, Rural and Remote Experience, Immunisation",
+      "archived": true
     },
     {
       "id": 770,
