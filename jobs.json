@@ -14406,7 +14406,37 @@
       "region": "NT",
       "recurring": true,
       "requirements": "Remote area nursing experience required. Must participate in on-call arrangements and maintain essential health services including over public holidays."
+    },
+    {
+      "id": 970,
+      "facility": "Alice Springs Correctional Centre",
+      "title": "Prison Health Nurse",
+      "ward": "Primary Health Care",
+      "location": "Alice Springs, NT",
+      "band": "RN 3.1",
+      "fte": 2,
+      "hourlyRate": 73.73,
+      "weeks": 8,
+      "startDate": "30/11/2024",
+      "region": "NT",
+      "recurring": true,
+      "requirements": ""
+    },
+    {
+      "id": 971,
+      "facility": "Alice Springs Correctional Centre",
+      "title": "Prison Health Nurse",
+      "ward": "Primary Health Care",
+      "location": "Alice Springs, NT",
+      "band": "RN 3.1",
+      "fte": 1,
+      "hourlyRate": 73.73,
+      "weeks": 8,
+      "startDate": "07/12/2024",
+      "region": "NT",
+      "recurring": true,
+      "requirements": ""
     }
   ],
-  "nextId": 970
+  "nextId": 972
 }
