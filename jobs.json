@@ -16644,7 +16644,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Antenatal, postnatal, labour ward, sole midwife with on-call experience required"
+      "requirements": "Antenatal, postnatal, labour ward, sole midwife with on-call experience required",
+      "archived": true
     },
     {
       "id": 1119,
@@ -16719,7 +16720,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "In charge, cannulation, scrub, renal experience, on call. Endorsed nurse practitioner with acute or ED scope of practice required. Central line access required"
+      "requirements": "In charge, cannulation, scrub, renal experience, on call. Endorsed nurse practitioner with acute or ED scope of practice required. Central line access required",
+      "archived": true
     },
     {
       "id": 1124,
