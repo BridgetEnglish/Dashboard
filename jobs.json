@@ -11412,7 +11412,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Advanced Neonatal Resuscitation, Cannulation, Foetal Surveillance Education, Midwifery, Rural and Remote Experience, Team Leader"
+      "requirements": "Advanced Life Support, Advanced Neonatal Resuscitation, Cannulation, Foetal Surveillance Education, Midwifery, Rural and Remote Experience, Team Leader",
+      "archived": true
     },
     {
       "id": 771,
@@ -11427,7 +11428,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Extensive experience in acute, aged care, ED required. Must have Triage, IVC/Cannulation, ALS, PALS qualifications. Senior RN (NG6) only, no junior RNs. Rural and remote nursing experience, must have worked in QLD Health."
+      "requirements": "Extensive experience in acute, aged care, ED required. Must have Triage, IVC/Cannulation, ALS, PALS qualifications. Senior RN (NG6) only, no junior RNs. Rural and remote nursing experience, must have worked in QLD Health.",
+      "archived": true
     },
     {
       "id": 772,
@@ -12132,7 +12134,8 @@
       "startDate": "16/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, cannulation, emergency/triage experience, team leader capability, aged care resident cares experience required"
+      "requirements": "Advanced Life Support, cannulation, emergency/triage experience, team leader capability, aged care resident cares experience required",
+      "archived": true
     },
     {
       "id": 819,
@@ -12643,7 +12646,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Mental Health"
+      "requirements": "Mental Health",
+      "archived": true
     },
     {
       "id": 853,
@@ -12658,7 +12662,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 854,
@@ -12673,7 +12678,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Endorsed Nurse Practitioner with acute or ED scope, in charge, cannulation, scrub, renal experience, on call capability, accessing central lines required."
+      "requirements": "Endorsed Nurse Practitioner with acute or ED scope, in charge, cannulation, scrub, renal experience, on call capability, accessing central lines required.",
+      "archived": true
     },
     {
       "id": 855,
@@ -12748,7 +12754,8 @@
       "startDate": "09/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Antenatal, Postnatal, Labour Ward, Sole Midwife"
+      "requirements": "Antenatal, Postnatal, Labour Ward, Sole Midwife",
+      "archived": true
     },
     {
       "id": 860,
@@ -12824,7 +12831,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "ALS, Triage, Cannulation"
+    },
+    {
+      "id": 865,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Nurse",
+      "ward": "Child Health Kingaroy",
+      "location": "Kingaroy, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Child Health Certificate, Immunisation Credentialling, ALS, Advanced Neonatal Resuscitation, Rural and Remote Experience required"
     }
   ],
-  "nextId": 865
+  "nextId": 866
 }
