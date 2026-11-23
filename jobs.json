@@ -14871,7 +14871,22 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Min 2-3 years Mental Health crisis assessment experience, experience in emergency setting with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form."
+    },
+    {
+      "id": 1001,
+      "facility": "Windorah Primary Health Clinic",
+      "title": "Director of Nursing",
+      "ward": "Primary Health Clinic",
+      "location": "Windorah, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Remote Area Nursing training mandatory, RIPEN qualification highly desirable, Qld Health experience required, rural and remote nursing experience essential"
     }
   ],
-  "nextId": 1001
+  "nextId": 1002
 }
