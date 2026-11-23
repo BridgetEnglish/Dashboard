@@ -14856,7 +14856,22 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "A&E, Acute, Aged, ALS, triage certified and RAN experience"
+    },
+    {
+      "id": 1000,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Clinical Nurse Specialist",
+      "ward": "Mental Health Alcohol and Other Drugs",
+      "location": "Alice Springs, NT",
+      "band": "N4",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 12,
+      "startDate": "07/12/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Min 2-3 years Mental Health crisis assessment experience, experience in emergency setting with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form."
     }
   ],
-  "nextId": 1000
+  "nextId": 1001
 }
