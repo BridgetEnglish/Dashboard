@@ -13624,9 +13624,39 @@
       "weeks": 2,
       "startDate": "30/11/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Mental health intake experience required. Driver's licence mandatory. AHPRA registration valid to 31/05/2027, current National Police Check, immunisations (Hep B, MMR, Varicella, Pertussis), extensive mandatory training including BLS, medication safety, hand hygiene, child protection, infection control, and cultural awareness."
+    },
+    {
+      "id": 918,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Gladstone Mental Health Intake",
+      "location": "Gladstone, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Mental health intake experience required, current drivers licence, criminal history check, AHPRA registration valid until 31/05/2027, all mandatory competencies and immunisations current"
+    },
+    {
+      "id": 919,
+      "facility": "Murgon Hospital",
+      "title": "Registered Nurse",
+      "ward": "RN Wards Murgon SB",
+      "location": "Murgon, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Cannulation, Emergency, Paediatric Advanced Life Support, Rural and Remote Experience, Triage, Team Leader. On call required."
     }
   ],
-  "nextId": 918
+  "nextId": 920
 }
