@@ -13654,9 +13654,24 @@
       "weeks": 4,
       "startDate": "21/12/2026",
       "region": "QLD",
-      "recurring": false,
+      "recurring": true,
       "requirements": "Advanced Life Support, Cannulation, Emergency, Paediatric Advanced Life Support, Rural and Remote Experience, Triage, Team Leader. On call required."
+    },
+    {
+      "id": 920,
+      "facility": "Murgon Hospital",
+      "title": "Registered Nurse",
+      "ward": "RN Wards Murgon SB",
+      "location": "Murgon, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, PALS, cannulation, emergency and triage experience, rural/remote experience, team leader capability, on-call required"
     }
   ],
-  "nextId": 920
+  "nextId": 921
 }
