@@ -15952,7 +15952,8 @@
       "startDate": "02/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Antenatal, postnatal, labour ward, on-call, sole midwife experience required"
+      "requirements": "Antenatal, postnatal, labour ward, on-call, sole midwife experience required",
+      "archived": true
     },
     {
       "id": 1073,
