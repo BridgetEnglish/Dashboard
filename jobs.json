@@ -7678,7 +7678,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Must have certificate in Sexual and Reproductive Health and sexual health accreditation"
+      "requirements": "Must have certificate in Sexual and Reproductive Health and sexual health accreditation",
+      "archived": true
     },
     {
       "id": 520,
@@ -7693,7 +7694,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Experience in child and adolescent mental health"
+      "requirements": "Experience in child and adolescent mental health",
+      "archived": true
     },
     {
       "id": 521,
@@ -7708,7 +7710,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Essential to have experience working in child and adolescent mental health"
+      "requirements": "Essential to have experience working in child and adolescent mental health",
+      "archived": true
     },
     {
       "id": 522,
@@ -7723,7 +7726,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Operating Theatre CSSD experience required"
+      "requirements": "Operating Theatre CSSD experience required",
+      "archived": true
     },
     {
       "id": 523,
@@ -7738,7 +7742,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Operating Theatre CSSD experience required"
+      "requirements": "Operating Theatre CSSD experience required",
+      "archived": true
     },
     {
       "id": 524,
@@ -7753,7 +7758,8 @@
       "startDate": "21/09/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent RN Acute and Aged care experience"
+      "requirements": "Recent RN Acute and Aged care experience",
+      "archived": true
     },
     {
       "id": 525,
@@ -7768,7 +7774,8 @@
       "startDate": "21/09/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent RN Acute and Aged care experience"
+      "requirements": "Recent RN Acute and Aged care experience",
+      "archived": true
     },
     {
       "id": 526,
@@ -7783,7 +7790,8 @@
       "startDate": "21/09/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Acute and Aged Care Experience"
+      "requirements": "Acute and Aged Care Experience",
+      "archived": true
     },
     {
       "id": 527,
@@ -7798,7 +7806,8 @@
       "startDate": "21/09/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Acute and Aged Care Experience"
+      "requirements": "Acute and Aged Care Experience",
+      "archived": true
     },
     {
       "id": 528,
@@ -7813,7 +7822,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent inpatient mental health experience"
+      "requirements": "Recent inpatient mental health experience",
+      "archived": true
     },
     {
       "id": 529,
@@ -7844,7 +7854,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Recent community mental health drug and alcohol experience"
+      "requirements": "Recent community mental health drug and alcohol experience",
+      "archived": true
     },
     {
       "id": 531,
@@ -7905,7 +7916,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN and Triage experience required (Triage certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN and Triage experience required (Triage certification not mandatory)",
+      "archived": true
     },
     {
       "id": 535,
@@ -7920,7 +7932,8 @@
       "startDate": "09/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage",
+      "archived": true
     },
     {
       "id": 536,
@@ -7935,7 +7948,8 @@
       "startDate": "09/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage",
+      "archived": true
     },
     {
       "id": 537,
@@ -7950,7 +7964,8 @@
       "startDate": "07/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage",
+      "archived": true
     },
     {
       "id": 538,
@@ -7965,7 +7980,8 @@
       "startDate": "07/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage",
+      "archived": true
     },
     {
       "id": 539,
@@ -7980,7 +7996,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 540,
@@ -7995,7 +8012,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 541,
@@ -8010,7 +8028,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 542,
@@ -8025,7 +8044,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 543,
@@ -8040,7 +8060,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 544,
@@ -8055,7 +8076,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 545,
@@ -8070,7 +8092,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 546,
@@ -8085,7 +8108,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 547,
@@ -8100,7 +8124,8 @@
       "startDate": "",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 548,
@@ -14699,7 +14724,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Must have certificate in Sexual and Reproductive Health and sexual health accreditation within NSW"
+      "requirements": "Must have certificate in Sexual and Reproductive Health and sexual health accreditation within NSW",
+      "archived": true
     },
     {
       "id": 973,
@@ -14714,7 +14740,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Previous experience with Fresenius 5008S machines"
+      "requirements": "Previous experience with Fresenius 5008S machines",
+      "archived": true
     },
     {
       "id": 974,
@@ -14729,7 +14756,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Recent oncology experience and ability to administer IV chemo/immunotherapy"
+      "requirements": "Recent oncology experience and ability to administer IV chemo/immunotherapy",
+      "archived": true
     },
     {
       "id": 975,
@@ -14744,7 +14772,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Recent theatre experience in Anaesthetics/PACU"
+      "requirements": "Recent theatre experience in Anaesthetics/PACU",
+      "archived": true
     },
     {
       "id": 976,
@@ -14759,7 +14788,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "ED experience, ALS, triage and resuscitation skills"
+      "requirements": "ED experience, ALS, triage and resuscitation skills",
+      "archived": true
     },
     {
       "id": 977,
@@ -14774,7 +14804,8 @@
       "startDate": "14/12/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "ALS and ventilator competent"
+      "requirements": "ALS and ventilator competent",
+      "archived": true
     },
     {
       "id": 978,
@@ -14789,7 +14820,8 @@
       "startDate": "14/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Experience in critical care outreach plus ALS"
+      "requirements": "Experience in critical care outreach plus ALS",
+      "archived": true
     },
     {
       "id": 979,
@@ -14804,7 +14836,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Experience in critical care outreach plus ALS"
+      "requirements": "Experience in critical care outreach plus ALS",
+      "archived": true
     },
     {
       "id": 980,
@@ -14819,7 +14852,8 @@
       "startDate": "14/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Acute/aged care experience"
+      "requirements": "Acute/aged care experience",
+      "archived": true
     },
     {
       "id": 981,
@@ -14834,7 +14868,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Acute/aged care experience"
+      "requirements": "Acute/aged care experience",
+      "archived": true
     },
     {
       "id": 982,
@@ -14849,7 +14884,8 @@
       "startDate": "14/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Acute/aged care experience"
+      "requirements": "Acute/aged care experience",
+      "archived": true
     },
     {
       "id": 983,
@@ -14864,7 +14900,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent acute RN experience"
+      "requirements": "Recent acute RN experience",
+      "archived": true
     },
     {
       "id": 984,
@@ -14879,7 +14916,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Community MH experience"
+      "requirements": "Community MH experience",
+      "archived": true
     },
     {
       "id": 985,
@@ -14894,7 +14932,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Previous community MH experience"
+      "requirements": "Previous community MH experience",
+      "archived": true
     },
     {
       "id": 986,
@@ -14909,7 +14948,8 @@
       "startDate": "18/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent MH inpatient experience"
+      "requirements": "Recent MH inpatient experience",
+      "archived": true
     },
     {
       "id": 987,
@@ -14924,7 +14964,8 @@
       "startDate": "01/02/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent MH inpatient experience"
+      "requirements": "Recent MH inpatient experience",
+      "archived": true
     },
     {
       "id": 988,
@@ -14939,7 +14980,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Triage, RAN, ALS experience"
+      "requirements": "Triage, RAN, ALS experience",
+      "archived": true
     },
     {
       "id": 989,
@@ -14954,7 +14996,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Previous midwifery experience"
+      "requirements": "Previous midwifery experience",
+      "archived": true
     },
     {
       "id": 990,
@@ -14969,7 +15012,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Nurse Manager experience, triage, RAN and ALS experience"
+      "requirements": "Nurse Manager experience, triage, RAN and ALS experience",
+      "archived": true
     },
     {
       "id": 991,
@@ -14984,7 +15028,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent aged care and acute EN experience"
+      "requirements": "Recent aged care and acute EN experience",
+      "archived": true
     },
     {
       "id": 992,
@@ -14999,7 +15044,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent aged care and acute EN experience"
+      "requirements": "Recent aged care and acute EN experience",
+      "archived": true
     },
     {
       "id": 993,
@@ -15014,7 +15060,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Triage, RAN, ALS, Primary Healthcare experience"
+      "requirements": "Triage, RAN, ALS, Primary Healthcare experience",
+      "archived": true
     },
     {
       "id": 994,
@@ -15029,7 +15076,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, triage, working across MPS and previous management experience"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, triage, working across MPS and previous management experience",
+      "archived": true
     },
     {
       "id": 995,
@@ -15044,7 +15092,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent aged care and acute EN experience"
+      "requirements": "Recent aged care and acute EN experience",
+      "archived": true
     },
     {
       "id": 996,
@@ -15059,7 +15108,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, triage, working across MPS"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, triage, working across MPS",
+      "archived": true
     },
     {
       "id": 997,
@@ -15074,7 +15124,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 998,
@@ -15089,7 +15140,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification not mandatory)",
+      "archived": true
     },
     {
       "id": 999,
@@ -15812,7 +15864,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Triage, RAN, ALS experience"
+      "requirements": "Triage, RAN, ALS experience",
+      "archived": true
     },
     {
       "id": 1046,
@@ -15827,7 +15880,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Previous midwifery experience"
+      "requirements": "Previous midwifery experience",
+      "archived": true
     },
     {
       "id": 1047,
@@ -15842,7 +15896,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Nurse Manager experience, Triage, RAN and ALS experience"
+      "requirements": "Nurse Manager experience, Triage, RAN and ALS experience",
+      "archived": true
     },
     {
       "id": 1048,
@@ -15857,7 +15912,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent Aged Care and Acute EN experience"
+      "requirements": "Recent Aged Care and Acute EN experience",
+      "archived": true
     },
     {
       "id": 1049,
@@ -15872,7 +15928,8 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent Aged Care and Acute EN experience"
+      "requirements": "Recent Aged Care and Acute EN experience",
+      "archived": true
     },
     {
       "id": 1050,
@@ -15887,7 +15944,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Triage, RAN, ALS, Primary Healthcare experience"
+      "requirements": "Triage, RAN, ALS, Primary Healthcare experience",
+      "archived": true
     },
     {
       "id": 1051,
@@ -15902,7 +15960,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Triage, RAN, ALS, Primary Healthcare experience"
+      "requirements": "Triage, RAN, ALS, Primary Healthcare experience",
+      "archived": true
     },
     {
       "id": 1052,
@@ -15917,7 +15976,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS and previous management experience"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS and previous management experience",
+      "archived": true
     },
     {
       "id": 1053,
@@ -15932,7 +15992,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Recent Aged Care and Acute EN experience"
+      "requirements": "Recent Aged Care and Acute EN experience",
+      "archived": true
     },
     {
       "id": 1054,
@@ -15947,7 +16008,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS"
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS",
+      "archived": true
     },
     {
       "id": 1055,
@@ -15962,7 +16024,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1056,
@@ -15977,7 +16040,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1057,
@@ -15992,7 +16056,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1058,
@@ -16007,7 +16072,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1059,
@@ -16022,7 +16088,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1060,
@@ -16037,7 +16104,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1061,
@@ -16052,7 +16120,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1062,
@@ -16067,7 +16136,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1063,
@@ -16082,7 +16152,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1064,
@@ -16097,7 +16168,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1065,
@@ -16112,7 +16184,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1066,
@@ -16127,7 +16200,8 @@
       "startDate": "23/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)",
+      "archived": true
     },
     {
       "id": 1067,
@@ -20192,6 +20266,441 @@
       "recurring": false,
       "requirements": "",
       "archived": true
+    },
+    {
+      "id": 1330,
+      "facility": "Broken Hill Hospital",
+      "title": "Clinical Nurse Specialist",
+      "ward": "Sexual Health",
+      "location": "Broken Hill, NSW",
+      "band": "CN/MSG2-1",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Must have certificate in Sexual and Reproductive Health and sexual health accreditation within NSW"
+    },
+    {
+      "id": 1331,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "Dialysis",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 6,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Previous experience with Fresenius 5008S machines"
+    },
+    {
+      "id": 1332,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "Oncology",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 6,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Recent oncology experience and ability to administer IV chemo/immunotherapy"
+    },
+    {
+      "id": 1333,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "Operating Theatre",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "11/01/2027",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Recent theatre experience in Anaesthetics/PACU"
+    },
+    {
+      "id": 1334,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "ED, ALS, triage and resus experience"
+    },
+    {
+      "id": 1335,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "ICU",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 4,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "14/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "ALS and ventilator competent"
+    },
+    {
+      "id": 1336,
+      "facility": "Broken Hill Hospital",
+      "title": "Clinical Nurse Specialist",
+      "ward": "ICU - CCOT",
+      "location": "Broken Hill, NSW",
+      "band": "CN/MSG2-1",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "14/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Experience in critical care outreach plus ALS"
+    },
+    {
+      "id": 1337,
+      "facility": "Broken Hill Hospital",
+      "title": "Clinical Nurse Specialist",
+      "ward": "ICU - CCOT",
+      "location": "Broken Hill, NSW",
+      "band": "CN/MSG2-1",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 9,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Experience in critical care outreach plus ALS"
+    },
+    {
+      "id": 1338,
+      "facility": "Broken Hill Hospital",
+      "title": "Enrolled Nurse",
+      "ward": "Surgical Ward",
+      "location": "Broken Hill, NSW",
+      "band": "EN2",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "14/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Acute/aged care experience"
+    },
+    {
+      "id": 1339,
+      "facility": "Broken Hill Hospital",
+      "title": "Enrolled Nurse",
+      "ward": "Surgical Ward",
+      "location": "Broken Hill, NSW",
+      "band": "EN2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "11/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Acute/aged care experience"
+    },
+    {
+      "id": 1340,
+      "facility": "Broken Hill Hospital",
+      "title": "Enrolled Nurse",
+      "ward": "Medical Ward",
+      "location": "Broken Hill, NSW",
+      "band": "EN2",
+      "fte": 3,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "14/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Acute/aged care experience"
+    },
+    {
+      "id": 1341,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "Medical Ward",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Recent Acute RN Experience"
+    },
+    {
+      "id": 1342,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "MERIT",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 10,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Community MH experience"
+    },
+    {
+      "id": 1343,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "MHAOD Community (MHDA)",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Previous community MH experience"
+    },
+    {
+      "id": 1344,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "MHIPU",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "18/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Recent MH inpatient experience"
+    },
+    {
+      "id": 1345,
+      "facility": "Broken Hill Hospital",
+      "title": "Registered Nurse",
+      "ward": "MHIPU",
+      "location": "Broken Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "01/02/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Recent MH inpatient experience"
+    },
+    {
+      "id": 1346,
+      "facility": "Ivanhoe Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "Ivanhoe, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Triage, RAN, ALS experience"
+    },
+    {
+      "id": 1347,
+      "facility": "Ivanhoe Health Service",
+      "title": "Midwife",
+      "ward": "Midwifery",
+      "location": "Ivanhoe, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 8,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Previous midwifery experience"
+    },
+    {
+      "id": 1348,
+      "facility": "Menindee Health Service",
+      "title": "Nurse Manager",
+      "ward": "HSM",
+      "location": "Menindee, NSW",
+      "band": "N/MUM3",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Nurse Manager experience, Triage, RAN and ALS experience"
+    },
+    {
+      "id": 1349,
+      "facility": "Menindee Health Service",
+      "title": "Enrolled Nurse",
+      "ward": "Acute",
+      "location": "Menindee, NSW",
+      "band": "EN2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "11/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Recent Aged Care and Acute EN experience"
+    },
+    {
+      "id": 1350,
+      "facility": "Menindee Health Service",
+      "title": "Enrolled Nurse",
+      "ward": "Acute",
+      "location": "Menindee, NSW",
+      "band": "EN2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 6,
+      "startDate": "11/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Recent Aged Care and Acute EN experience"
+    },
+    {
+      "id": 1351,
+      "facility": "Menindee Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "Menindee, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Triage, RAN, ALS, Primary Healthcare experience"
+    },
+    {
+      "id": 1352,
+      "facility": "Balranald Health Service",
+      "title": "Nurse Manager",
+      "ward": "Nurse Manager",
+      "location": "Balranald, NSW",
+      "band": "N/MUM1",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS and previous management experience"
+    },
+    {
+      "id": 1353,
+      "facility": "Balranald Health Service",
+      "title": "Enrolled Nurse",
+      "ward": "Generalist",
+      "location": "Balranald, NSW",
+      "band": "EN2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Recent Aged Care and Acute EN experience"
+    },
+    {
+      "id": 1354,
+      "facility": "Balranald Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "Balranald, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "A&E, Acute, RAN, Aged, ALS, Triage, working across MPS"
+    },
+    {
+      "id": 1355,
+      "facility": "Wilcannia Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "Wilcannia, NSW",
+      "band": "RN/M2",
+      "fte": 8,
+      "hourlyRate": 0,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+    },
+    {
+      "id": 1356,
+      "facility": "Wilcannia Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "Wilcannia, NSW",
+      "band": "RN/M2",
+      "fte": 3,
+      "hourlyRate": 0,
+      "weeks": 10,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+    },
+    {
+      "id": 1357,
+      "facility": "White Cliffs Health Service",
+      "title": "Registered Nurse",
+      "ward": "Generalist",
+      "location": "White Cliffs, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "A&E, Acute, Aged, ALS, RAN experience (triage experience or certification isn't mandatory)"
+    },
+    {
+      "id": 1358,
+      "facility": "Far West LHD",
+      "title": "RN Reliever",
+      "ward": "Remote Sites",
+      "location": "Various Remote Sites, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 13,
+      "startDate": "23/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "A&E, Acute, Aged, ALS, triage certified and RAN experience"
     }
   ],
   "contacts": [
@@ -20304,7 +20813,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 4
+    },
+    {
+      "email": "racheal.nagas@health.nsw.gov.au",
+      "name": "Racheal Nagas",
+      "role": "Talent Acquisition Specialist",
+      "org": "Far West Local Health District",
+      "phone": "(08) 8080 1353",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 29
     }
   ],
-  "nextId": 1330
+  "nextId": 1359
 }
