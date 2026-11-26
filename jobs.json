@@ -6758,7 +6758,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Extensive experience in acute, aged care, emergency department. Qualifications in Triage, IVC/Cannulation, ALS and PALS. Must be Senior RN (NG5) pay point 5, 6 or 7. Rural and Remote nursing experience required."
+      "requirements": "Extensive experience in acute, aged care, emergency department. Qualifications in Triage, IVC/Cannulation, ALS and PALS. Must be Senior RN (NG5) pay point 5, 6 or 7. Rural and Remote nursing experience required.",
+      "archived": true
     },
     {
       "id": 461,
@@ -20126,6 +20127,21 @@
       "region": "NT",
       "recurring": false,
       "requirements": "2-3 years Mental Health crisis assessment experience in emergency setting with minimal supervision. NT Working with Children Card, CHC dated within 6 months, completed VPDIC form required."
+    },
+    {
+      "id": 1326,
+      "facility": "Winton Multipurpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency, Ambulance and Aged Care",
+      "location": "Winton, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "14/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Extensive experience in acute, aged care, emergency department. Qualifications in Triage, IVC/Cannulation, Advance Life Support and Paediatric Advanced Life Support. Must be Senior RN (NG5) pay point 5, 6 or 7. Rural and Remote nursing experience required."
     }
   ],
   "contacts": [
@@ -20177,7 +20193,7 @@
       "phone": "07 4652 8021",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 2
+      "jobCount": 3
     },
     {
       "email": "WNSWLHD-AgencyNurses@health.nsw.gov.au",
@@ -20240,5 +20256,5 @@
       "jobCount": 4
     }
   ],
-  "nextId": 1326
+  "nextId": 1327
 }
