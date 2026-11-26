@@ -2868,7 +2868,8 @@
       "weeks": 8,
       "startDate": "",
       "region": "NT",
-      "recurring": false
+      "recurring": false,
+      "archived": true
     },
     {
       "id": 200,
@@ -7235,7 +7236,8 @@
       "startDate": "",
       "region": "NT",
       "recurring": false,
-      "requirements": "NT Working with Children Card, CHC dated within 6 months, completed VPDIC form. Community setting experience desirable."
+      "requirements": "NT Working with Children Card, CHC dated within 6 months, completed VPDIC form. Community setting experience desirable.",
+      "archived": true
     },
     {
       "id": 491,
@@ -7250,7 +7252,8 @@
       "startDate": "",
       "region": "NT",
       "recurring": false,
-      "requirements": "Min 2-3 years CATT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+      "requirements": "Min 2-3 years CATT experience, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form",
+      "archived": true
     },
     {
       "id": 492,
@@ -10465,7 +10468,8 @@
       "startDate": "30/11/2026",
       "region": "NT",
       "recurring": true,
-      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form",
+      "archived": true
     },
     {
       "id": 697,
@@ -10480,7 +10484,8 @@
       "startDate": "01/12/2026",
       "region": "NT",
       "recurring": true,
-      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form",
+      "archived": true
     },
     {
       "id": 698,
@@ -10495,7 +10500,8 @@
       "startDate": "07/12/2026",
       "region": "NT",
       "recurring": true,
-      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form",
+      "archived": true
     },
     {
       "id": 699,
@@ -10510,7 +10516,8 @@
       "startDate": "17/12/2026",
       "region": "NT",
       "recurring": true,
-      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form"
+      "requirements": "Min 2-3 years MH inpatient experience, HDU experience with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form",
+      "archived": true
     },
     {
       "id": 700,
@@ -15171,7 +15178,8 @@
       "startDate": "07/12/2026",
       "region": "NT",
       "recurring": false,
-      "requirements": "Min 2-3 years Mental Health crisis assessment experience, experience in emergency setting with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form."
+      "requirements": "Min 2-3 years Mental Health crisis assessment experience, experience in emergency setting with minimal supervision, NT Working with Children Card, CHC dated within 6 months, completed VPDIC form.",
+      "archived": true
     },
     {
       "id": 1001,
@@ -20701,6 +20709,21 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "A&E, Acute, Aged, ALS, triage certified and RAN experience"
+    },
+    {
+      "id": 1359,
+      "facility": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "title": "Mental Health Clinical Nurse Specialist",
+      "ward": "CATT",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 12,
+      "startDate": "07/12/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Min 2-3 years Mental Health crisis assessment experience, experience in emergency setting with minimal supervision, NT Working with Children Card, CHC dated within 6 months"
     }
   ],
   "contacts": [
@@ -20812,7 +20835,7 @@
       "phone": "08 8951 6585",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 4
+      "jobCount": 5
     },
     {
       "email": "racheal.nagas@health.nsw.gov.au",
@@ -20825,5 +20848,5 @@
       "jobCount": 29
     }
   ],
-  "nextId": 1359
+  "nextId": 1360
 }
