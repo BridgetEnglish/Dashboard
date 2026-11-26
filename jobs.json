@@ -17771,7 +17771,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Local RN preferred. Preference for same 1-2 staff for continuity of care."
+      "requirements": "Local RN preferred. Preference for same 1-2 staff for continuity of care.",
+      "archived": true
     },
     {
       "id": 1173,
@@ -20175,6 +20176,22 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Rural and Remote nursing experience mandatory, RIPEN qualification highly desirable, BLS/ALS/PALS and Triage training with competency required. Must be trained in Remote Area Nursing and comfortable with sole DON responsibility, QAS support, and on-call after hours/weekends."
+    },
+    {
+      "id": 1329,
+      "facility": "Mutkin Residential & Community Care",
+      "title": "Personal Care Worker",
+      "ward": "Night Duty",
+      "location": "Yarrabah, QLD",
+      "band": "PCW",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 2,
+      "startDate": "22/11/2024",
+      "region": "Other",
+      "recurring": false,
+      "requirements": "",
+      "archived": true
     }
   ],
   "contacts": [
@@ -20216,7 +20233,7 @@
       "phone": "07 4056 9290 Ext: 101 / 0492 027 374",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 1
+      "jobCount": 2
     },
     {
       "email": "kiri.castles2@health.qld.gov.au",
@@ -20289,5 +20306,5 @@
       "jobCount": 4
     }
   ],
-  "nextId": 1329
+  "nextId": 1330
 }
