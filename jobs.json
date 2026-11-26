@@ -16925,7 +16925,8 @@
       "startDate": "30/11/2026",
       "region": "NT",
       "recurring": false,
-      "requirements": "Experience in TB case management, DOTS/VOTS therapy administration, managing patient caseloads, and coordinating with medical and admin officers."
+      "requirements": "Experience in TB case management, DOTS/VOTS therapy administration, managing patient caseloads, and coordinating with medical and admin officers.",
+      "archived": true
     },
     {
       "id": 1133,
@@ -17467,6 +17468,21 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "ALS, Cannulation, Ventilation skills required"
+    },
+    {
+      "id": 1168,
+      "facility": "Centre for Disease Control Alice Springs",
+      "title": "Nurse Clinical Specialist",
+      "ward": "Public Health Unit",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 9,
+      "startDate": "30/11/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Experience managing TB cases, DOTS and VOTS administration, case load management of 10 active TB cases, contact tracing capability"
     }
   ],
   "contacts": [
@@ -17479,7 +17495,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 16
+    },
+    {
+      "email": "MaryApple.Martin@nt.gov.au",
+      "name": "Mary Apple Martin",
+      "role": "Business Manager / Administrative and Corporate Manager",
+      "org": "Public Health Unit, Centre for Disease Control Alice Springs",
+      "phone": "08 8951 6907",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 1
     }
   ],
-  "nextId": 1168
+  "nextId": 1169
 }
