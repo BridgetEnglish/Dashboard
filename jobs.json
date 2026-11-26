@@ -16842,7 +16842,22 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Mental health experience required"
+    },
+    {
+      "id": 1132,
+      "facility": "Centre for Disease Control Alice Springs",
+      "title": "Nurse Clinical Specialist",
+      "ward": "Public Health Unit",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 9,
+      "startDate": "30/11/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Experience in TB case management, DOTS/VOTS therapy administration, managing patient caseloads, and coordinating with medical and admin officers."
     }
   ],
-  "nextId": 1132
+  "nextId": 1133
 }
