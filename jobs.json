@@ -19760,6 +19760,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Community Mental Health experience mandatory. Valid driver's licence required. Full AHPRA registration, Australian National Police Check, immunisation evidence (Hep B, MMR, Varicella, Pertussis), and all mandatory training modules current."
+    },
+    {
+      "id": 1306,
+      "facility": "Theodore Multipurpose Health Service",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Theodore, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "18/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "ALS1/ARC, PALS, triage, resuscitation, IV cannulation, emergency and rural nursing experience highly desirable. Driver's licence mandatory."
     }
   ],
   "contacts": [
@@ -19841,8 +19856,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 12
+      "jobCount": 13
     }
   ],
-  "nextId": 1306
+  "nextId": 1307
 }
