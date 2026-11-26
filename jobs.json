@@ -19988,6 +19988,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "ALS, PALS highly desirable, triage, IV cannulation, rural nursing and aged care experience required"
+    },
+    {
+      "id": 1317,
+      "facility": "Moura MPHS",
+      "title": "Registered Nurse",
+      "ward": "",
+      "location": "Moura, QLD",
+      "band": "Nurse Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Triage, resuscitation, IV cannulation, emergency and rural nursing experience required. AHPRA registration, aged care police check, full immunisation records, and all mandatory training current."
     }
   ],
   "contacts": [
@@ -20069,8 +20084,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 23
+      "jobCount": 24
     }
   ],
-  "nextId": 1317
+  "nextId": 1318
 }
