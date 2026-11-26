@@ -20034,6 +20034,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Aged Care experience mandatory. Must participate in resident care and manage designated patient load. AHPRA registration, VPD (Measles/Mumps/Rubella/Hep B/Varicella), Pertussis vaccination within 10 years, NDIS clearance or Aged Care Check, current criminal history check required."
+    },
+    {
+      "id": 1320,
+      "facility": "Garrawarra Centre",
+      "title": "Assistant in Nursing",
+      "ward": "",
+      "location": "Sydney, NSW",
+      "band": "AIN/M2",
+      "fte": 1,
+      "hourlyRate": 13.05,
+      "weeks": 113,
+      "startDate": "",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Demonstrated recent and relevant experience in Aged Care setting including with advanced dementia. Must be able to work full rotating roster (Mon-Sun, AM/PM/N) up to full-time hours. Own transport required."
     }
   ],
   "contacts": [
@@ -20116,7 +20131,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 24
+    },
+    {
+      "email": "Kiran.Pandit@health.nsw.gov.au",
+      "name": "Kiran Pandit",
+      "role": "",
+      "org": "South Eastern Sydney Local Health District",
+      "phone": "",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 1
     }
   ],
-  "nextId": 1320
+  "nextId": 1321
 }
