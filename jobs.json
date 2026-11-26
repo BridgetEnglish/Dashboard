@@ -16872,7 +16872,37 @@
       "region": "Other",
       "recurring": false,
       "requirements": "ALS, Advanced Neonatal Resuscitation, Rural and Remote Experience, Immunisation certification, IPN credential, Child Health certification required."
+    },
+    {
+      "id": 1134,
+      "facility": "Thursday Island Hospital",
+      "title": "Clinical Midwife Core",
+      "ward": "Maternity",
+      "location": "Thursday Island, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Min 3 years experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected."
+    },
+    {
+      "id": 1135,
+      "facility": "Thursday Island Hospital",
+      "title": "Clinical Midwife MGP",
+      "ward": "Maternity MGP",
+      "location": "Thursday Island, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Min 3 years MGP experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected."
     }
   ],
-  "nextId": 1134
+  "nextId": 1136
 }
