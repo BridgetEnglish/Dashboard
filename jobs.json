@@ -2556,7 +2556,8 @@
       "weeks": 12,
       "startDate": "04/06/2026",
       "region": "NT",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 179,
@@ -2570,7 +2571,8 @@
       "weeks": 12,
       "startDate": "23/06/2026",
       "region": "NT",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 180,
@@ -20049,6 +20051,21 @@
       "region": "NSW",
       "recurring": false,
       "requirements": "Demonstrated recent and relevant experience in Aged Care setting including with advanced dementia. Must be able to work full rotating roster (Mon-Sun, AM/PM/N) up to full-time hours. Own transport required."
+    },
+    {
+      "id": 1321,
+      "facility": "Tennant Creek Hospital",
+      "title": "Emergency Registered Nurse",
+      "ward": "Emergency Department",
+      "location": "Tennant Creek, NT",
+      "band": "RN 2.1",
+      "fte": 3,
+      "hourlyRate": 53.5,
+      "weeks": 12,
+      "startDate": "20/12/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "Min 3 years acute ED experience with remote context understanding, competent in Resus, ALS, Non-Invasive Ventilation, and TRIAGE (certificate required). Diphtheria vaccine within last 5 years mandatory."
     }
   ],
   "contacts": [
@@ -20141,7 +20158,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 1
+    },
+    {
+      "email": "rizza.pagayon@nt.gov.au",
+      "name": "Rizza Pagayon",
+      "role": "Nurse Management Consultant",
+      "org": "Tennant Creek Hospital",
+      "phone": "08 8962 4251",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 1
     }
   ],
-  "nextId": 1321
+  "nextId": 1322
 }
