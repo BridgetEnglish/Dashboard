@@ -16857,7 +16857,22 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Experience in TB case management, DOTS/VOTS therapy administration, managing patient caseloads, and coordinating with medical and admin officers."
+    },
+    {
+      "id": 1133,
+      "facility": "",
+      "title": "Registered Nurse",
+      "ward": "",
+      "location": "",
+      "band": "RN 2.1",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 4,
+      "startDate": "30/11/2026",
+      "region": "Other",
+      "recurring": false,
+      "requirements": "ALS, Advanced Neonatal Resuscitation, Rural and Remote Experience, Immunisation certification, IPN credential, Child Health certification required."
     }
   ],
-  "nextId": 1133
+  "nextId": 1134
 }
