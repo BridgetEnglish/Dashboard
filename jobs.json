@@ -19384,6 +19384,36 @@
       "region": "NSW",
       "recurring": true,
       "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1291,
+      "facility": "Primary Health Care Central Australia",
+      "title": "Remote Area Nurse Clinic Manager",
+      "ward": "Mt Liebig Clinic",
+      "location": "Mt Liebig, NT",
+      "band": "RN 5.1",
+      "fte": 1,
+      "hourlyRate": 90.36,
+      "weeks": 8,
+      "startDate": "01/12/2024",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "RAN experience required for remote community clinic management"
+    },
+    {
+      "id": 1292,
+      "facility": "Primary Health Care Central Australia",
+      "title": "Remote Area Nurse Clinic Manager",
+      "ward": "Titjikala Clinic",
+      "location": "Titjikala, NT",
+      "band": "RN 5.1",
+      "fte": 1,
+      "hourlyRate": 90.36,
+      "weeks": 8,
+      "startDate": "05/12/2024",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "RAN experience required for remote community clinic management"
     }
   ],
   "contacts": [
@@ -19446,7 +19476,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 114
+    },
+    {
+      "email": "Recruitment.CARHS@nt.gov.au",
+      "name": "Wing Fan",
+      "role": "Recruitment Officer",
+      "org": "Primary Health Care Central Australia, NT Health",
+      "phone": "",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 2
     }
   ],
-  "nextId": 1291
+  "nextId": 1293
 }
