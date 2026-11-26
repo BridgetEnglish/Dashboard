@@ -17536,6 +17536,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Min 3yrs MGP experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced, recent birthing experience. Epidural competent highly desirable. Portfolio/audit management participation required."
+    },
+    {
+      "id": 1172,
+      "facility": "Mutkin Residential & Community Care",
+      "title": "Registered Nurse",
+      "ward": "Residential & Community Care",
+      "location": "Yarrabah, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 0,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Local RN preferred. Preference for same 1-2 staff for continuity of care."
     }
   ],
   "contacts": [
@@ -17568,7 +17583,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 2
+    },
+    {
+      "email": "marco.polo@mutkin.org.au",
+      "name": "Marco Polo",
+      "role": "Clinical Nurse Manager",
+      "org": "Mutkin Residential & Community Care",
+      "phone": "07 4056 9290 Ext: 101 / 0492 027 374",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 1
     }
   ],
-  "nextId": 1172
+  "nextId": 1173
 }
