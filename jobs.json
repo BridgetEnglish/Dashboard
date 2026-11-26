@@ -15134,7 +15134,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Remote Area Nursing training mandatory, RIPEN qualification highly desirable, Qld Health experience required, rural and remote nursing experience essential"
+      "requirements": "Remote Area Nursing training mandatory, RIPEN qualification highly desirable, Qld Health experience required, rural and remote nursing experience essential",
+      "archived": true
     },
     {
       "id": 1002,
@@ -20159,6 +20160,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Rural and Remote nursing experience mandatory. RIPEN (Rural and Isolated Practice Registered Nurse) qualifications highly desirable. Must have worked in Qld Health. BLS, ALS, PALS, and Triage training with competency required."
+    },
+    {
+      "id": 1328,
+      "facility": "Windorah Primary Health Clinic",
+      "title": "Director of Nursing",
+      "ward": "Primary Health Clinic",
+      "location": "Windorah, QLD",
+      "band": "RN Grade 7",
+      "fte": 1,
+      "hourlyRate": 84.66,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Rural and Remote nursing experience mandatory, RIPEN qualification highly desirable, BLS/ALS/PALS and Triage training with competency required. Must be trained in Remote Area Nursing and comfortable with sole DON responsibility, QAS support, and on-call after hours/weekends."
     }
   ],
   "contacts": [
@@ -20210,7 +20226,7 @@
       "phone": "07 4652 8021",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 4
+      "jobCount": 5
     },
     {
       "email": "WNSWLHD-AgencyNurses@health.nsw.gov.au",
@@ -20273,5 +20289,5 @@
       "jobCount": 4
     }
   ],
-  "nextId": 1328
+  "nextId": 1329
 }
