@@ -20066,6 +20066,66 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Min 3 years acute ED experience with remote context understanding, competent in Resus, ALS, Non-Invasive Ventilation, and TRIAGE (certificate required). Diphtheria vaccine within last 5 years mandatory."
+    },
+    {
+      "id": 1322,
+      "facility": "Central Australia Region Mental Health Alcohol and Other Drugs",
+      "title": "Clinical Nurse Specialist",
+      "ward": "CMHT Community",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 3,
+      "hourlyRate": 82.05,
+      "weeks": 12,
+      "startDate": "30/11/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "2-3 years Community Mental Health experience. NT Working with Children Card, CHC dated within 6 months, completed VPDIC form required."
+    },
+    {
+      "id": 1323,
+      "facility": "Central Australia Region Mental Health Alcohol and Other Drugs",
+      "title": "Mental Health Nurse",
+      "ward": "Inpatient",
+      "location": "Alice Springs, NT",
+      "band": "RN 2.1",
+      "fte": 4,
+      "hourlyRate": 53.5,
+      "weeks": 8,
+      "startDate": "07/12/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "2-3 years Inpatient Mental Health experience. NT Working with Children Card, CHC dated within 6 months, completed VPDIC form required."
+    },
+    {
+      "id": 1324,
+      "facility": "Central Australia Region Mental Health Alcohol and Other Drugs",
+      "title": "Clinical Nurse Specialist",
+      "ward": "FMHT Forensic",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 2,
+      "hourlyRate": 82.05,
+      "weeks": 8,
+      "startDate": "",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "3 years Mental Health nursing and 1 year in Forensic Mental Health or Corrections. NT Working with Children Card, CHC dated within 6 months, completed VPDIC form required."
+    },
+    {
+      "id": 1325,
+      "facility": "Central Australia Region Mental Health Alcohol and Other Drugs",
+      "title": "Clinical Nurse Specialist",
+      "ward": "CATT Crisis Assessment",
+      "location": "Alice Springs, NT",
+      "band": "RN 4.1",
+      "fte": 1,
+      "hourlyRate": 82.05,
+      "weeks": 12,
+      "startDate": "07/12/2026",
+      "region": "NT",
+      "recurring": false,
+      "requirements": "2-3 years Mental Health crisis assessment experience in emergency setting with minimal supervision. NT Working with Children Card, CHC dated within 6 months, completed VPDIC form required."
     }
   ],
   "contacts": [
@@ -20168,7 +20228,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 1
+    },
+    {
+      "email": "RecruitMHAODCAR.health@nt.gov.au",
+      "name": "Hannah Smith",
+      "role": "Recruitment Coordinator",
+      "org": "Mental Health Alcohol and Other Drugs Central Australia Region",
+      "phone": "08 8951 6585",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 4
     }
   ],
-  "nextId": 1322
+  "nextId": 1326
 }
