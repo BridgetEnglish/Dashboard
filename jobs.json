@@ -20019,6 +20019,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Emergency experience, Advanced Life Support, Cannulation, Team Leader, Triage"
+    },
+    {
+      "id": 1319,
+      "facility": "Wondai RACF",
+      "title": "Registered Nurse",
+      "ward": "Forest View",
+      "location": "Wondai, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Aged Care experience mandatory. Must participate in resident care and manage designated patient load. AHPRA registration, VPD (Measles/Mumps/Rubella/Hep B/Varicella), Pertussis vaccination within 10 years, NDIS clearance or Aged Care Check, current criminal history check required."
     }
   ],
   "contacts": [
@@ -20103,5 +20118,5 @@
       "jobCount": 24
     }
   ],
-  "nextId": 1319
+  "nextId": 1320
 }
