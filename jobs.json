@@ -19683,7 +19683,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Team Leader skills, Advanced Skills and Suturing (highly desirable), Maternity experience, Advanced Neonatal Resus, Ante/Post Natal, Birth Suite, IV Cannulation"
+      "requirements": "Team Leader skills, Advanced Skills and Suturing (highly desirable), Maternity experience, Advanced Neonatal Resus, Ante/Post Natal, Birth Suite, IV Cannulation",
+      "archived": true
     },
     {
       "id": 1301,
@@ -19744,6 +19745,21 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Maternity experience, Advanced Neonatal Resus, Ante/Post Natal, Birth Suite, IV Cannulation. Driver's licence required."
+    },
+    {
+      "id": 1305,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Rockhampton Mental Health Community",
+      "location": "Rockhampton, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 2,
+      "hourlyRate": 68.27,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Community Mental Health experience mandatory. Valid driver's licence required. Full AHPRA registration, Australian National Police Check, immunisation evidence (Hep B, MMR, Varicella, Pertussis), and all mandatory training modules current."
     }
   ],
   "contacts": [
@@ -19825,8 +19841,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 11
+      "jobCount": 12
     }
   ],
-  "nextId": 1305
+  "nextId": 1306
 }
