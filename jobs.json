@@ -5316,7 +5316,8 @@
       "startDate": "ASAP",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Mental health experience required. Valid driver's licence mandatory for mental health roles."
+      "requirements": "Mental health experience required. Valid driver's licence mandatory for mental health roles.",
+      "archived": true
     },
     {
       "id": 368,
@@ -5331,7 +5332,8 @@
       "startDate": "ASAP",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check."
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Aged Care. Must have aged care check.",
+      "archived": true
     },
     {
       "id": 369,
@@ -9457,7 +9459,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Must have Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Must have Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 637,
@@ -9472,7 +9475,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 638,
@@ -9487,7 +9491,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 639,
@@ -9502,7 +9507,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Community Mental Health - Adult"
+      "requirements": "Community Mental Health - Adult",
+      "archived": true
     },
     {
       "id": 640,
@@ -11560,7 +11566,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential."
+      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential.",
+      "archived": true
     },
     {
       "id": 774,
@@ -11575,7 +11582,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential."
+      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential.",
+      "archived": true
     },
     {
       "id": 775,
@@ -11590,7 +11598,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential."
+      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential.",
+      "archived": true
     },
     {
       "id": 776,
@@ -11605,7 +11614,8 @@
       "startDate": "15/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential."
+      "requirements": "Adult mental health experience with triage, intake, and acute care team skills. Valid driver's licence mandatory. Experience in adult mental health settings essential.",
+      "archived": true
     },
     {
       "id": 777,
@@ -13758,7 +13768,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Mental health intake experience required. Driver's licence mandatory. AHPRA registration valid to 31/05/2027, current National Police Check, immunisations (Hep B, MMR, Varicella, Pertussis), extensive mandatory training including BLS, medication safety, hand hygiene, child protection, infection control, and cultural awareness."
+      "requirements": "Mental health intake experience required. Driver's licence mandatory. AHPRA registration valid to 31/05/2027, current National Police Check, immunisations (Hep B, MMR, Varicella, Pertussis), extensive mandatory training including BLS, medication safety, hand hygiene, child protection, infection control, and cultural awareness.",
+      "archived": true
     },
     {
       "id": 918,
@@ -13773,7 +13784,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Mental health intake experience required, current drivers licence, criminal history check, AHPRA registration valid until 31/05/2027, all mandatory competencies and immunisations current"
+      "requirements": "Mental health intake experience required, current drivers licence, criminal history check, AHPRA registration valid until 31/05/2027, all mandatory competencies and immunisations current",
+      "archived": true
     },
     {
       "id": 919,
@@ -19557,6 +19569,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, PALS, cannulation, triage, team leader experience, rural/remote experience, emergency care, on-call availability mandatory"
+    },
+    {
+      "id": 1296,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Child and Youth Mental Health Services",
+      "location": "Gladstone, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 1,
+      "hourlyRate": 68.27,
+      "weeks": 1,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Child and Youth Mental Health experience, community experience, valid driver's licence mandatory, AHPRA registration current to 31/05/2027, all mandatory training current including BLS, Child Protection, infection control."
     }
   ],
   "contacts": [
@@ -19638,8 +19665,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 2
+      "jobCount": 3
     }
   ],
-  "nextId": 1296
+  "nextId": 1297
 }
