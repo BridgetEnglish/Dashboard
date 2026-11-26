@@ -4364,7 +4364,8 @@
       "weeks": 8,
       "startDate": "",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 305,
@@ -4378,7 +4379,8 @@
       "weeks": 8,
       "startDate": "",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 306,
@@ -16960,7 +16962,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Min 3 years experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected."
+      "requirements": "Min 3 years experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected.",
+      "archived": true
     },
     {
       "id": 1135,
@@ -16975,7 +16978,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Min 3 years MGP experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected."
+      "requirements": "Min 3 years MGP experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced (or equivalent), recent birthing experience. Epidural competency highly desirable. Portfolio/audit management participation expected.",
+      "archived": true
     },
     {
       "id": 1136,
@@ -17502,6 +17506,36 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Advanced Life Support, Advanced Neonatal Resuscitation, rural/remote experience, immunisation certification, IPN credential, Child Health certification mandatory"
+    },
+    {
+      "id": 1170,
+      "facility": "Thursday Island Hospital",
+      "title": "Clinical Midwife",
+      "ward": "CORE",
+      "location": "Thursday Island, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 112,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 3yrs experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced, recent birthing experience. Epidural competent highly desirable. Portfolio/audit management participation required."
+    },
+    {
+      "id": 1171,
+      "facility": "Thursday Island Hospital",
+      "title": "Clinical Midwife MGP",
+      "ward": "MGP",
+      "location": "Thursday Island, QLD",
+      "band": "Midwife Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 112,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Min 3yrs MGP experience, ALS, FSEP, CTG, Advanced Neonatal Resus, MEP advanced, recent birthing experience. Epidural competent highly desirable. Portfolio/audit management participation required."
     }
   ],
   "contacts": [
@@ -17524,7 +17558,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 1
+    },
+    {
+      "email": "Trevor.Anderson@health.qld.gov.au",
+      "name": "Trevor Anderson",
+      "role": "Administration Support Officer",
+      "org": "Torres and Cape Hospital and Health Service",
+      "phone": "",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 2
     }
   ],
-  "nextId": 1170
+  "nextId": 1172
 }
