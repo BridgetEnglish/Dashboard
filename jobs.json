@@ -9036,7 +9036,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Rural Nursing and Aged Care experience, Aged Care Check and Police Check mandatory"
+      "requirements": "Rural Nursing and Aged Care experience, Aged Care Check and Police Check mandatory",
+      "archived": true
     },
     {
       "id": 609,
@@ -9544,7 +9545,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience"
+      "requirements": "Rural Nursing and Aged Care experience",
+      "archived": true
     },
     {
       "id": 641,
@@ -9559,7 +9561,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience"
+      "requirements": "Rural Nursing and Aged Care experience",
+      "archived": true
     },
     {
       "id": 642,
@@ -9988,7 +9991,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience required."
+      "requirements": "Rural Nursing and Aged Care experience required.",
+      "archived": true
     },
     {
       "id": 669,
@@ -10003,7 +10007,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience required."
+      "requirements": "Rural Nursing and Aged Care experience required.",
+      "archived": true
     },
     {
       "id": 670,
@@ -11041,7 +11046,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience. MANDATORY Aged Care Check and Police Check."
+      "requirements": "Rural Nursing and Aged Care experience. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 737,
@@ -11056,7 +11062,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural Nursing and Aged Care experience. MANDATORY Aged Care Check and Police Check."
+      "requirements": "Rural Nursing and Aged Care experience. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 738,
@@ -11533,7 +11540,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Rural nursing and aged care experience required. Valid driver's licence mandatory. Aged Care Criminal History Check required."
+      "requirements": "Rural nursing and aged care experience required. Valid driver's licence mandatory. Aged Care Criminal History Check required.",
+      "archived": true
     },
     {
       "id": 768,
@@ -11829,7 +11837,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural nursing and aged care experience. Aged Care Check and Police Check mandatory."
+      "requirements": "Rural nursing and aged care experience. Aged Care Check and Police Check mandatory.",
+      "archived": true
     },
     {
       "id": 787,
@@ -13081,7 +13090,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, PALS (highly desirable), Triage, IV Cannulation, Rural Nursing and Aged Care. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, PALS (highly desirable), Triage, IV Cannulation, Rural Nursing and Aged Care. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 869,
@@ -13617,7 +13627,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, PALS (highly desirable), Triage, IV Cannulation, Rural Nursing and Aged Care. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, PALS (highly desirable), Triage, IV Cannulation, Rural Nursing and Aged Care. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 903,
@@ -19962,6 +19973,21 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "MGP/caseload midwifery experience with continuity of care across antenatal, labour/birth, and postnatal. Advanced Neonatal Resus, antenatal education. On-call 24/7, driver's licence required."
+    },
+    {
+      "id": 1316,
+      "facility": "Baralaba MPHS",
+      "title": "Registered Nurse",
+      "ward": "",
+      "location": "Baralaba, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "ALS, PALS highly desirable, triage, IV cannulation, rural nursing and aged care experience required"
     }
   ],
   "contacts": [
@@ -20043,8 +20069,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 22
+      "jobCount": 23
     }
   ],
-  "nextId": 1316
+  "nextId": 1317
 }
