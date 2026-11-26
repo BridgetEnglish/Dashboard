@@ -9956,7 +9956,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Resuscitation, IV Cannulation, Emergency and Rural Nursing. Limited ED experience accepted. MANDATORY Aged Care Check and Police Check"
+      "requirements": "Resuscitation, IV Cannulation, Emergency and Rural Nursing. Limited ED experience accepted. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 668,
@@ -10392,7 +10393,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency and Rural Nursing, Resuscitation, IV Cannulation. MANDATORY: Aged Care Check and Police Check. Limited ED experience accepted, no ALS or Triage required."
+      "requirements": "Emergency and Rural Nursing, Resuscitation, IV Cannulation. MANDATORY: Aged Care Check and Police Check. Limited ED experience accepted, no ALS or Triage required.",
+      "archived": true
     },
     {
       "id": 696,
@@ -11485,7 +11487,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Resuscitation, IV Cannulation, Emergency, Rural Nursing. Will accept limited ED experience without ALS or Triage. MANDATORY Aged Care Check and Police Check."
+      "requirements": "Resuscitation, IV Cannulation, Emergency, Rural Nursing. Will accept limited ED experience without ALS or Triage. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 767,
@@ -11919,7 +11922,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "ALS, PALS highly desirable, triage, IV cannulation, emergency, rural nursing, medical. Evidence of Hep A, Aged Care Check and Police Check mandatory."
+      "requirements": "ALS, PALS highly desirable, triage, IV cannulation, emergency, rural nursing, medical. Evidence of Hep A, Aged Care Check and Police Check mandatory.",
+      "archived": true
     },
     {
       "id": 795,
@@ -13556,7 +13560,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "IV Cannulation, Rural Nursing, Aged Care. MANDATORY - evidence of Hep A and Aged Care Check Police Check"
+      "requirements": "IV Cannulation, Rural Nursing, Aged Care. MANDATORY - evidence of Hep A and Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 902,
@@ -13789,7 +13794,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "IV Cannulation, Rural Nursing, Aged Care. MANDATORY - evidence of Hep A and Aged Care Check Police Check"
+      "requirements": "IV Cannulation, Rural Nursing, Aged Care. MANDATORY - evidence of Hep A and Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 917,
@@ -19775,6 +19781,21 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "ALS1/ARC, PALS, triage, resuscitation, IV cannulation, emergency and rural nursing experience highly desirable. Driver's licence mandatory."
+    },
+    {
+      "id": 1307,
+      "facility": "Woorabinda MPHS",
+      "title": "Enrolled Nurse",
+      "ward": "MPHS",
+      "location": "Woorabinda, QLD",
+      "band": "Nurse Grade 3",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 100,
+      "startDate": "",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Must have Hep A vaccination and current Aged Care Criminal History Check. IV cannulation, rural nursing, aged care, and wound management experience required."
     }
   ],
   "contacts": [
@@ -19856,8 +19877,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 13
+      "jobCount": 14
     }
   ],
-  "nextId": 1307
+  "nextId": 1308
 }
