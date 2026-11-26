@@ -2671,7 +2671,8 @@
       "weeks": 5,
       "startDate": "25/05/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 187,
@@ -2685,7 +2686,8 @@
       "weeks": 4,
       "startDate": "26/05/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 188,
@@ -2699,7 +2701,8 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 189,
@@ -2713,7 +2716,8 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 190,
@@ -2915,7 +2919,8 @@
       "weeks": 7,
       "startDate": "",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 204,
@@ -2929,7 +2934,8 @@
       "weeks": 4,
       "startDate": "26/05/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 205,
@@ -2943,7 +2949,8 @@
       "weeks": 6,
       "startDate": "29/06/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 206,
@@ -2957,7 +2964,8 @@
       "weeks": 5,
       "startDate": "06/07/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 207,
@@ -2971,7 +2979,8 @@
       "weeks": 4,
       "startDate": "13/07/2026",
       "region": "QLD",
-      "recurring": true
+      "recurring": true,
+      "archived": true
     },
     {
       "id": 208,
@@ -8199,7 +8208,8 @@
       "startDate": "03/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency Skills essential, Advanced Life Support (If Australian Resus Council must be ALS2) mandatory, Triage, Resuscitation, Ventilation and PALS highly desirable, IV Cannulation."
+      "requirements": "Emergency Skills essential, Advanced Life Support (If Australian Resus Council must be ALS2) mandatory, Triage, Resuscitation, Ventilation and PALS highly desirable, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 556,
@@ -8214,7 +8224,8 @@
       "startDate": "03/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency Skills essential, Advanced Life Support (If Australian Resus Council must be ALS2) mandatory, Triage, Resuscitation, Ventilation and PALS highly desirable, IV Cannulation."
+      "requirements": "Emergency Skills essential, Advanced Life Support (If Australian Resus Council must be ALS2) mandatory, Triage, Resuscitation, Ventilation and PALS highly desirable, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 557,
@@ -8229,7 +8240,8 @@
       "startDate": "11/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 558,
@@ -8244,7 +8256,8 @@
       "startDate": "11/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 559,
@@ -8259,7 +8272,8 @@
       "startDate": "26/09/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 560,
@@ -8274,7 +8288,8 @@
       "startDate": "07/10/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 561,
@@ -8289,7 +8304,8 @@
       "startDate": "07/10/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 562,
@@ -8304,7 +8320,8 @@
       "startDate": "11/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 563,
@@ -8319,7 +8336,8 @@
       "startDate": "12/10/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 564,
@@ -8334,7 +8352,8 @@
       "startDate": "23/09/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 565,
@@ -8349,7 +8368,8 @@
       "startDate": "31/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal and Birth Suite.",
+      "archived": true
     },
     {
       "id": 566,
@@ -8989,7 +9009,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Must have Team Leader skills, advanced skills and suturing (highly desirable), advanced neonatal resuscitation, ante/post natal, IV cannulation and birth suite experience."
+      "requirements": "Must have Team Leader skills, advanced skills and suturing (highly desirable), advanced neonatal resuscitation, ante/post natal, IV cannulation and birth suite experience.",
+      "archived": true
     },
     {
       "id": 608,
@@ -9199,7 +9220,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 622,
@@ -9214,7 +9236,8 @@
       "startDate": "23/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 623,
@@ -9229,7 +9252,8 @@
       "startDate": "19/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 624,
@@ -9244,7 +9268,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 625,
@@ -9259,7 +9284,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 626,
@@ -9274,7 +9300,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 627,
@@ -9289,7 +9316,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 628,
@@ -9304,7 +9332,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 629,
@@ -9319,7 +9348,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 630,
@@ -9334,7 +9364,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 631,
@@ -9349,7 +9380,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience",
+      "archived": true
     },
     {
       "id": 632,
@@ -9695,7 +9727,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 655,
@@ -9710,7 +9743,8 @@
       "startDate": "23/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 656,
@@ -9725,7 +9759,8 @@
       "startDate": "19/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 657,
@@ -9740,7 +9775,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 658,
@@ -9755,7 +9791,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 659,
@@ -9770,7 +9807,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 660,
@@ -9785,7 +9823,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 661,
@@ -9800,7 +9839,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 662,
@@ -9815,7 +9855,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 663,
@@ -9830,7 +9871,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 664,
@@ -9845,7 +9887,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 665,
@@ -10115,7 +10158,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 683,
@@ -10130,7 +10174,8 @@
       "startDate": "23/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency experience, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 684,
@@ -10145,7 +10190,8 @@
       "startDate": "19/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 685,
@@ -10160,7 +10206,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 686,
@@ -10175,7 +10222,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 687,
@@ -10190,7 +10238,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 688,
@@ -10205,7 +10254,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 689,
@@ -10220,7 +10270,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 690,
@@ -10235,7 +10286,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 691,
@@ -10250,7 +10302,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 692,
@@ -10265,7 +10318,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 693,
@@ -10871,7 +10925,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 733,
@@ -10886,7 +10941,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 734,
@@ -10901,7 +10957,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 735,
@@ -11156,7 +11213,8 @@
       "startDate": "16/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 752,
@@ -11171,7 +11229,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 753,
@@ -11186,7 +11245,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 754,
@@ -11201,7 +11261,8 @@
       "startDate": "23/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation."
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation.",
+      "archived": true
     },
     {
       "id": 755,
@@ -11216,7 +11277,8 @@
       "startDate": "19/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 756,
@@ -11231,7 +11293,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 757,
@@ -11246,7 +11309,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 758,
@@ -11261,7 +11325,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 759,
@@ -11276,7 +11341,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 760,
@@ -11291,7 +11357,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 761,
@@ -11306,7 +11373,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 762,
@@ -11321,7 +11389,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 763,
@@ -11336,7 +11405,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience."
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite experience.",
+      "archived": true
     },
     {
       "id": 764,
@@ -11550,7 +11620,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Must have Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Must have Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 778,
@@ -11565,7 +11636,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 779,
@@ -11580,7 +11652,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 780,
@@ -11760,7 +11833,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency experience, ALS, PALS, triage, resuscitation, IV cannulation."
+      "requirements": "Emergency experience, ALS, PALS, triage, resuscitation, IV cannulation.",
+      "archived": true
     },
     {
       "id": 792,
@@ -11775,7 +11849,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, advanced neonatal resus, antenatal/postnatal, IV cannulation, birth suite experience."
+      "requirements": "Maternity, advanced neonatal resus, antenatal/postnatal, IV cannulation, birth suite experience.",
+      "archived": true
     },
     {
       "id": 793,
@@ -13170,7 +13245,8 @@
       "startDate": "23/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 885,
@@ -13185,7 +13261,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 886,
@@ -13200,7 +13277,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 887,
@@ -13215,7 +13293,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 888,
@@ -13230,7 +13309,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 889,
@@ -13245,7 +13325,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 890,
@@ -13260,7 +13341,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 891,
@@ -13275,7 +13357,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 892,
@@ -13290,7 +13373,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 893,
@@ -13305,7 +13389,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 894,
@@ -13320,7 +13405,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 895,
@@ -13335,7 +13421,8 @@
       "startDate": "30/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 896,
@@ -13350,7 +13437,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 897,
@@ -13365,7 +13453,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider candidates if they only want to do 72 or 68.4 hr per fortnight contract",
+      "archived": true
     },
     {
       "id": 898,
@@ -13575,7 +13664,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation"
+      "requirements": "Emergency, ALS, PALS, Triage, Resuscitation, IV Cannulation",
+      "archived": true
     },
     {
       "id": 912,
@@ -13590,7 +13680,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite"
+      "requirements": "Team Leader skills, advanced Skills and Suturing (highly desirable), Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite",
+      "archived": true
     },
     {
       "id": 913,
@@ -13605,7 +13696,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider 72 or 68.4 hr per fortnight contracts"
+      "requirements": "Maternity, Advanced Neonatal Resus, Ante/Post Natal, IV Cannulation and Birth Suite. Will consider 72 or 68.4 hr per fortnight contracts",
+      "archived": true
     },
     {
       "id": 914,
@@ -13620,7 +13712,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Community Mental Health - located at Sterling Place - Bolsover Street"
+      "requirements": "Community Mental Health - located at Sterling Place - Bolsover Street",
+      "archived": true
     },
     {
       "id": 915,
@@ -19416,6 +19509,36 @@
       "recurring": false,
       "requirements": "RAN experience required for remote community clinic management",
       "archived": true
+    },
+    {
+      "id": 1293,
+      "facility": "Rockhampton Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Rockhampton, QLD",
+      "band": "RN Grade 5",
+      "fte": 3,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "04/01/2027",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency experience required"
+    },
+    {
+      "id": 1294,
+      "facility": "Rockhampton Hospital",
+      "title": "Registered Nurse",
+      "ward": "Emergency",
+      "location": "Rockhampton, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 6,
+      "startDate": "21/01/2027",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency experience required"
     }
   ],
   "contacts": [
@@ -19488,7 +19611,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 2
+    },
+    {
+      "email": "CQHHS_NMWU@health.qld.gov.au",
+      "name": "Shannon Roser-Mills",
+      "role": "Administration/Credentialing Officer",
+      "org": "Central Queensland Hospital and Health Service",
+      "phone": "(07) 4920 7290",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 2
     }
   ],
-  "nextId": 1293
+  "nextId": 1295
 }
