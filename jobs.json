@@ -6177,7 +6177,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing. Must have aged care check."
+      "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing. Must have aged care check.",
+      "archived": true
     },
     {
       "id": 423,
@@ -9079,7 +9080,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 612,
@@ -9094,7 +9096,8 @@
       "startDate": "09/11/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 613,
@@ -9109,7 +9112,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 614,
@@ -9124,7 +9128,8 @@
       "startDate": "14/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 615,
@@ -9139,7 +9144,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 616,
@@ -9595,7 +9601,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 645,
@@ -9610,7 +9617,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 646,
@@ -9625,7 +9633,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 647,
@@ -9640,7 +9649,8 @@
       "startDate": "14/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 648,
@@ -9655,7 +9665,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check",
+      "archived": true
     },
     {
       "id": 649,
@@ -10032,7 +10043,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 673,
@@ -10047,7 +10059,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 674,
@@ -10062,7 +10075,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 675,
@@ -10077,7 +10091,8 @@
       "startDate": "14/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 676,
@@ -10092,7 +10107,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY: Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 677,
@@ -11078,7 +11094,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 741,
@@ -11093,7 +11110,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 742,
@@ -11108,7 +11126,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 743,
@@ -11123,7 +11142,8 @@
       "startDate": "14/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 744,
@@ -11138,7 +11158,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check."
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY Aged Care Check and Police Check.",
+      "archived": true
     },
     {
       "id": 745,
@@ -11844,7 +11865,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, triage, resuscitation, IV cannulation, emergency, medical, aged care and rural nursing. Aged Care Check and Police Check mandatory."
+      "requirements": "ALS, triage, resuscitation, IV cannulation, emergency, medical, aged care and rural nursing. Aged Care Check and Police Check mandatory.",
+      "archived": true
     },
     {
       "id": 790,
@@ -13108,7 +13130,8 @@
       "startDate": "14/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 873,
@@ -13123,7 +13146,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 874,
@@ -13138,7 +13162,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 875,
@@ -13153,7 +13178,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 876,
@@ -13168,7 +13194,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 877,
@@ -13636,7 +13663,8 @@
       "startDate": "07/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check"
+      "requirements": "ALS, Triage, Resuscitation, IV Cannulation, Emergency, Medical, Aged Care and Rural Nursing. MANDATORY - Aged Care Check Police Check",
+      "archived": true
     },
     {
       "id": 907,
@@ -19796,6 +19824,81 @@
       "region": "QLD",
       "recurring": false,
       "requirements": "Must have Hep A vaccination and current Aged Care Criminal History Check. IV cannulation, rural nursing, aged care, and wound management experience required."
+    },
+    {
+      "id": 1308,
+      "facility": "Blackwater MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Medical/Aged Care",
+      "location": "Blackwater, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 8,
+      "startDate": "07/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Medical, Aged Care experience. Nurse on call required. Aged Care Check mandatory."
+    },
+    {
+      "id": 1309,
+      "facility": "Blackwater MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Medical/Aged Care",
+      "location": "Blackwater, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 7,
+      "startDate": "14/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Medical, Aged Care experience. Nurse on call required. Aged Care Check mandatory."
+    },
+    {
+      "id": 1310,
+      "facility": "Blackwater MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Medical/Aged Care",
+      "location": "Blackwater, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 2,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Medical, Aged Care experience. Nurse on call required. Aged Care Check mandatory."
+    },
+    {
+      "id": 1311,
+      "facility": "Blackwater MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Medical/Aged Care",
+      "location": "Blackwater, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 3,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Medical, Aged Care experience. Nurse on call required. Aged Care Check mandatory."
+    },
+    {
+      "id": 1312,
+      "facility": "Blackwater MPHS",
+      "title": "Registered Nurse",
+      "ward": "Emergency/Medical/Aged Care",
+      "location": "Blackwater, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 6,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency, Rural Nursing, Medical, Aged Care experience. Nurse on call required. Aged Care Check mandatory."
     }
   ],
   "contacts": [
@@ -19877,8 +19980,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 14
+      "jobCount": 19
     }
   ],
-  "nextId": 1308
+  "nextId": 1313
 }
