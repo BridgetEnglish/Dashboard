@@ -6815,7 +6815,8 @@
       "startDate": "22/06/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 466,
@@ -6830,7 +6831,8 @@
       "startDate": "22/06/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 467,
@@ -17635,7 +17637,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Midwife Year 2-8, birthing experience required"
+      "requirements": "Registered Midwife Year 2-8, birthing experience required",
+      "archived": true
     },
     {
       "id": 1178,
@@ -17650,7 +17653,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Midwife Year 2-8, sole midwife capability required"
+      "requirements": "Registered Midwife Year 2-8, sole midwife capability required",
+      "archived": true
     },
     {
       "id": 1179,
@@ -17665,7 +17669,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Midwife Year 2-8, sole midwife capability required"
+      "requirements": "Registered Midwife Year 2-8, sole midwife capability required",
+      "archived": true
     },
     {
       "id": 1180,
@@ -17680,7 +17685,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Nurse Year 2-8, rehabilitation experience"
+      "requirements": "Registered Nurse Year 2-8, rehabilitation experience",
+      "archived": true
     },
     {
       "id": 1181,
@@ -17695,7 +17701,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Nurse Year 2-8, rehabilitation experience"
+      "requirements": "Registered Nurse Year 2-8, rehabilitation experience",
+      "archived": true
     },
     {
       "id": 1182,
@@ -17710,7 +17717,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Nurse Year 2-8, surgical experience"
+      "requirements": "Registered Nurse Year 2-8, surgical experience",
+      "archived": true
     },
     {
       "id": 1183,
@@ -17725,7 +17733,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "Registered Nurse Year 2-8, surgical experience"
+      "requirements": "Registered Nurse Year 2-8, surgical experience",
+      "archived": true
     },
     {
       "id": 1184,
@@ -17740,7 +17749,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, acute and aged care experience"
+      "requirements": "Registered Nurse Year 2-8, acute and aged care experience",
+      "archived": true
     },
     {
       "id": 1185,
@@ -17755,7 +17765,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, aged care experience"
+      "requirements": "Registered Nurse Year 2-8, aged care experience",
+      "archived": true
     },
     {
       "id": 1186,
@@ -17770,7 +17781,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, acute care experience"
+      "requirements": "Registered Nurse Year 2-8, acute care experience",
+      "archived": true
     },
     {
       "id": 1187,
@@ -17785,7 +17797,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, aged care experience"
+      "requirements": "Registered Nurse Year 2-8, aged care experience",
+      "archived": true
     },
     {
       "id": 1188,
@@ -17800,7 +17813,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, acute care experience"
+      "requirements": "Registered Nurse Year 2-8, acute care experience",
+      "archived": true
     },
     {
       "id": 1189,
@@ -17815,7 +17829,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, 12 months minimum renal experience"
+      "requirements": "Registered Nurse Year 2-8, 12 months minimum renal experience",
+      "archived": true
     },
     {
       "id": 1190,
@@ -17860,7 +17875,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, 12 months minimum mental health drug & alcohol experience"
+      "requirements": "Registered Nurse Year 2-8, 12 months minimum mental health drug & alcohol experience",
+      "archived": true
     },
     {
       "id": 1193,
@@ -17995,7 +18011,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "Registered Nurse Year 2-8, 12 months minimum ED experience"
+      "requirements": "Registered Nurse Year 2-8, 12 months minimum ED experience",
+      "archived": true
     },
     {
       "id": 1202,
@@ -18010,7 +18027,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1203,
@@ -18025,7 +18043,8 @@
       "startDate": "08/03/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1204,
@@ -18040,7 +18059,8 @@
       "startDate": "07/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1205,
@@ -18055,7 +18075,8 @@
       "startDate": "07/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1206,
@@ -18070,7 +18091,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1207,
@@ -18085,7 +18107,8 @@
       "startDate": "21/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1208,
@@ -18100,7 +18123,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1209,
@@ -18115,7 +18139,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1210,
@@ -18130,7 +18155,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1211,
@@ -18145,7 +18171,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1212,
@@ -18160,7 +18187,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1213,
@@ -18175,7 +18203,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1214,
@@ -18190,7 +18219,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1215,
@@ -18205,7 +18235,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1216,
@@ -18220,7 +18251,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1217,
@@ -18235,7 +18267,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1218,
@@ -18250,7 +18283,8 @@
       "startDate": "01/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1219,
@@ -18265,7 +18299,8 @@
       "startDate": "03/12/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1220,
@@ -18280,7 +18315,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1221,
@@ -18295,7 +18331,8 @@
       "startDate": "20/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1222,
@@ -18310,7 +18347,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, triage certificate, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1223,
@@ -18325,7 +18363,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1224,
@@ -18340,7 +18379,8 @@
       "startDate": "14/12/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1225,
@@ -18355,7 +18395,8 @@
       "startDate": "08/03/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1226,
@@ -18370,7 +18411,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1227,
@@ -18385,7 +18427,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1228,
@@ -18400,7 +18443,8 @@
       "startDate": "04/01/2027",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1229,
@@ -18415,7 +18459,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1230,
@@ -18430,7 +18475,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1231,
@@ -18445,7 +18491,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": false,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1232,
@@ -18460,7 +18507,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1233,
@@ -18475,7 +18523,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1234,
@@ -18490,7 +18539,8 @@
       "startDate": "30/11/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1235,
@@ -18505,7 +18555,8 @@
       "startDate": "21/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1236,
@@ -18520,7 +18571,8 @@
       "startDate": "28/12/2026",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
     },
     {
       "id": 1237,
@@ -18535,7 +18587,803 @@
       "startDate": "11/01/2027",
       "region": "NSW",
       "recurring": true,
-      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care"
+      "requirements": "12 months recent ED experience, ALS 2 minimum, confident in charge and triaging, also covers aged care",
+      "archived": true
+    },
+    {
+      "id": 1238,
+      "facility": "Bathurst Hospital",
+      "title": "Registered Midwife",
+      "ward": "Birthing",
+      "location": "Bathurst, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Registered Midwife with birthing experience. WWCC, ALS certification, two recent references required."
+    },
+    {
+      "id": 1239,
+      "facility": "Forbes Hospital",
+      "title": "Registered Midwife",
+      "ward": "Maternity/Birthing/Sole Midwife",
+      "location": "Forbes, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 16.73,
+      "weeks": 9,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Registered Midwife capable of sole midwife practice. WWCC, ALS certification, two recent references required."
+    },
+    {
+      "id": 1240,
+      "facility": "Bathurst Hospital",
+      "title": "Registered Nurse",
+      "ward": "Rehab",
+      "location": "Bathurst, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with rehabilitation experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1241,
+      "facility": "Bathurst Hospital",
+      "title": "Registered Nurse",
+      "ward": "Surgical",
+      "location": "Bathurst, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "RN with surgical ward experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1242,
+      "facility": "Bathurst Hospital",
+      "title": "Registered Nurse",
+      "ward": "Surgical",
+      "location": "Bathurst, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "RN with surgical ward experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1243,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "Acute/Aged",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 8,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with acute and aged care experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1244,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "Aged",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 12,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with aged care experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1245,
+      "facility": "Forbes Hospital",
+      "title": "Registered Nurse",
+      "ward": "Acute",
+      "location": "Forbes, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 6,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with acute care experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1246,
+      "facility": "Lightning Ridge MPS",
+      "title": "Registered Nurse",
+      "ward": "Aged",
+      "location": "Lightning Ridge, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 9,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with aged care experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1247,
+      "facility": "Parkes Hospital",
+      "title": "Registered Nurse",
+      "ward": "Acute",
+      "location": "Parkes, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "RN with acute care experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1248,
+      "facility": "Forbes Hospital",
+      "title": "Registered Nurse",
+      "ward": "Renal",
+      "location": "Forbes, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 6,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months renal experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1249,
+      "facility": "Dubbo Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "CAMHS Community Mental Health",
+      "location": "Dubbo, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months child and adolescent mental health experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1250,
+      "facility": "Dubbo Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "Mental Health Inpatient Unit",
+      "location": "Dubbo, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months mental health inpatient experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1251,
+      "facility": "Cowra Hospital",
+      "title": "Registered Nurse",
+      "ward": "MHD&A",
+      "location": "Cowra, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months mental health drug and alcohol experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1252,
+      "facility": "Orange Health Service",
+      "title": "Registered Nurse",
+      "ward": "Mental Telehealth Team 12 hour shifts",
+      "location": "Orange, NSW",
+      "band": "RN/M2",
+      "fte": 4,
+      "hourlyRate": 16.73,
+      "weeks": 10,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months mental health experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1253,
+      "facility": "Orange Health Service",
+      "title": "Registered Nurse",
+      "ward": "Mental Telehealth Team 12 hour shifts",
+      "location": "Orange, NSW",
+      "band": "RN/M2",
+      "fte": 3,
+      "hourlyRate": 16.73,
+      "weeks": 12,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months mental health experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1254,
+      "facility": "Dubbo Base Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED",
+      "location": "Dubbo, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months ED experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1255,
+      "facility": "Bathurst Hospital",
+      "title": "Registered Nurse",
+      "ward": "General ED",
+      "location": "Bathurst, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 16.73,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months ED experience. WWCC, relevant certifications, two recent references required."
+    },
+    {
+      "id": 1256,
+      "facility": "Baradine MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Baradine, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 3,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1257,
+      "facility": "Baradine MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Baradine, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "08/03/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1258,
+      "facility": "Cobar Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Cobar, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 4,
+      "startDate": "07/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1259,
+      "facility": "Cobar Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Cobar, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "07/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1260,
+      "facility": "Condobolin Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Condobolin, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 7,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1261,
+      "facility": "Condobolin Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Condobolin, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 10,
+      "startDate": "21/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1262,
+      "facility": "Coolah MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Coolah, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 4,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1263,
+      "facility": "Coonabarabran Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Coonabarabran, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 9,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1264,
+      "facility": "Coonabarabran Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Coonabarabran, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1265,
+      "facility": "Coonabarabran Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Coonabarabran, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 8,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1266,
+      "facility": "Coonabarabran Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Coonabarabran, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 10,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1267,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 4,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1268,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 8,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1269,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1270,
+      "facility": "Coonamble MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Coonamble, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 6,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1271,
+      "facility": "Dunedoo MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Dunedoo, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 10,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1272,
+      "facility": "Dunedoo MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Dunedoo, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 10,
+      "startDate": "01/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1273,
+      "facility": "Grenfell MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Grenfell, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 13,
+      "startDate": "03/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1274,
+      "facility": "Gulgong MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Gulgong, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1275,
+      "facility": "Gulgong MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Gulgong, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 12,
+      "startDate": "20/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1276,
+      "facility": "Lightning Ridge MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Triage ALS - In Charge",
+      "location": "Lightning Ridge, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, Triage cert, comfortable in charge. Also covers aged care in MPS."
+    },
+    {
+      "id": 1277,
+      "facility": "Nyngan MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Nyngan, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1278,
+      "facility": "Peak Hill MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Peak Hill, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 12,
+      "startDate": "14/12/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1279,
+      "facility": "Rylstone MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Rylstone, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "08/03/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1280,
+      "facility": "Rylstone MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Rylstone, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 12,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1281,
+      "facility": "Tottenham MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Tottenham, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1282,
+      "facility": "Trangie MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Trangie, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 8,
+      "startDate": "04/01/2027",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1283,
+      "facility": "Trundle MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Trundle, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 3,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1284,
+      "facility": "Trundle MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Trundle, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1285,
+      "facility": "Tullamore MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Tullamore, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 6,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": false,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1286,
+      "facility": "Walgett Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Walgett, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1287,
+      "facility": "Walgett Hospital",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Walgett, NSW",
+      "band": "RN/M2",
+      "fte": 2,
+      "hourlyRate": 19.12,
+      "weeks": 9,
+      "startDate": "30/11/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1288,
+      "facility": "Warren MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Warren, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 2,
+      "startDate": "21/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1289,
+      "facility": "Warren MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Warren, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 5,
+      "startDate": "28/12/2026",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
+    },
+    {
+      "id": 1290,
+      "facility": "Warren MPS",
+      "title": "Registered Nurse",
+      "ward": "ED Experience with ALS - In Charge",
+      "location": "Warren, NSW",
+      "band": "RN/M2",
+      "fte": 1,
+      "hourlyRate": 19.12,
+      "weeks": 6,
+      "startDate": "11/01/2027",
+      "region": "NSW",
+      "recurring": true,
+      "requirements": "Min 12 months recent ED experience, ALS 2 cert, comfortable in charge, triage experience. Also covers aged care in MPS."
     }
   ],
   "contacts": [
@@ -18597,8 +19445,8 @@
       "phone": "(02) 6330 5930",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 61
+      "jobCount": 114
     }
   ],
-  "nextId": 1238
+  "nextId": 1291
 }
