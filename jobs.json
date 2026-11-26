@@ -13788,7 +13788,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Advanced Life Support, Cannulation, Emergency, Paediatric Advanced Life Support, Rural and Remote Experience, Triage, Team Leader. On call required."
+      "requirements": "Advanced Life Support, Cannulation, Emergency, Paediatric Advanced Life Support, Rural and Remote Experience, Triage, Team Leader. On call required.",
+      "archived": true
     },
     {
       "id": 920,
@@ -13803,7 +13804,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Advanced Life Support, PALS, cannulation, emergency and triage experience, rural/remote experience, team leader capability, on-call required"
+      "requirements": "Advanced Life Support, PALS, cannulation, emergency and triage experience, rural/remote experience, team leader capability, on-call required",
+      "archived": true
     },
     {
       "id": 921,
@@ -13818,7 +13820,8 @@
       "startDate": "21/12/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Advanced Life Support, Cannulation, Emergency, Triage, Team Leader. On call required. Rural and Remote experience mandatory."
+      "requirements": "Advanced Life Support, Cannulation, Emergency, Triage, Team Leader. On call required. Rural and Remote experience mandatory.",
+      "archived": true
     },
     {
       "id": 922,
@@ -19539,6 +19542,21 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Advanced Life Support, Paediatric Advanced Life Support, Triage, Resuscitation, IV Cannulation, Emergency experience required"
+    },
+    {
+      "id": 1295,
+      "facility": "Murgon Hospital",
+      "title": "Registered Nurse",
+      "ward": "RN Wards",
+      "location": "Murgon, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "21/12/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, PALS, cannulation, triage, team leader experience, rural/remote experience, emergency care, on-call availability mandatory"
     }
   ],
   "contacts": [
@@ -19623,5 +19641,5 @@
       "jobCount": 2
     }
   ],
-  "nextId": 1295
+  "nextId": 1296
 }
