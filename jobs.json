@@ -19398,7 +19398,8 @@
       "startDate": "01/12/2024",
       "region": "NT",
       "recurring": false,
-      "requirements": "RAN experience required for remote community clinic management"
+      "requirements": "RAN experience required for remote community clinic management",
+      "archived": true
     },
     {
       "id": 1292,
@@ -19413,7 +19414,8 @@
       "startDate": "05/12/2024",
       "region": "NT",
       "recurring": false,
-      "requirements": "RAN experience required for remote community clinic management"
+      "requirements": "RAN experience required for remote community clinic management",
+      "archived": true
     }
   ],
   "contacts": [
