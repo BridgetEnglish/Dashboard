@@ -6092,7 +6092,8 @@
       "startDate": "06/07/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Triage, Emergency, Rural and Remote Experience required"
+      "requirements": "Triage, Emergency, Rural and Remote Experience required",
+      "archived": true
     },
     {
       "id": 419,
@@ -6107,7 +6108,8 @@
       "startDate": "06/07/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Emergency, Rural and Remote Experience, Triage skills mandatory"
+      "requirements": "Emergency, Rural and Remote Experience, Triage skills mandatory",
+      "archived": true
     },
     {
       "id": 420,
@@ -6472,7 +6474,8 @@
       "startDate": "17/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Primary Medical Degree; PGY3+ and comfortable working night shifts as solo night with standby SMO support (non-negotiable); mixed roster - Emergency and Inpatient/Gen Med with 9.5-hour day, evening and night shifts; rural experience advantageous but not essential; ALS course within last 3 years"
+      "requirements": "Primary Medical Degree; PGY3+ and comfortable working night shifts as solo night with standby SMO support (non-negotiable); mixed roster - Emergency and Inpatient/Gen Med with 9.5-hour day, evening and night shifts; rural experience advantageous but not essential; ALS course within last 3 years",
+      "archived": true
     },
     {
       "id": 444,
@@ -12869,7 +12872,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Child Health Certificate, Immunisation Credentialling, ALS, Advanced Neonatal Resuscitation, Rural and Remote Experience required"
+      "requirements": "Child Health Certificate, Immunisation Credentialling, ALS, Advanced Neonatal Resuscitation, Rural and Remote Experience required",
+      "archived": true
     },
     {
       "id": 866,
@@ -17483,6 +17487,21 @@
       "region": "NT",
       "recurring": false,
       "requirements": "Experience managing TB cases, DOTS and VOTS administration, case load management of 10 active TB cases, contact tracing capability"
+    },
+    {
+      "id": 1169,
+      "facility": "Kingaroy Hospital",
+      "title": "Registered Nurse",
+      "ward": "Child Health Kingaroy",
+      "location": "Kingaroy, QLD",
+      "band": "RN Grade 5",
+      "fte": 1,
+      "hourlyRate": 52.33,
+      "weeks": 4,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Advanced Life Support, Advanced Neonatal Resuscitation, rural/remote experience, immunisation certification, IPN credential, Child Health certification mandatory"
     }
   ],
   "contacts": [
@@ -17507,5 +17526,5 @@
       "jobCount": 1
     }
   ],
-  "nextId": 1169
+  "nextId": 1170
 }
