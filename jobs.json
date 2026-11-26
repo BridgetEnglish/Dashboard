@@ -5337,7 +5337,8 @@
       "startDate": "",
       "region": "QLD",
       "recurring": false,
-      "requirements": ""
+      "requirements": "",
+      "archived": true
     },
     {
       "id": 370,
@@ -5415,7 +5416,8 @@
       "startDate": "06/07/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required."
+      "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required.",
+      "archived": true
     },
     {
       "id": 375,
@@ -5430,7 +5432,8 @@
       "startDate": "10/08/2026",
       "region": "QLD",
       "recurring": true,
-      "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required."
+      "requirements": "Rural and Remote nursing experience, Remote Area Nursing training, must have worked in Qld Health. BLS, ACLS, PALS, and Triage training with competencies required.",
+      "archived": true
     },
     {
       "id": 376,
@@ -17551,6 +17554,36 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Local RN preferred. Preference for same 1-2 staff for continuity of care."
+    },
+    {
+      "id": 1173,
+      "facility": "Central West Hospital and Health Service",
+      "title": "Director of Nursing",
+      "ward": "Tambo Primary Health Clinic",
+      "location": "Tambo, QLD",
+      "band": "Director of Nursing",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 2,
+      "startDate": "03/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Must have Rural and Remote nursing experience, Remote Area Nursing training, RIPEN qualifications highly desirable, Pharmacotherapeutics mandatory, hospital-based ambulance experience or willing to drive ambulance, previous Qld Health experience required. BLS, ALS, PALS and Triage competency required."
+    },
+    {
+      "id": 1174,
+      "facility": "Central West Hospital and Health Service",
+      "title": "Director of Nursing",
+      "ward": "Tambo Primary Health Clinic",
+      "location": "Tambo, QLD",
+      "band": "Director of Nursing",
+      "fte": 1,
+      "hourlyRate": 0,
+      "weeks": 2,
+      "startDate": "14/12/2026",
+      "region": "QLD",
+      "recurring": true,
+      "requirements": "Must have Rural and Remote nursing experience, Remote Area Nursing training, RIPEN qualifications highly desirable, Pharmacotherapeutics mandatory, hospital-based ambulance experience or willing to drive ambulance, previous Qld Health experience required. BLS, ALS, PALS and Triage competency required."
     }
   ],
   "contacts": [
@@ -17593,7 +17626,17 @@
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
       "jobCount": 1
+    },
+    {
+      "email": "kiri.castles2@health.qld.gov.au",
+      "name": "Kiri Castles",
+      "role": "Recruitment & Talent Advisor",
+      "org": "Central West Hospital and Health Service",
+      "phone": "07 4652 8021",
+      "firstSeen": "2026-11-26",
+      "lastSeen": "2026-11-26",
+      "jobCount": 2
     }
   ],
-  "nextId": 1173
+  "nextId": 1175
 }
