@@ -19583,7 +19583,23 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Child and Youth Mental Health experience, community experience, valid driver's licence mandatory, AHPRA registration current to 31/05/2027, all mandatory training current including BLS, Child Protection, infection control."
+      "requirements": "Child and Youth Mental Health experience, community experience, valid driver's licence mandatory, AHPRA registration current to 31/05/2027, all mandatory training current including BLS, Child Protection, infection control.",
+      "archived": true
+    },
+    {
+      "id": 1297,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Nurse",
+      "ward": "Gladstone Mental Health Case Management",
+      "location": "Gladstone, QLD",
+      "band": "Nurse Grade 6",
+      "fte": 2,
+      "hourlyRate": 68.27,
+      "weeks": 2,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Community Mental Health experience mandatory. Valid driver's licence required."
     }
   ],
   "contacts": [
@@ -19665,8 +19681,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 3
+      "jobCount": 4
     }
   ],
-  "nextId": 1297
+  "nextId": 1298
 }
