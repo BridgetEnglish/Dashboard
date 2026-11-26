@@ -19635,7 +19635,8 @@
       "startDate": "30/11/2026",
       "region": "QLD",
       "recurring": false,
-      "requirements": "Community Mental Health experience mandatory. Valid driver's licence required."
+      "requirements": "Community Mental Health experience mandatory. Valid driver's licence required.",
+      "archived": true
     },
     {
       "id": 1298,
@@ -19666,6 +19667,21 @@
       "region": "QLD",
       "recurring": true,
       "requirements": "Maternity experience, Advanced Neonatal Resuscitation, Ante/Post Natal care, Birth Suite experience required"
+    },
+    {
+      "id": 1300,
+      "facility": "Central Queensland Hospital and Health Service",
+      "title": "Clinical Midwife",
+      "ward": "Rockhampton Maternity",
+      "location": "Rockhampton, QLD",
+      "band": "CM Nurse Grade 6",
+      "fte": 3,
+      "hourlyRate": 52.33,
+      "weeks": 13,
+      "startDate": "30/11/2026",
+      "region": "QLD",
+      "recurring": false,
+      "requirements": "Team Leader skills, Advanced Skills and Suturing (highly desirable), Maternity experience, Advanced Neonatal Resus, Ante/Post Natal, Birth Suite, IV Cannulation"
     }
   ],
   "contacts": [
@@ -19747,8 +19763,8 @@
       "phone": "(07) 4920 7290",
       "firstSeen": "2026-11-26",
       "lastSeen": "2026-11-26",
-      "jobCount": 6
+      "jobCount": 7
     }
   ],
-  "nextId": 1300
+  "nextId": 1301
 }
